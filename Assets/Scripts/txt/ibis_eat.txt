@@ -1,0 +1,20 @@
+tree("Root")
+//或许缺不同季节食物的分配，因该归于卡牌发放权重
+    fallback
+	        
+						sequence
+			 
+												  checkHasFood() //没食物，则成功
+												  Wait(120)
+
+												  Next()
+
+			sequence              
+
+						   seekFood()
+						   Wait(120) 
+
+						   eat()
+						   Wait(120)
+
+						   Next()

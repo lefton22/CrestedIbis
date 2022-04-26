@@ -1,0 +1,69 @@
+tree ("Root")
+//no need branched any more (but bools to check the state within the Task)
+
+    parallel   // currently no use
+        sequence // mainly this!
+                
+
+
+                enableAILerp()
+                Wait(2)
+
+                 seekFood
+                 Wait(70)
+
+                 eat
+                 Wait(70)
+
+                goToOpSex
+                Wait(70)
+
+               actAfterMeetOpSex
+               Wait(70)
+
+               mateWith // if (isCourtship) 0
+               Wait(70)
+
+               comb // if ((isGoToOpSexSingleMeetOp) 0
+               Wait(70)
+
+               touchBeaks //if ((isGoToOpSexSingleMeetOp) 1
+               Wait(70)
+
+               quarrelWithLoveRival
+               Wait(70)
+
+           //    buildNest
+            //   Wait(70)
+
+          //     spawn
+          //     Wait(70)
+
+           //    incubate
+          //    Wait(70)
+
+       //        breed1
+       //        Wait(20)
+
+        //       breed1_5
+        //       Wait(70)
+
+       //        breed2
+       //        Wait(70)
+
+        //       breed3
+       //        Wait(70)
+
+      //         rest1
+     //          Wait(70)
+
+      //         rest2
+      //         Wait(40)
+
+               endTurn
+               //Wait(40)
+
+//                touchBeaks
+   //             Wait(70)
+
+   

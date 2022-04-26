@@ -1,0 +1,16 @@
+tree("Root")
+//每个回合开始后，无论此回合前面有没有seekLove, mate, 
+//有mate goj的朱鹮就可以check这个支路
+		fallback
+					sequence
+						checkMateIbis()
+						Wait(140)
+
+						Next()
+
+					sequence //加具体内容
+	    
+						 buildNest()
+						 Wait(140)
+
+						 Next()

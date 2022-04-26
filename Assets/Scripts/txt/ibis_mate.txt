@@ -1,0 +1,25 @@
+tree("Root")
+//如果前面courtship了
+
+		fallback
+
+						sequence //若无成功求偶，则这条成功
+
+							  checkIsCourtship()
+							  Wait(140)
+
+							  Next()
+
+				sequence // 加具体内容
+	    
+					 mateWith() 
+					 Wait(140)
+
+					 comb()
+					 Wait(140)
+
+					 touchBeaks()
+					 Wait(140)
+
+
+					 Next()

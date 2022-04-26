@@ -1,0 +1,16 @@
+tree("Root")
+//每个回合开始后，看看有巢否，并且巢内有没有父母一方是主角ibis的幼鸟
+//
+		fallback
+					sequence
+						checkCanIncubate() //添加内容
+						Wait(140)
+
+						Next()
+
+					sequence //加具体内容
+	    
+						 incubate()
+						 Wait(140)
+
+						 Next()

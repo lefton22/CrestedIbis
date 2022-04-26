@@ -1,0 +1,69 @@
+tree("Root")
+//缺雌性ibis的行为
+//每一个支路的末端加上Next()进入下一个gameobject引导的节点
+
+    fallback
+			sequence              
+				fallback
+						sequence // female
+							isMale()
+							Wait(120)
+
+							fallback
+								sequence // single
+									  fallback 
+												sequence
+														isThisSingle()
+														Wait(120)
+											            
+														isThereNPCIbis()
+														Wait(120)
+												        
+														isThereOpGender()
+														Wait(120)
+
+														isThereSingleOpGender()
+														Wait(120)
+												sequence
+													Next()
+
+								sequence // not single
+										 fallback
+												  sequence
+														isPartnerOnTheMap()
+														Wait(120)
+
+														fallback
+																sequence
+																		isThisCourtship()
+																		Wait(120)
+
+																		Courtship()
+																		Wait(120)
+
+																		Mate()
+																		Wait(120)
+
+																		Next()
+
+																sequence // notCourtship
+																		Courtship()
+																		Wait(120)
+
+																		Next()
+
+												  sequence // not the map
+														  Next()
+
+												    
+													
+					sequence
+						isFemale()
+						Wait(120)
+
+
+
+
+       sequence
+
+					 Next()

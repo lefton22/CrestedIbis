@@ -1,0 +1,20 @@
+tree("Root")
+//每个回合开始后，看看有巢否，并且主角ibis需要休息否
+//
+		fallback
+					sequence
+						checkCanRest()   //添加内容
+						Wait(140)
+
+
+						Next()
+
+					sequence //加具体内容
+	    
+						 rest1() // go to the nest
+						 Wait(140)
+
+						 rest2() //sleep
+						 Wait(140)
+
+						 Next()

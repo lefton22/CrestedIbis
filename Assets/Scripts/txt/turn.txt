@@ -1,0 +1,18 @@
+tree("Root")
+
+         parallel   //
+            sequence // mainly this!
+
+                dealCards
+                Wait(40)
+
+                drawCards
+                 Wait(40)
+
+                ibisAct
+                 Wait(30)
+
+                endThisTurn
+                 Wait(30)
+
+	//Succeed

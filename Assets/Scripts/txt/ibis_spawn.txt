@@ -1,0 +1,16 @@
+tree("Root")
+//每个回合开始后，看看有巢否，并且ibis 是不是雌的，并且mate过没有
+//
+		fallback
+					sequence
+						checkCanSpawn()
+						Wait(140)
+
+						Next()
+
+					sequence //加具体内容
+	    
+						 spawn()
+						 Wait(140)
+
+						 Next()
