@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F59230D1-40DC-0ABA-28BA-829C4939637F}</ProjectGuid>
+    <ProjectGuid>{02511E05-359D-458C-53D1-672E2FDC943D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -52,9 +52,6 @@
     <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>2020.3.24f1</UnityVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Analyzer Include="D:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Plugins\Grid Framework\GFPolarGrid.cs" />
     <Compile Include="Assets\Plugins\Grid Framework\Extension Methods\GFVectorTwoExtensions.cs" />
@@ -704,55 +701,55 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj">
-      <Project>{95830B51-945A-AD7C-00C8-6DFD05947984}</Project>
+      <Project>{0D9E1AAE-6A7C-AFCA-FC0A-D3AEF942DEBA}</Project>
       <Name>Unity.InternalAPIEngineBridge.001</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.PixelPerfect.csproj">
-      <Project>{781D8BA7-6D93-35DE-2E29-A25A0489AF2D}</Project>
+      <Project>{027EB0FB-8399-B4D8-C895-0A90D8A915C9}</Project>
       <Name>Unity.2D.PixelPerfect</Name>
     </ProjectReference>
     <ProjectReference Include="PandaBehaviour.csproj">
-      <Project>{5D90ACBD-8495-358C-80DD-8278EAD8D9AF}</Project>
+      <Project>{565A46CE-8C93-311E-A3D9-911A9B69311E}</Project>
       <Name>PandaBehaviour</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{CA30E2E5-B94F-E10D-5884-5FBFDB74D3A6}</Project>
+      <Project>{6B924950-9358-BD5E-6319-19BD08F025C9}</Project>
       <Name>Unity.Timeline</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{3A280546-3BAD-F558-8A00-BBABA48A2CE8}</Project>
+      <Project>{DA88177F-FA2F-A688-A322-A9D7FFA3B0D4}</Project>
       <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{F3746CDD-5B3D-F63C-B029-46A0445FC250}</Project>
+      <Project>{70884414-D8A1-6B88-6B4B-677412523A05}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.csproj">
-      <Project>{FDAD6E1B-0853-40AF-4693-F7D734686E4B}</Project>
+      <Project>{1B3D7E79-E3D5-D28A-498D-F622DB101E74}</Project>
       <Name>Unity.Mathematics</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.IK.Runtime.csproj">
-      <Project>{4FB729A0-4A26-58AB-A7F9-BCB3906CE214}</Project>
+      <Project>{6416916C-C9C5-3F58-9990-FF0AA88C4BA2}</Project>
       <Name>Unity.2D.IK.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{BEBB7D10-DC5C-9660-F025-A6E1D87BEB81}</Project>
+      <Project>{0F75ACD5-926F-2FE8-7D8D-EE71A6AD8F14}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Triangle.Runtime.csproj">
-      <Project>{A7D1D527-43C2-8262-D930-E3D107630D13}</Project>
+      <Project>{04128314-5451-1CB9-D1C7-E64281A082DF}</Project>
       <Name>Unity.2D.Animation.Triangle.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
-      <Project>{E1A35FA3-0C02-36C5-02F1-F4845602514D}</Project>
+      <Project>{91818182-3166-EC49-314C-72A2DA92C782}</Project>
       <Name>Unity.2D.Animation.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
-      <Project>{957056A7-A386-889E-5A18-6FDD3A8F6881}</Project>
+      <Project>{F16471A7-215B-D68D-A93B-6C67B1AFDF3D}</Project>
       <Name>Unity.2D.Common.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
-      <Project>{4D2C40FC-04C6-D7B4-AF96-9460E47815C3}</Project>
+      <Project>{88DE4F5E-90F9-7C1F-E455-CB6BC2AAF580}</Project>
       <Name>Unity.2D.SpriteShape.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
