@@ -1258,17 +1258,25 @@ namespace Panda.Ibis {
 
         }
 
+        /*        [Task]
+                void checkCanSpawn()
+                {
+                    GameObject[] nests;
+                    nests = GameObject.FindGameObjectsWithTag("nest");
+                    if (nests.Length == 0 || !isMate || gender == 2)
+                    {
+                        ThisTask.Succeed();
+                    } else { ThisTask.Fail(); }
+
+
+                }*/
+
         [Task]
-        void checkCanSpawn()
+        void hasMate()
         {
-            GameObject[] nests;
-            nests = GameObject.FindGameObjectsWithTag("nest");
-            if (nests.Length == 0 || !isMate || gender == 2)
-            {
-                ThisTask.Succeed();
-            } else { ThisTask.Fail(); }
-
-
+            if (isMate)
+            { ThisTask.Succeed(); }
+            else { ThisTask.Fail(); }
         }
 
         [Task]
