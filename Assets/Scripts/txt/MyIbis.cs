@@ -109,7 +109,7 @@ namespace Panda.Ibis {
             full = 0;// 0¶ö,1±¥
             full_max = 1;
             energy = 1;//0 need to rest, 1 no need 
-            isSingle = false;
+            isSingle = true;
 
             actionPoint = 7;
             maxAP = 7;
