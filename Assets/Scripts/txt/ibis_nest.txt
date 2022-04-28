@@ -2,14 +2,19 @@ tree("Root")
 //每个回合开始后，无论此回合前面有没有seekLove, mate, 
 //有mate goj的朱鹮就可以check这个支路
 		fallback
-					sequence
-						checkMateIbis()
-						Wait(140)
+					sequence //进入不能筑巢的情况条件列表
+						checkHasBuidlingMaterial() //有代任一材料
+						Wait(10)
+
+					//	checkNest()//如果有nest
+					//	Wait(10)
 
 						Next()
 
-					sequence //加具体内容
-	    
+					sequence //
+								 goToNest()
+								 Wait(140)
+
 						 buildNest()
 						 Wait(140)
 

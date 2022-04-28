@@ -24,6 +24,9 @@ namespace Panda.Ibis {
         static public int actionPoint;
         static public int maxAP;
 
+        static public bool hasBringTwig;
+        static public bool hasBringLiana;
+
         [Header(" ● Node Structure Mark")]
         //node structure mark
         public bool isGoToOpSexSingleMeetOp;
@@ -115,6 +118,9 @@ namespace Panda.Ibis {
             maxAP = 7;
 
             mate = GameObject.Find("ibisC");
+
+            hasBringTwig = false;
+            hasBringLiana = false;
 
 
             /////////////Properties////////////////////
@@ -314,22 +320,9 @@ namespace Panda.Ibis {
         void seekFood()
         {
 
-            if (_listObjOnLand.foodOnLand_GO.Count > 0)
-            {
-
-
                 //seek all food obj in the scene
                 v2_foods_l = new List<Vector2>(_listObjOnLand.foodOnLand);
-                /*            foreach (Vector2 v22 in v2_foods_l)
-                            { Debug.Log("v2_foods_l: " + v22); }*/
 
-                /*            GameObject[] foods = GameObject.FindGameObjectsWithTag("food");
-                            foods_l.Clear();
-                            for (int i = 0; i < foods.Length; i++)
-                            {
-                                foods_l.Add(foods[i]);
-                                Debug.Log("which food in the scene: " + foods_l[i].name);
-                            }*/
 
                 //寻找有食物的地点：水田、河滩，go!
 
@@ -358,12 +351,8 @@ namespace Panda.Ibis {
 
 
                 // Debug.Log("speed: "+ gameObject.GetComponent<Pathfinding.AILerp>().speed);
-            }
-            if (_listObjOnLand.foodOnLand_GO.Count == 0)
-            {
+            
 
-                ThisTask.Succeed();
-            }
         }
         void seekForFoodJantoJun()//觅食。水田里有泥鳅、田螺、黄鳝、青蛙以及软体动物。
                                   //河滩中有鱼、虾、螺、蟹及贝类等食物
@@ -1062,7 +1051,7 @@ namespace Panda.Ibis {
                     ThisTask.Succeed();
                 }
 
-            ThisTask.Succeed();
+           
         }
 
         [Task]
@@ -1151,16 +1140,76 @@ namespace Panda.Ibis {
         }
 
         [Task]
-        void buildNest()
+        void checkHasBuidlingMaterial()
+        {
+            GameObject[] nests;
+            nests = GameObject.FindGameObjectsWithTag("nest");
+
+            if (hasBringLiana || hasBringTwig || nests.Length > 0)
+            { ThisTask.Fail(); }
+            else { ThisTask.Succeed(); }
+        }
+
+        [Task]
+        void checkNest()// to check if there is no nest
+        {
+            GameObject[] nests;
+            nests = GameObject.FindGameObjectsWithTag("nest");
+            if (nests.Length > 0)
+            { ThisTask.Fail(); }
+            else { ThisTask.Succeed(); }
+        }
+
+        [Task]
+        void goToNest()
         {
             // go to the nest. There can only have one nest in the scene.
-            seekLocation(GameObject.Find("nest").transform.position);
-            // play the build ani
-            //change the nest's properties
-            //after finishing it , unlock the bool, succeed
+            GameObject[] nests;
+            nests = GameObject.FindGameObjectsWithTag("nest");
 
-            lightBuildNest();
-            ThisTask.Succeed();
+            int ran;
+            ran = Random.Range(0, nests.Length-1);
+
+            seekLocation(nests[ran] .transform.position);
+
+            Vector2 v2_nest;
+            Vector2 v2_ibisA;
+            v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
+            v2_nest = nests[ran].GetComponent<objV2Pos>().thisV2;
+
+            Debug.Log("going to nest: " + nests[ran].name);
+
+            if (v2_ibisA == v2_nest)//ibisA reach the nest
+            {
+                Debug.Log("reach to a nest.");
+
+                ThisTask.Succeed();
+            }
+
+        }
+
+        [Task]
+        void buildNest()
+        {
+
+            // play the build ani
+            //both birds play the ani 
+            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_build");
+            // choosenIbis.GetComponent<Animator>().Play("ibis_touchedBeaks"); // 需要较位
+
+            if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasBuild"))
+            {
+
+                //change the nest's properties
+
+                //after finishing it , unlock the bool, succeed
+
+
+                lightBuildNest();
+                Debug.Log("build a nest.");
+                ThisTask.Succeed();
+            }
+
         }
 
         [Task]
@@ -1683,7 +1732,7 @@ namespace Panda.Ibis {
             GetComponent<Panda.Ibis.MyIbis>().ani.SetBool("hasFood", true);
             Debug.Log("set has picked food true.");
         }
-        public void sethasBuildTrue()
+        public void setHasBuild()
         {
            GetComponent<Panda.Ibis.MyIbis>().ani.SetBool("hasBuild", true); 
         }
