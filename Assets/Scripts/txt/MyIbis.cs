@@ -109,10 +109,12 @@ namespace Panda.Ibis {
             full = 0;// 0饿,1饱
             full_max = 1;
             energy = 1;//0 need to rest, 1 no need 
-            isSingle = true;
+            isSingle = false;
 
             actionPoint = 7;
             maxAP = 7;
+
+            mate = GameObject.Find("ibisC");
 
 
             /////////////Properties////////////////////
@@ -413,11 +415,11 @@ namespace Panda.Ibis {
         [Task]
         void eat()
         {
-            //ThisTask.Succeed();
-            if (_listObjOnLand.foodOnLand_GO.Count > 0)
-            {
-                int amount_food;
-                amount_food = _listObjOnLand.foodOnLand.Count;
+            int amount_food;
+            amount_food = _listObjOnLand.foodOnLand.Count;
+
+  //          if (_listObjOnLand.foodOnLand_GO.Count > 0)
+   //         {
                 //吃
                 //Destroy the food & 
 
@@ -438,27 +440,36 @@ namespace Panda.Ibis {
                     full = full_max;
                 }
 
-                _listObjOnLand.foodOnLand.Remove(v2_ibis);
-                Destroy(_listObjOnLand.foodOnLand_GO[index_food]);
-                _listObjOnLand.foodOnLand_GO.Remove(_listObjOnLand.foodOnLand_GO[index_food]);
-
-
                 //Play pick food animation
                 transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("pickFood");
 
 
+            if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasFood"))
+            {
+                
+                Destroy(_listObjOnLand.foodOnLand_GO[index_food]);
+                _listObjOnLand.foodOnLand_GO.Remove(_listObjOnLand.foodOnLand_GO[index_food]);
+                _listObjOnLand.foodOnLand.Remove(v2_ibis);
+                print("has food..");
 
                 if (_listObjOnLand.foodOnLand.Count < amount_food)
-                { ThisTask.Succeed(); }
+                {
+                    print(" < original food amount.");
+                    lightEat();
+                    ThisTask.Succeed();
+                }
+            }
+
+
 
                 /*            if (ani.GetBool("hasFood"))
                             { ThisTask.Succeed(); }*/
-            }
-            if (_listObjOnLand.foodOnLand_GO.Count == 0)
+   //         }
+/*            if (_listObjOnLand.foodOnLand_GO.Count <= 0)
             {
-                lightEat();
-                ThisTask.Succeed();
-            }
+              
+                ThisTask.Fail();
+            }*/
         }
 
 
@@ -501,46 +512,96 @@ namespace Panda.Ibis {
         [Task]
         void isThereOpGender()
         {
-            int test;
-            test = 1;
-            if (test == 1)
+            /*            int test;
+                        test = 1;
+                        if (test == 1)
+                        {
+                            ThisTask.Succeed();
+                        }*/
+
+            int amount;
+            amount = 0;
+            for (int i = 0; i < _listObjOnLand.NPCibisOnLand.Count; i++)
             {
-                ThisTask.Succeed();
+                if (_listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender != gender)
+                {
+                    print(i + " npc: " + _listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender +" , this gender: " + gender);
+                    amount = amount + 1;
+                }
             }
-           
+
+            if (amount > 0) { ThisTask.Succeed(); } else { ThisTask.Fail(); }
+
         }
 
 
         [Task]
         void isThereSingleOpGender()
         {
-            int test;
-            test = 1;
-            if (test == 1)
+            int amount;
+            amount = 0;
+            List<GameObject> allOpGenderOp;
+            allOpGenderOp = new List<GameObject>();
+
+            for (int i = 0; i < _listObjOnLand.NPCibisOnLand.Count; i++)
             {
+                if (_listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender != gender)
+                {
+                    if (_listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().isSingle)
+                    { amount = amount + 1;
+                        if (!allOpGenderOp.Contains(_listObjOnLand.NPCibisOnLand[i]))
+                        {
+                            allOpGenderOp.Add(_listObjOnLand.NPCibisOnLand[i]);
+                        }
+                    }
+                    
+                }
+            }
+
+            int ran;
+            ran = Random.Range(0, allOpGenderOp.Count);
+            choosenIbis = allOpGenderOp[ran];
+            print("choosen Ibis: " +choosenIbis);
+
+            if (amount > 0) { ThisTask.Succeed(); } else { ThisTask.Fail(); }
+        }
+
+        [Task]
+        void goToOpGender()
+        {
+            seekLocation(choosenIbis.transform.position);
+
+            Vector2 v2_ibisB;
+            Vector2 v2_ibisA;
+            v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
+            v2_ibisB = choosenIbis.GetComponent<objV2Pos>().thisV2;
+
+            Debug.Log("end: " + choosenIbis.name);
+
+            if (v2_ibisA == v2_ibisB)//ibisA reach ibisB
+            {
+                Debug.Log("end4.");
+
+                lightGoToOpIbis();
                 ThisTask.Succeed();
             }
         }
 
-
-
         [Task]
         void isPartnerOnTheMap()
         {
-            int test;
-            test = 1;
-            if (test == 1)
+            if (mate)
             {
                 ThisTask.Succeed();
             }
+            else { ThisTask.Fail(); }
         }
 
         [Task]
         void isThisCourtship()
         {
-            int test;
-            test = 1;
-            if (test == 2)
+
+            if (isCourtship)
             {
                 ThisTask.Succeed();
             }
@@ -550,16 +611,71 @@ namespace Panda.Ibis {
         [Task]
         void Courtship()
         {
-            print("courtship.");
-            ThisTask.Succeed();
+            // play ani
+            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_courtship");
+
+            Debug.Log("courtship.");
+            //after playing the ani, task succeed
+            if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasCourtship"))
+            {
+                Debug.Log("meet5.");
+
+
+                isSingle = false;
+
+                choosenIbis.GetComponent<NPCIbis>().isSingle = false;
+                choosenIbis.GetComponent<NPCIbis>().mate = transform.parent.gameObject;
+
+                choosenIbis.transform.GetChild(0).GetComponent<getInfo>().ResetProperties();
+
+                isSingle = false;
+                mate = choosenIbis;
+
+                isCourtship = true;
+                ThisTask.Succeed();
+            }
         }
 
+        [Task]
+        void goToMate()
+        {
+            seekLocation(mate.transform.position);
+
+            Vector2 v2_ibisB;
+            Vector2 v2_ibisA;
+            v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
+            v2_ibisB = mate.GetComponent<objV2Pos>().thisV2;
+
+            Debug.Log("going to mate: " + mate.name);
+
+            if (v2_ibisA == v2_ibisB)//ibisA reach ibisB
+            {
+                Debug.Log("reach to mate.");
+
+                ThisTask.Succeed();
+            }
+        }
 
         [Task]
         void Mate()
         {
-            print("mate.");
-            ThisTask.Succeed();
+            // play mate ani (egg)
+            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_produceEggs");
+
+            //Succeed
+            if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasProducedEggs"))
+            {
+                mate.GetComponent<NPCIbis>().isMate = true;
+                mate.GetComponent<NPCIbis>().mate = transform.parent.gameObject;
+
+                lightMate();
+
+                actionPoint = actionPoint + 1;
+
+                isMate = true;
+                ThisTask.Succeed();
+            }
+
         }
 
         [Task]
@@ -919,34 +1035,23 @@ namespace Panda.Ibis {
         [Task]
         void comb()
         {
-            if (isGoToOpSexSingleMeetOp)
-            {
                 //play the ani
                 transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_comb");
                 // //after playing the ani, task succeed
                 if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasCombed"))
                 {
                     //once success, 
-                    isMeetSingleComb = true;
+                   // isMeetSingleComb = true;
                     Debug.Log("comb!");
 
                     ThisTask.Succeed();
                 }
 
-            }
-
-            if (!isGoToOpSexSingleMeetOp)
-            {
-                //Succeed
-                ThisTask.Succeed();
-            }
         }
 
         [Task]
         void touchBeaks()  // combo for combing??!
         {
-            if (isGoToOpSexSingleMeetOp && isMeetSingleComb)
-            {
                 //both birds play the ani 
                 transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_touchedBeaks");
                 // choosenIbis.GetComponent<Animator>().Play("ibis_touchedBeaks"); // 需要较位
@@ -956,8 +1061,7 @@ namespace Panda.Ibis {
                     Debug.Log("touch beaks.");
                     ThisTask.Succeed();
                 }
-            }
-            //isMeetSingleComb = true; ?
+
             ThisTask.Succeed();
         }
 
@@ -1648,6 +1752,8 @@ namespace Panda.Ibis {
 
         void lightMate()
         {
+            print("lightMate.");
+
             _mate.SetActive(true);
             _dot.transform.DOLocalMoveX(-95f, 1f);
         }
