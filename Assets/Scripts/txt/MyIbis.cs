@@ -1140,17 +1140,6 @@ namespace Panda.Ibis {
         }
 
         [Task]
-        void checkHasBuidlingMaterial()
-        {
-            GameObject[] nests;
-            nests = GameObject.FindGameObjectsWithTag("nest");
-
-            if (hasBringLiana || hasBringTwig || nests.Length > 0)
-            { ThisTask.Fail(); }
-            else { ThisTask.Succeed(); }
-        }
-
-        [Task]
         void checkNest()// to check if there is no nest
         {
             GameObject[] nests;
@@ -1159,6 +1148,63 @@ namespace Panda.Ibis {
             { ThisTask.Fail(); }
             else { ThisTask.Succeed(); }
         }
+
+        [Task]
+        void checkHasBuidlingMaterial()
+        {
+/*            GameObject[] nests;
+            nests = GameObject.FindGameObjectsWithTag("nest");*/
+
+            if (hasBringLiana || hasBringTwig)
+            { ThisTask.Succeed(); }
+            else { ThisTask.Fail(); }
+        }
+
+        [Task]
+        void checkMaterialOnMap()
+        {
+            GameObject[] materials;
+            materials = GameObject.FindGameObjectsWithTag("material");  
+
+            if (materials.Length > 0)
+            { ThisTask.Succeed(); }
+            else { ThisTask.Fail(); }
+        }
+
+        [Task]
+        void goToMaterial()
+        {
+            GameObject[] materials;
+            materials = GameObject.FindGameObjectsWithTag("material");
+
+            if (materials.Length > 0)
+            {
+                int ran;
+                ran = Random.Range(0, materials.Length - 1);
+
+                seekLocation(materials[ran].transform.position);
+
+                Vector2 v2_material;
+                Vector2 v2_ibisA;
+                v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
+                v2_material = materials[ran].GetComponent<objV2Pos>().thisV2;
+
+                Debug.Log("going to material: " + materials[ran].name);
+
+                if (v2_ibisA == v2_material)//ibisA reach the nest
+                {
+                    Debug.Log("reach to a material.");
+
+                    if (materials[ran].name == "twig") { hasBringTwig = true; }
+                    if (materials[ran].name == "liana") { hasBringLiana = true; }
+
+                    ThisTask.Succeed();
+                }
+            }
+
+
+        }
+
 
         [Task]
         void goToNest()
