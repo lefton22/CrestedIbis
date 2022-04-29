@@ -28,6 +28,7 @@ tree("Root")
 																			  spawn()
 																			  Wait(120)
 
+																			  Next()
 												        
 								      
 											  sequence // Ã»mate¹ý

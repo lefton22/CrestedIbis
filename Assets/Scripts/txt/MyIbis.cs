@@ -105,14 +105,16 @@ namespace Panda.Ibis {
                         Debug.Log("get nearest grid: " + getNearestGrid(t1, t2));*/
 
 
-            /////////////Properties////////////////////
-            ////////////////Properties////////////////////
 
-            gender = 2;
+
+        /////////////Properties////////////////////
+        ////////////////Properties////////////////////
+
+            gender = 1;
             full = 0;// 0饿,1饱
             full_max = 1;
             energy = 1;//0 need to rest, 1 no need 
-            isSingle = false;
+            isSingle = true;
 
             actionPoint = 7;
             maxAP = 7;
@@ -123,11 +125,11 @@ namespace Panda.Ibis {
             hasBringLiana = false;
 
 
-            /////////////Properties////////////////////
-            /////////////Properties////////////////////
-            ///
-            /////////////Node Structure Mark////////////////////
-            isGoToOpSexSingleMeetOp = false;
+        /////////////Properties////////////////////
+        /////////////Properties////////////////////
+        ///
+        /////////////Node Structure Mark////////////////////
+        isGoToOpSexSingleMeetOp = false;
             isMeetSingleComb = false;
             isGoToOpSexNotSingleMeetOp = false;
 
@@ -609,9 +611,6 @@ namespace Panda.Ibis {
             {
                 Debug.Log("meet5.");
 
-
-                isSingle = false;
-
                 choosenIbis.GetComponent<NPCIbis>().isSingle = false;
                 choosenIbis.GetComponent<NPCIbis>().mate = transform.parent.gameObject;
 
@@ -649,11 +648,12 @@ namespace Panda.Ibis {
         void Mate()
         {
             // play mate ani (egg)
-            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_produceEggs");
+            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_produceEggs");//ani should be changed
 
             //Succeed
             if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasProducedEggs"))
             {
+                
                 mate.GetComponent<NPCIbis>().isMate = true;
                 mate.GetComponent<NPCIbis>().mate = transform.parent.gameObject;
 
@@ -986,7 +986,7 @@ namespace Panda.Ibis {
 
         }
 
-        [Task]
+/*        [Task]
         void checkIsCourtship()
         {
             if (!isCourtship)
@@ -994,9 +994,9 @@ namespace Panda.Ibis {
                 ThisTask.Succeed();
             }
             else { ThisTask.Fail(); }
-        }
+        }*/
 
-        [Task]
+/*        [Task]
         void mateWith()
         {
             if (isCourtship)
@@ -1019,7 +1019,7 @@ namespace Panda.Ibis {
                 //Succeed
                 ThisTask.Succeed();
             }
-        }
+        }*/
 
         [Task]
         void comb()
@@ -1132,7 +1132,7 @@ namespace Panda.Ibis {
         [Task]
         void checkMateIbis()
         {
-            if (isMate)
+            if (mate)
             {
                 ThisTask.Succeed();
             }
@@ -1274,13 +1274,48 @@ namespace Panda.Ibis {
         [Task]
         void hasMate()
         {
-            if (isMate)
+            if (mate)
             { ThisTask.Succeed(); }
             else { ThisTask.Fail(); }
         }
 
         [Task]
+
         void spawn()
+        {
+            int ran_amounts_egg;
+            ran_amounts_egg = -1;
+
+            List<int> ran;
+            ran = new List<int>();
+            ran.Add(1); ran.Add(2); ran.Add(3); ran.Add(3); ran.Add(3); ran.Add(4);
+            ran_amounts_egg = ran[Random.Range(0, ran.Count)];
+            if (!isSpawn)
+            {
+                for (int k = 0; k < ran_amounts_egg; k++)
+                {
+                    // play produce ani * ran_amounts_egg
+                    transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_produceEggs");
+
+                    // eggs + new eggs(List)
+                    GameObject egg = Instantiate(Resources.Load("egg")) as GameObject;
+                    egg.name = "egg" + k.ToString();
+                    egg.transform.position = transform.parent.gameObject.transform.position;
+                    egg.transform.SetParent(GameObject.Find("ObjOnLand").transform);
+                    if (k == ran_amounts_egg - 1)
+                    {
+                        isSpawn = true;
+
+                        lightSpawn();
+                        print("spawn ");
+                       // monthSpawn = _outAI.month;
+                        ThisTask.Succeed();
+                    }
+                }
+
+            }
+        }
+/*        void spawn()
         {
 
             if (GameObject.Find("nest") && isMate)
@@ -1358,32 +1393,35 @@ namespace Panda.Ibis {
             {
                 ThisTask.Succeed();
             }
-        }
+        }*/
 
 
         [Task]
         void checkCanIncubate()
-        {                                    //添加check并且巢内有没有父母一方是主角ibis的幼鸟
-            GameObject[] nests;
-            nests = GameObject.FindGameObjectsWithTag("nest");
-            if (nests.Length == 0)
+        {                                    //添加check并且巢内有蛋
+            GameObject[] eggs;
+            eggs = GameObject.FindGameObjectsWithTag("egg");
+            if (eggs.Length == 0)
             {
                 ThisTask.Succeed();
             }
             else { ThisTask.Fail(); }
+            
+            //if (eggs) //因为蛋只能在窝里
         }
 
         [Task]
-        void incubate() //?????
+        void incubate() //once it's an egg...
+            //和npc配偶轮流执行，自己不在，npc配偶会一只在，回巢后npc配偶会出巢
         {
-            if (isSpawn && _outAI.month == monthSpawn + 1)
+/*            if (isSpawn && _outAI.month == monthSpawn + 1)
             {
                 print(" isSpawn.");
                 // 产卵后1个月执行
-                /*                if (turnsAfterSpawn >= 2)
-                                {*/
+                *//*                if (turnsAfterSpawn >= 2)
+                                {*//*
                 seekLocation(GameObject.Find("nest").transform.position);
-                //just stay there, play ani
+                //just stay there, play ani  */
                 transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_incubate");
                 // egg's properties change. (And eggs are their own "branches")
 
@@ -1391,23 +1429,17 @@ namespace Panda.Ibis {
                 // finished the ani, succeed
                 if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasIncubated"))
                 {
+                     //the properties of egg changes
+
                     lightIncubate();
-                    print(" isSpawn.");
+                    print(" incubate.");
                     ThisTask.Succeed();
                 }
-
-            }
-            if (!isSpawn)
-            {
-                print("! isSpawn.");
-                ThisTask.Succeed();
-            }
-
         }
 
 
         [Task]
-        void checkCanBreed()
+        void checkBirdling()
         {
             GameObject[] nests;
             nests = GameObject.FindGameObjectsWithTag("nest");
@@ -1418,7 +1450,52 @@ namespace Panda.Ibis {
             else { ThisTask.Fail(); }
         }
 
+
+
         [Task]
+        void pickFood()
+        {
+            int amount_food;
+            amount_food = _listObjOnLand.foodOnLand.Count;
+
+            //          if (_listObjOnLand.foodOnLand_GO.Count > 0)
+            //         {
+            //吃
+            //Destroy the food & 
+
+            //remove it from the food list
+            Vector2 v2_ibis;
+            //Vector2 v2_food;
+            int index_food;
+            v2_ibis = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
+            index_food = _listObjOnLand.foodOnLand.IndexOf(v2_ibis);
+
+            int index2;
+            index2 = _LandGen2.LandCos.IndexOf(v2_ibis);
+            _listObjOnLand.isObjOnLand[index2] = false;
+
+            //Play pick food animation
+            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("pickFood");
+
+
+            if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasFood"))
+            {
+
+                Destroy(_listObjOnLand.foodOnLand_GO[index_food]);
+                _listObjOnLand.foodOnLand_GO.Remove(_listObjOnLand.foodOnLand_GO[index_food]);
+                _listObjOnLand.foodOnLand.Remove(v2_ibis);
+                print("has food..");
+
+                if (_listObjOnLand.foodOnLand.Count < amount_food)
+                {
+                    print(" < original food amount.");
+
+                    ThisTask.Succeed();
+                }
+            }
+        }
+
+/*            [Task]
         void breed1()  //go to food
         {
             Vector2 v2_nearest_food;
@@ -1464,10 +1541,10 @@ namespace Panda.Ibis {
             {
                 ThisTask.Succeed();
             }
-        }
+        }*/
 
         [Task]
-        void breed3()///feed the baby bird
+        void breed()///feed the baby bird
         {
             // play the ani
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_feedBaby");
@@ -1477,22 +1554,24 @@ namespace Panda.Ibis {
             //finished the ani, unlock bool, succeed
             if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasFeedBaby"))
             {
+                //the birdling's properties change
+
                 lightBreed();
                 ThisTask.Succeed();
             }
         }
 
-        [Task]
+/*        [Task]
         void checkCanRest()        // go to nest
         {
-            /*                if (GameObject.Find("nest"))
+            *//*                if (GameObject.Find("nest"))
                             { seekLocation(GameObject.Find("nest").transform.position); }
 
                             if (GameObject.Find("nest").GetComponent<objV2Pos>().thisV2
                                       == transform.parent.gameObject.GetComponent<objV2Pos>().thisV2)
                             {
                                 ThisTask.Succeed();
-                            }*/
+                            }*//*
 
             GameObject[] nests;
             nests = GameObject.FindGameObjectsWithTag("nest");
@@ -1502,9 +1581,9 @@ namespace Panda.Ibis {
             }
             else { ThisTask.Fail(); }
 
-        }
+        }*/
 
-        [Task]
+/*        [Task]
         void rest1()// go to the nest
         {
             GameObject[] nests;
@@ -1522,10 +1601,10 @@ namespace Panda.Ibis {
             if (transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 == v2_nest)
             { ThisTask.Succeed(); }
                 
-        }
+        }*/
 
         [Task]
-        void rest2()
+        void rest()
         {
             //play sleep ani
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_rest");

@@ -3,23 +3,29 @@ tree("Root")
 //
 		fallback
 					sequence
-						checkCanBreed()//添加内容
-						Wait(140)
+							checkHasFood() 
+							Wait(10)
 
-						Next()
+							checkNest()
+							Wait(10)
+					    
+							checkBirdling()//添加内容
+							Wait(10)
+
+							Next()
 
 					sequence //加具体内容
 	    
-						 seekFood() 
-						 Wait(140)
+							 seekFood() 
+							 Wait(120)
 
-						 breed1_5()// pick the food
-						 Wait(140)
+							 pickFood()
+							 Wait(120)
 
-						 breed2() //  go back to the nest with food
-						 Wait(140)
+							 goToNest()
+							 Wait(120)
 
-						 breed3() // feed the baby bird
-						 Wait(140)
+							 breed() // feed the baby bird
+							 Wait(120)
 
-						 Next()
+							 Next()
