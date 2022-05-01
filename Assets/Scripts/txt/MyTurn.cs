@@ -353,13 +353,13 @@ namespace Panda.Ibis
                     }
                     if (_outerAI.cardsWeight[rough_ran_index] == 6) //6 = neutral NPC
                     {
-                        range_e_index(16, 19, 2, obj, card);
+                        range_e_index(16, 18, 2, obj, card);
 
                        // obj.GetComponent<whichObj>().neutralNPC();
                     }
                     if (_outerAI.cardsWeight[rough_ran_index] == 7) //7 = mal NPC
                     {
-                        range_e_index(20, 21, 2, obj, card);
+                        range_e_index(19, 20, 2, obj, card);
 
                         //obj.GetComponent<whichObj>().malNPC();
                     }
@@ -369,13 +369,13 @@ namespace Panda.Ibis
                     }
                     if (_outerAI.cardsWeight[rough_ran_index] == 11) //11 = nest
                     {
-                        range_e_index(22, 22, 3, obj, card);
+                        range_e_index(21, 21, 3, obj, card);
    
                        // obj.GetComponent<whichObj>().nest();
                     }
                     if (_outerAI.cardsWeight[rough_ran_index] == 16) //16 = human-made building
                     {
-                        range_e_index(23, 23, 4, obj, card);
+                        range_e_index(22, 22, 4, obj, card);
 
                        // obj.GetComponent<whichObj>().building();
                     }

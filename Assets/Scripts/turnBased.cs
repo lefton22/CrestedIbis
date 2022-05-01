@@ -100,6 +100,7 @@ public class turnBased : MonoBehaviour
         if (Panda.Ibis.MyIbis.full <= 0)
         {
             //ibisA die,Game Over.
+            Debug.Log("ibisA dies by hungry ,Game Over.");
 
         }
         if (Panda.Ibis.MyIbis.energy <= 0)

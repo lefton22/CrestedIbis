@@ -6,22 +6,50 @@ public class objNest : MonoBehaviour
 {
 
 
-    public int turnFinished; //(需要几个回合才能筑完)
-    public int currentProgress;//目前建了几个回合
+    public int build_finished; //(需要几个回合才能筑完)
+    public int build_current;//目前建了几个回合
+
     public List<string> materials;
+
+    public int _rateProduce;
 
 
     void Start()
     {
         materials = new List<string>();
 
+        build_finished = 2;
+        build_current = 0;
         //checkRateProduce();
+        _rateProduce= rateProduce();
     }
 
-   public int rateProduce(Vector2 this_v2) //在觅食地附近，位置对繁殖率有直接关系 ,？ 等同于巢的质量？
+    void Update()
+    {
+        //show UI
+    }
+
+    public void addOneBuildPoint()
+    {
+        build_current = build_current + 1;
+    }
+    public bool isFinished()
+    {
+        bool _isFin;
+        _isFin = false;
+
+        if (build_finished <= build_current)
+        { _isFin = true; }
+
+        return _isFin;
+    }
+    
+    public int rateProduce() //在觅食地附近，位置对繁殖率有直接关系 ,？ 等同于巢的质量？
     {
         int _rateProduce;
         _rateProduce = 0;
+
+        Vector2  this_v2= new Vector2();
 
         listObjOnLand _listObjOnLand;
         _listObjOnLand = GameObject.Find("Lists").GetComponent<listObjOnLand>();

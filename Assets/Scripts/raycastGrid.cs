@@ -66,7 +66,7 @@ public class raycastGrid : MonoBehaviour
 
                 // Debug.Log(gameObject.name + " is in the ray with... " + lastHit.name);
 
-                //Debug.Log(gameObject.name + " hits " + hit.transform.gameObject.name);
+                Debug.Log(gameObject.name + " hits " + hit.transform.gameObject.name);
 
                 //Notification of Canput obj type
 

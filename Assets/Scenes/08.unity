@@ -3144,7 +3144,6 @@ MonoBehaviour:
   - twig
   - liana
   - ibisAdult
-  - ibisBaby
   - egret
   - jackdaw
   - snake
@@ -3633,11 +3632,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c561a814f6fac44691a6451cb0b88b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnFinished: 0
-  currentProgress: 0
+  build_finished: 0
+  build_current: 0
   materials:
   - twig
   - liana
+  _rateProduce: 0
 --- !u!114 &558402338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7160,7 +7160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909390826}
   m_LocalRotation: {x: -0.8168436, y: -0, z: -0, w: 0.57685924}
-  m_LocalPosition: {x: 0.16, y: 5.1, z: -1.3160005}
+  m_LocalPosition: {x: -7.23, y: 5.1, z: -1.3160005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1123699046}
@@ -7174,7 +7174,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909390826}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0acfdba178b145239678a03b9df938a, type: 3}
   m_Name: 
@@ -7456,10 +7456,10 @@ GameObject:
   - component: {fileID: 947152452}
   - component: {fileID: 947152456}
   - component: {fileID: 947152455}
-  - component: {fileID: 947152454}
   - component: {fileID: 947152453}
-  - component: {fileID: 947152457}
+  - component: {fileID: 947152454}
   - component: {fileID: 947152458}
+  - component: {fileID: 947152457}
   m_Layer: 0
   m_Name: landGrid1
   m_TagString: land

@@ -1977,6 +1977,7 @@ namespace Panda.Ibis {
             _buildNest.SetActive(false);
             _spawn.SetActive(false);
             _incubate.SetActive(false);
+            _rest.SetActive(false);
 
             _dot.transform.DOLocalMoveX(-916f, 1f);
         }
