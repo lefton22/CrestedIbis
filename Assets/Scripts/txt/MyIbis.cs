@@ -29,6 +29,8 @@ namespace Panda.Ibis {
 
         static public GameObject foodAte;
 
+        static public GameObject currentNest;
+
         [Header(" ¡ñ Node Structure Mark")]
         //node structure mark
         public bool isGoToOpSexSingleMeetOp;
@@ -1216,6 +1218,8 @@ namespace Panda.Ibis {
         [Task]
         void goToNest()
         {
+            currentNest = null;
+
             // go to the nest. There can only have one nest in the scene.
             GameObject[] nests;
             nests = GameObject.FindGameObjectsWithTag("nest");
@@ -1235,7 +1239,9 @@ namespace Panda.Ibis {
 
             if (v2_ibisA == v2_nest)//ibisA reach the nest
             {
-               // Debug.Log("reach to a nest.");
+                // Debug.Log("reach to a nest.");
+
+                currentNest = nests[ran];
 
                 ThisTask.Succeed();
             }
@@ -1255,6 +1261,7 @@ namespace Panda.Ibis {
             {
 
                 //change the nest's properties
+                currentNest.GetComponent<objNest>(). addOneBuildPoint();
 
                 //after finishing it , unlock the bool, succeed
 
@@ -1263,6 +1270,27 @@ namespace Panda.Ibis {
                 Debug.Log("build a nest.");
                 ThisTask.Succeed();
             }
+
+        }
+
+        [Task]
+
+        void checkNestFinished()
+        {
+            GameObject[] nests;
+            nests = GameObject.FindGameObjectsWithTag("nest");
+
+            for (int i = 0; i < nests.Length; i++)
+            {
+                if (nests[i].GetComponent<objNest>().isFinished())
+                {
+                    ThisTask.Fail();
+                }
+                else { ThisTask.Succeed(); }
+            }
+/*            int ran;
+            ran = Random.Range(0, nests.Length - 1);*/
+
 
         }
 

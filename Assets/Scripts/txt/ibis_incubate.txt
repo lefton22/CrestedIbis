@@ -6,6 +6,9 @@ tree("Root")
 								checkNest()
 								Wait(10)
 
+								checkNestFinished()
+								Wait(10)
+
 								checkCanIncubate() 
 								Wait(10)
 

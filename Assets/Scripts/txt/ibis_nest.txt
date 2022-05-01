@@ -8,36 +8,45 @@ tree("Root")
 
 						Next()
 
-					sequence //有巢
-						  fallback
-								sequence //身上有材料
-																		checkHasBuidlingMaterial()
-																		Wait(10)
+					sequence //有巢  
+							fallback
+					     
+										 sequence
+												  checkNestFinished() //巢已完成
+												  Wait(10)
 
-																		goToNest()
-																		Wait(120)
+												  Next()
+												 
 
-																		buildNest()
-																		Wait(120)
+										  fallback
+													sequence //身上有材料
+																							checkHasBuidlingMaterial()
+																							Wait(10)
 
-																		Next()
+																							goToNest()
+																							Wait(120)
 
-								sequence //身上无材料,就去check地图上有没有
+																							buildNest()
+																							Wait(120)
 
-															fallback
-																		sequence //地图上有材料
-																						checkMaterialOnMap()
-																						Wait(10)
+																							Next()
 
-																						goToMaterial()
-																						Wait(120)
+													sequence //身上无材料,就去check地图上有没有
 
-																						goToNest()
-																						Wait(120)
+																				fallback
+																							sequence //地图上有材料
+																											checkMaterialOnMap()
+																											Wait(10)
 
-																						buildNest()
-																						Wait(120)
+																											goToMaterial()
+																											Wait(120)
 
-																						Next()
+																											goToNest()
+																											Wait(120)
 
-																		Next()//地图上无材料	
+																											buildNest()
+																											Wait(120)
+
+																											Next()
+
+																							Next()//地图上无材料	

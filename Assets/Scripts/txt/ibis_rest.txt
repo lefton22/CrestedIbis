@@ -4,7 +4,10 @@ tree("Root")
 		fallback
 					sequence
 						checkNest()   // ÓÐ³²Ã»
-						Wait(140)
+						Wait(10)
+
+						checkNestFinished()
+						Wait(10)
 
 						Next()
 
