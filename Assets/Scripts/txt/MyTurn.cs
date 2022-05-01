@@ -56,6 +56,8 @@ namespace Panda.Ibis
 
         MyIbis _myIbis;
 
+        public bool hasSetPandaActive;
+
         void Start()
         {
             cards = new List<GameObject>();
@@ -99,6 +101,7 @@ namespace Panda.Ibis
 
             _myIbis = GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>();
 
+            hasSetPandaActive = false;
         }
 
 
@@ -190,11 +193,22 @@ namespace Panda.Ibis
         [Task]
         void ibisAct()
         {
-            _ibisA.transform.GetChild(0).gameObject .GetComponent<PandaBehaviour>().enabled = true;
+            foreach (Transform child in _ibisA.transform)
+            {
+                child.gameObject.SetActive(true);
 
+                child.gameObject.GetComponent<PandaBehaviour>().Reset();
+
+            }
+
+            if (!hasSetPandaActive)
+            {
+                _ibisA.transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().enabled = true;
+                hasSetPandaActive = true;
+            }
             if (hasIbisEnded)
             {
-                _ibisA.GetComponent<PandaBehaviour>().enabled = false;
+              //  _ibisA.transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().enabled = false;
                 ThisTask.Succeed(); 
             }
         }
@@ -203,13 +217,19 @@ namespace Panda.Ibis
         void endThisTurn() // copy this to attached MaxAP
         {
             _ibisA.GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Clear();
-            _ibisA.GetComponent<PandaBehaviour>().enabled = false;
+            // _ibisA.GetComponent<PandaBehaviour>().enabled = false;
+            foreach (Transform child in _ibisA.transform)
+            {
+                child.gameObject.GetComponent<PandaBehaviour>().enabled = false;
+            }
 
             _turnBased.GetComponent<turnBased>().newTurnStart();
 
             // gameObject.GetComponent<PandaBehaviour>().enabled = false;
 
             gameObject.GetComponent<PandaBehaviour>().Reset();
+
+            hasSetPandaActive = false;
             //?
             ThisTask.Succeed();
 

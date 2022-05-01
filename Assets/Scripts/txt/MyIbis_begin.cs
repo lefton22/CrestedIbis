@@ -33,6 +33,7 @@ namespace Panda.Ibis {
         {
             gameObject.transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = true;
 
+            print("enableAILerp()");
             ThisTask.Succeed();
         }
 
@@ -84,7 +85,8 @@ namespace Panda.Ibis {
         [Task]
         void Next()
         {
-            print("next");
+
+            gameObject.transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = true;
 
             GameObject nextChild;
             nextChild = null;
@@ -94,6 +96,7 @@ namespace Panda.Ibis {
                 if (transform.parent.GetChild(i).gameObject == gameObject)
                 {
                     nextChild = transform.parent.GetChild(i + 1).gameObject;
+                    print("next child: " + nextChild);
                 }
             }
 
@@ -102,6 +105,8 @@ namespace Panda.Ibis {
             nextChild.GetComponent<PandaBehaviour>().Reset();
 
             gameObject.GetComponent<PandaBehaviour>().enabled = false;
+
+            print("next");
 
             ThisTask.Succeed();
         }

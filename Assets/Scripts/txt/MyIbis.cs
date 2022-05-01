@@ -197,9 +197,13 @@ namespace Panda.Ibis {
                 //防抖动，需加特效或啥，获得v2坐标，用dotween移过去
             }
 
+            actionPoint = landsPassThrough.Count;
+
             if (_turnBased.turn == 1)
             { actionPoint = landsPassThrough.Count - 1; }
-            else { actionPoint = landsPassThrough.Count; }
+           // else { actionPoint = landsPassThrough.Count; }
+
+
 
             if (actionPoint > maxAP)
             {
@@ -1624,13 +1628,15 @@ namespace Panda.Ibis {
         [Task]
         void endTurn()
         {
+            print("end turn ");
             quenchAllBeBar();
             //end this turn 
             _targetPos.transform.position = v3_targetPos;
 
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
+            print("hasIbisEnded: " + GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded);
             // gameObject.GetComponent<PandaBehaviour>().enabled = false;
-
+            
             //?should be destroyed after this turn?
             ThisTask.Succeed();
         }

@@ -2,8 +2,8 @@ tree("Root")
 
 
 		      sequence
-						enableAILerp()
-						Wait(2)
+						//enableAILerp()
+						//Wait(2)
 
 						Next()
 
