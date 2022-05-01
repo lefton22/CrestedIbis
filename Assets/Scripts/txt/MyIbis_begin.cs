@@ -96,7 +96,7 @@ namespace Panda.Ibis {
                 if (transform.parent.GetChild(i).gameObject == gameObject)
                 {
                     nextChild = transform.parent.GetChild(i + 1).gameObject;
-                    print("next child: " + nextChild);
+                  //  print("next child: " + nextChild);
                 }
             }
 

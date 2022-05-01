@@ -54,7 +54,7 @@ public class dragCard : MonoBehaviour
 
         //当牌晃过来时，当前格子亮一下...
  
-         Debug.Log("OnMouseDrag, " + gameObject.name);
+      //   Debug.Log("OnMouseDrag, " + gameObject.name);
 
         //Notification of Canput obj type
 
@@ -171,17 +171,17 @@ public class dragCard : MonoBehaviour
             {
                 if (_grid.canRichFood && transform.GetChild(0).transform.gameObject.GetComponent<objFood>().rich == 3)
                 {
-                    print("rich food.");
+                //    print("rich food.");
                     isRightType = true;
                 }
                 if (_grid.canAveFood && transform.GetChild(0).transform.gameObject.GetComponent<objFood>().rich == 2)
                 {
-                    print("ave food.");
+               //     print("ave food.");
                     isRightType = true;
                 }
                 if (_grid.canPoorFood && transform.GetChild(0).transform.gameObject.GetComponent<objFood>().rich == 1)
                 {
-                    print("poor food.");
+               //     print("poor food.");
                     isRightType = true;
                 }
 
@@ -189,22 +189,22 @@ public class dragCard : MonoBehaviour
 
             if (transform.GetChild(0).transform.gameObject.GetComponent<whichObj>().which == 2 && _grid.canNPC)
             {
-                    print("npc.");
+              //      print("npc.");
                     isRightType = true;
             }
             if (transform.GetChild(0).transform.gameObject.GetComponent<whichObj>().which == 3 && _grid.canNest)
             {
-                print("nest.");
+              //  print("nest.");
                 isRightType = true;
             }
             if (transform.GetChild(0).transform.gameObject.GetComponent<whichObj>().which == 4 && _grid.canHumanMade)
             {
-                print("human-made building.");
+              //  print("human-made building.");
                 isRightType = true;
             }
             if (transform.GetChild(0).transform.gameObject.GetComponent<whichObj>().which == 5 && _grid.canBuildingMaterial)
             {
-                print("building material.");
+              //  print("building material.");
                 isRightType = true;
             }
 
@@ -223,7 +223,7 @@ public class dragCard : MonoBehaviour
                     } 
                 }
 
-                print("turnBased.MouseUp_currentLand: " + turnBased.MouseUp_currentLand);
+             //   print("turnBased.MouseUp_currentLand: " + turnBased.MouseUp_currentLand);
                 transform.GetChild(0).transform.position = turnBased.MouseUp_currentLand.transform.position;
                 transform.GetChild(0).GetComponent<SnapToNode>().enabled = true;
                 transform.GetChild(0).transform.gameObject.GetComponent<faceToCamera>().faceToCamera2();

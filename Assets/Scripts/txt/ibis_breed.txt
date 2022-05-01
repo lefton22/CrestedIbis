@@ -2,30 +2,41 @@ tree("Root")
 //每个回合开始后，看看有巢否，并且巢内有没有父母一方是主角ibis的幼鸟，并且幼鸟饿了
 //
 		fallback
-					sequence
-							checkHasFood() 
-							Wait(10)
+					fallback
+							 sequence
+									checkHasFood() 
+									Wait(10)
 
-							checkNest()
-							Wait(10)
-					    
-							checkBirdling()//添加内容
-							Wait(10)
+									Next()
 
-							Next()
+							sequence
+										 fallback
+												 sequence
+														checkNest()
+														Wait(10)
 
-					sequence //加具体内容
-	    
-							 seekFood() 
-							 Wait(120)
+														Next()
 
-							 pickFood()
-							 Wait(120)
+												 sequence
+														fallback
+															   sequence
+																		checkBirdling()//添加内容
+																		Wait(10)
 
-							 goToNest()
-							 Wait(120)
+																		Next()
 
-							 breed() // feed the baby bird
-							 Wait(120)
+															   sequence
+											
+																		 seekFood() 
+																		 Wait(120)
 
-							 Next()
+																		 pickFood()
+																		 Wait(120)
+
+																		 goToNest()
+																		 Wait(120)
+
+																		 breed() // feed the baby bird
+																		 Wait(120)
+
+																		 Next()

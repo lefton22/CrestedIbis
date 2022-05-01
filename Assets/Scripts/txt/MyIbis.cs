@@ -27,6 +27,8 @@ namespace Panda.Ibis {
         static public bool hasBringTwig;
         static public bool hasBringLiana;
 
+        static public GameObject foodAte;
+
         [Header(" ● Node Structure Mark")]
         //node structure mark
         public bool isGoToOpSexSingleMeetOp;
@@ -110,7 +112,7 @@ namespace Panda.Ibis {
         /////////////Properties////////////////////
         ////////////////Properties////////////////////
 
-            gender = 1;
+            gender = 2;
             full = 0;// 0饿,1饱
             full_max = 1;
             energy = 1;//0 need to rest, 1 no need 
@@ -119,7 +121,7 @@ namespace Panda.Ibis {
             actionPoint = 7;
             maxAP = 7;
 
-            mate = GameObject.Find("ibisC");
+           // mate = GameObject.Find("ibisC");
 
             hasBringTwig = false;
             hasBringLiana = false;
@@ -207,7 +209,7 @@ namespace Panda.Ibis {
 
             if (actionPoint > maxAP)
             {
-                landsPassThrough.Clear();
+/*                landsPassThrough.Clear();
                 GetComponent<PandaBehaviour>().enabled = false;
 
                 transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
@@ -220,7 +222,7 @@ namespace Panda.Ibis {
 
                 _turnBased.newTurnStart();
 
-                Destroy(GameObject.Find("TurnBased").transform.GetChild(0).gameObject);
+                Destroy(GameObject.Find("TurnBased").transform.GetChild(0).gameObject);*/
             }
         }
 
@@ -268,10 +270,10 @@ namespace Panda.Ibis {
                 { v2_allIbils.Add(_listObjOnLand.NPCibisOnLand[i].GetComponent<objV2Pos>().thisV2); }
             }
 
-            foreach (Vector2 v2 in v2_allIbils)
+/*            foreach (Vector2 v2 in v2_allIbils)
             {
                 print(v2);
-            }
+            }*/
 
             List<int> index;
             index = new List<int>();
@@ -311,7 +313,7 @@ namespace Panda.Ibis {
                 { _listObjOnLand.foodOnLand_GO.Add(foods2[i]); }
                 if (!_listObjOnLand.foodOnLand.Contains(foods2[i].GetComponent<objV2Pos>().thisV2))
                 { _listObjOnLand.foodOnLand.Add(foods2[i].GetComponent<objV2Pos>().thisV2); }
-                Debug.Log("which food in the scene: " + foods2[i].name);
+              //  Debug.Log("which food in the scene: " + foods2[i].name);
             }
 
             if (foods2.Length == 0)
@@ -333,8 +335,8 @@ namespace Panda.Ibis {
                 //寻找有食物的地点：水田、河滩，go!
 
                 v2_nearestFood = getNearestGrid(transform.parent.gameObject.GetComponent<objV2Pos>().thisV2, _listObjOnLand.foodOnLand);
-                Debug.Log("v2_nearestFood: " + v2_nearestFood + " , " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
-                    + " ,  " + v2_foods_l[0]);
+              //  Debug.Log("v2_nearestFood: " + v2_nearestFood + " , " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
+               //     + " ,  " + v2_foods_l[0]);
 
 
                 if (isFirstHalfYear())
@@ -351,7 +353,7 @@ namespace Panda.Ibis {
 
                 if (transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 == v2_nearestFood) //暂
                 {
-                    Debug.Log("seek food succeed.");
+                  //  Debug.Log("seek food succeed.");
                     ThisTask.Succeed();
                 }
 
@@ -441,15 +443,16 @@ namespace Panda.Ibis {
 
             if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasFood"))
             {
-                
+                foodAte = _listObjOnLand.foodOnLand_GO[index_food];
+
                 Destroy(_listObjOnLand.foodOnLand_GO[index_food]);
                 _listObjOnLand.foodOnLand_GO.Remove(_listObjOnLand.foodOnLand_GO[index_food]);
                 _listObjOnLand.foodOnLand.Remove(v2_ibis);
-                print("has food..");
+              //  print("has food..");
 
                 if (_listObjOnLand.foodOnLand.Count < amount_food)
                 {
-                    print(" < original food amount.");
+                 //   print(" < original food amount.");
                     lightEat();
                     ThisTask.Succeed();
                 }
@@ -520,7 +523,7 @@ namespace Panda.Ibis {
             {
                 if (_listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender != gender)
                 {
-                    print(i + " npc: " + _listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender +" , this gender: " + gender);
+                 //   print(i + " npc: " + _listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender +" , this gender: " + gender);
                     amount = amount + 1;
                 }
             }
@@ -556,7 +559,7 @@ namespace Panda.Ibis {
             int ran;
             ran = Random.Range(0, allOpGenderOp.Count);
             choosenIbis = allOpGenderOp[ran];
-            print("choosen Ibis: " +choosenIbis);
+          //  print("choosen Ibis: " +choosenIbis);
 
             if (amount > 0) { ThisTask.Succeed(); } else { ThisTask.Fail(); }
         }
@@ -571,7 +574,7 @@ namespace Panda.Ibis {
             v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
             v2_ibisB = choosenIbis.GetComponent<objV2Pos>().thisV2;
 
-            Debug.Log("end: " + choosenIbis.name);
+          //  Debug.Log("end: " + choosenIbis.name);
 
             if (v2_ibisA == v2_ibisB)//ibisA reach ibisB
             {
@@ -609,11 +612,11 @@ namespace Panda.Ibis {
             // play ani
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_courtship");
 
-            Debug.Log("courtship.");
+            //Debug.Log("courtship.");
             //after playing the ani, task succeed
             if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasCourtship"))
             {
-                Debug.Log("meet5.");
+              //  Debug.Log("meet5.");
 
                 choosenIbis.GetComponent<NPCIbis>().isSingle = false;
                 choosenIbis.GetComponent<NPCIbis>().mate = transform.parent.gameObject;
@@ -1220,6 +1223,7 @@ namespace Panda.Ibis {
             int ran;
             ran = Random.Range(0, nests.Length-1);
 
+            //print("nests[ran]: " + nests[ran]);
             seekLocation(nests[ran] .transform.position);
 
             Vector2 v2_nest;
@@ -1227,11 +1231,11 @@ namespace Panda.Ibis {
             v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
             v2_nest = nests[ran].GetComponent<objV2Pos>().thisV2;
 
-            Debug.Log("going to nest: " + nests[ran].name);
+            //Debug.Log("going to nest: " + nests[ran].name);
 
             if (v2_ibisA == v2_nest)//ibisA reach the nest
             {
-                Debug.Log("reach to a nest.");
+               // Debug.Log("reach to a nest.");
 
                 ThisTask.Succeed();
             }
@@ -1310,7 +1314,7 @@ namespace Panda.Ibis {
                     {
                         isSpawn = true;
 
-                        lightSpawn();
+                        lightSpawn(ran_amounts_egg);
                         print("spawn ");
                        // monthSpawn = _outAI.month;
                         ThisTask.Succeed();
@@ -1443,11 +1447,11 @@ namespace Panda.Ibis {
 
 
         [Task]
-        void checkBirdling()
+        void checkBirdling() // need to add checking birdling stuff
         {
-            GameObject[] nests;
-            nests = GameObject.FindGameObjectsWithTag("nest");
-            if (nests.Length == 0)
+            GameObject[] birdlings;
+            birdlings = GameObject.FindGameObjectsWithTag("birdling");
+            if (birdlings.Length == 0)
             {
                 ThisTask.Succeed();
             }
@@ -1488,64 +1492,18 @@ namespace Panda.Ibis {
                 Destroy(_listObjOnLand.foodOnLand_GO[index_food]);
                 _listObjOnLand.foodOnLand_GO.Remove(_listObjOnLand.foodOnLand_GO[index_food]);
                 _listObjOnLand.foodOnLand.Remove(v2_ibis);
-                print("has food..");
+              //  print("has food..");
 
                 if (_listObjOnLand.foodOnLand.Count < amount_food)
                 {
-                    print(" < original food amount.");
+                   // print(" < original food amount.");
 
                     ThisTask.Succeed();
                 }
             }
         }
 
-/*            [Task]
-        void breed1()  //go to food
-        {
-            Vector2 v2_nearest_food;
-            v2_nearest_food = getNearestGrid
-                                        (GameObject.Find("nest").GetComponent<objV2Pos>().thisV2, _listObjOnLand.foodOnLand);
-            Vector3 v3_nearest_food;
-            for (int i = 0; i < _LandGen2.LandCos.Count; i++)
-            {
-                if (v2_nearest_food == _LandGen2.LandCos[i])
-                {
-                    v3_nearest_food = _LandGen2.LandV3s[i];
-                    seekLocation(v3_nearest_food);
 
-                    //play ani// 
-                    transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_walk");
-
-                }
-            }
-
-            if (transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 == v2_nearest_food) // s b arrive the land with food
-            { ThisTask.Succeed(); }
-        }
-
-        [Task]
-        void breed1_5()//pick the food
-        {
-            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("pickFood");
-            if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasFood"))
-            {
-                withFood = true;
-                ThisTask.Succeed();
-            }
-        }
-
-        [Task]
-        void breed2()// go back to the nest with food
-        {
-            if (GameObject.Find("nest"))
-            { seekLocation(GameObject.Find("nest").transform.position); }
-
-            if (GameObject.Find("nest").GetComponent<objV2Pos>().thisV2
-                == transform.parent.gameObject.GetComponent<objV2Pos>().thisV2)
-            {
-                ThisTask.Succeed();
-            }
-        }*/
 
         [Task]
         void breed()///feed the baby bird
@@ -1628,13 +1586,16 @@ namespace Panda.Ibis {
         [Task]
         void endTurn()
         {
+
+            GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
             print("end turn ");
             quenchAllBeBar();
             //end this turn 
             _targetPos.transform.position = v3_targetPos;
 
+
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
-            print("hasIbisEnded: " + GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded);
+            //print("hasIbisEnded: " + GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded);
             // gameObject.GetComponent<PandaBehaviour>().enabled = false;
             
             //?should be destroyed after this turn?
@@ -1869,7 +1830,7 @@ namespace Panda.Ibis {
         public void setHasFood()
         {
             GetComponent<Panda.Ibis.MyIbis>().ani.SetBool("hasFood", true);
-            Debug.Log("set has picked food true.");
+           // Debug.Log("set has picked food true.");
         }
         public void setHasBuild()
         {
@@ -1930,50 +1891,82 @@ namespace Panda.Ibis {
         {
             _eat.SetActive(true);
             _dot.transform.DOLocalMoveX(-500f, 1f);
+
+            Debug.Log("Ibis eats a " + foodAte.name 
+                + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 
+                +" in "  +_outAI.month);
         }
 
         void lightGoToOpIbis()
         {
             _goToOpIbis.SetActive(true);
             _dot.transform.DOLocalMoveX(-290f, 1f);
+
+            Debug.Log("Ibis meets " + mate + " then they become a couple in " + _outAI.month
+                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 
+                 + "." );
         }
 
         void lightMate()
         {
-            print("lightMate.");
+           // print("lightMate.");
 
             _mate.SetActive(true);
             _dot.transform.DOLocalMoveX(-95f, 1f);
+
+            Debug.Log("This couple of ibis decide to form a form a family in " + _outAI.month
+                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 
+                 + ".");
         }
 
         void lightBuildNest()
         {
             _buildNest.SetActive(true);
             _dot.transform.DOLocalMoveX(108f, 1f);
+
+            Debug.Log("Ibis builds a nest in " + _outAI.month
+                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
+                             + ".");
         }
 
-        void lightSpawn()
+        void lightSpawn(int am_egg)
         {
             _spawn.SetActive(true);
             _dot.transform.DOLocalMoveX(305f, 1f);
+
+            Debug.Log("Ibis spawns " + am_egg +" eggs "+ _outAI.month
+                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
+                             + ".");
         }
 
         void lightIncubate()
         {
             _incubate.SetActive(true);
             _dot.transform.DOLocalMoveX(510f, 1f);
+
+            Debug.Log("Ibis incubates " + _outAI.month
+                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
+                 + ".");
         }
 
         void lightBreed()
         {
             _breed.SetActive(true);
             _dot.transform.DOLocalMoveX(715f, 1f);
+
+            Debug.Log("Ibis feeds its birdlings" + _outAI.month
+                         + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
+                         + ".");
         }
 
         void lightRest()
         {
             _rest.SetActive(true);
             _dot.transform.DOLocalMoveX(915f, 1f);
+
+            Debug.Log("Ibis goes to sleep in " + _outAI.month
+             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
+             + ".");
         }
 
         void quenchAllBeBar()

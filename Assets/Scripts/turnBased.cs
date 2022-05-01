@@ -92,9 +92,6 @@ public class turnBased : MonoBehaviour
         transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().Reset();
 
 
-
-
-
         print("turnBased: new turn start." );
     }
 

@@ -97,7 +97,7 @@ namespace Panda.Ibis
                 }
                
             }
-            print("amount_ObjOnLand: " + amount_ObjOnLand);
+           // print("amount_ObjOnLand: " + amount_ObjOnLand);
 
             _myIbis = GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>();
 
@@ -193,16 +193,18 @@ namespace Panda.Ibis
         [Task]
         void ibisAct()
         {
-            foreach (Transform child in _ibisA.transform)
-            {
-                child.gameObject.SetActive(true);
 
-                child.gameObject.GetComponent<PandaBehaviour>().Reset();
-
-            }
 
             if (!hasSetPandaActive)
             {
+                foreach (Transform child in _ibisA.transform)
+                {
+                    child.gameObject.SetActive(true);
+
+                    child.gameObject.GetComponent<PandaBehaviour>().Reset();
+
+                }
+
                 _ibisA.transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().enabled = true;
                 hasSetPandaActive = true;
             }
@@ -229,7 +231,7 @@ namespace Panda.Ibis
 
             gameObject.GetComponent<PandaBehaviour>().Reset();
 
-            hasSetPandaActive = false;
+           
             //?
             ThisTask.Succeed();
 
@@ -275,7 +277,7 @@ namespace Panda.Ibis
                   
 
                 }
-                print("cardSlots count: " + cardSlots.Count +" this turn: " +GameObject.Find("TurnBased").GetComponent<turnBased>().turn);
+              //  print("cardSlots count: " + cardSlots.Count +" this turn: " +GameObject.Find("TurnBased").GetComponent<turnBased>().turn);
             } 
 
             if (cards.Count <= cardSlots.Count)
