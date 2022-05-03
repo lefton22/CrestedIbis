@@ -3,11 +3,12 @@ tree("Root")
 //
 		fallback
 					sequence //先无巢，后无蛋
+					             //必须全部都满足则这支线成立
 								checkNest()
 								Wait(10)
 
-								checkNestFinished()
-								Wait(10)
+								//checkNestFinished()  //去掉，因为有时候可能是别的巢没完成
+								//Wait(10)
 
 								checkCanIncubate() 
 								Wait(10)

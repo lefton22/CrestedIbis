@@ -39,6 +39,7 @@ public class outerAI : MonoBehaviour
 
     void Start()
     {
+       
         // month = 7;//暂定7月起始
         // month = 1;//暂定 test
         temperature = 0;

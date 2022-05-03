@@ -102,22 +102,32 @@ namespace Panda.Ibis
             _myIbis = GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>();
 
             hasSetPandaActive = false;
+
+            //gen a npc behavior tree
+            GameObject npcOrder = Instantiate(Resources.Load("goj/NpcOrder")) as GameObject;
+            npcOrder.transform.SetParent(_turnBased.transform);
+            npcOrder.GetComponent<PandaBehaviour>().Reset();
         }
 
         [Task]
         void checkAllObjNPC()
         {
 
-            //only for test
-            GameObject[] eggs1;
-            eggs1 = GameObject.FindGameObjectsWithTag("egg");
-            foreach (GameObject goj in eggs1)
-            {
-                if (!Panda.Ibis.MyIbis.eggs.Contains(goj))
-                { Panda.Ibis.MyIbis.eggs.Add(goj); }
-            }
-            
-            //only for test
+            /*            //only for test
+                        GameObject[] eggs1;
+                        eggs1 = GameObject.FindGameObjectsWithTag("egg");
+                        foreach (GameObject goj in eggs1)
+                        {
+                            if (!Panda.Ibis.MyIbis.eggs.Contains(goj))
+                            { Panda.Ibis.MyIbis.eggs.Add(goj); }
+                        }
+
+                        //only for test*/
+
+
+
+
+            print("turnBased: new turn start.");
 
             if (Panda.Ibis.MyIbis.eggs.Count > 0)  // if the egg can hatch, hatch them into baby ibis
             {

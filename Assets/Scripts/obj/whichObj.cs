@@ -15,7 +15,7 @@ public class whichObj : MonoBehaviour
         _listObjOnLand = GameObject.Find("Lists").GetComponent<listObjOnLand>();
         random_index = -1;
 
-        if (which == 1) 
+        if (which == 1)   // = food
         { GetComponent<objFood>().enabled = true;
 
             Destroy(GetComponent<objNPC>());
@@ -23,7 +23,7 @@ public class whichObj : MonoBehaviour
             Destroy(GetComponent<objEgg>());
             tag = "food";
         }
-        if (which == 2) 
+        if (which == 2)    // =npc
         {
             Destroy(GetComponent<objFood>());
             GetComponent<objNPC>().enabled = true;
@@ -31,7 +31,7 @@ public class whichObj : MonoBehaviour
             Destroy(GetComponent<objEgg>());
             tag = "npc";
         }
-        if (which == 3)
+        if (which == 3)  //= nest
         {
             Destroy(GetComponent<objFood>());
             Destroy(GetComponent<objNPC>());
@@ -39,7 +39,7 @@ public class whichObj : MonoBehaviour
             Destroy(GetComponent<objEgg>());
             tag = "nest";
         }
-        if (which == 4)
+        if (which == 4) 
         {
             Destroy(GetComponent<objFood>());
             Destroy(GetComponent<objNPC>());

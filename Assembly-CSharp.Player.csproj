@@ -124,6 +124,12 @@
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleGrid.cs" />
     <Compile Include="Assets\Scripts\getInfo.cs" />
     <Compile Include="Assets\Scripts\obj\objBirdling.cs" />
+    <Compile Include="Assets\Scripts\obj\objSnake.cs" />
+    <Compile Include="Assets\Scripts\obj\objIbisAdult.cs" />
+    <Compile Include="Assets\Scripts\obj\objEgret.cs" />
+    <Compile Include="Assets\Scripts\obj\objJackDaw.cs" />
+    <Compile Include="Assets\Scripts\obj\objEagle.cs" />
+    <Compile Include="Assets\Scripts\txt\MyNPC.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -133,6 +139,7 @@
     <None Include="Assets\Scripts\txt\ibis_rest.txt" />
     <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.dll" />
+    <None Include="Assets\Scripts\txt\NPC.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Grid Framework\Examples\Vectorsity\READ ME FIRST.txt" />
     <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\PlayTag.commented.BT.txt" />
