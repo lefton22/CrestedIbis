@@ -104,7 +104,32 @@ namespace Panda.Ibis
             hasSetPandaActive = false;
         }
 
+        [Task]
+        void checkAllObjNPC()
+        {
 
+            //only for test
+            GameObject[] eggs1;
+            eggs1 = GameObject.FindGameObjectsWithTag("egg");
+            foreach (GameObject goj in eggs1)
+            {
+                if (!Panda.Ibis.MyIbis.eggs.Contains(goj))
+                { Panda.Ibis.MyIbis.eggs.Add(goj); }
+            }
+            
+            //only for test
+
+            if (Panda.Ibis.MyIbis.eggs.Count > 0)  // if the egg can hatch, hatch them into baby ibis
+            {
+                foreach (GameObject egg in Panda.Ibis.MyIbis.eggs)
+                {
+                    egg.GetComponent<objEgg>().checkHatch();
+                }
+                //Panda.Ibis.MyIbis.eggs.Clear();
+            }
+
+            ThisTask.Succeed();
+        }
 
         [Task]
         void dealCards()

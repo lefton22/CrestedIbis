@@ -3,6 +3,9 @@ tree("Root")
          parallel   //
             sequence // mainly this!
 
+                checkAllObjNPC()
+                Wait(40)
+
                 dealCards
                 Wait(40)
 

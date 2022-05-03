@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3142950995795073609}
   - component: {fileID: 4789056822359550990}
   - component: {fileID: 3074075410143660354}
+  - component: {fileID: 8008664415713005644}
   m_Layer: 0
   m_Name: egg
   m_TagString: egg
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 38fdfa19d0dd26949987010d43227028, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,3 +156,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8008664415713005644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529729089309734589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ccac44b1ffe944695e821ce297dbf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hatchNeedTurn: 0
+  hatchCurrentTurn: 0

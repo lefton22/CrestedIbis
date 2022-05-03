@@ -29,7 +29,11 @@ namespace Panda.Ibis {
 
         static public GameObject foodAte;
 
-        static public GameObject currentNest;
+        static public GameObject currentNest; //for buildNest()
+
+        static public List<GameObject> eggs; // all eggs belongs to this ibis
+
+       
 
         [Header(" ● Node Structure Mark")]
         //node structure mark
@@ -114,7 +118,7 @@ namespace Panda.Ibis {
         /////////////Properties////////////////////
         ////////////////Properties////////////////////
 
-            gender = 2;
+            gender = 1;
             full = 0;// 0饿,1饱
             full_max = 1;
             energy = 1;//0 need to rest, 1 no need 
@@ -128,6 +132,7 @@ namespace Panda.Ibis {
             hasBringTwig = false;
             hasBringLiana = false;
 
+            eggs = new List<GameObject>();
 
         /////////////Properties////////////////////
         /////////////Properties////////////////////
@@ -1207,6 +1212,8 @@ namespace Panda.Ibis {
                     if (materials[ran].name == "twig") { hasBringTwig = true; }
                     if (materials[ran].name == "liana") { hasBringLiana = true; }
 
+                    Destroy(materials[ran]);
+
                     ThisTask.Succeed();
                 }
             }
@@ -1284,9 +1291,9 @@ namespace Panda.Ibis {
             {
                 if (nests[i].GetComponent<objNest>().isFinished())
                 {
-                    ThisTask.Fail();
+                    ThisTask.Succeed();
                 }
-                else { ThisTask.Succeed(); }
+                else { ThisTask.Fail(); }
             }
 /*            int ran;
             ran = Random.Range(0, nests.Length - 1);*/
@@ -1338,6 +1345,12 @@ namespace Panda.Ibis {
                     egg.name = "egg" + k.ToString();
                     egg.transform.position = transform.parent.gameObject.transform.position;
                     egg.transform.SetParent(GameObject.Find("ObjOnLand").transform);
+
+                    if (!eggs.Contains(egg))
+                    {
+                        eggs.Add(egg);
+                    }
+
                     if (k == ran_amounts_egg - 1)
                     {
                         isSpawn = true;
@@ -1465,7 +1478,12 @@ namespace Panda.Ibis {
                 // finished the ani, succeed
                 if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasIncubated"))
                 {
-                     //the properties of egg changes
+                //the properties of egg changes
+
+                    foreach (GameObject egg in eggs) // 所有蛋计数孵化半个月
+                    {
+                        egg.GetComponent<objEgg>().hatchCurrentTurn = egg.GetComponent<objEgg>().hatchCurrentTurn + 1;
+                    }
 
                     lightIncubate();
                     print(" incubate.");
