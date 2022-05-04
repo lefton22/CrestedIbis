@@ -20,9 +20,30 @@ public class objNPC : MonoBehaviour
 
     void checkWhichNPC()
     {
+        if (whichNPC == "egret")
+        {
+            objEgret sc = gameObject.AddComponent<objEgret>() as objEgret;
+        }
+        if (whichNPC == "jackdaw")
+        {
+            objJackDaw sc = gameObject.AddComponent<objJackDaw>() as objJackDaw;
+        }
+        if (whichNPC == "snake")
+        {
+            objSnake sc = gameObject.AddComponent<objSnake>() as objSnake;
+        }
+        if (whichNPC == "eagle")
+        {
+            objEagle sc = gameObject.AddComponent<objEagle>() as objEagle;
+        }
+
         if (whichNPC == "ibisAdult")
         {
-            objFood sc = gameObject.AddComponent<objFood>() as objFood;
+            objIbisAdult sc = gameObject.AddComponent<objIbisAdult>() as objIbisAdult;
+
+            GameObject ibisNPC = Instantiate(Resources.Load("ibisB")) as GameObject;
+            ibisNPC.transform.SetParent(gameObject.transform);
+            ibisNPC.transform.position = gameObject.transform.position;
         }
     }
 }

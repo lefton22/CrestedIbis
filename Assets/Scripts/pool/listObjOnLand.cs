@@ -33,9 +33,9 @@ public class listObjOnLand : MonoBehaviour
         /*        foodOnLand = new List<Vector2>();
                 foodOnLand.Clear();*/
         objOnLand = new List<string>();
-        objOnLand.AddMany("loach","crucian", "frog", "shrimp", "crab", "spiralShell", "shellFish" ,
-            "snail","cricket", "earthWorm","rice","bean", "treeSeed","ibisEgg", "twig", "liana","ibisAdult",
-            "ibisBaby","egret", "jackdaw","snake","eagle","nest","cottage");
+        objOnLand.AddMany("loach", "crucian", "frog", "shrimp", "crab", "spiralShell", "shellFish",
+            "snail", "cricket", "earthWorm", "rice", "bean", "treeSeed", "ibisEgg", "twig", "liana", "ibisAdult",
+            "egret", "jackdaw", "snake", "eagle", "nest", "cottage");
 
         NPCibisOnLand = new List<GameObject>();
         NPCibisOnLand.Clear();

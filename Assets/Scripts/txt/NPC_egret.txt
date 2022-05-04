@@ -1,0 +1,13 @@
+tree("Root")
+         fallback
+						sequence //  snake tree
+							 checkNoEgret() 
+				
+							 egret_wander()
+
+							 Next()
+
+							 //endAllNPC()
+					    sequence
+						     
+							 endAllNPC()

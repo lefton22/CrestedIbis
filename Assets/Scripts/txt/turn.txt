@@ -2,6 +2,9 @@ tree("Root")
 
          parallel   //
             sequence // mainly this!
+                
+                NPCAct()
+                Wait(40)
 
                 checkAllObjNPC()
                 Wait(40)

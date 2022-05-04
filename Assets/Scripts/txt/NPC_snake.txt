@@ -1,0 +1,15 @@
+tree("Root")
+        fallback
+						sequence //  snake tree
+							 checkNoSnake() 
+				
+							 snake_seekNestWithEgg()
+							 Wait(100)
+
+							 snake_eatEgg()
+							 Wait(100)
+
+							 Next()
+
+						sequence 
+							Next()

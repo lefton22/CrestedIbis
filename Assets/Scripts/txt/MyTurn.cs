@@ -58,6 +58,7 @@ namespace Panda.Ibis
 
         public bool hasSetPandaActive;
 
+        public bool hasSetNPCTreeActive;
         void Start()
         {
             cards = new List<GameObject>();
@@ -103,10 +104,45 @@ namespace Panda.Ibis
 
             hasSetPandaActive = false;
 
-            //gen a npc behavior tree
-            GameObject npcOrder = Instantiate(Resources.Load("goj/NpcOrder")) as GameObject;
-            npcOrder.transform.SetParent(_turnBased.transform);
-            npcOrder.GetComponent<PandaBehaviour>().Reset();
+            hasSetNPCTreeActive = false;
+
+
+        }
+
+
+        [Task]
+        void NPCAct()
+        {
+
+            if (!hasSetNPCTreeActive)
+            {
+                //gen a npc behavior tree
+                GameObject npcOrder_snake = Instantiate(Resources.Load("goj/NpcOrder_snake")) as GameObject;
+                npcOrder_snake.transform.SetParent(_turnBased.transform);
+                npcOrder_snake.GetComponent<PandaBehaviour>().Reset();
+
+                //NpcOrder_egret
+                GameObject npcOrder_egret = Instantiate(Resources.Load("goj/NpcOrder_egret")) as GameObject;
+                npcOrder_egret.transform.SetParent(_turnBased.transform);
+                npcOrder_egret.GetComponent<PandaBehaviour>().Reset();
+
+                hasSetNPCTreeActive = true;
+            }
+            /*            if (hasSetNPCTreeActive)
+                        {
+                            Destroy(_npcOrder);
+                            ThisTask.Succeed();
+                        }*/
+
+            if (Panda.Ibis.MyNPC.end)
+            {
+                GameObject[] npcOrders;
+                npcOrders = GameObject.FindGameObjectsWithTag("npcOrder");
+                foreach (GameObject npcO in npcOrders)
+                { Destroy(npcO); }
+
+                ThisTask.Succeed();
+            }
         }
 
         [Task]
@@ -123,9 +159,6 @@ namespace Panda.Ibis
                         }
 
                         //only for test*/
-
-
-
 
             print("turnBased: new turn start.");
 
@@ -257,6 +290,7 @@ namespace Panda.Ibis
             // _ibisA.GetComponent<PandaBehaviour>().enabled = false;
             foreach (Transform child in _ibisA.transform)
             {
+                child.gameObject.GetComponent<PandaBehaviour>().Reset();
                 child.gameObject.GetComponent<PandaBehaviour>().enabled = false;
             }
 
@@ -266,6 +300,7 @@ namespace Panda.Ibis
 
             gameObject.GetComponent<PandaBehaviour>().Reset();
 
+            
            
             //?
             ThisTask.Succeed();
