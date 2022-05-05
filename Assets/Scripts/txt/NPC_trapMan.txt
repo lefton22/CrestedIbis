@@ -1,0 +1,17 @@
+tree("Root")
+			 fallback
+						sequence 
+							checkTrapMan_appear(5, 2)
+							Wait(10)
+
+							trapMan_goToRandomGrid()
+							Wait(10)
+
+							trapMan_setTrap()
+							Wait(10)
+
+							trapMan_leave()
+							Wait(10)
+
+						sequence
+								Next()

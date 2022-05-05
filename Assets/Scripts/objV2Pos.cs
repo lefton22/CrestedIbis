@@ -11,13 +11,21 @@ public class objV2Pos : MonoBehaviour
     public Vector2 thisV2;
     listObjOnLand _listObjOnLand;
     Panda.Ibis.MyIbis _myIbis;
+
+    Vector3 ori_Rotation;
     void Start()
     {
         _listObjOnLand = GameObject.Find("Lists").GetComponent<listObjOnLand>();
 
         _myIbis = GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>();
+
+      //  ori_Rotation = transform.localRotation.eulerAngles;
     }
 
+    void Update()
+    {
+        transform.localEulerAngles= ori_Rotation;
+    }
 
     void OnCollisionEnter(Collision collision)
     {

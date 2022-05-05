@@ -120,11 +120,19 @@ namespace Panda.Ibis
                 GameObject npcOrder_snake = Instantiate(Resources.Load("goj/NpcOrder_snake")) as GameObject;
                 npcOrder_snake.transform.SetParent(_turnBased.transform);
                 npcOrder_snake.GetComponent<PandaBehaviour>().Reset();
+                npcOrder_snake.GetComponent<PandaBehaviour>().enabled = true;
 
                 //NpcOrder_egret
                 GameObject npcOrder_egret = Instantiate(Resources.Load("goj/NpcOrder_egret")) as GameObject;
                 npcOrder_egret.transform.SetParent(_turnBased.transform);
                 npcOrder_egret.GetComponent<PandaBehaviour>().Reset();
+                npcOrder_egret.GetComponent<PandaBehaviour>().enabled = false;
+
+                //NpcOrder_trapMan
+                GameObject npcOrder_trapMan = Instantiate(Resources.Load("goj/NpcOrder_trapMan")) as GameObject;
+                npcOrder_trapMan.transform.SetParent(_turnBased.transform);
+                npcOrder_trapMan.GetComponent<PandaBehaviour>().Reset();
+                npcOrder_trapMan.GetComponent<PandaBehaviour>().enabled = false;
 
                 hasSetNPCTreeActive = true;
             }

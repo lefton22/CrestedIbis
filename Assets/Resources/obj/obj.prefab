@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 878479221176644072}
   - component: {fileID: 878479221176644073}
   - component: {fileID: 5609853396056260549}
-  - component: {fileID: -9095059843767139854}
-  - component: {fileID: 4715498431999661230}
   - component: {fileID: 1852575964813122942}
   - component: {fileID: -2412785568091603607}
   - component: {fileID: 6322106454921345615}
   - component: {fileID: -8115781983150745352}
   - component: {fileID: 7338731357361081475}
+  - component: {fileID: 6423886831410558645}
+  - component: {fileID: 7427274126323771903}
   m_Layer: 0
   m_Name: obj
   m_TagString: food
@@ -34,13 +34,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878479221176644071}
-  m_LocalRotation: {x: -0.21707395, y: -0, z: -0, w: 0.97615516}
+  m_LocalRotation: {x: -0.21707, y: 0, z: 0, w: 0.97615606}
   m_LocalPosition: {x: -0.77, y: 5.11, z: -4.78}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -25.074, y: 0, z: 0}
 --- !u!212 &878479221176644075
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130,36 +130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisV2: {x: 0, y: 0}
---- !u!136 &-9095059843767139854
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878479221176644071}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.1
-  m_Height: 0.19999997
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &4715498431999661230
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878479221176644071}
-  serializedVersion: 2
-  m_Mass: 999
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &1852575964813122942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ccac44b1ffe944695e821ce297dbf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hatchNeedTurn: 0
+  hatchCurrentTurn: 0
 --- !u!114 &6322106454921345615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,11 +170,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c561a814f6fac44691a6451cb0b88b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnFinished: 0
-  currentProgress: 0
+  build_finished: 0
+  build_current: 0
   materials:
   - twig
   - liana
+  _rateProduce: 0
 --- !u!114 &-8115781983150745352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99b2474f5994674584111b0051963ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whichNPC: 
 --- !u!114 &7338731357361081475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,4 +201,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2065a1563e2b88a4b90950ba958939e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  which: 0
+  which: 2
+--- !u!136 &6423886831410558645
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878479221176644071}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.18168256
+  m_Height: 4.4444976
+  m_Direction: 2
+  m_Center: {x: 0.05738831, y: -0.0058766515, z: 0.63424444}
+--- !u!54 &7427274126323771903
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878479221176644071}
+  serializedVersion: 2
+  m_Mass: 9999
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0

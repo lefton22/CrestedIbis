@@ -2,6 +2,7 @@ tree("Root")
          fallback
 						sequence //  snake tree
 							 checkNoEgret() 
+							 Wait(10)
 				
 							 egret_wander()
 
@@ -9,5 +10,5 @@ tree("Root")
 
 							 //endAllNPC()
 					    sequence
-						     
-							 endAllNPC()
+
+							Next()

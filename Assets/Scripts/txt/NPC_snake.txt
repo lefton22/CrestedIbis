@@ -2,12 +2,22 @@ tree("Root")
         fallback
 						sequence //  snake tree
 							 checkNoSnake() 
+							 Wait(10)
+
+							 checkNest()
+							 Wait(10)
 				
 							 snake_seekNestWithEgg()
 							 Wait(100)
 
 							 snake_eatEgg()
 							 Wait(100)
+
+							 snake_SeekLeave()
+							 Wait(10)
+
+							 snake_leave()
+							 Wait(10)
 
 							 Next()
 

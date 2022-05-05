@@ -9,7 +9,8 @@ public class objNPC : MonoBehaviour
     //objFood _objFood;
     void Start()
     {
-        whichNPC = name;
+        //  whichNPC = name;
+        checkWhichNPC();
     }
 
     // Update is called once per frame
@@ -23,19 +24,44 @@ public class objNPC : MonoBehaviour
         if (whichNPC == "egret")
         {
             objEgret sc = gameObject.AddComponent<objEgret>() as objEgret;
+
+            Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
+            Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+           faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
+           objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
+            // Capsule collider & Rigidbody need to be on the obj
+            Animator _ani = gameObject.AddComponent<Animator>() as Animator;
+            MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
+
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/egret");
+            transform.localScale = new Vector3(1f, 1f,1f);
+            name = "egret";
+
         }
-        if (whichNPC == "jackdaw")
+/*        if (whichNPC == "jackdaw")
         {
             objJackDaw sc = gameObject.AddComponent<objJackDaw>() as objJackDaw;
-        }
+        }*/
         if (whichNPC == "snake")
         {
             objSnake sc = gameObject.AddComponent<objSnake>() as objSnake;
+
+            Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
+            Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+          //  faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
+           // objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
+            // Capsule collider & Rigidbody need to be on the obj
+            Animator _ani = gameObject.AddComponent<Animator>() as Animator;
+            MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
+
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/snake");
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            name = "snake";
         }
-        if (whichNPC == "eagle")
+/*        if (whichNPC == "eagle")
         {
             objEagle sc = gameObject.AddComponent<objEagle>() as objEagle;
-        }
+        }*/
 
         if (whichNPC == "ibisAdult")
         {
@@ -44,6 +70,15 @@ public class objNPC : MonoBehaviour
             GameObject ibisNPC = Instantiate(Resources.Load("ibisB")) as GameObject;
             ibisNPC.transform.SetParent(gameObject.transform);
             ibisNPC.transform.position = gameObject.transform.position;
+
+            Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
+            Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+            faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
+            objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
+            // Capsule collider & Rigidbody need to be on the obj
+            Animator _ani = gameObject.AddComponent<Animator>() as Animator;
+            MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
         }
+        //  if (whichNPC == "trapMan")
     }
 }
