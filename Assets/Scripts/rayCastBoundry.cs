@@ -36,7 +36,7 @@ public class rayCastBoundry : MonoBehaviour
             }
             else 
             {
-                Debug.Log("touching boundry (no cards)£º " + gameObject.name + " hits " + hit.transform.gameObject);
+                //Debug.Log("touching boundry (no cards)£º " + gameObject.name + " hits " + hit.transform.gameObject);
             }
            
         }

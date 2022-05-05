@@ -1087,61 +1087,7 @@ namespace Panda.Ibis {
             { ThisTask.Succeed(); }
         }
 
-        [Task]
-        void buildNest_a() //abandoned
-        {
-            /*//go to near the place which can have food
-                    List<GameObject> gridsRichFood;
-                    List<GameObject> gridsLittleFood;
-                    gridsRichFood = new List<GameObject>();
-                    gridsLittleFood = new List<GameObject>();
 
-                    List<Vector2> v2_gridsRichFood;
-                    List<Vector2> v2_gridsLittleFood;
-                    v2_gridsRichFood = new List<Vector2>();
-                    v2_gridsLittleFood = new List<Vector2>();
-
-
-                    GameObject[] allGrids = GameObject.FindGameObjectsWithTag("grid");
-                    for (int i = 0; i < allGrids.Length; i++)
-                    {
-                        if (allGrids[i].GetComponent<grid>().canRichFood)
-                        {
-                            gridsRichFood.Add(allGrids[i]);
-
-                            Vector2 v2;
-                            v2 = allGrids[i].transform.parent.GetComponent<genPos>().thisCo;
-                            v2_gridsRichFood.Add(v2);
-                        }
-                        if (allGrids[i].GetComponent<grid>().canPoorFood)
-                        {
-                            gridsLittleFood.Add(allGrids[i]);
-
-                            Vector2 v2;
-                            v2 = allGrids[i].transform.parent.GetComponent<genPos>().thisCo;
-                            v2_gridsLittleFood.Add(v2);
-                        }
-                    }
-                    //先判定rich,在判定little
-                    //如果有N个以上的食物的话，将所有点的组合遍历一遍，找N个最近的带食物的点， M个点加起来距离相差绝对值最小的点筑巢
-                    //Vector2 v2_thisIbis;
-
-                    int checkHowManyFoods;
-                    if (_listObjOnLand.foodOnLand.Count >= 3)
-                    { checkHowManyFoods = 3; }
-                    if (_listObjOnLand.foodOnLand.Count < 3 && _listObjOnLand.foodOnLand.Count >=2)
-                    { checkHowManyFoods = 2; }
-                    if (_listObjOnLand.foodOnLand.Count < 2 && _listObjOnLand.foodOnLand.Count >= 1)
-                    { checkHowManyFoods = 1; }
-
-                    //for (int k=0; int <)*/
-
-
-
-
-
-            //if succeed, hasNest = true;
-        }
 
         [Task]
         void checkMateIbis()
@@ -1301,18 +1247,7 @@ namespace Panda.Ibis {
 
         }
 
-        /*        [Task]
-                void checkCanSpawn()
-                {
-                    GameObject[] nests;
-                    nests = GameObject.FindGameObjectsWithTag("nest");
-                    if (nests.Length == 0 || !isMate || gender == 2)
-                    {
-                        ThisTask.Succeed();
-                    } else { ThisTask.Fail(); }
-
-
-                }*/
+ 
 
         [Task]
         void hasMate()
@@ -1364,85 +1299,7 @@ namespace Panda.Ibis {
 
             }
         }
-/*        void spawn()
-        {
 
-            if (GameObject.Find("nest") && isMate)
-            {
-                // seek for the nest
-                seekLocation(GameObject.Find("nest").transform.position); // the nest GameObject muts be called "nest"
-
-                List<GameObject> eggs;
-                eggs = new List<GameObject>();
-                int ini_count_egg;
-
-                GameObject[] arr_eggs = GameObject.FindGameObjectsWithTag("egg");
-                for (int i = 0; i < arr_eggs.Length; i++)
-                {
-                    eggs.Add(arr_eggs[i]);
-                }
-                ini_count_egg = eggs.Count;
-
-
-                Vector2 v2_ibisA;
-                Vector2 v2_nest;
-                v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
-                v2_nest = GameObject.Find("nest").GetComponent<objV2Pos>().thisV2;
-
-                print("spawn 1, nest v2: " + v2_nest);
-
-                int ran_amounts_egg;
-                ran_amounts_egg = -1;
-                if (v2_nest == v2_ibisA && _outAI.month == 3)
-                {
-                    print("spawn 2");
-                    List<int> ran;
-                    ran = new List<int>();
-                    ran.Add(1); ran.Add(2); ran.Add(3); ran.Add(3); ran.Add(3); ran.Add(4);
-                    ran_amounts_egg = ran[Random.Range(0, ran.Count)];
-                    if (!isSpawn)
-                    {
-                        for (int k = 0; k < ran_amounts_egg; k++)
-                        {
-                            // play produce ani * ran_amounts_egg
-                            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_produceEggs");
-
-                            // eggs + new eggs(List)
-                            GameObject egg = Instantiate(Resources.Load("egg")) as GameObject;
-                            egg.name = "egg" + k.ToString();
-                            egg.transform.position = transform.parent.gameObject.transform.position;
-                            egg.transform.SetParent(GameObject.Find("ObjOnLand").transform);
-                            if (k == ran_amounts_egg - 1)
-                            {
-                                isSpawn = true;
-                            }
-                        }
-                    }
-                    // isSpawn = true;
-                    print("spawn 2-2");
-                }
-
-                if (eggs.Count == ran_amounts_egg && ran_amounts_egg > -1)
-                {
-                    lightSpawn();
-                    print("spawn 3");
-                    monthSpawn = _outAI.month;
-                    ThisTask.Succeed();
-                }
-
-            }
-
-            if (!GameObject.Find("nest"))
-            {
-
-                ThisTask.Succeed();
-            }
-
-            if (_outAI.month != 3)
-            {
-                ThisTask.Succeed();
-            }
-        }*/
 
 
         [Task]
@@ -1569,47 +1426,7 @@ namespace Panda.Ibis {
             }
         }
 
-/*        [Task]
-        void checkCanRest()        // go to nest
-        {
-            *//*                if (GameObject.Find("nest"))
-                            { seekLocation(GameObject.Find("nest").transform.position); }
 
-                            if (GameObject.Find("nest").GetComponent<objV2Pos>().thisV2
-                                      == transform.parent.gameObject.GetComponent<objV2Pos>().thisV2)
-                            {
-                                ThisTask.Succeed();
-                            }*//*
-
-            GameObject[] nests;
-            nests = GameObject.FindGameObjectsWithTag("nest");
-            if (nests.Length == 0 )
-            {
-                ThisTask.Succeed();
-            }
-            else { ThisTask.Fail(); }
-
-        }*/
-
-/*        [Task]
-        void rest1()// go to the nest
-        {
-            GameObject[] nests;
-            nests = GameObject.FindGameObjectsWithTag("nest");
-
-            int ran_index;
-            ran_index = Random.Range(0, nests.Length);
-            Vector3 v3_ranNest;
-            v3_ranNest = nests[ran_index].transform.position;
-            seekLocation(v3_ranNest);
-
-            Vector2 v2_nest;
-            v2_nest = nests[ran_index].GetComponent<objV2Pos>().thisV2;
-
-            if (transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 == v2_nest)
-            { ThisTask.Succeed(); }
-                
-        }*/
 
         [Task]
         void rest()
@@ -1799,7 +1616,6 @@ namespace Panda.Ibis {
         }
 
         Vector2 getNearestGrid(Vector2 ori_v2, List<Vector2> v2s)     //still have a problem , two equal value?
-        // actually the far..est
         // from a point A and a group of points, knowing the nearest point to point A.
         {
             Vector2 _getNearestGrid;
@@ -2071,23 +1887,6 @@ namespace Panda.Ibis {
 
 
 
-
-
-        [Task]
-        bool isHaveFood()
-        {
-            bool _isHaveFood;
-            _isHaveFood = true;
-            return _isHaveFood;
-        }
-
-        [Task]
-        bool isNested()
-        {
-            bool _isNested;
-            _isNested = true;
-            return _isNested;
-        }
 
     }
 }

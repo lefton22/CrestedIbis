@@ -34,7 +34,7 @@ public class objNPC : MonoBehaviour
             MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
 
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/egret");
-            transform.localScale = new Vector3(1f, 1f,1f);
+           // transform.localScale = new Vector3(1f, 1f,1f);
             name = "egret";
 
         }

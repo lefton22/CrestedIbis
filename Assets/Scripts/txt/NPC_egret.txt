@@ -3,6 +3,8 @@ tree("Root")
 						sequence //  snake tree
 							 checkNoEgret() 
 							 Wait(10)
+
+							 egret_seekWander()
 				
 							 egret_wander()
 

@@ -14,4 +14,4 @@ tree("Root")
 							Wait(10)
 
 						sequence
-								Next()
+							endAllNPC()
