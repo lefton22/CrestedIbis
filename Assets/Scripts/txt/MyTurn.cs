@@ -111,8 +111,25 @@ namespace Panda.Ibis
 
 
         [Task]
+        void pollution()
+        {
+            GameObject[] grids;
+            grids = GameObject.FindGameObjectsWithTag("grid");
+
+            foreach (GameObject grid in grids)
+            {
+                grid.GetComponent<grid>().polluteThis();
+            }
+
+
+            ThisTask.Succeed();
+        }
+
+        [Task]
         void NPCAct()
         {
+            print("turnBased: new turn start.");
+
             _myIbis.setIsObjOnLand();
 
             if (!hasSetNPCTreeActive)
@@ -154,8 +171,10 @@ namespace Panda.Ibis
             }
         }
 
+
+
         [Task]
-        void checkAllObjNPC()
+        void checkAllObjNPC() // check the changes of All NPC
         {
 
             /*            //only for test
@@ -169,8 +188,7 @@ namespace Panda.Ibis
 
                         //only for test*/
 
-            print("turnBased: new turn start.");
-
+            ///// Top// check the egg // ///////
             if (Panda.Ibis.MyIbis.eggs.Count > 0)  // if the egg can hatch, hatch them into baby ibis
             {
                 foreach (GameObject egg in Panda.Ibis.MyIbis.eggs)
@@ -179,6 +197,7 @@ namespace Panda.Ibis
                 }
                 //Panda.Ibis.MyIbis.eggs.Clear();
             }
+            /////End// check the egg // ///////
 
             ThisTask.Succeed();
         }

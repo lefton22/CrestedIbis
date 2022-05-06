@@ -3,6 +3,9 @@ tree("Root")
          parallel   //
             sequence // mainly this!
                 
+                pollution()
+                Wait(40)
+
                 NPCAct()
                 Wait(40)
 
