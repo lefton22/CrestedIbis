@@ -113,6 +113,7 @@ namespace Panda.Ibis
         [Task]
         void NPCAct()
         {
+            _myIbis.setIsObjOnLand();
 
             if (!hasSetNPCTreeActive)
             {
@@ -327,8 +328,6 @@ namespace Panda.Ibis
 
             Vector3 v3_middleCard;
             v3_middleCard = _cardPos3.transform.position; ;
-
-
 
           
             thisAmount = amountsCards(_outerAI.month);

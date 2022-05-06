@@ -5,13 +5,15 @@ tree("Root")
 							Wait(10)
 
 							trapMan_goToRandomGrid()
-							Wait(10)
+							Wait(200)
 
 							trapMan_setTrap()
-							Wait(10)
+							Wait(100)
 
 							trapMan_leave()
 							Wait(10)
+
+							endAllNPC()
 
 						sequence
 							endAllNPC()

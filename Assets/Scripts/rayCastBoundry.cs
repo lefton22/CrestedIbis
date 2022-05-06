@@ -28,11 +28,12 @@ public class rayCastBoundry : MonoBehaviour
             if (hit.transform.gameObject.tag == "card")
             {
                 lastHit = hit.transform.gameObject;
-                turnBased.MouseUp_currentLand = null;
+
+              //  turnBased.MouseUp_currentLand = null;
 
                 turnBased.MouseOver_currentLand = null;
 
-               // Debug.Log("touching boundry£º " + gameObject.name + " hits " + hit.transform.gameObject);
+              //  Debug.Log("touching boundry£º " + gameObject.name + " hits " + hit.transform.gameObject);
             }
             else 
             {

@@ -60,6 +60,7 @@ public class raycastGrid : MonoBehaviour
             if (hit.transform.gameObject.tag == "card")
             {
                 lastHit = hit.transform.gameObject;
+
                 turnBased.MouseUp_currentLand = gameObject;
 
                 turnBased.MouseOver_currentLand = gameObject;  // when exit all grids, should be null

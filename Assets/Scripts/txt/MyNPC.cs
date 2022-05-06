@@ -27,6 +27,12 @@ namespace Panda.Ibis
         Vector2 v2_des;
 
         GameObject _LandGenerator;
+
+        listObjOnLand _listObjOnLand;
+
+        GameObject _trapMan;
+
+        //Vector3 v3_trapMan;
        
         void Start()
         {
@@ -37,6 +43,10 @@ namespace Panda.Ibis
             _targetPos = GameObject.Find("Target2");
 
             _LandGenerator = GameObject.Find("LandGenerator");
+
+            _listObjOnLand = GameObject.Find("Lists").GetComponent<listObjOnLand>();
+
+           // v3_trapMan = new Vector3();
 
         }
 
@@ -255,7 +265,45 @@ namespace Panda.Ibis
             if (ran > baseLine)
             {
                 //
+                //build empty list of grids
+                List<Vector2> v2_emptyLands;
+                v2_emptyLands = new List<Vector2>();
+                for (int i = 0; i < _LandGenerator.GetComponent<LandGen2>().LandCos.Count; i++)
+                {
+                    if (!_listObjOnLand.isObjOnLand[i])
+                    {
+                        if (!v2_emptyLands.Contains(_LandGenerator.GetComponent<LandGen2>().LandCos[i]))
+                        {
+                            v2_emptyLands.Add(_LandGenerator.GetComponent<LandGen2>().LandCos[i]);
+                        }
+                    }
+                }
+                //get the random v3
+                int ran2;
+                ran2 = Random.Range(0, v2_emptyLands.Count - 1);
+                v2_des = v2_emptyLands[ran2];
+                print("v2_des: " + v2_des);
+
+                int index_Land;
+                index_Land = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_emptyLands[ran2]);
+
+                Vector3 v3_des;
+                v3_des = _LandGenerator.GetComponent<LandGen2>().LandCos_GO[index_Land].transform.position;
+
+                //gen
+                GameObject trapMan = Instantiate(Resources.Load("obj/obj")) as GameObject;
+                trapMan.name = "trapMan";
+                trapMan.GetComponent<objNPC>().whichNPC = "trapMan";
+                trapMan.GetComponent<whichObj>().which = 2;
+                trapMan.transform.position = v3_des;
+                trapMan.transform.SetParent(GameObject.Find("ObjOnLand").transform);
+
+                _trapMan = trapMan;
+
+                // _trapMan = GameObject.Find("trapMan");
+
                 Debug.Log("gen a trap man");
+
                 ThisTask.Succeed();
             }
             else { ThisTask.Fail(); }
@@ -265,18 +313,85 @@ namespace Panda.Ibis
         void trapMan_goToRandomGrid()
         {
             Debug.Log("trap man goes to a random grid");
+
+            Vector2 v2_des;
+            v2_des = new Vector2();
+
+            //build empty list of grids
+            List<Vector2> v2_emptyLands;
+            v2_emptyLands = new List<Vector2>();
+            for (int i = 0; i < _LandGenerator.GetComponent<LandGen2>().LandCos.Count; i++)
+            {
+                if (!_listObjOnLand.isObjOnLand[i])
+                {
+                    if (!v2_emptyLands.Contains(_LandGenerator.GetComponent<LandGen2>().LandCos[i]))
+                    {
+                        v2_emptyLands.Add(_LandGenerator.GetComponent<LandGen2>().LandCos[i]);       
+                    }
+                }
+            }
+
+            foreach (Vector2 v2 in v2_emptyLands)
+            {
+                print("empty grid : " + v2);
+            }
+
+            //get the random v3
+            int ran;
+            ran = Random.Range(0, v2_emptyLands.Count-1);
+            v2_des = v2_emptyLands[ran];
+            print("v2_des: " + v2_des);
+
+            int index_Land;
+            index_Land = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_des);
+
+            Vector3 v3_des;
+            v3_des = _LandGenerator.GetComponent<LandGen2>().LandV3s[index_Land];
+            print("v3_des: " + v3_des);
+
+            //move
+            seekLocation(_trapMan, v3_des);
+            //v3_trapMan = v3_des;
+
+            // check if reaching
+            Vector2 v2_land;
+            Vector2 v2_trapMan;
+            v2_trapMan = _trapMan.GetComponent<objV2Pos>().thisV2;
+            v2_land = v2_des;
+
+            //Debug.Log("going to nest: " + nests[ran].name);
+
+            if (v2_trapMan == v2_land)//ibisA reach the nest
+            {
+                 Debug.Log("reach to a ran grid.");
+
+               // Destroy(_trapMan);
+                ThisTask.Succeed();
+            }
+            
         }
 
         [Task]
         void trapMan_setTrap()
         {
+            GameObject trap = Instantiate(Resources.Load("goj/trap")) as GameObject;
+            trap.transform.position = _trapMan.transform.position;
+            trap.transform.SetParent(GameObject.Find("ObjOnLand").transform);
+
             Debug.Log("trap man sets a trap");
+
+            ThisTask.Succeed();
         }
 
         [Task]
         void trapMan_leave()
         {
             Debug.Log("trap man leaves");
+
+            // play effect or ani
+            Destroy(_trapMan);
+
+            ThisTask.Succeed();
         }
 
 
