@@ -16,6 +16,8 @@ public class grid : MonoBehaviour
 
     //7  river
 
+    //8 polluted grass land
+
    public  int landType;
     bool isRiver;
 
@@ -51,6 +53,7 @@ public class grid : MonoBehaviour
         getLandType("grassLand", 4);
         getLandType("treeLand", 5);
         getLandType("treeWithNest", 6);
+        // 
 
         if (gameObject.GetComponent<riverLand>() != null)
         {  isRiver = true;  }
@@ -90,12 +93,38 @@ public class grid : MonoBehaviour
     }
 
         public void checkHasPolluted()// check after evevry turn's get pollution turn
+                                      // -> may change the landtype
+                                      // -> may pollute the food(fish, crickets..)
+                                      // -> may reduce the quality of the food
     {
         if (hasPolluted)
         {
-            //chenge the sprite
+            print(gameObject.name + " has checked as being polluted.");
+            //change the sprite
 
-            //
+
+            //change the landtype
+            if (landType == 3 || landType == 4)
+            {
+                landType = 8;
+            }
+
+            //pollute the food
+            Vector2 v2_thisLand;
+            v2_thisLand = transform.parent.gameObject.GetComponent<genPos>().thisCo;
+
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+            {
+                if (child.gameObject.name == "crucian")
+                {
+                    // obj's sprite change
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.3f, 0.5f, 1);
+
+                    // obj's food's rich change; isToxic = true
+                    child.gameObject.GetComponent<objFood>().getPolluted();
+                }
+            }
+
         }
     }
 

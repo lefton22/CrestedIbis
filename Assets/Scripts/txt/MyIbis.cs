@@ -24,6 +24,8 @@ namespace Panda.Ibis {
         static public int actionPoint;
         static public int maxAP;
 
+        static public bool hasToxic; //中毒与否，若中毒，每回合开始前判定能不能活下去
+
         static public bool hasBringTwig;
         static public bool hasBringLiana;
 
@@ -118,14 +120,16 @@ namespace Panda.Ibis {
         /////////////Properties////////////////////
         ////////////////Properties////////////////////
 
-            gender = 1;
+            gender = 2;
             full = 0;// 0饿,1饱
             full_max = 1;
             energy = 1;//0 need to rest, 1 no need 
             isSingle = true;
 
-            actionPoint = 7;
+            actionPoint = 3;
             maxAP = 7;
+
+            hasToxic = false;
 
            // mate = GameObject.Find("ibisC");
 
@@ -206,30 +210,47 @@ namespace Panda.Ibis {
                 //防抖动，需加特效或啥，获得v2坐标，用dotween移过去
             }
 
-            actionPoint = landsPassThrough.Count;
+
+            actionPoint = 3- GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>(). landsPassThrough.Count;
+
 
             if (_turnBased.turn == 1)
-            { actionPoint = landsPassThrough.Count - 1; }
-           // else { actionPoint = landsPassThrough.Count; }
+            { actionPoint = 3 - GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Count + 1; }
+            // else { actionPoint = landsPassThrough.Count; }
 
 
+            //print("ap: " + actionPoint);
 
-            if (actionPoint > maxAP)
+            if (actionPoint < 0)
             {
-/*                landsPassThrough.Clear();
-                GetComponent<PandaBehaviour>().enabled = false;
+                /*                landsPassThrough.Clear();
+                                GetComponent<PandaBehaviour>().enabled = false;
 
-                transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
+                                transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
 
 
+                                // gameObject.GetComponent<PandaBehaviour>().enabled = false;
+
+                                GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().Reset();
+                                gameObject.GetComponent<PandaBehaviour>().Reset();
+
+                                _turnBased.newTurnStart();
+
+                                Destroy(GameObject.Find("TurnBased").transform.GetChild(0).gameObject);*/
+
+                GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
+                print("end turn ");
+                quenchAllBeBar();
+                //end this turn 
+                _targetPos.transform.position = v3_targetPos;
+
+
+                GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
+                //print("hasIbisEnded: " + GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded);
                 // gameObject.GetComponent<PandaBehaviour>().enabled = false;
 
-                GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().Reset();
-                gameObject.GetComponent<PandaBehaviour>().Reset();
-
-                _turnBased.newTurnStart();
-
-                Destroy(GameObject.Find("TurnBased").transform.GetChild(0).gameObject);*/
+                //?should be destroyed after this turn?
+               // ThisTask.Succeed();
             }
         }
 
@@ -417,11 +438,53 @@ namespace Panda.Ibis {
         }
 
         [Task]
+        void checkItemsOnLand() // traps...
+        {
+            List<GameObject> items;
+            items = new List<GameObject>();
+
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+            {
+                if (child.gameObject.name == "trap" )
+                { 
+                    if (!items.Contains(child.gameObject))
+                    items.Add( child.gameObject); 
+                }
+
+                // other itmes open
+            }
+
+            Vector2 v2_ibisA;
+            v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
+            //Vector2 v2_item;
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].GetComponent<objV2Pos>().thisV2 == v2_ibisA)
+                {
+                    if (items[i].name == "trap")
+                    {
+                        Debug.Log("meet a trap");
+
+                        // ibisA's properties change: AP points to zero
+                        actionPoint = 0;
+                        
+                    }
+                }
+            }
+
+            ThisTask.Succeed();
+
+        }
+
+
+
+        [Task]
         void eat()
         {
             int amount_food;
             amount_food = _listObjOnLand.foodOnLand.Count;
 
+            print("eat 1");
   //          if (_listObjOnLand.foodOnLand_GO.Count > 0)
    //         {
                 //吃
@@ -434,33 +497,49 @@ namespace Panda.Ibis {
                 v2_ibis = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
                 index_food = _listObjOnLand.foodOnLand.IndexOf(v2_ibis);
 
-                int index2;
+            print("eat 1.2");
+
+            int index2;
                 index2 = _LandGen2.LandCos.IndexOf(v2_ibis);
                 _listObjOnLand.isObjOnLand[index2] = false;
 
-                full = full + _listObjOnLand.foodOnLand_GO[index_food].GetComponent<objFood>().rich;
+            print("eat 1.5");
+            full = full + _listObjOnLand.foodOnLand_GO[index_food].GetComponent<objFood>().rich;
                 if (full > full_max)
                 {
                     full = full_max;
                 }
 
-                //Play pick food animation
-                transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("pickFood");
+            print("eat 2");
+            //Play pick food animation
+            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("pickFood");
 
 
             if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasFood"))
             {
                 foodAte = _listObjOnLand.foodOnLand_GO[index_food];
 
+                //check if polluted
+                if (_listObjOnLand.foodOnLand_GO[index_food].GetComponent<objFood>().isToxic)
+                    {
+                    print("该食物有毒");
+                    // ibis' properties change
+                    hasToxic = true;
+
+                    print("eat 3");
+                }
+
                 Destroy(_listObjOnLand.foodOnLand_GO[index_food]);
                 _listObjOnLand.foodOnLand_GO.Remove(_listObjOnLand.foodOnLand_GO[index_food]);
                 _listObjOnLand.foodOnLand.Remove(v2_ibis);
-              //  print("has food..");
+                //  print("has food..");
 
+                print("eat 4");
                 if (_listObjOnLand.foodOnLand.Count < amount_food)
                 {
                  //   print(" < original food amount.");
                     lightEat();
+                    print("eat 5");
                     ThisTask.Succeed();
                 }
             }
@@ -1451,7 +1530,7 @@ namespace Panda.Ibis {
         {
 
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
-            print("end turn ");
+            print("end turn  ");
             quenchAllBeBar();
             //end this turn 
             _targetPos.transform.position = v3_targetPos;

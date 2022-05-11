@@ -22,6 +22,8 @@ public class outerAI : MonoBehaviour
                                    //16 = human-made building
                                    //21 = building material
 
+    public int pollutionRate; // if higher, then... the baseline is 5
+    public int MaxPollution; // can be modified during game starting
 
     GameObject _t_month;
     GameObject _t_temperature;
@@ -77,6 +79,8 @@ public class outerAI : MonoBehaviour
         //npcs
         //nest
         //...?
+
+        pollutionRate = Random.Range(0, MaxPollution);
     }
 
     void Update()
@@ -85,7 +89,10 @@ public class outerAI : MonoBehaviour
         _t_temperature.GetComponent<TMPro.TextMeshProUGUI>().text = "C : " + temperature;
         _t_turn.GetComponent<TMPro.TextMeshProUGUI>() .text = "Turn: " + _turnBased.GetComponent<turnBased>().turn;
 
-       //print("Gender: " + Panda.Ibis.MyIbis.gender);
+        //print("Gender: " + Panda.Ibis.MyIbis.gender
+        //
+       // print("panda ap: " + Panda.Ibis.MyIbis.actionPoint);
+        _t_actionPoint.GetComponent<TMPro.TextMeshProUGUI>().text = "AP: " + Panda.Ibis.MyIbis.actionPoint;
 
         if (Panda.Ibis.MyIbis.gender ==1)
         { _t_gender.GetComponent<TMPro.TextMeshProUGUI>().text = "´Æ"; }
@@ -111,7 +118,8 @@ public class outerAI : MonoBehaviour
         { _t_mate.GetComponent<TMPro.TextMeshProUGUI>().text = "Mate: " + Panda.Ibis.MyIbis.mate.name; }
         if (Panda.Ibis.MyIbis.mate == null)
         { _t_mate.GetComponent<TMPro.TextMeshProUGUI>().text = "Mate: none"; }
-        _t_actionPoint.GetComponent<TMPro.TextMeshProUGUI>().text = "AP: " + Panda.Ibis.MyIbis.actionPoint.ToString();
+
+       
     }
 
     void ibisTranColor() //»»Ã«É«

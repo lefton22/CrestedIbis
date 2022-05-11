@@ -314,7 +314,7 @@ namespace Panda.Ibis
         {
             Debug.Log("trap man goes to a random grid");
 
-            Vector2 v2_des;
+            //Vector2 v2_des;
             v2_des = new Vector2();
 
             //build empty list of grids
@@ -377,6 +377,12 @@ namespace Panda.Ibis
             GameObject trap = Instantiate(Resources.Load("goj/trap")) as GameObject;
             trap.transform.position = _trapMan.transform.position;
             trap.transform.SetParent(GameObject.Find("ObjOnLand").transform);
+            trap.name = "trap";
+
+            // mark on isObjOnLand list
+            int index_Land;
+            index_Land = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_des);
+            _listObjOnLand.isObjOnLand[index_Land] = true;
 
             Debug.Log("trap man sets a trap");
 

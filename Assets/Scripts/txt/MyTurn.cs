@@ -59,6 +59,9 @@ namespace Panda.Ibis
         public bool hasSetPandaActive;
 
         public bool hasSetNPCTreeActive;
+
+        LandGen2 _LandGen2;
+
         void Start()
         {
             cards = new List<GameObject>();
@@ -106,7 +109,7 @@ namespace Panda.Ibis
 
             hasSetNPCTreeActive = false;
 
-
+            _LandGen2 = GameObject.Find("LandGenerator").GetComponent<LandGen2>();
         }
 
 
@@ -118,11 +121,32 @@ namespace Panda.Ibis
 
             foreach (GameObject grid in grids)
             {
-                grid.GetComponent<grid>().polluteThis();
+                if (_outerAI.pollutionRate > 5)   
+                {
+                    int ran;
+                    ran = Random.Range(0, 2);
+                    if (ran> 0)
+                    { grid.GetComponent<grid>().polluteThis(); }
+                }
             }
 
 
             ThisTask.Succeed();
+        }
+
+        [Task]
+        void checkPollution() // check if all lands have polluted,
+                              // -> may change the landtype
+                              // -> may pollute the food(fish, crickets..)
+                              // -> may reduce the quality of the food
+        {
+            foreach (GameObject land in _LandGen2.LandCos_GO)
+            { 
+                land.transform.GetChild(0).GetComponent<grid>().checkHasPolluted();
+            }
+
+           
+
         }
 
         [Task]
@@ -289,7 +313,7 @@ namespace Panda.Ibis
         [Task]
         void ibisAct()
         {
-
+            _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;
 
             if (!hasSetPandaActive)
             {
@@ -314,6 +338,7 @@ namespace Panda.Ibis
         [Task]
         void endThisTurn() // copy this to attached MaxAP
         {
+            _ibisA.GetComponent<Pathfinding.AILerp>().enabled = false;
             _ibisA.GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Clear();
             // _ibisA.GetComponent<PandaBehaviour>().enabled = false;
             foreach (Transform child in _ibisA.transform)

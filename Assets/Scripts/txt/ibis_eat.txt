@@ -14,6 +14,9 @@ tree("Root")
 						   seekFood()
 						   Wait(120) 
 
+						   checkItemsOnLand() 
+						   Wait(10)
+
 						   eat()
 						   Wait(120)
 
