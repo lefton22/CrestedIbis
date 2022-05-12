@@ -6,17 +6,21 @@ tree("Root")
 						checkNest()   // 有巢没
 						Wait(10)
 
-						checkNestFinished()
-						Wait(10)
-
 						Next()
 
-					sequence //加具体内容
+					fallback //加具体内容
+								 sequence
+										 checkNestFinished()
+										Wait(10)
+
+										Next()
+
+								 sequence
 	    
-						 goToNest() // go to the nest
-						 Wait(140)
+										 goToNest() // go to the nest
+										 Wait(140)
 
-						 rest() //sleep
-						 Wait(140)
+										 rest() //sleep
+										 Wait(140)
 
-						 Next()
+										 Next()

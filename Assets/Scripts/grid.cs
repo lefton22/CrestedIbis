@@ -97,35 +97,36 @@ public class grid : MonoBehaviour
                                       // -> may pollute the food(fish, crickets..)
                                       // -> may reduce the quality of the food
     {
-        if (hasPolluted)
-        {
-            print(gameObject.name + " has checked as being polluted.");
-            //change the sprite
-
-
-            //change the landtype
-            if (landType == 3 || landType == 4)
-            {
-                landType = 8;
-            }
-
-            //pollute the food
-            Vector2 v2_thisLand;
-            v2_thisLand = transform.parent.gameObject.GetComponent<genPos>().thisCo;
-
-            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
-            {
-                if (child.gameObject.name == "crucian")
+                if (hasPolluted)
                 {
-                    // obj's sprite change
-                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.3f, 0.5f, 1);
+                    print(gameObject.name + " has checked as being polluted.");
+                    //change the sprite
 
-                    // obj's food's rich change; isToxic = true
-                    child.gameObject.GetComponent<objFood>().getPolluted();
+
+                    //change the landtype
+                    if (landType == 3 || landType == 4)
+                    {
+                        landType = 8;
+                    }
+
+                    //pollute the food
+                    Vector2 v2_thisLand;
+                    v2_thisLand = transform.parent.gameObject.GetComponent<genPos>().thisCo;
+
+                    foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+                    {
+                        if (child.gameObject.GetComponent <objV2Pos>().thisV2
+                              == v2_thisLand && child.gameObject.tag == "food")
+                        {
+                            // obj's sprite change
+                            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.3f, 0.5f, 1);
+
+                            // obj's food's rich change; isToxic = true
+                            child.gameObject.GetComponent<objFood>().getPolluted();
+                        }
+                    }
+
                 }
-            }
-
-        }
     }
 
     public void getNPCPolluted() // NPC, obj get effect from the pollution
@@ -136,5 +137,11 @@ public class grid : MonoBehaviour
             
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    { }
+
+    void OnCollisionExit(Collision collision)
+    { }
 
 }

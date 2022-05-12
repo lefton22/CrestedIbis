@@ -2,26 +2,31 @@ tree("Root")
 
          parallel   //
             sequence // mainly this!
-                
-                pollution()
-                Wait(40)
+                        genIbisA()
+                        Wait(10)
 
-                NPCAct()
-                Wait(40)
+                        pollution()
+                        Wait(1)
 
-                checkAllObjNPC()
-                Wait(40)
+                        NPCAct()
+                        Wait(40)
 
-                dealCards
-                Wait(40)
+                        checkAllObjNPC()
+                        Wait(40)
 
-                drawCards
-                 Wait(40)
+                        dealCards
+                        Wait(40)
 
-                ibisAct
-                 Wait(30)
+                        drawCards
+                        Wait(40)
 
-                endThisTurn
-                 Wait(30)
+                        checkPollution()
+                        Wait(1)
+
+                        ibisAct
+                        Wait(30)
+
+                        endThisTurn
+                        Wait(30)
 
 	//Succeed

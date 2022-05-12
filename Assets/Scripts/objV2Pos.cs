@@ -25,6 +25,8 @@ public class objV2Pos : MonoBehaviour
     void Update()
     {
         transform.localEulerAngles= ori_Rotation;
+
+        
     }
 
     void OnCollisionEnter(Collision collision)

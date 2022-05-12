@@ -126,7 +126,7 @@ namespace Panda.Ibis {
             energy = 1;//0 need to rest, 1 no need 
             isSingle = true;
 
-            actionPoint = 7;
+            actionPoint = 5;
             maxAP = 7;
 
             hasToxic = false;
@@ -211,11 +211,11 @@ namespace Panda.Ibis {
             }
 
 
-            actionPoint = 7- GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>(). landsPassThrough.Count;
+            actionPoint = 5- GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>(). landsPassThrough.Count;
 
 
             if (_turnBased.turn == 1)
-            { actionPoint = 7 - GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Count + 1; }
+            { actionPoint = 5 - GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Count + 1; }
             // else { actionPoint = landsPassThrough.Count; }
 
 

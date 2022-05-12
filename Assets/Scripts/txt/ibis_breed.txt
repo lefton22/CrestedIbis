@@ -10,36 +10,42 @@ tree("Root")
 									Next()
 
 							sequence
-										 fallback
-												 sequence
-														checkNest()
-														Wait(10)
 
-														checkNestFinished()
-														Wait(10)
+										fallback
+												sequence
+													checkNest()
+													Wait(10)
 
-														Next()
+													Next()
 
-												 sequence
-														fallback
-															   sequence
-																		checkBirdling()//添加内容
+												sequence
+															fallback
+																 sequence
+																		checkNestFinished()
 																		Wait(10)
 
 																		Next()
 
-															   sequence
+																sequence
+																	fallback
+																			sequence
+																					checkBirdling()//添加内容
+																					Wait(10)
+
+																					Next()
+
+																			sequence
 											
-																		 seekFood() 
-																		 Wait(120)
+																						seekFood() 
+																						Wait(120)
 
-																		 pickFood()
-																		 Wait(120)
+																						pickFood()
+																						Wait(120)
 
-																		 goToNest()
-																		 Wait(120)
+																						goToNest()
+																						Wait(120)
 
-																		 breed() // feed the baby bird
-																		 Wait(120)
+																						breed() // feed the baby bird
+																						Wait(120)
 
-																		 Next()
+																						Next()

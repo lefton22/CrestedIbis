@@ -4,6 +4,8 @@ using UnityEngine;
 
 using Panda;
 
+using Pathfinding;
+
 //enable this script once new turn start
 
 // deal cards
@@ -114,6 +116,53 @@ namespace Panda.Ibis
 
 
         [Task]
+
+        void genIbisA()// change its position, not gen
+                       //no highHill on
+                       // only the first turn on
+        {
+            hasSetNPCTreeActive = false;
+
+            if (_turnBased.GetComponent<turnBased>().turn == 1)
+            {
+                GameObject[] lands;
+                lands = GameObject.FindGameObjectsWithTag("land");
+
+                
+                List<GameObject> flatLands;
+                flatLands = new List<GameObject>();
+                foreach (GameObject land in lands)
+                {
+                    if (land.transform.GetChild(0).gameObject.name != "highHill" && land.transform.GetChild(0).gameObject.tag == "grid")
+                    {
+                      
+                        if (!flatLands.Contains(land))
+                        { flatLands.Add(land);
+                          
+                        }
+                    }
+                }
+
+                int ran;
+                ran = Random.Range(0, flatLands.Count-1);
+                _ibisA.transform.position = flatLands[ran].transform.position;
+
+
+                // Recalculate the graph
+                AstarPath.active.Scan();
+
+
+            }
+            else { ThisTask.Succeed(); }
+
+
+            // Recalculate the graph
+            AstarPath.active.Scan();
+
+            ThisTask.Succeed();
+        }
+
+        [Task]
         void pollution()
         {
             GameObject[] grids;
@@ -131,28 +180,58 @@ namespace Panda.Ibis
             }
 
 
+            //de active all "Snap To " of obj  under "objOnland"
+
+            List<GameObject> objs;
+            objs = new List<GameObject>();
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+            {
+                
+                if (child.gameObject.GetComponent<SnapToNode>() )
+                { child.gameObject.GetComponent<SnapToNode>().enabled = false; }
+            }
+            _ibisA.GetComponent<SnapToNode>().enabled = false;
+
+            // Recalculate the graph
+            AstarPath.active.Scan();
+
             ThisTask.Succeed();
         }
 
         [Task]
-        void checkPollution() // check if all lands have polluted,
+        void checkPollution()  // should be draw the cards
+                                       // check if all lands have polluted,
                               // -> may change the landtype
                               // -> may pollute the food(fish, crickets..)
                               // -> may reduce the quality of the food
         {
+
+
+
             foreach (GameObject land in _LandGen2.LandCos_GO)
             { 
                 land.transform.GetChild(0).GetComponent<grid>().checkHasPolluted();
             }
 
-           
+            ThisTask.Succeed();
 
         }
 
         [Task]
         void NPCAct()
         {
-            print("turnBased: new turn start.");
+            
+
+            //active all "Snap To " of obj  under "objOnland"
+
+            List<GameObject> objs;
+            objs = new List<GameObject>();
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+            {
+                if (child.gameObject.GetComponent<SnapToNode>())
+                { child.gameObject.GetComponent<SnapToNode>().enabled = true; }
+            }
+            //_ibisA.GetComponent<SnapToNode>().enabled = true;
 
             _myIbis.setIsObjOnLand();
 
@@ -177,6 +256,8 @@ namespace Panda.Ibis
                 npcOrder_trapMan.GetComponent<PandaBehaviour>().enabled = false;
 
                 hasSetNPCTreeActive = true;
+
+                print("gen npc ai tree");
             }
             /*            if (hasSetNPCTreeActive)
                         {
@@ -186,6 +267,7 @@ namespace Panda.Ibis
 
             if (Panda.Ibis.MyNPC.end)
             {
+
                 GameObject[] npcOrders;
                 npcOrders = GameObject.FindGameObjectsWithTag("npcOrder");
                 foreach (GameObject npcO in npcOrders)
@@ -212,6 +294,12 @@ namespace Panda.Ibis
 
                         //only for test*/
 
+            //de active all "Snap To " of obj  under "objOnland"
+
+
+            // Recalculate the graph
+            AstarPath.active.Scan();
+
             ///// Top// check the egg // ///////
             if (Panda.Ibis.MyIbis.eggs.Count > 0)  // if the egg can hatch, hatch them into baby ibis
             {
@@ -225,6 +313,9 @@ namespace Panda.Ibis
 
             ThisTask.Succeed();
         }
+
+
+
 
         [Task]
         void dealCards()

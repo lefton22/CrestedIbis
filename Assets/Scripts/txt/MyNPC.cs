@@ -214,6 +214,8 @@ namespace Panda.Ibis
                 {
                     am_egret = am_egret + 1;
                     _egret = child.gameObject;
+
+                    print("egret +1");
                 }
             }
             if (am_egret > 0)
@@ -228,7 +230,7 @@ namespace Panda.Ibis
         {
 
             v2_des = NearGrid1(_egret.GetComponent<objV2Pos>().thisV2);
-            Debug.Log("ibis wander to: " + v2_des);
+            Debug.Log("egret wander to: " + v2_des);
 
             ThisTask.Succeed();
 
@@ -237,6 +239,8 @@ namespace Panda.Ibis
         [Task]
         void egret_wander()
         {
+            _egret.GetComponent<SnapToNode>().enabled = false;
+
             int index_v2;
             index_v2 = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_des);
             Vector3 v3;
@@ -250,7 +254,7 @@ namespace Panda.Ibis
 
             if (v2_egret == v2_des)
             {
-
+                _egret.GetComponent<SnapToNode>().enabled =true;
                 ThisTask.Succeed();
             }
         }
