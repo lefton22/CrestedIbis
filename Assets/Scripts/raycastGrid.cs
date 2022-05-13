@@ -152,4 +152,14 @@ public class raycastGrid : MonoBehaviour
             goj.SetActive(true);
         }
     }
+
+
+
+    void OnCollisionEnter(Collision collision)
+    {
+         Debug.Log( gameObject.name +"'s collision: " +collision.gameObject.name);
+    }
+
+    void OnCollisionExit(Collision collision)
+    { }
 }

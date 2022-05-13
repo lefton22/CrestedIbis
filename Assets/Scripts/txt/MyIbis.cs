@@ -81,6 +81,8 @@ namespace Panda.Ibis {
 
         turnBased _turnBased;
 
+        allCheck _allCheck;
+
 
         public GameObject _eat;
         public GameObject _goToOpIbis;
@@ -195,6 +197,7 @@ namespace Panda.Ibis {
 
             _turnBased = GameObject.Find("TurnBased").GetComponent<turnBased>();
 
+            _allCheck = GameObject.Find("AllCheck").GetComponent<allCheck>();
 
 
 
@@ -291,7 +294,8 @@ namespace Panda.Ibis {
 
             // v2_allIbils.Add(gameObject.GetComponent<objV2Pos>().thisV2);
             // print(gameObject.GetComponent<objV2Pos>().thisV2);
-            v2_allIbils.Add(new Vector2(0f, 0f));// 设ibisA初始在正中央。因代码执行顺序原因第一次运行程序时采不到ibisA坐标
+
+           // v2_allIbils.Add(new Vector2(0f, 0f));// 设ibisA初始在正中央。因代码执行顺序原因第一次运行程序时采不到ibisA坐标
             for (int i = 0; i < _listObjOnLand.NPCibisOnLand.Count; i++)
             {
                 if (!v2_allIbils.Contains(_listObjOnLand.NPCibisOnLand[i].GetComponent<objV2Pos>().thisV2))
@@ -355,7 +359,19 @@ namespace Panda.Ibis {
         [Task]
         void seekFood()
         {
+            _listObjOnLand.foodOnLand.Clear();
+            _listObjOnLand.foodOnLand_GO.Clear();
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+            {
+                if (child.gameObject.tag == "food" && !_listObjOnLand.foodOnLand_GO.Contains(child.gameObject))
+                {
+                    _listObjOnLand.foodOnLand_GO.Add(child.gameObject);
 
+                    if (!_listObjOnLand.foodOnLand.Contains(child.gameObject.GetComponent<objV2Pos>().thisV2))
+                    { _listObjOnLand.foodOnLand.Add(child.gameObject.GetComponent<objV2Pos>().thisV2);}
+                }
+            }
+                  
                 //seek all food obj in the scene
                 v2_foods_l = new List<Vector2>(_listObjOnLand.foodOnLand);
 
@@ -381,15 +397,34 @@ namespace Panda.Ibis {
 
                 if (transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 == v2_nearestFood) //暂
                 {
-                  //  Debug.Log("seek food succeed.");
+                    //  Debug.Log("seek food succeed.");
+
+                    // add ibisA's v2 to the land grid's list and check
+                    addIbisOnCurrentLand();
+
                     ThisTask.Succeed();
                 }
 
 
                 // Debug.Log("speed: "+ gameObject.GetComponent<Pathfinding.AILerp>().speed);
-            
-
         }
+
+
+        void addIbisOnCurrentLand()
+        {
+            Vector2 this_v2;
+            this_v2 = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
+            int inOf;
+            inOf = _LandGen2.LandCos.IndexOf(this_v2);
+            if (!_LandGen2.LandCos_GO[inOf].GetComponent<genPos>().OnThis.Contains(transform.parent.gameObject))
+            {
+                _LandGen2.LandCos_GO[inOf].GetComponent<genPos>().OnThis.Add(transform.parent.gameObject);
+            }
+
+            // then check 
+            _allCheck.check2NpcOnOneGrid(_LandGen2.LandCos_GO[inOf].GetComponent<genPos>().OnThis);
+        }
+
         void seekForFoodJantoJun()//觅食。水田里有泥鳅、田螺、黄鳝、青蛙以及软体动物。
                                   //河滩中有鱼、虾、螺、蟹及贝类等食物
         {
@@ -666,6 +701,9 @@ namespace Panda.Ibis {
             {
                 Debug.Log("end4.");
 
+                // add ibisA's v2 to the land grid's list and check
+                addIbisOnCurrentLand();
+
                 lightGoToOpIbis();
                 ThisTask.Succeed();
             }
@@ -733,6 +771,9 @@ namespace Panda.Ibis {
             {
                 Debug.Log("reach to mate.");
 
+                // add ibisA's v2 to the land grid's list and check
+                addIbisOnCurrentLand();
+
                 ThisTask.Succeed();
             }
         }
@@ -760,359 +801,8 @@ namespace Panda.Ibis {
 
         }
 
-        [Task]
-        void goToOpSex()
-        {
-            bool isNoOtherNPCIbis;
-            isNoOtherNPCIbis = false;
 
-            // GameObject targetIbis;
 
-            int ran_index;
-            ran_index = -1;
-
-            //print("1");
-            if (gender == 2)
-            {
-                //print("2");
-                if (isSingle)
-                {
-                   // print("3");
-                    //if an op sex ibis
-                    if (_listObjOnLand.NPCibisOnLand.Count > 0)
-                    {
-                        bool allSameSex;
-                        allSameSex = true;
-
-                        bool allSingle;
-                        allSingle = true;
-                        int am_single;
-                        am_single = 0;
-
-                      //  print("4");
-                        for (int i = 0; i < _listObjOnLand.NPCibisOnLand.Count; i++)
-                        {
-                            if (_listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender == 1)//若为雌
-                            {
-                                /*                               foreach (GameObject goj in opSexNPCIbis)
-                                                               {
-                                                                   print(goj.name);
-                                                               }*/
-                                allSameSex = false;
-
-                              //  print("5");
-                                if (!opSexNPCIbis.Contains(_listObjOnLand.NPCibisOnLand[i]))//添加进雌性list
-                                {
-                                  //  print("6");
-                                    opSexNPCIbis.Add(_listObjOnLand.NPCibisOnLand[i]);
-                                    //  Debug.Log("end1. count: " + _listObjOnLand.NPCibisOnLand.Count);
-
-
-                                    ran_index = Random.Range(0, opSexNPCIbis.Count);
-                                    // targetIbis = opSexNPCIbis[ran_index];
-                                    if (opSexNPCIbis[ran_index].GetComponent<NPCIbis>().isSingle)
-                                    {
-                                      //  print("7");
-                                       am_single = am_single+1;
-
-                                        if (ran_index > -1)
-                                        {
-                                        //    print("8");
-                                            choosenIbis = opSexNPCIbis[ran_index];
-                                           // choosenIbis.GetComponent<NPCIbis>().isSingle = false;
-
-                                            Debug.Log("end1, " + "which ibis NPC : " + ran_index + " , " + opSexNPCIbis.Count + " , " + opSexNPCIbis[ran_index]);
-                                            // isNoOtherNPCIbis = false;
-                                        }
-                                    }
-                                    else
-                                    {
-/*                                        allSingle = true;
-                                        print("all single");*/
-                                       // isNoOtherNPCIbis = true;
-                                    }
-
-                                }
-                                if (opSexNPCIbis.Contains(_listObjOnLand.NPCibisOnLand[i]))
-                                {
-                                    am_single = am_single + 1;
-                                }
-
-                            }
-                            else//若其中一只为同性 
-                            {
-                                //nothing happens
-                            }
-                        }
-                        if (choosenIbis == null)
-                        {
-                            isNoOtherNPCIbis = true;
-                            print("no other NPC ibis");
-                        }
-                        //choose one op sex ibis
-
-                        //get pos of this ibis
-
-                        if (allSameSex)
-                        {
-                            isNoOtherNPCIbis = true;
-                            print("all same sex");
-                            ThisTask.Fail();
-                        }
-
-                        print("amount of single: " + am_single);
-                        if (am_single == 0)
-                        { allSingle = true; }
-                        else { allSingle = false; }
-
-                        if (allSingle)
-                        {
-                            print("all single");
-                            isNoOtherNPCIbis = true;
-                            ThisTask.Fail(); 
-                        }
-                    }
-                    else
-                    {
-                        Debug.Log("no other NPC ibis.");
-                        isNoOtherNPCIbis = true;
-
-                        ThisTask.Fail();
-                    }
-                }
-                else // this ibis is not single
-                {
-                    Debug.Log(" THIS ibis is not single.");
-                    if (_listObjOnLand.NPCibisOnLand.Count > 0)
-                    {
-                        bool allSameSex;
-                        allSameSex = true;
-
-                        for (int i = 0; i < _listObjOnLand.NPCibisOnLand.Count; i++)
-                        {
-
-                            if (_listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender ==1)//若为异性
-                            {
-                                allSameSex = false;
-                                opSexNPCIbis.Add(_listObjOnLand.NPCibisOnLand[i]);
-                                //  Debug.Log("end1. count: " + _listObjOnLand.NPCibisOnLand.Count);
-
-                                ran_index = Random.Range(0, opSexNPCIbis.Count);
-                                // targetIbis = opSexNPCIbis[ran_index];
-
-
-                                if (ran_index > -1)
-                                {
-
-                                    choosenIbis = opSexNPCIbis[ran_index];
-
-                                    //  Debug.Log("end2, " + "which ibis NPC : " + ran_index + " , " + opSexNPCIbis.Count + " , " + opSexNPCIbis[ran_index]);
-
-                                    isGoToOpSexNotSingleMeetOp = true;
-                                }
-
-                            }
-                            else //若其中一只为同性 
-                            {
-                                //nothing happens
-                            }
-                        }
-                        if (allSameSex)
-                        {
-                            print("not S: all same sex");
-                            isNoOtherNPCIbis = true;
-                            ThisTask.Fail();
-                        }
-
-                    }
-                    else// not single, no other ibis on the map 
-                    {
-                        print("not S:all same sex");
-                        isNoOtherNPCIbis = true;
-                        ThisTask.Fail(); }
-                }
-            }
-
-            if (gender == 1)
-            {
-
-            }
-
-            if (!isNoOtherNPCIbis)
-            {
-                //Refresh the NPC ibis info
-                foreach (GameObject ibis in _listObjOnLand.NPCibisOnLand)
-                {
-                    ibis.transform.GetChild(0).gameObject.GetComponent<getInfo>().ResetProperties();
-                }
-
-                seekLocation(choosenIbis.transform.position);
-
-                Vector2 v2_ibisB;
-                Vector2 v2_ibisA;
-                v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
-                v2_ibisB = choosenIbis.GetComponent<objV2Pos>().thisV2;
-
-                Debug.Log("end3: " + choosenIbis.name);
-
-                choosenIbis.transform.GetChild(0).gameObject.GetComponent<getInfo>().ResetProperties();
-
-                if (v2_ibisA == v2_ibisB)//ibisA reach ibisB
-                {
-                    Debug.Log("end4.");
-                    isGoToOpSexSingleMeetOp = true;
-
-                    lightGoToOpIbis();
-                    ThisTask.Succeed();
-                }
-
-            }
-
-            if (isNoOtherNPCIbis)
-            {
-                //  print("end5");
-
-                // lightGoToOpIbis();
-                // ThisTask.Succeed();
-                ThisTask.Fail();
-            }
-/*            if (isGoToOpSexNotSingleMeetOp)///???
-            {
-                //print("end6");
-
-                lightGoToOpIbis();
-                ThisTask.Succeed(); 
-            }*/
-
-        }
-
-
-        [Task]
-        void actAfterMeetOpSex() // for courtship after reach this ibis
-        {
-            if (choosenIbis != null)
-            {
-                //Debug.Log("meet1. choosenibis: " +  choosenIbis.name);
-
-                Vector2 ori_ibis;
-                ori_ibis = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
-
-                if (choosenIbis.GetComponent<NPCIbis>().isSingle)
-                {
-                    // Debug.Log("meet2.");
-                    if (isSingle)
-                    {
-                        //   Debug.Log("meet3.");
-                        //set THIS ibis and its mate not single
-
-
-
-                        // play ani
-                        transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_courtship");
-
-                           Debug.Log("meet4.");
-                        //after playing the ani, task succeed
-                        if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasCourtship"))
-                        {
-                            Debug.Log("meet5.");
-
-                            choosenIbis.GetComponent<NPCIbis>().isMate = true;
-                            choosenIbis.GetComponent<NPCIbis>().mate = transform.parent.gameObject;
-                            choosenIbis.GetComponent<NPCIbis>().isSingle = false;
-                            choosenIbis.transform.GetChild(0).GetComponent<getInfo>().ResetProperties();
-
-                            isSingle = false;
-                            Panda.Ibis.MyIbis.mate = choosenIbis;
-
-
-                            isCourtship = true;
-                            ThisTask.Succeed();
-                        }
-                    }
-/*                    if (!isSingle && MyIbis.mate == choosenIbis)
-                    {
-                        // play the courtship ani
-                        //ani.Play("ibis_courtship");
-                        // ?--> mate ?
-                        isCourtship = true;
-
-
-                        //after playing the ani, task succeed
-                        *//*                            if (ani.GetBool("hasCourtship"))
-                                                    {
-                                                        ThisTask.Succeed();
-                                                    }*//*
-                    }*/
-
-                }
-
-                if (!choosenIbis.GetComponent<NPCIbis>().isSingle && choosenIbis.GetComponent<NPCIbis>().mate != transform.parent.gameObject)  //与情敌在同一地方时
-                {
-                    if (choosenIbis.GetComponent<NPCIbis>().mate &&
-                        choosenIbis.GetComponent<NPCIbis>().mate.GetComponent<objV2Pos>().thisV2 == gameObject.GetComponent<objV2Pos>().thisV2)
-                    {
-                    // play the battle ani
-                    // some properties reduces
-                    // go to a nearby grid
-
-                    Vector2 nearby;
-                    float n1; n1 = Random.Range(-1, 1);
-                    float n2; n2 = Random.Range(-1, 1);
-                    nearby = new Vector2(ori_ibis.x + n1, ori_ibis.y + n2);
-
-                    Debug.Log("not single, and then love rivail is here too, go nearby.");
-
-                    seekLocation(nearby);
-
-                    if (transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 == nearby)
-                    {
-                        ThisTask.Succeed();
-                    }
-                    }
-                }
-            }
-
-            if (choosenIbis == null)
-            {
-                ThisTask.Fail();
-            }
-
-        }
-
-/*        [Task]
-        void checkIsCourtship()
-        {
-            if (!isCourtship)
-            {
-                ThisTask.Succeed();
-            }
-            else { ThisTask.Fail(); }
-        }*/
-
-/*        [Task]
-        void mateWith()
-        {
-            if (isCourtship)
-            {
-                // play produce ani (egg)
-                transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_produceEggs");
-
-                //Succeed
-                if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasProducedEggs"))
-                {
-                    lightMate();
-
-                    isMate = true;
-                    ThisTask.Succeed();
-                }
-
-            }
-            if (!isCourtship)
-            {
-                //Succeed
-                ThisTask.Succeed();
-            }
-        }*/
 
         [Task]
         void comb()
@@ -1234,6 +924,9 @@ namespace Panda.Ibis {
                 {
                     Debug.Log("reach to a material.");
 
+                    // add ibisA's v2 to the land grid's list and check
+                    addIbisOnCurrentLand();
+
                     if (materials[ran].name == "twig") { hasBringTwig = true; }
                     if (materials[ran].name == "liana") { hasBringLiana = true; }
 
@@ -1272,6 +965,9 @@ namespace Panda.Ibis {
             if (v2_ibisA == v2_nest)//ibisA reach the nest
             {
                 // Debug.Log("reach to a nest.");
+
+                // add ibisA's v2 to the land grid's list and check
+                addIbisOnCurrentLand();
 
                 currentNest = nests[ran];
 
@@ -1528,6 +1224,7 @@ namespace Panda.Ibis {
         [Task]
         void endTurn()
         {
+            transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
 
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
             print("end turn  ");
@@ -1919,6 +1616,7 @@ namespace Panda.Ibis {
             _spawn.SetActive(false);
             _incubate.SetActive(false);
             _rest.SetActive(false);
+            _breed.SetActive(false);
 
             _dot.transform.DOLocalMoveX(-916f, 1f);
         }

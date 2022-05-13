@@ -22,7 +22,8 @@ namespace Panda.Ibis
 
         GameObject _disappearLand;
 
-        GameObject _egret;
+         GameObject _egret;
+        //List<GameObject> _egrets;
 
         Vector2 v2_des;
 
@@ -46,7 +47,9 @@ namespace Panda.Ibis
 
             _listObjOnLand = GameObject.Find("Lists").GetComponent<listObjOnLand>();
 
-           // v3_trapMan = new Vector3();
+            // v3_trapMan = new Vector3();
+
+            //_egrets = new List<GameObject>();
 
         }
 
@@ -245,6 +248,8 @@ namespace Panda.Ibis
             index_v2 = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_des);
             Vector3 v3;
             v3 = _LandGenerator.GetComponent<LandGen2>().LandV3s[index_v2];
+
+            print("egret: " + _egret.name +" , v3: " + v3 );
             seekLocation(_egret, v3);
 
             Vector2 v2_egret;

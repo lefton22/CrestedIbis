@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rich: 0
   land: 
+  isToxic: 0
 --- !u!114 &-2412785568091603607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99b2474f5994674584111b0051963ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whichNPC: egret
+  whichNPC: 
 --- !u!114 &7338731357361081475
 MonoBehaviour:
   m_ObjectHideFlags: 0

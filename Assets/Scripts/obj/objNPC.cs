@@ -21,7 +21,7 @@ public class objNPC : MonoBehaviour
 
     void checkWhichNPC()
     {
-        if (whichNPC == "egret")
+        if (name == "egret")
         {
             objEgret sc = gameObject.AddComponent<objEgret>() as objEgret;
 
@@ -34,6 +34,7 @@ public class objNPC : MonoBehaviour
             MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
 
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/egret");
+
            // transform.localScale = new Vector3(1f, 1f,1f);
             name = "egret";
 
@@ -42,7 +43,7 @@ public class objNPC : MonoBehaviour
         {
             objJackDaw sc = gameObject.AddComponent<objJackDaw>() as objJackDaw;
         }*/
-        if (whichNPC == "snake")
+        if (name == "snake")
         {
             objSnake sc = gameObject.AddComponent<objSnake>() as objSnake;
 
@@ -63,7 +64,7 @@ public class objNPC : MonoBehaviour
                     objEagle sc = gameObject.AddComponent<objEagle>() as objEagle;
                 }*/
 
-        if (whichNPC == "trapMan")
+        if (name == "trapMan")
         {
             objTrapMan sc = gameObject.AddComponent<objTrapMan>() as objTrapMan;
 
@@ -82,13 +83,13 @@ public class objNPC : MonoBehaviour
         }
 
 
-        if (whichNPC == "ibisAdult")
+        if (name == "ibisAdult")
         {
             objIbisAdult sc = gameObject.AddComponent<objIbisAdult>() as objIbisAdult;
 
-            GameObject ibisNPC = Instantiate(Resources.Load("ibisB")) as GameObject;
+/*            GameObject ibisNPC = Instantiate(Resources.Load("ibisB")) as GameObject;
             ibisNPC.transform.SetParent(gameObject.transform);
-            ibisNPC.transform.position = gameObject.transform.position;
+            ibisNPC.transform.position = gameObject.transform.position;*/
 
             Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
             Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;

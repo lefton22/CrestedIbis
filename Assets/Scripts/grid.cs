@@ -139,7 +139,9 @@ public class grid : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision)
-    { }
+    {
+       // Debug.Log( gameObject.name +"'s collision: " +collision.gameObject.name);
+    }
 
     void OnCollisionExit(Collision collision)
     { }

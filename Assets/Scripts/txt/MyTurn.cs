@@ -64,6 +64,8 @@ namespace Panda.Ibis
 
         LandGen2 _LandGen2;
 
+        allCheck _allCheck;
+
         void Start()
         {
             cards = new List<GameObject>();
@@ -112,6 +114,8 @@ namespace Panda.Ibis
             hasSetNPCTreeActive = false;
 
             _LandGen2 = GameObject.Find("LandGenerator").GetComponent<LandGen2>();
+
+            _allCheck = GameObject.Find("AllCheck").GetComponent<allCheck>();
         }
 
 
@@ -220,7 +224,8 @@ namespace Panda.Ibis
         [Task]
         void NPCAct()
         {
-            
+
+          
 
             //active all "Snap To " of obj  under "objOnland"
 
@@ -256,6 +261,8 @@ namespace Panda.Ibis
                 npcOrder_trapMan.GetComponent<PandaBehaviour>().enabled = false;
 
                 hasSetNPCTreeActive = true;
+
+                Panda.Ibis.MyNPC.end = false;
 
                 print("gen npc ai tree");
             }
@@ -386,16 +393,19 @@ namespace Panda.Ibis
                 {
                     Destroy(child.gameObject);
                 }
-/*                foreach (Transform child in GameObject.Find("ObjOnLand").transform)
-                {
-                    if (child.transform.gameObject.tag == "food" || child.transform.gameObject.tag == "egg" ||
-                        child.transform.gameObject.tag == "nest" || child.transform.gameObject.tag == "ibis" ||
-                        child.transform.gameObject.tag == "npc" || child.transform.gameObject.tag == "humanStaff" ||
-                        child.transform.gameObject.tag == "material")
-                    {
-                        //Destroy(child.gameObject);
-                    }
-                }*/
+                /*                foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+                                {
+                                    if (child.transform.gameObject.tag == "food" || child.transform.gameObject.tag == "egg" ||
+                                        child.transform.gameObject.tag == "nest" || child.transform.gameObject.tag == "ibis" ||
+                                        child.transform.gameObject.tag == "npc" || child.transform.gameObject.tag == "humanStaff" ||
+                                        child.transform.gameObject.tag == "material")
+                                    {
+                                        //Destroy(child.gameObject);
+                                    }
+                                }*/
+
+                //
+                _allCheck.checkNpcIbisOnAllGrids();
 
                     ThisTask.Succeed();
             }

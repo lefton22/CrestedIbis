@@ -117,13 +117,13 @@ public class dragCard : MonoBehaviour
 
     private void OnMouseUp() // 鼠标起来的时候
     {
-        print("card land -3.");
+        ///print("card land -3.");
         for (int i = 0; i < _LandGen2.LandCos_GO.Count; i++)
         {
-            print("card land -2.");
+          //  print("card land -2.");
             _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
 
-            print("card land -1.");
+         //   print("card land -1.");
         }
         // delete the card objects
         // set the env object on the grid 
@@ -135,12 +135,12 @@ public class dragCard : MonoBehaviour
 
         if (turnBased.MouseUp_currentLand)
         {
-            print("card land 0.");
+          //  print("card land 0.");
             /////check if there is obj on the land to prevent from overlapping
             transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>().thisV2 =
             turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //物品着陆
 
-            print("card land 1.");
+         //   print("card land 1.");
 
             int index_ifObj;
             index_ifObj = -1;

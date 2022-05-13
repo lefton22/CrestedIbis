@@ -25,7 +25,7 @@ public class genPos : MonoBehaviour
         public GameObject g6;*/
 
 
-
+    public List<GameObject> OnThis;
 
 
 
