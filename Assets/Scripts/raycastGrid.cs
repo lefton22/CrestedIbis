@@ -23,6 +23,8 @@ public class raycastGrid : MonoBehaviour
     public GameObject _canHumanStuff;
     public GameObject _canBuildingMaterial;
 
+    bool isRightType;
+
     void Start()
     {
         isPunch = false;
@@ -33,6 +35,8 @@ public class raycastGrid : MonoBehaviour
         allCans = new List<GameObject>();
         allCans.Add(_canRichFood); allCans.Add(_canAveFood); allCans.Add(_canPoorFood); allCans.Add(_canNPC);
         allCans.Add(_canNest); allCans.Add(_canHumanStuff); allCans.Add(_canBuildingMaterial);
+
+        isRightType = false;
     }
 
     private void FixedUpdate()
@@ -59,15 +63,21 @@ public class raycastGrid : MonoBehaviour
             {
             if (hit.transform.gameObject.tag == "card")
             {
-                lastHit = hit.transform.gameObject;
+                print("hit : " + hit.transform.gameObject.name);
+                checkCorrectColor(hit);
 
-                turnBased.MouseUp_currentLand = gameObject;
+                if (isRightType)
+                {
+                    lastHit = hit.transform.gameObject;
 
-                turnBased.MouseOver_currentLand = gameObject;  // when exit all grids, should be null
+                    turnBased.MouseUp_currentLand = gameObject;
 
-                // Debug.Log(gameObject.name + " is in the ray with... " + lastHit.name);
+                    turnBased.MouseOver_currentLand = gameObject;  // when exit all grids, should be null
 
-                Debug.Log(gameObject.name + " hits " + hit.transform.gameObject.name);
+                    // Debug.Log(gameObject.name + " is in the ray with... " + lastHit.name);
+
+                    Debug.Log(gameObject.name + " hits " + hit.transform.gameObject.name);
+                }
 
                 //Notification of Canput obj type
 
@@ -98,7 +108,7 @@ public class raycastGrid : MonoBehaviour
                     showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canHumanMade, _canHumanStuff);
                     showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canBuildingMaterial, _canBuildingMaterial);*/
 
-                if (lastHit.tag == "card" && !isPunch)
+                if (lastHit && lastHit.tag == "card" && !isPunch)
                 {
                     transform.DOPunchScale(new Vector3(1.1f, 1.1f, 1.1f), 0.4f, 5, 1);
                     isPunch = true;
@@ -154,6 +164,58 @@ public class raycastGrid : MonoBehaviour
     }
 
 
+    void checkCorrectColor(RaycastHit _hit)
+    {
+        ///Start
+        //// check if it was the right land to put the right stuff on
+        //  if (transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>)
+
+        grid _grid;
+        _grid = gameObject.transform.GetChild(0).gameObject. GetComponent<grid>(); //grids 
+        if (_hit.transform.GetChild(0).transform.gameObject.GetComponent<whichObj>().which == 1)
+        {
+            if (_grid.canRichFood  && _hit.transform.GetChild(0).transform.gameObject.GetComponent<objFood>().rich == 3 )
+            {
+                //    print("rich food.");
+                isRightType = true;
+            }
+            if (_grid.canAveFood && _hit.transform.GetChild(0).transform.gameObject.GetComponent<objFood>().rich == 2)
+            {
+                //     print("ave food.");
+                isRightType = true;
+            }
+            if (_grid.canPoorFood && _hit.transform.GetChild(0).transform.gameObject.GetComponent<objFood>().rich == 1)
+            {
+                //     print("poor food.");
+                isRightType = true;
+            }
+
+        }
+
+        if (_hit.transform.GetChild(0).transform.gameObject.GetComponent<whichObj>().which == 2 && _grid.canNPC)
+        {
+            //      print("npc.");
+            isRightType = true;
+        }
+        if (_hit.transform.GetChild(0).transform.gameObject.GetComponent<whichObj>().which == 3 && _grid.canNest)
+        {
+            //  print("nest.");
+            isRightType = true;
+        }
+        if (_hit.transform.GetChild(0).transform.gameObject.GetComponent<whichObj>().which == 4 && _grid.canHumanMade)
+        {
+            //  print("human-made building.");
+            isRightType = true;
+        }
+        if (_hit.transform.GetChild(0).transform.gameObject.GetComponent<whichObj>().which == 5 && _grid.canBuildingMaterial)
+        {
+            //  print("building material.");
+            isRightType = true;
+        }
+
+        //// check if it was the right land to put the right stuff on
+        ///End
+    }
 
     void OnCollisionEnter(Collision collision)
     {
