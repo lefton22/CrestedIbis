@@ -106,6 +106,8 @@ namespace Panda.Ibis {
 
             gameObject.GetComponent<PandaBehaviour>().enabled = false;
 
+            gameObject.GetComponent<MyIbis_begin>().enabled = false;
+
             print("next");
 
             ThisTask.Succeed();

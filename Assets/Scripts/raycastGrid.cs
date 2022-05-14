@@ -63,7 +63,8 @@ public class raycastGrid : MonoBehaviour
             {
             if (hit.transform.gameObject.tag == "card")
             {
-                print("hit : " + hit.transform.gameObject.name);
+             //  print("hit : " + hit.transform.gameObject.name);
+
                 checkCorrectColor(hit);
 
                 if (isRightType)
@@ -76,8 +77,9 @@ public class raycastGrid : MonoBehaviour
 
                     // Debug.Log(gameObject.name + " is in the ray with... " + lastHit.name);
 
-                    Debug.Log(gameObject.name + " hits " + hit.transform.gameObject.name);
+                //    Debug.Log(gameObject.name + " hits " + hit.transform.gameObject.name);
                 }
+                else { lastHit = null; }
 
                 //Notification of Canput obj type
 
@@ -112,6 +114,8 @@ public class raycastGrid : MonoBehaviour
                 {
                     transform.DOPunchScale(new Vector3(1.1f, 1.1f, 1.1f), 0.4f, 5, 1);
                     isPunch = true;
+
+                    print("punch!");
                 }
                     }
 /*                    else
@@ -163,12 +167,14 @@ public class raycastGrid : MonoBehaviour
         }
     }
 
+    
 
     void checkCorrectColor(RaycastHit _hit)
     {
         ///Start
         //// check if it was the right land to put the right stuff on
         //  if (transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>)
+        isRightType = false;
 
         grid _grid;
         _grid = gameObject.transform.GetChild(0).gameObject. GetComponent<grid>(); //grids 
@@ -216,12 +222,12 @@ public class raycastGrid : MonoBehaviour
         //// check if it was the right land to put the right stuff on
         ///End
     }
-
+/*
     void OnCollisionEnter(Collision collision)
     {
          Debug.Log( gameObject.name +"'s collision: " +collision.gameObject.name);
     }
 
     void OnCollisionExit(Collision collision)
-    { }
+    { }*/
 }

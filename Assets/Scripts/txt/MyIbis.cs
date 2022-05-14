@@ -13,6 +13,9 @@ using DG.Tweening;
 namespace Panda.Ibis {
     public class MyIbis : MonoBehaviour
     {
+        //check if the destionation of Target2 has identified.
+        static bool hasCheckDes;
+
         [Header(" ¡ñ Normal Properties")]
         // properties of the bird
         static public int gender;//1Îª´Æ£¬2ÎªÐÛ  // set when game starts, public is comtem...
@@ -105,8 +108,8 @@ namespace Panda.Ibis {
                 //test*/
         void Start()
         {
- /*           if (transform.parent.gameObject.GetComponent<Animator>())
-            { print("ani exist: " + gameObject.name); }*/
+            /*           if (transform.parent.gameObject.GetComponent<Animator>())
+                       { print("ani exist: " + gameObject.name); }*/
 
             /*            t2 = new List<Vector2>();
 
@@ -117,7 +120,7 @@ namespace Panda.Ibis {
                         Debug.Log("get nearest grid: " + getNearestGrid(t1, t2));*/
 
 
-
+            hasCheckDes = false;
 
         /////////////Properties////////////////////
         ////////////////Properties////////////////////
@@ -397,10 +400,12 @@ namespace Panda.Ibis {
 
                 if (transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 == v2_nearestFood) //ÔÝ
                 {
-                    //  Debug.Log("seek food succeed.");
+                //  Debug.Log("seek food succeed.");
 
-                    // add ibisA's v2 to the land grid's list and check
-                    addIbisOnCurrentLand();
+                hasCheckDes = false;
+                
+                // add ibisA's v2 to the land grid's list and check
+                addIbisOnCurrentLand();
 
                     ThisTask.Succeed();
                 }
@@ -435,10 +440,11 @@ namespace Panda.Ibis {
             index_LandCos = _LandGen2.LandCos.IndexOf(v2_nearestFood);
             //Debug.Log("index_LandCos: " + index_LandCos);
 
-            Vector3 food_pos;
-            food_pos = _LandGen2.LandV3s[index_LandCos];
-            //  Debug.Log("food position: " + food_pos);
+                Vector3 food_pos;
 
+                food_pos = _LandGen2.LandV3s[index_LandCos];
+                //  Debug.Log("food position: " + food_pos);
+ 
             seekLocation(food_pos);
 
             //....
@@ -459,9 +465,11 @@ namespace Panda.Ibis {
             //Debug.Log("index_LandCos: " + index_LandCos);
 
             Vector3 food_pos;
-            food_pos = _LandGen2.LandV3s[index_LandCos];
-            //  Debug.Log("food position: " + food_pos);
 
+
+                food_pos = _LandGen2.LandV3s[index_LandCos];
+                //  Debug.Log("food position: " + food_pos);
+    
             seekLocation(food_pos);
         }
 
@@ -519,7 +527,7 @@ namespace Panda.Ibis {
             int amount_food;
             amount_food = _listObjOnLand.foodOnLand.Count;
 
-            print("eat 1");
+            //print("eat 1");
   //          if (_listObjOnLand.foodOnLand_GO.Count > 0)
    //         {
                 //³Ô
@@ -532,20 +540,20 @@ namespace Panda.Ibis {
                 v2_ibis = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
                 index_food = _listObjOnLand.foodOnLand.IndexOf(v2_ibis);
 
-            print("eat 1.2");
+         //  print("eat 1.2");
 
             int index2;
                 index2 = _LandGen2.LandCos.IndexOf(v2_ibis);
                 _listObjOnLand.isObjOnLand[index2] = false;
 
-            print("eat 1.5");
+       //     print("eat 1.5");
             full = full + _listObjOnLand.foodOnLand_GO[index_food].GetComponent<objFood>().rich;
                 if (full > full_max)
                 {
                     full = full_max;
                 }
 
-            print("eat 2");
+        //    print("eat 2");
             //Play pick food animation
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("pickFood");
 
@@ -561,7 +569,7 @@ namespace Panda.Ibis {
                     // ibis' properties change
                     hasToxic = true;
 
-                    print("eat 3");
+              //      print("eat 3");
                 }
 
                 Destroy(_listObjOnLand.foodOnLand_GO[index_food]);
@@ -569,12 +577,12 @@ namespace Panda.Ibis {
                 _listObjOnLand.foodOnLand.Remove(v2_ibis);
                 //  print("has food..");
 
-                print("eat 4");
+             //   print("eat 4");
                 if (_listObjOnLand.foodOnLand.Count < amount_food)
                 {
                  //   print(" < original food amount.");
                     lightEat();
-                    print("eat 5");
+                //    print("eat 5");
                     ThisTask.Succeed();
                 }
             }
@@ -701,6 +709,8 @@ namespace Panda.Ibis {
             {
                 Debug.Log("end4.");
 
+                hasCheckDes = false;
+                
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
 
@@ -771,6 +781,8 @@ namespace Panda.Ibis {
             {
                 Debug.Log("reach to mate.");
 
+                hasCheckDes = false;
+                
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
 
@@ -909,7 +921,8 @@ namespace Panda.Ibis {
             if (materials.Length > 0)
             {
                 int ran;
-                ran = Random.Range(0, materials.Length - 1);
+
+                    ran = Random.Range(0, materials.Length - 1);
 
                 seekLocation(materials[ran].transform.position);
 
@@ -922,6 +935,9 @@ namespace Panda.Ibis {
 
                 if (v2_ibisA == v2_material)//ibisA reach the nest
                 {
+                    hasCheckDes = false;
+                   
+
                     Debug.Log("reach to a material.");
 
                     // add ibisA's v2 to the land grid's list and check
@@ -949,8 +965,8 @@ namespace Panda.Ibis {
             GameObject[] nests;
             nests = GameObject.FindGameObjectsWithTag("nest");
 
-            int ran;
-            ran = Random.Range(0, nests.Length-1);
+                int ran;
+                ran = Random.Range(0, nests.Length - 1);
 
             //print("nests[ran]: " + nests[ran]);
             seekLocation(nests[ran] .transform.position);
@@ -966,6 +982,8 @@ namespace Panda.Ibis {
             {
                 // Debug.Log("reach to a nest.");
 
+                hasCheckDes = false;
+               
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
 
@@ -1224,7 +1242,13 @@ namespace Panda.Ibis {
         [Task]
         void endTurn()
         {
+            GameObject.Find("ibis_begin").GetComponent<MyIbis_begin>().enabled = false;
+            GameObject.Find("ibis_begin").SetActive(false);
+
+            hasCheckDes = false;
+
             transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
+            transform.parent.gameObject.GetComponent<Animator>().enabled = false;
 
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
             print("end turn  ");
@@ -1252,7 +1276,7 @@ namespace Panda.Ibis {
         [Task]
         void Next()
         {
-            print("next");
+            print("next - " + gameObject.name );
 
             GameObject nextChild;
             nextChild = null;
@@ -1282,10 +1306,15 @@ namespace Panda.Ibis {
 
         void seekLocation(Vector3 destination)
         {
-            _targetPos.transform.DOMove(destination, 0.000001f, false);
-            // go 
-            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_walk");
-            _CrestedIbis.ibisMove1();
+/*            if (!hasCheckDes)
+            {*/
+                _targetPos.transform.DOMove(destination, 0.000001f, false);
+                hasCheckDes = true;
+
+                // go 
+                transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_walk");
+                _CrestedIbis.ibisMove1();
+           // }
 
           //  Debug.Log("move to destination: " + destination);
 

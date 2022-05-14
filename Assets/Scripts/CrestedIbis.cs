@@ -10,7 +10,9 @@ public class CrestedIbis : MonoBehaviour
     void Start()
     {
         seeker = GetComponent<Seeker>();
-       
+
+        GetComponent<CapsuleCollider>().enabled = false;
+
     }
     // Update is called once per frame
     void Update()
@@ -32,7 +34,7 @@ public class CrestedIbis : MonoBehaviour
     public void ibisMove1()
     {
         seeker.StartPath(transform.position, targetPos.position);
-       // Debug.Log("ibis move.");
+       // Debug.Log("ibis move 1:" + targetPos.position);
     }
 
     public void OnPathComplete(Path p)

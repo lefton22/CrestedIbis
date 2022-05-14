@@ -12,6 +12,8 @@ namespace Panda.Ibis
     {
        static public bool end;
 
+        static bool hasCheckDes;
+
         GameObject _ObjOnLand;
 
         GameObject _targetPos;
@@ -22,10 +24,11 @@ namespace Panda.Ibis
 
         GameObject _disappearLand;
 
-         GameObject _egret;
-        //List<GameObject> _egrets;
+        // GameObject _egret;
+        List<GameObject> _egrets;
 
         Vector2 v2_des;
+        List<Vector2> v2_dess;
 
         GameObject _LandGenerator;
 
@@ -39,6 +42,8 @@ namespace Panda.Ibis
         {
             end = false;
 
+            hasCheckDes = false;
+
             _ObjOnLand = GameObject.Find("ObjOnLand");
 
             _targetPos = GameObject.Find("Target2");
@@ -49,7 +54,8 @@ namespace Panda.Ibis
 
             // v3_trapMan = new Vector3();
 
-            //_egrets = new List<GameObject>();
+            _egrets = new List<GameObject>();
+            v2_dess = new List<Vector2>();
 
         }
 
@@ -63,7 +69,7 @@ namespace Panda.Ibis
         [Task]
         void checkNoSnake() //没蛇就成功
         {
-            print("check no snake");
+           
             int am_snake;
             am_snake = 0;
             foreach (Transform child in _ObjOnLand.transform)
@@ -77,9 +83,13 @@ namespace Panda.Ibis
             }
             if (am_snake > 0)
             {
+                print("check has snake");
                 ThisTask.Succeed();
             }
-            else { ThisTask.Fail(); }
+            else
+            {
+                print("check no snake");
+                ThisTask.Fail(); }
         }
 
         [Task]
@@ -125,6 +135,7 @@ namespace Panda.Ibis
             {
                 // Debug.Log("reach to a nest.");
 
+                hasCheckDes = false;
                 ThisTask.Succeed();
             }
 
@@ -200,6 +211,7 @@ namespace Panda.Ibis
 
 
                 //after play this ani
+                hasCheckDes = false;
                 Destroy(_snake);
                 ThisTask.Succeed();
             }
@@ -208,32 +220,48 @@ namespace Panda.Ibis
         [Task]
         void checkNoEgret() //没蛇就成功
         {
-            print("check no egret");
-            int am_egret;
-            am_egret = 0;
+           
+            /*            int am_egret;
+                        am_egret = 0;*/
+            _egrets.Clear();
+
             foreach (Transform child in _ObjOnLand.transform)
             {
                 if (child.gameObject.name == "egret")
                 {
-                    am_egret = am_egret + 1;
-                    _egret = child.gameObject;
-
-                    print("egret +1");
+                   // am_egret = am_egret + 1;
+                    if (!_egrets.Contains(child.gameObject))
+                    { //_egret = child.gameObject;
+                        _egrets.Add(child.gameObject);
+                        print("egret +1");
+                    }
                 }
             }
-            if (am_egret > 0)
+         //   if (am_egret > 0)
+                if(_egrets.Count>0)
             {
+                print("check has egret");
                 ThisTask.Succeed();
             }
-            else { ThisTask.Fail(); }
+            else
+            {
+                print("check no egret");
+                ThisTask.Fail(); }
         }
 
         [Task]
         void egret_seekWander() //任意走一格
         {
-
-            v2_des = NearGrid1(_egret.GetComponent<objV2Pos>().thisV2);
-            Debug.Log("egret wander to: " + v2_des);
+            for(int i =0; i<_egrets.Count; i++)
+            {
+                Vector2 c_v2;
+                c_v2 = NearGrid1(_egrets[i].GetComponent<objV2Pos>().thisV2);
+                if (!v2_dess.Contains(c_v2))
+                {
+                    v2_dess.Add( c_v2); 
+                    Debug.Log("egret wander to: " + c_v2);
+                }
+            }
 
             ThisTask.Succeed();
 
@@ -242,24 +270,55 @@ namespace Panda.Ibis
         [Task]
         void egret_wander()
         {
-            _egret.GetComponent<SnapToNode>().enabled = false;
-
-            int index_v2;
-            index_v2 = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_des);
-            Vector3 v3;
-            v3 = _LandGenerator.GetComponent<LandGen2>().LandV3s[index_v2];
-
-            print("egret: " + _egret.name +" , v3: " + v3 );
-            seekLocation(_egret, v3);
-
-            Vector2 v2_egret;
-            v2_egret = _egret.GetComponent<objV2Pos>().thisV2;
-
-            print("v2_egret : " + v2_egret +" , v2_des: " + v2_des);
-
-            if (v2_egret == v2_des)
+            for(int i =0; i < _egrets.Count; i++)// pls use for loop
             {
-                _egret.GetComponent<SnapToNode>().enabled =true;
+                _egrets[i].GetComponent<SnapToNode>().enabled = false;
+
+                int index_v2;
+                index_v2 = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_dess[i]);
+                Vector3 v3;
+                v3 = _LandGenerator.GetComponent<LandGen2>().LandV3s[index_v2];
+
+                print("egret: " + _egrets[i].name + " , v3: " + v3);
+                seekLocation(_egrets[i], v3);
+/*
+                Vector2 v2_egret;
+                v2_egret = _egrets[i].GetComponent<objV2Pos>().thisV2;
+
+                print("v2_egret : " + v2_egret + " , v2_des: " + v2_dess[i]);
+
+                if (v2_egret == v2_dess[i])
+                {
+                    _egrets[i].GetComponent<SnapToNode>().enabled = true;
+                   // ThisTask.Succeed();
+                }*/
+
+            }
+
+            int amount_hasMoved;
+            amount_hasMoved = 0;
+            for (int i = 0; i < _egrets.Count; i++)
+            {
+                Vector2 v2_egret;
+                v2_egret = _egrets[i].GetComponent<objV2Pos>().thisV2;
+
+                print("v2_egret : " + v2_egret + " , v2_des: " + v2_dess[i]);
+
+                bool hasAdd;
+                hasAdd = false;
+                if (v2_egret == v2_dess[i] &&!hasAdd)
+                {
+                    hasCheckDes = false;
+
+                    _egrets[i].GetComponent<SnapToNode>().enabled = true;
+                    amount_hasMoved = amount_hasMoved + 1;
+                    hasAdd = true;
+                    // ThisTask.Succeed();
+                }
+            }
+
+            if (amount_hasMoved == _egrets.Count)
+            {
                 ThisTask.Succeed();
             }
         }
@@ -340,10 +399,10 @@ namespace Panda.Ibis
                 }
             }
 
-            foreach (Vector2 v2 in v2_emptyLands)
+/*            foreach (Vector2 v2 in v2_emptyLands)
             {
                 print("empty grid : " + v2);
-            }
+            }*/
 
             //get the random v3
             int ran;
@@ -372,7 +431,9 @@ namespace Panda.Ibis
 
             if (v2_trapMan == v2_land)//ibisA reach the nest
             {
-                 Debug.Log("reach to a ran grid.");
+                hasCheckDes = false;
+
+                Debug.Log("reach to a ran grid.");
 
                // Destroy(_trapMan);
                 ThisTask.Succeed();
@@ -422,7 +483,7 @@ namespace Panda.Ibis
         [Task]
         void Next()
         {
-            print("next");
+            print("next: " + gameObject.name);
 
             GameObject nextChild;
             nextChild = null;
@@ -449,7 +510,11 @@ namespace Panda.Ibis
         ///
         void seekLocation(GameObject goj, Vector3 destination /*, string ani_name */)
         {
-            _targetPos.transform.DOMove(destination, 0.000001f, false);
+            if (!hasCheckDes)
+            {
+                _targetPos.transform.DOMove(destination, 0.000001f, false);
+                hasCheckDes = true;
+            }
             // go 
             // transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play(ani_name);
            //goj.GetComponent<Animator>().Play(ani_name);

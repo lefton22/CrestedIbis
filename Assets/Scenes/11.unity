@@ -6290,15 +6290,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470620, guid: 556b220813bf1451194acec5abeb55d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1062629
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 470620, guid: 556b220813bf1451194acec5abeb55d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.21121472
+      value: 4.33
       objectReference: {fileID: 0}
     - target: {fileID: 470620, guid: 556b220813bf1451194acec5abeb55d1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.625001
+      value: -6.63
       objectReference: {fileID: 0}
     - target: {fileID: 470620, guid: 556b220813bf1451194acec5abeb55d1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7220,7 +7220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470620, guid: 556b220813bf1451194acec5abeb55d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.83
+      value: -5.14
       objectReference: {fileID: 0}
     - target: {fileID: 470620, guid: 556b220813bf1451194acec5abeb55d1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17020,9 +17020,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 4
   autoRepath:
-    mode: 2
+    mode: 0
     interval: 0.5
-    sensitivity: 10
+    sensitivity: 10.1
     maximumInterval: 2
     visualizeSensitivity: 0
   canMove: 1
@@ -17030,7 +17030,7 @@ MonoBehaviour:
   orientation: 0
   enableRotation: 0
   rotationSpeed: 10
-  interpolatePathSwitches: 1
+  interpolatePathSwitches: 0
   switchPathInterpolationSpeed: 5
   targetCompatibility: {fileID: 0}
   repathRateCompatibility: NaN
@@ -17190,7 +17190,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2006982457}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.52667683
   m_Height: 2.3940172
   m_Direction: 2

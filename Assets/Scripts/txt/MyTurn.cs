@@ -152,16 +152,20 @@ namespace Panda.Ibis
                 _ibisA.transform.position = flatLands[ran].transform.position;
 
 
+               // _ibisA.GetComponent<SnapToNode>().enabled = false;
                 // Recalculate the graph
                 AstarPath.active.Scan();
 
+               // _ibisA.GetComponent<SnapToNode>().enabled = true;
 
             }
             else { ThisTask.Succeed(); }
 
 
+           // _ibisA.GetComponent<SnapToNode>().enabled = false;
             // Recalculate the graph
             AstarPath.active.Scan();
+           // _ibisA.GetComponent<SnapToNode>().enabled = true;
 
             ThisTask.Succeed();
         }
@@ -194,10 +198,12 @@ namespace Panda.Ibis
                 if (child.gameObject.GetComponent<SnapToNode>() )
                 { child.gameObject.GetComponent<SnapToNode>().enabled = false; }
             }
-            _ibisA.GetComponent<SnapToNode>().enabled = false;
+           // _ibisA.GetComponent<SnapToNode>().enabled = false;
+
 
             // Recalculate the graph
             AstarPath.active.Scan();
+          //  _ibisA.GetComponent<SnapToNode>().enabled = true;
 
             ThisTask.Succeed();
         }
@@ -225,7 +231,6 @@ namespace Panda.Ibis
         void NPCAct()
         {
 
-          
 
             //active all "Snap To " of obj  under "objOnland"
 
@@ -303,9 +308,19 @@ namespace Panda.Ibis
 
             //de active all "Snap To " of obj  under "objOnland"
 
+            List<GameObject> objs;
+            objs = new List<GameObject>();
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+            {
+
+                if (child.gameObject.GetComponent<SnapToNode>())
+                { child.gameObject.GetComponent<SnapToNode>().enabled = false; }
+            }
+            //_ibisA.GetComponent<SnapToNode>().enabled = false;
 
             // Recalculate the graph
             AstarPath.active.Scan();
+            
 
             ///// Top// check the egg // ///////
             if (Panda.Ibis.MyIbis.eggs.Count > 0)  // if the egg can hatch, hatch them into baby ibis
@@ -414,7 +429,10 @@ namespace Panda.Ibis
         [Task]
         void ibisAct()
         {
+            _ibisA.GetComponent<Animator>().enabled = true;
             _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;
+            _ibisA.GetComponent<SnapToNode>().enabled = false;
+            _ibisA.GetComponent<CapsuleCollider>().enabled = true;
 
             if (!hasSetPandaActive)
             {
@@ -427,6 +445,9 @@ namespace Panda.Ibis
                 }
 
                 _ibisA.transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().enabled = true;
+
+                GameObject.Find("ibis_begin").SetActive(true);
+                GameObject.Find("ibis_begin").GetComponent<MyIbis_begin>().enabled = true;
                 hasSetPandaActive = true;
             }
             if (hasIbisEnded)
@@ -441,11 +462,13 @@ namespace Panda.Ibis
         {
             _ibisA.GetComponent<Pathfinding.AILerp>().enabled = false;
             _ibisA.GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Clear();
+            _ibisA.GetComponent<CapsuleCollider>().enabled = false;
             // _ibisA.GetComponent<PandaBehaviour>().enabled = false;
             foreach (Transform child in _ibisA.transform)
             {
-                child.gameObject.GetComponent<PandaBehaviour>().Reset();
                 child.gameObject.GetComponent<PandaBehaviour>().enabled = false;
+                child.gameObject.GetComponent<PandaBehaviour>().Reset();
+                
             }
 
             _turnBased.GetComponent<turnBased>().newTurnStart();

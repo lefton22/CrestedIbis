@@ -27,7 +27,8 @@ public class objNPC : MonoBehaviour
 
             Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
             Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
-           faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
+            sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
+            faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
            objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
             // Capsule collider & Rigidbody need to be on the obj
             Animator _ani = gameObject.AddComponent<Animator>() as Animator;
@@ -49,8 +50,9 @@ public class objNPC : MonoBehaviour
 
             Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
             Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
-          //  faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
-           // objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
+            sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
+            //  faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
+            // objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
             // Capsule collider & Rigidbody need to be on the obj
             Animator _ani = gameObject.AddComponent<Animator>() as Animator;
             MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
@@ -70,6 +72,7 @@ public class objNPC : MonoBehaviour
 
             Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
             Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+            sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
             //  faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
             // objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
             // Capsule collider & Rigidbody need to be on the obj
@@ -77,6 +80,8 @@ public class objNPC : MonoBehaviour
             MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
 
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/trapMan");
+
+            GetComponent<CapsuleCollider>().enabled = true;
             transform.localScale = new Vector3(1f, 1f, 1f);
             name = "trapMan";
 
