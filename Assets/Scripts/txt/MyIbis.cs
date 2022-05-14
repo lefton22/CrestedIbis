@@ -244,6 +244,8 @@ namespace Panda.Ibis {
 
                                 Destroy(GameObject.Find("TurnBased").transform.GetChild(0).gameObject);*/
 
+                breakThisTurn();
+/*                //========
                 GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
                 print("end turn ");
                 quenchAllBeBar();
@@ -252,15 +254,29 @@ namespace Panda.Ibis {
 
 
                 GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
+                //===========*/
+
                 //print("hasIbisEnded: " + GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded);
                 // gameObject.GetComponent<PandaBehaviour>().enabled = false;
 
                 //?should be destroyed after this turn?
-               // ThisTask.Succeed();
+                // ThisTask.Succeed();
             }
         }
 
+        public void breakThisTurn()
+        {
+            //========
+            GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
+            print("end turn ");
+            quenchAllBeBar();
+            //end this turn 
+            _targetPos.transform.position = v3_targetPos;
 
+
+            GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
+            //===========
+        }
         bool isFirstHalfYear()
         {
             bool _isFirstHalfYear;

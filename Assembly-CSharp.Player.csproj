@@ -76,6 +76,7 @@
     <Compile Include="Assets\Grid Framework\Examples\Lights Off\Scripts\SwitchManager.cs" />
     <Compile Include="Assets\Scripts\obj\whichObj.cs" />
     <Compile Include="Assets\Scripts\txt\MoveNPC.cs" />
+    <Compile Include="Assets\Scripts\allCheck.cs" />
     <Compile Include="Assets\Scripts\showV2.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\DiscMeshGenerator.cs" />
     <Compile Include="Assets\Scripts\riverLand.cs" />
@@ -134,7 +135,7 @@
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleGrid.cs" />
     <Compile Include="Assets\Scripts\getInfo.cs" />
-    <Compile Include="Assets\Scripts\allCheck.cs" />
+    <Compile Include="Assets\Scripts\skipToNextTurn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

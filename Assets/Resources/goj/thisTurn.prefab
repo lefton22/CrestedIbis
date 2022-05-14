@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 872584500293084061}
   - component: {fileID: 872584500293084058}
   - component: {fileID: 2130436414276970379}
+  - component: {fileID: 5556649317079634594}
   m_Layer: 0
   m_Name: thisTurn
   m_TagString: thisTurn
@@ -55,6 +56,8 @@ MonoBehaviour:
   s2Card: 5
   s3Card: 4
   s4Card: 2
+  hasSetPandaActive: 0
+  hasSetNPCTreeActive: 0
 --- !u!114 &2130436414276970379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,3 +80,15 @@ MonoBehaviour:
     breakPointStatuses: 
     collapsedLines: 
     btScript: 
+--- !u!114 &5556649317079634594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872584500293084060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa04ac9f37e0a648a57c1ef2d36386c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

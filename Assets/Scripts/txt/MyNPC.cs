@@ -25,7 +25,7 @@ namespace Panda.Ibis
         GameObject _disappearLand;
 
         // GameObject _egret;
-        List<GameObject> _egrets;
+        public List<GameObject> _egrets;
 
         Vector2 v2_des;
         List<Vector2> v2_dess;
@@ -104,6 +104,25 @@ namespace Panda.Ibis
         }
 
         [Task]
+        void checkEggs()
+        {
+           
+
+            GameObject[] eggs;
+            eggs = GameObject.FindGameObjectsWithTag("egg");
+
+            if (eggs.Length == 0)
+            {
+                Debug.Log("snake: check no egg.");
+                ThisTask.Fail();
+            }
+            else
+            {
+                Debug.Log("snake: has egg.");
+                ThisTask.Succeed(); }
+        }
+
+        [Task]
         void snake_seekNestWithEgg()
         {
             Debug.Log("snake seek Nest With Egg.");
@@ -111,11 +130,6 @@ namespace Panda.Ibis
             // go to the nest. There can only have one nest in the scene.
             GameObject[] eggs;
             eggs = GameObject.FindGameObjectsWithTag("egg");
-
-            if (eggs.Length == 0)
-            {
-                ThisTask.Fail();
-            }
 
             int ran;
             ran = Random.Range(0, eggs.Length - 1);
@@ -252,7 +266,9 @@ namespace Panda.Ibis
         [Task]
         void egret_seekWander() //任意走一格
         {
-            for(int i =0; i<_egrets.Count; i++)
+            v2_dess.Clear();
+
+            for (int i =0; i<_egrets.Count; i++)
             {
                 Vector2 c_v2;
                 c_v2 = NearGrid1(_egrets[i].GetComponent<objV2Pos>().thisV2);
@@ -281,17 +297,6 @@ namespace Panda.Ibis
 
                 print("egret: " + _egrets[i].name + " , v3: " + v3);
                 seekLocation(_egrets[i], v3);
-/*
-                Vector2 v2_egret;
-                v2_egret = _egrets[i].GetComponent<objV2Pos>().thisV2;
-
-                print("v2_egret : " + v2_egret + " , v2_des: " + v2_dess[i]);
-
-                if (v2_egret == v2_dess[i])
-                {
-                    _egrets[i].GetComponent<SnapToNode>().enabled = true;
-                   // ThisTask.Succeed();
-                }*/
 
             }
 

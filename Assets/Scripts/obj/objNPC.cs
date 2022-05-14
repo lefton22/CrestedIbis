@@ -36,7 +36,9 @@ public class objNPC : MonoBehaviour
 
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/egret");
 
-           // transform.localScale = new Vector3(1f, 1f,1f);
+            GetComponent<CapsuleCollider>().enabled = true;
+
+            // transform.localScale = new Vector3(1f, 1f,1f);
             name = "egret";
 
         }
@@ -58,6 +60,9 @@ public class objNPC : MonoBehaviour
             MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
 
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/snake");
+
+            GetComponent<CapsuleCollider>().enabled = true;
+
             transform.localScale = new Vector3(1f, 1f, 1f);
             name = "snake";
         }
@@ -103,6 +108,8 @@ public class objNPC : MonoBehaviour
             // Capsule collider & Rigidbody need to be on the obj
             Animator _ani = gameObject.AddComponent<Animator>() as Animator;
             MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
+
+            GetComponent<CapsuleCollider>().enabled = true;
         }
         //  if (whichNPC == "trapMan")
     }
