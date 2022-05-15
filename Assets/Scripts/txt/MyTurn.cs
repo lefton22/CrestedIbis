@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Panda;
 
@@ -353,6 +354,10 @@ namespace Panda.Ibis
                 isGencards = true;
             }
 
+            GameObject.Find("skipTurn").GetComponent<Image>().enabled = true;
+            GameObject.Find("skipTurn").GetComponent<skipToNextTurn>().enabled =true;
+            GameObject.Find("skipTurn").transform.GetChild(0).gameObject.SetActive(true);
+
             if (cards.Count == thisAmount)
             {
                // print("card 3?");
@@ -422,7 +427,11 @@ namespace Panda.Ibis
                 //
                 _allCheck.checkNpcIbisOnAllGrids();
 
-                    ThisTask.Succeed();
+                GameObject.Find("skipTurn").GetComponent<Image>().enabled = false;
+                GameObject.Find("skipTurn").GetComponent<skipToNextTurn>().enabled = false;
+                GameObject.Find("skipTurn").transform.GetChild(0).gameObject.SetActive(false);
+
+                ThisTask.Succeed();
             }
         }
 

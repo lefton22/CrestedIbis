@@ -28,7 +28,7 @@ namespace Panda.Ibis
         public List<GameObject> _egrets;
 
         Vector2 v2_des;
-        List<Vector2> v2_dess;
+        public List<Vector2> v2_dess;
 
         GameObject _LandGenerator;
 
@@ -286,6 +286,8 @@ namespace Panda.Ibis
         [Task]
         void egret_wander()
         {
+            List<Vector3> des_v3s;
+            des_v3s = new List<Vector3>();
             for(int i =0; i < _egrets.Count; i++)// pls use for loop
             {
                 _egrets[i].GetComponent<SnapToNode>().enabled = false;
@@ -295,10 +297,17 @@ namespace Panda.Ibis
                 Vector3 v3;
                 v3 = _LandGenerator.GetComponent<LandGen2>().LandV3s[index_v2];
 
-                print("egret: " + _egrets[i].name + " , v3: " + v3);
-                seekLocation(_egrets[i], v3);
+                if (!des_v3s.Contains(v3))
+                {
+                    des_v3s.Add(v3);
+                }
+
+                print("egret: " + _egrets[i].name + " , v2: " + v2_dess[i]);
+
+                // seekLocation(_egrets[i], v3); // old method
 
             }
+            seekMultiLocations(_egrets, des_v3s);
 
             int amount_hasMoved;
             amount_hasMoved = 0;
@@ -528,7 +537,14 @@ namespace Panda.Ibis
 
             //  Debug.Log("move to destination: " + destination);
 
-            
+        }
+
+        void seekMultiLocations(List<GameObject> gojs, List<Vector3> destination)
+        {
+            for (int i = 0; i < gojs.Count; i++)
+            {
+                gojs[i].GetComponent<MoveNPC>().Move2(destination[i]);
+            }
 
         }
 
