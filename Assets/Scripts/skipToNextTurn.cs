@@ -29,7 +29,7 @@ public class skipToNextTurn : MonoBehaviour
         // print("time: "+ time);
         if (time > 2f && !hasCheck)
         {
-            print("can i skip this turn?");
+           // print("can i skip this turn?");
             GameObject.Find("skipTurn").GetComponent<Image>().enabled = true;
             GameObject.Find("skipTurn").transform.GetChild(0).gameObject.SetActive(true);
 
@@ -39,7 +39,7 @@ public class skipToNextTurn : MonoBehaviour
 
     public void skip()
     {
-        print("click the buttom and skip this turn");
+       // print("click the buttom and skip this turn");
       //  _ibisA.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
         GameObject.Find("skipTurn").GetComponent<Image>().enabled = false;
         GameObject.Find("skipTurn").transform.GetChild(0).gameObject.SetActive(false);

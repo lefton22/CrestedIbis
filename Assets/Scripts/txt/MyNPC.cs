@@ -31,6 +31,7 @@ namespace Panda.Ibis
         public List<Vector2> v2_dess;
 
         GameObject _LandGenerator;
+        LandGen2 _LandGen2;
 
         listObjOnLand _listObjOnLand;
 
@@ -49,6 +50,7 @@ namespace Panda.Ibis
             _targetPos = GameObject.Find("Target2");
 
             _LandGenerator = GameObject.Find("LandGenerator");
+            _LandGen2 = GameObject.Find("LandGenerator").GetComponent<LandGen2>();
 
             _listObjOnLand = GameObject.Find("Lists").GetComponent<listObjOnLand>();
 
@@ -402,21 +404,49 @@ namespace Panda.Ibis
             //build empty list of grids
             List<Vector2> v2_emptyLands;
             v2_emptyLands = new List<Vector2>();
-            for (int i = 0; i < _LandGenerator.GetComponent<LandGen2>().LandCos.Count; i++)
+            /*            for (int i = 0; i < _LandGenerator.GetComponent<LandGen2>().LandCos.Count; i++)
+                        {
+                            if (!_listObjOnLand.isObjOnLand[i])
+                            {
+                                if (!v2_emptyLands.Contains(_LandGenerator.GetComponent<LandGen2>().LandCos[i]))
+                                {
+                                    v2_emptyLands.Add(_LandGenerator.GetComponent<LandGen2>().LandCos[i]);
+                                }
+                            }
+                        }*/
+            foreach (bool hasObj in _listObjOnLand.isObjOnLand)
             {
-                if (!_listObjOnLand.isObjOnLand[i])
-                {
-                    if (!v2_emptyLands.Contains(_LandGenerator.GetComponent<LandGen2>().LandCos[i]))
+                int index_empty;
+                index_empty = -1;
+                if (!hasObj)
+                { index_empty = _listObjOnLand.isObjOnLand.IndexOf(hasObj);
+                    if (!v2_emptyLands.Contains(_LandGen2.LandCos[index_empty]))
                     {
-                        v2_emptyLands.Add(_LandGenerator.GetComponent<LandGen2>().LandCos[i]);       
+                        v2_emptyLands.Add(_LandGen2.LandCos[index_empty]);
                     }
                 }
             }
 
-/*            foreach (Vector2 v2 in v2_emptyLands)
+            GameObject[] lands;
+            lands = GameObject.FindGameObjectsWithTag("land");
+            foreach (GameObject land in lands)
+            {
+                if (land.transform.GetChild(0).transform.gameObject.name == "highHill")
+                {
+                    Vector2 v2_hillLand;
+                    v2_hillLand = land.GetComponent<genPos>().thisCo;
+                    if (!v2_emptyLands.Contains(v2_hillLand))
+                    {
+                        v2_emptyLands.Add(v2_hillLand);
+                    }
+                }
+            }
+            print("empty land's count: " + v2_emptyLands.Count);
+
+            foreach (Vector2 v2 in v2_emptyLands)
             {
                 print("empty grid : " + v2);
-            }*/
+            }
 
             //get the random v3
             int ran;
@@ -463,12 +493,22 @@ namespace Panda.Ibis
             trap.transform.SetParent(GameObject.Find("ObjOnLand").transform);
             trap.name = "trap";
 
+             trap.GetComponent<CapsuleCollider>().enabled = true;
+           // Destroy(trap.GetComponent<Rigidbody>());
+/*            bool hasSet;
+            hasSet = false;
             // mark on isObjOnLand list
-            int index_Land;
-            index_Land = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_des);
-            _listObjOnLand.isObjOnLand[index_Land] = true;
+            if (!hasSet)
+            {
+                int index_Land;
+                index_Land = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_des);
+                _listObjOnLand.isObjOnLand[index_Land] = true;
+                hasSet = true;
 
-            Debug.Log("trap man sets a trap");
+                Debug.Log("trap man sets a trap: " + v2_des);
+            }
+*/
+            
 
             ThisTask.Succeed();
         }

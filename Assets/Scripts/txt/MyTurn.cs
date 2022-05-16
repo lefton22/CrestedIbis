@@ -152,6 +152,8 @@ namespace Panda.Ibis
                 ran = Random.Range(0, flatLands.Count-1);
                 _ibisA.transform.position = flatLands[ran].transform.position;
 
+                _ibisA.GetComponent<objV2Pos>().thisV2 = flatLands[ran].GetComponent<genPos>().thisCo; // to avoid the isObjOnLand bug bcz ibisA's collider has been de actived.
+
 
                // _ibisA.GetComponent<SnapToNode>().enabled = false;
                 // Recalculate the graph
@@ -244,7 +246,7 @@ namespace Panda.Ibis
             }
             //_ibisA.GetComponent<SnapToNode>().enabled = true;
 
-            _myIbis.setIsObjOnLand();
+            //_myIbis.setIsObjOnLand();
 
             if (!hasSetNPCTreeActive)
             {
@@ -307,9 +309,41 @@ namespace Panda.Ibis
 
                         //only for test*/
 
-            //de active all "Snap To " of obj  under "objOnland"
+            // check the objOnLand list, and all gameobjects under NPCs
+/*            for(int i =0; i< _listObjOnLand.isObjOnLand.Count; i++)
+            {
+                _listObjOnLand.isObjOnLand[i] = false;
+            }*/
 
-            List<GameObject> objs;
+            // add objs
+            foreach (Transform obj_child in GameObject.Find("ObjOnLand").transform)
+            {
+                Vector2 v2_obj;
+                v2_obj = obj_child.gameObject.GetComponent<objV2Pos>().thisV2;
+                int index_obj;
+                index_obj = _LandGen2.LandCos.IndexOf(v2_obj);
+                _listObjOnLand.isObjOnLand[index_obj] = true;
+            }
+
+            //add ibisA and other under NPCs
+            Vector2 v2_ibisA;
+            v2_ibisA = _ibisA.GetComponent<objV2Pos>().thisV2;
+            int index_ibisA;
+            index_ibisA = _LandGen2.LandCos.IndexOf(v2_ibisA);
+            _listObjOnLand.isObjOnLand[index_ibisA] = true;
+            ////////////
+            ///remove the trap's Rigidbody
+            foreach (Transform obj_child in GameObject.Find("ObjOnLand").transform)
+            {
+                if (obj_child.gameObject.name == "trap")
+                {
+                    Destroy(obj_child.gameObject.GetComponent<Rigidbody>());
+                }
+            }
+
+                //de active all "Snap To " of obj  under "objOnland"
+
+                List<GameObject> objs;
             objs = new List<GameObject>();
             foreach (Transform child in GameObject.Find("ObjOnLand").transform)
             {
@@ -343,7 +377,7 @@ namespace Panda.Ibis
         [Task]
         void dealCards()
         {
-            _myIbis.setIsObjOnLand();
+            //_myIbis.setIsObjOnLand();
 
             Panda.Ibis.MyIbis.actionPoint = 0;
 

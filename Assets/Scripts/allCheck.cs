@@ -4,6 +4,7 @@ using UnityEngine;
 
 using DG.Tweening;
 
+//caculate each objs on each lands
 public class allCheck : MonoBehaviour
 {
     GameObject _NPCs;

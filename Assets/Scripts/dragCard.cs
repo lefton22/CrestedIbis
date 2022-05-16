@@ -113,6 +113,8 @@ public class dragCard : MonoBehaviour
                 _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
             }
         }
+
+
     }
 
     private void OnMouseUp() // 鼠标起来的时候
@@ -135,12 +137,12 @@ public class dragCard : MonoBehaviour
 
         if (turnBased.MouseUp_currentLand)
         {
-          //  print("card land 0.");
+            //  print("card land 0.");
             /////check if there is obj on the land to prevent from overlapping
             transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>().thisV2 =
             turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //物品着陆
 
-         //   print("card land 1.");
+            //   print("card land 1.");
 
             int index_ifObj;
             index_ifObj = -1;
@@ -162,7 +164,9 @@ public class dragCard : MonoBehaviour
                 {
                     ifOverlap = true;
                     transform.DOMove(v3_ori, 0.35f, false);
-                    Debug.Log("cannot put this obj on this land.");
+                    Debug.Log("cannot put this obj on this land due to ST on it.");
+
+                   // _LandGen2.LandCos_GO[k].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 1f, 1f, 1f);
                 }
             }
 

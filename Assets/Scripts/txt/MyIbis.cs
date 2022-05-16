@@ -335,10 +335,10 @@ namespace Panda.Ibis {
                 { index.Add(a); }
             }
 
-            for (int p = 0; p < index.Count; p++)
+/*            for (int p = 0; p < index.Count; p++)
             {
                 _listObjOnLand.isObjOnLand[index[p]] = true;
-            }
+            }*/
 
             //  ThisTask.Succeed();
         }
@@ -591,6 +591,8 @@ namespace Panda.Ibis {
                 Destroy(_listObjOnLand.foodOnLand_GO[index_food]);
                 _listObjOnLand.foodOnLand_GO.Remove(_listObjOnLand.foodOnLand_GO[index_food]);
                 _listObjOnLand.foodOnLand.Remove(v2_ibis);
+
+                _listObjOnLand.isObjOnLand[index_food] = false;
                 //  print("has food..");
 
              //   print("eat 4");
@@ -952,7 +954,10 @@ namespace Panda.Ibis {
                 if (v2_ibisA == v2_material)//ibisA reach the nest
                 {
                     hasCheckDes = false;
-                   
+
+                    int index_material;
+                    index_material = _LandGen2.LandCos.IndexOf(v2_material);
+                    _listObjOnLand.isObjOnLand[index_material] = false;
 
                     Debug.Log("reach to a material.");
 
@@ -1204,6 +1209,8 @@ namespace Panda.Ibis {
                 Destroy(_listObjOnLand.foodOnLand_GO[index_food]);
                 _listObjOnLand.foodOnLand_GO.Remove(_listObjOnLand.foodOnLand_GO[index_food]);
                 _listObjOnLand.foodOnLand.Remove(v2_ibis);
+
+                _listObjOnLand.isObjOnLand[index_food] = false;
               //  print("has food..");
 
                 if (_listObjOnLand.foodOnLand.Count < amount_food)
