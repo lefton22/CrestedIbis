@@ -219,22 +219,17 @@ namespace Panda.Ibis
                               // -> may reduce the quality of the food
         {
 
-
-
             foreach (GameObject land in _LandGen2.LandCos_GO)
             { 
                 land.transform.GetChild(0).GetComponent<grid>().checkHasPolluted();
             }
 
             ThisTask.Succeed();
-
         }
 
         [Task]
         void NPCAct()
         {
-
-
             //active all "Snap To " of obj  under "objOnland"
 
             List<GameObject> objs;
@@ -310,10 +305,13 @@ namespace Panda.Ibis
                         //only for test*/
 
             // check the objOnLand list, and all gameobjects under NPCs
-/*            for(int i =0; i< _listObjOnLand.isObjOnLand.Count; i++)
-            {
-                _listObjOnLand.isObjOnLand[i] = false;
-            }*/
+            /*            for(int i =0; i< _listObjOnLand.isObjOnLand.Count; i++)
+                        {
+                            _listObjOnLand.isObjOnLand[i] = false;
+                        }*/
+
+            for(int i =0; i<  _listObjOnLand.isObjOnLand.Count; i++)
+            { _listObjOnLand.isObjOnLand[i] = false; }
 
             // add objs
             foreach (Transform obj_child in GameObject.Find("ObjOnLand").transform)
@@ -341,7 +339,7 @@ namespace Panda.Ibis
                 }
             }
 
-                //de active all "Snap To " of obj  under "objOnland"
+             //de active all "Snap To " of obj  under "objOnland"
 
                 List<GameObject> objs;
             objs = new List<GameObject>();
@@ -472,12 +470,28 @@ namespace Panda.Ibis
         [Task]
         void ibisAct()
         {
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+            {
+                if (child.gameObject.GetComponent<CapsuleCollider>())
+                { child.gameObject.GetComponent<CapsuleCollider>().enabled = false; }
+            }
+            // Recalculate the graph
+            AstarPath.active.Scan();
+
             _ibisA.GetComponent<Animator>().enabled = true;
             _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;
             _ibisA.GetComponent<SnapToNode>().enabled = false;
             _ibisA.GetComponent<CapsuleCollider>().enabled = true;
 
-            if (!hasSetPandaActive)
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+            {
+                if (child.name == "trap")
+                {
+                    child.gameObject.GetComponent<CapsuleCollider>().enabled = true;
+                }
+            }
+
+                if (!hasSetPandaActive)
             {
                 foreach (Transform child in _ibisA.transform)
                 {

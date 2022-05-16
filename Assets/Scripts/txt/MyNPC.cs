@@ -293,6 +293,7 @@ namespace Panda.Ibis
             for(int i =0; i < _egrets.Count; i++)// pls use for loop
             {
                 _egrets[i].GetComponent<SnapToNode>().enabled = false;
+                _egrets[i].GetComponent<CapsuleCollider>().enabled = true;
 
                 int index_v2;
                 index_v2 = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_dess[i]);
@@ -326,7 +327,7 @@ namespace Panda.Ibis
                 {
                     hasCheckDes = false;
 
-                    _egrets[i].GetComponent<SnapToNode>().enabled = true;
+                   // _egrets[i].GetComponent<SnapToNode>().enabled = true;
                     amount_hasMoved = amount_hasMoved + 1;
                     hasAdd = true;
                     // ThisTask.Succeed();
@@ -414,15 +415,18 @@ namespace Panda.Ibis
                                 }
                             }
                         }*/
-            foreach (bool hasObj in _listObjOnLand.isObjOnLand)
+            for(int i =0; i< _listObjOnLand.isObjOnLand.Count; i++)
             {
                 int index_empty;
                 index_empty = -1;
-                if (!hasObj)
-                { index_empty = _listObjOnLand.isObjOnLand.IndexOf(hasObj);
+                if (!_listObjOnLand.isObjOnLand[i])
+                {
+                    index_empty = i;
+                   //print("empty lands : " + index_empty);
                     if (!v2_emptyLands.Contains(_LandGen2.LandCos[index_empty]))
                     {
                         v2_emptyLands.Add(_LandGen2.LandCos[index_empty]);
+                       // print("empty land: " + _LandGen2.LandCos[index_empty]);
                     }
                 }
             }
@@ -435,12 +439,19 @@ namespace Panda.Ibis
                 {
                     Vector2 v2_hillLand;
                     v2_hillLand = land.GetComponent<genPos>().thisCo;
-                    if (!v2_emptyLands.Contains(v2_hillLand))
+                    if (v2_emptyLands.Contains(v2_hillLand))
                     {
-                        v2_emptyLands.Add(v2_hillLand);
+                        v2_emptyLands.Remove(v2_hillLand);
                     }
                 }
             }
+            Vector2 v2_ibisA;
+            v2_ibisA = GameObject.Find("ibisA").GetComponent<objV2Pos>().thisV2;
+            if (v2_emptyLands.Contains(v2_ibisA))
+            {
+                v2_emptyLands.Remove(v2_ibisA); 
+            }
+
             print("empty land's count: " + v2_emptyLands.Count);
 
             foreach (Vector2 v2 in v2_emptyLands)

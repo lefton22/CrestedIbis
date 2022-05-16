@@ -12,12 +12,12 @@ tree("Root")
 			sequence              
 
 						   seekFood()
-						   Wait(120) 
+						   Wait(10) 
 
-						   checkItemsOnLand() 
-						   Wait(10)
+						  // checkItemsOnLand() 
+						  // Wait(10)
 
 						   eat()
-						   Wait(120)
+						   Wait(10)
 
 						   Next()

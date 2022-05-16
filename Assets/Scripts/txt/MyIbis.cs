@@ -206,45 +206,102 @@ namespace Panda.Ibis {
 
         }
 
+
+        public void breakWhenIbisAAct() //用于打断
+        {
+            GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
+            GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = false;
+            GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled = false;
+
+            //ibisR on!
+            GameObject.Find("ibisR").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("ibisR").transform.position = GameObject.Find("ibisA").transform.position;
+            GameObject.Find("ibisR").GetComponent<Animator>().Play("ibis_break_trap");
+
+
+            if (GameObject.Find("ibisR").GetComponent<Animator>().GetBool("hasBreakTrap"))
+            {
+                outOfBreakWhenIbisAAct();
+                print("breaking time is over.");
+            }
+            /*           
+                        print(Time.deltaTime + " and current time:  " + currentTime);
+                        if ( Time.deltaTime - currentTime > 2f)
+                        {
+                            outOfBreakWhenIbisAAct();
+
+                            print("breaking time is over.");
+                        }*/
+
+        }
+        public void outOfBreakWhenIbisAAct() //跳出打断
+        {
+            GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 3;
+            GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = true;
+
+            GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled =true;
+            GameObject.Find("ibisR").GetComponent<SpriteRenderer>().enabled = false;
+            GameObject.Find("ibisR").GetComponent<Animator>().enabled = false;
+        }
+
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            /*            if (Input.GetKeyDown(KeyCode.F))
+                        {
+                            transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().speed = 0;
+                            transform.parent.gameObject.GetComponent<SnapToNode>().enabled = false;
+                          //  transform.parent.gameObject.GetComponent<SnapToNode>().enabled = true;
+                            //防抖动，需加特效或啥，获得v2坐标，用dotween移过去
+                        }*/
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().speed = 0;
-                transform.parent.gameObject.GetComponent<SnapToNode>().enabled = false;
-                transform.parent.gameObject.GetComponent<SnapToNode>().enabled = true;
-                //防抖动，需加特效或啥，获得v2坐标，用dotween移过去
+                GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
+                GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = false;
+                GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled = false;
+
+                //ibisR on!
+                GameObject.Find("ibisR").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("ibisR").transform.position = GameObject.Find("ibisA").transform.position;
+                GameObject.Find("ibisR").GetComponent<Animator>().Play("ibis_break_trap");
+
+
+                if (GameObject.Find("ibisR").GetComponent<Animator>().GetBool("hasBreakTrap"))
+                {
+                    outOfBreakWhenIbisAAct();
+                    print("breaking time is over.");
+                }
             }
 
 
-            actionPoint = 5- GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>(). landsPassThrough.Count;
+
+                        actionPoint = 5- GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>(). landsPassThrough.Count;
 
 
-            if (_turnBased.turn == 1)
-            { actionPoint = 5 - GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Count + 1; }
-            // else { actionPoint = landsPassThrough.Count; }
+                        if (_turnBased.turn == 1)
+                        { actionPoint = 5 - GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Count + 1; }
+                        // else { actionPoint = landsPassThrough.Count; }
 
 
-            //print("ap: " + actionPoint);
+                        //print("ap: " + actionPoint);
 
-            if (actionPoint < 0)
-            {
-                /*                landsPassThrough.Clear();
-                                GetComponent<PandaBehaviour>().enabled = false;
+                        if (actionPoint < 0)
+                        {
+                            /*                landsPassThrough.Clear();
+                                            GetComponent<PandaBehaviour>().enabled = false;
 
-                                transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
+                                            transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
 
 
-                                // gameObject.GetComponent<PandaBehaviour>().enabled = false;
+                                            // gameObject.GetComponent<PandaBehaviour>().enabled = false;
 
-                                GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().Reset();
-                                gameObject.GetComponent<PandaBehaviour>().Reset();
+                                            GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().Reset();
+                                            gameObject.GetComponent<PandaBehaviour>().Reset();
 
-                                _turnBased.newTurnStart();
+                                            _turnBased.newTurnStart();
 
-                                Destroy(GameObject.Find("TurnBased").transform.GetChild(0).gameObject);*/
+                                            Destroy(GameObject.Find("TurnBased").transform.GetChild(0).gameObject);*/
 
-                breakThisTurn();
+            breakThisTurn();
 /*                //========
                 GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
                 print("end turn ");
@@ -419,6 +476,8 @@ namespace Panda.Ibis {
                 //  Debug.Log("seek food succeed.");
 
                 hasCheckDes = false;
+
+                GameObject.Find("ibisA").GetComponent<Animator>().SetBool("hasWalked", true);
                 
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
@@ -497,7 +556,8 @@ namespace Panda.Ibis {
         }
 
         [Task]
-        void checkItemsOnLand() // traps...
+        void checkItemsOnLand() // now traps...
+                                                //but ibisA cannot seek to a place on which has trap on
         {
             List<GameObject> items;
             items = new List<GameObject>();
@@ -1572,6 +1632,11 @@ namespace Panda.Ibis {
         {
             GetComponent<Panda.Ibis.MyIbis>().ani.SetBool("hasFeedBaby", true);
         }
+
+/*        public void setHasBreakTrap()
+        {
+            GetComponent<Panda.Ibis.MyIbis>().ani.SetBool("hasBreakTrap", true);
+        }*/
 
 
 

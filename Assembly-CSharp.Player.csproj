@@ -126,6 +126,7 @@
     <Compile Include="Assets\Scripts\obj\objNest.cs" />
     <Compile Include="Assets\Scripts\grid.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
+    <Compile Include="Assets\Scripts\skipToNextTurn.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\BulletImpact.cs" />
     <Compile Include="Assets\Scripts\obj\objIbisAdult.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\RoamGridWithWalls.cs" />
@@ -135,7 +136,9 @@
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleGrid.cs" />
     <Compile Include="Assets\Scripts\getInfo.cs" />
-    <Compile Include="Assets\Scripts\skipToNextTurn.cs" />
+    <Compile Include="Assets\Scripts\obj\break\trapBreak.cs" />
+    <Compile Include="Assets\Scripts\ibisR.cs" />
+    <Compile Include="Assets\Scripts\ThisIsComment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
