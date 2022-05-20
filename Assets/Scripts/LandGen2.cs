@@ -73,6 +73,11 @@ public class LandGen2 : MonoBehaviour
                 // Debug.Log("LandCos_GO: "+ obj.name);
             }
             // Debug.Log(obj.name);
+
+            //enable all the meshes
+
+            obj.GetComponent<MeshRenderer>().enabled = false;
+
         }
 
         GenLand();
@@ -281,8 +286,8 @@ public class LandGen2 : MonoBehaviour
 
 
         Vector3 eulerRotation = grid_2d.transform.rotation.eulerAngles;
-        grid_2d.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 31.55f);
-
+        // grid_2d.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 31.55f);
+        grid_2d.transform.localScale = new Vector3(0.28f, 0.28f, 0.5f);
 
         lastRiver = grid_2d;
         lastRiver_dir2 = curTerminal;

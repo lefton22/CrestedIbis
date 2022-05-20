@@ -18731,22 +18731,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1941330725}
     m_Modifications:
-    - target: {fileID: 1093936099763203191, guid: e28441306180b15458cf1f572d62336e, type: 3}
-      propertyPath: d1
-      value: 52
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093936099763203191, guid: e28441306180b15458cf1f572d62336e, type: 3}
-      propertyPath: d2
-      value: 49
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093936099763203191, guid: e28441306180b15458cf1f572d62336e, type: 3}
-      propertyPath: _d1
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093936099763203191, guid: e28441306180b15458cf1f572d62336e, type: 3}
-      propertyPath: _d2
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3265098675325753300, guid: e28441306180b15458cf1f572d62336e, type: 3}
       propertyPath: m_Name
       value: hex_grid_1_4
