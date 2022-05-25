@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8492219226374925182, guid: aed84cabb62ac0b409d336bc415deed4, type: 3}
       propertyPath: m_Name
-      value: hex_grid_2_4
+      value: river_grid_2_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aed84cabb62ac0b409d336bc415deed4, type: 3}

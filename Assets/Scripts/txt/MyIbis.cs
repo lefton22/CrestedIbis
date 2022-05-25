@@ -158,8 +158,8 @@ namespace Panda.Ibis {
 
             /////////////Node Structure Mark////////////////////
 
-            transform.DOScaleX(-0.75f, 0.001f);
-            transform.DOScaleY(0.75f, 0.001f);
+            transform.DOScaleX(1.8f, 0.001f);
+            transform.DOScaleY(1.8f, 0.001f);
 
 
             isMate = false;
@@ -1645,7 +1645,7 @@ namespace Panda.Ibis {
         void lightEat()
         {
             _eat.SetActive(true);
-            _dot.transform.DOLocalMoveX(-500f, 1f);
+            _dot.transform.DOLocalMoveX(-347f, 1f);
 
             Debug.Log("Ibis eats a " + foodAte.name 
                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 

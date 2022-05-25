@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+using DG.Tweening;
 
 public class outerAI : MonoBehaviour
 {
@@ -39,6 +42,24 @@ public class outerAI : MonoBehaviour
 
     GameObject _ibisA;
 
+    GameObject _ISframe;
+    GameObject _ISeyeOpen;
+    GameObject _ISeyeSleepy;
+    GameObject _ISlineNoMate;
+    GameObject _ISlineHasMate;
+    GameObject _ISgizzard;
+    GameObject _ISmateProfile;
+    GameObject _ISHeart;
+    GameObject _ISgender;
+
+    Sprite sp_female;
+    Sprite sp_male;
+    Sprite sp_gizzard;
+    Sprite sp_openEye;
+    Sprite sp_sleepyEye;
+
+    public GameObject _monthNum;
+
     void Start()
     {
        
@@ -59,6 +80,25 @@ public class outerAI : MonoBehaviour
         _t_actionPoint = GameObject.Find("t_actionPoint");
 
         _ibisA = GameObject.Find("ibisA");
+
+        _ISframe = GameObject.Find("");
+        _ISeyeOpen = GameObject.Find("ISeyeOpen");
+        _ISeyeSleepy = GameObject.Find("ISeyeSleepy");
+        _ISlineNoMate = GameObject.Find("ISlineNoMate");
+        _ISlineHasMate = GameObject.Find("ISlineHasMate");
+        _ISgizzard = GameObject.Find("ISgizzard");
+        _ISmateProfile = GameObject.Find("ISmateProfile");
+        _ISHeart = GameObject.Find("ISHeart");
+        _ISgender = GameObject.Find("ISgender");
+
+        sp_female = Resources.Load<Sprite>("ui/formal/female");
+        sp_male = Resources.Load<Sprite>("ui/formal/male");
+        sp_gizzard = Resources.Load<Sprite>("ui/formal/gizzard-stuff");
+        sp_openEye = Resources.Load<Sprite>("ui/formal/eye-open");
+
+        sp_sleepyEye = Resources.Load<Sprite>("ui/formal/eye-sleepy");
+
+       // _monthNum = GameObject.Find("monthNum");
 
         ////////GameObject needed
         ///鹭
@@ -85,43 +125,92 @@ public class outerAI : MonoBehaviour
 
     void Update()
     {
-        _t_month.GetComponent<TMPro.TextMeshProUGUI>().text = "Month : " + month;
-        _t_temperature.GetComponent<TMPro.TextMeshProUGUI>().text = "C : " + temperature;
-        _t_turn.GetComponent<TMPro.TextMeshProUGUI>() .text = "Turn: " + _turnBased.GetComponent<turnBased>().turn;
+      // _t_month.GetComponent<TMPro.TextMeshProUGUI>().text = "Month : " + month;
+      //  _t_temperature.GetComponent<TMPro.TextMeshProUGUI>().text = "C : " + temperature;
+        _t_turn.GetComponent<TMPro.TextMeshProUGUI>() .text =_turnBased.GetComponent<turnBased>().turn.ToString();
 
         //print("Gender: " + Panda.Ibis.MyIbis.gender
         //
        // print("panda ap: " + Panda.Ibis.MyIbis.actionPoint);
-        _t_actionPoint.GetComponent<TMPro.TextMeshProUGUI>().text = "AP: " + Panda.Ibis.MyIbis.actionPoint;
+        _t_actionPoint.GetComponent<TMPro.TextMeshProUGUI>().text = /* "AP: " + */Panda.Ibis.MyIbis.actionPoint.ToString();
 
         if (Panda.Ibis.MyIbis.gender ==1)
-        { _t_gender.GetComponent<TMPro.TextMeshProUGUI>().text = "雌"; }
+        {
+            //_t_gender.GetComponent<TMPro.TextMeshProUGUI>().text = "雌"; 
+            _ISgender.GetComponent<Image>().sprite = sp_female;
+        }
         if (Panda.Ibis.MyIbis.gender == 2)
-        { _t_gender.GetComponent<TMPro.TextMeshProUGUI>().text = "雄"; }
-        
+        {
+            // _t_gender.GetComponent<TMPro.TextMeshProUGUI>().text = "雄"; 
+            _ISgender.GetComponent<Image>().sprite = sp_male;
+        }
+
         if (Panda.Ibis.MyIbis.full == 0)
-        _t_full.GetComponent<TMPro.TextMeshProUGUI>().text = "饿 " ;
+        {
+            //_t_full.GetComponent<TMPro.TextMeshProUGUI>().text = "饿 ";
+            _ISgizzard.GetComponent<Image>().enabled = false;
+        }
         if (Panda.Ibis.MyIbis.full == 1)
-            _t_full.GetComponent<TMPro.TextMeshProUGUI>().text = "饱 ";
+        {
+            //_t_full.GetComponent<TMPro.TextMeshProUGUI>().text = "饱 ";
+            _ISgizzard.GetComponent<Image>().enabled = true;
+        }
 
         if (Panda.Ibis.MyIbis.energy == 0)
-            _t_energy.GetComponent<TMPro.TextMeshProUGUI>().text = "需要休息 ";
+        {
+            //_t_energy.GetComponent<TMPro.TextMeshProUGUI>().text = "需要休息 ";
+            _ISeyeOpen.GetComponent<Image>().enabled = false;
+            _ISeyeSleepy.GetComponent<Image>().enabled = true;
+        }
         if (Panda.Ibis.MyIbis.energy == 1)
-            _t_energy.GetComponent<TMPro.TextMeshProUGUI>().text = "不需休息";
-
+        {
+            //_t_energy.GetComponent<TMPro.TextMeshProUGUI>().text = "不需休息";
+            _ISeyeOpen.GetComponent<Image>().enabled = true;
+            _ISeyeSleepy.GetComponent<Image>().enabled = false;
+        }
         if (Panda.Ibis.MyIbis.isSingle)
-            _t_isSingle.GetComponent<TMPro.TextMeshProUGUI>().text = "形单影只 ";
+        {
+            //_t_isSingle.GetComponent<TMPro.TextMeshProUGUI>().text = "形单影只 ";
+            _ISlineNoMate.GetComponent<Image>().enabled = true;
+            _ISlineHasMate.GetComponent<Image>().enabled = false;
+        }
         if (!Panda.Ibis.MyIbis.isSingle)
-            _t_isSingle.GetComponent<TMPro.TextMeshProUGUI>().text = "非单身";
+        {
+            // _t_isSingle.GetComponent<TMPro.TextMeshProUGUI>().text = "非单身";
+            _ISlineNoMate.GetComponent<Image>().enabled = false;
+            _ISlineHasMate.GetComponent<Image>().enabled = true;
+        }
 
         if (Panda.Ibis.MyIbis.mate != null)
-        { _t_mate.GetComponent<TMPro.TextMeshProUGUI>().text = "Mate: " + Panda.Ibis.MyIbis.mate.name; }
+        {
+            // _t_mate.GetComponent<TMPro.TextMeshProUGUI>().text = "Mate: " + Panda.Ibis.MyIbis.mate.name; 
+            _ISHeart.GetComponent<Image>().enabled = true;
+        }
         if (Panda.Ibis.MyIbis.mate == null)
-        { _t_mate.GetComponent<TMPro.TextMeshProUGUI>().text = "Mate: none"; }
+        {
+            //_t_mate.GetComponent<TMPro.TextMeshProUGUI>().text = "Mate: none"; 
+            _ISHeart.GetComponent<Image>().enabled = false;
+        }
 
        
     }
 
+    public void changeMonthIcon(int _month)
+    {
+        Sprite sp_monthNum;
+        //print("ui/formal/" + _month.ToString() + "y");
+        sp_monthNum = Resources.Load<Sprite>("ui/formal/" + _month.ToString() + "y") ;
+        _monthNum.GetComponent<Image>().sprite = sp_monthNum;
+       // print(_monthNum);
+
+        setMonthIconPos(_month);
+    }
+    void setMonthIconPos(int _month)
+    {
+        float x;
+        x = _monthNum.transform.parent.gameObject.GetComponent<monthsPos>().monthXs[_month];
+        _monthNum.transform.DOLocalMoveX(x,1f);
+    }
     void ibisTranColor() //换毛色
     {
         if (month == 6 || month == 7 || month == 8 || month == 9)

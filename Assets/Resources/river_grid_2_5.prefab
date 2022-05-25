@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3265098675325753300, guid: e28441306180b15458cf1f572d62336e, type: 3}
       propertyPath: m_Name
-      value: hex_grid_2_5
+      value: river_grid_2_5
       objectReference: {fileID: 0}
     - target: {fileID: 5196647076271166015, guid: e28441306180b15458cf1f572d62336e, type: 3}
       propertyPath: m_Size.x

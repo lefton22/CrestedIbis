@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3369551435555640842, guid: c30dafaa34a42864b9e91d5aab114fbe, type: 3}
       propertyPath: m_Name
-      value: hex_grid_4_6
+      value: river_grid_4_6
       objectReference: {fileID: 0}
     - target: {fileID: 5445637156081456097, guid: c30dafaa34a42864b9e91d5aab114fbe, type: 3}
       propertyPath: m_Size.x

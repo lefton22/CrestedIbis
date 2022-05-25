@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1259129316362060367, guid: cc86f08d7264dcd458b692784ebba50d, type: 3}
       propertyPath: m_Name
-      value: hex_grid_4_5
+      value: river_grid_4_5
       objectReference: {fileID: 0}
     - target: {fileID: 3681929731369204204, guid: cc86f08d7264dcd458b692784ebba50d, type: 3}
       propertyPath: _d1

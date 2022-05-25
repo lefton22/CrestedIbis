@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7821050701234570246}
   - component: {fileID: 5294432485748233888}
   - component: {fileID: 6000030631006638667}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: dfadc197da9425c42a4d51a4186a358c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -120,9 +120,8 @@ GameObject:
   - component: {fileID: 6253712048936304742}
   - component: {fileID: 7773077013322863158}
   - component: {fileID: 3828231730254578763}
-  - component: {fileID: 6367672630431215898}
   - component: {fileID: 1857872450}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: highHill
   m_TagString: grid
   m_Icon: {fileID: 0}
@@ -183,7 +182,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: dfadc197da9425c42a4d51a4186a358c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -272,22 +271,6 @@ CapsuleCollider:
   m_Height: 1.2242184
   m_Direction: 2
   m_Center: {x: -0.025270462, y: -0.022040484, z: -0.0180282}
---- !u!54 &6367672630431215898
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3439707029220219641}
-  serializedVersion: 2
-  m_Mass: 9999
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &1857872450
 MonoBehaviour:
   m_ObjectHideFlags: 0

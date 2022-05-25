@@ -24,9 +24,11 @@ public class objV2Pos : MonoBehaviour
 
     void Update()
     {
-        transform.localEulerAngles= ori_Rotation;
+      //  if (gameObject.name != "ibisA")
+       // transform.localEulerAngles= ori_Rotation;
+        transform.localEulerAngles = new Vector3(0f,0f,-18f);
 
-        
+
     }
 
     void OnCollisionEnter(Collision collision)

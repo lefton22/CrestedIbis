@@ -111,29 +111,29 @@ public class turnBased : MonoBehaviour
 
     void checkSeasons(int currentTurn ) // turn => Seasons(); 
     {
-        if (currentTurn == 1) { _outerAI.Jul1(); _outerAI.month = 7; } // need to check the turn?
+        if (currentTurn == 1) { _outerAI.Jul1(); _outerAI.month = 7; _outerAI.changeMonthIcon(7); } // need to check the turn?
         if (currentTurn == 2) { _outerAI.Jul2(); _outerAI.month = 7; }
-        if (currentTurn == 3) { _outerAI.Aug1(); _outerAI.month = 8; }
+        if (currentTurn == 3) { _outerAI.Aug1(); _outerAI.month = 8; _outerAI.changeMonthIcon(8); }
         if (currentTurn == 4) { _outerAI.Aug2(); _outerAI.month = 8; }
-        if (currentTurn == 5) { _outerAI.Sept1(); _outerAI.month = 9; }
+        if (currentTurn == 5) { _outerAI.Sept1(); _outerAI.month = 9; _outerAI.changeMonthIcon(9); }
         if (currentTurn == 6) { _outerAI.Sept2(); _outerAI.month = 9; }
-        if (currentTurn == 7) { _outerAI.Oct1(); _outerAI.month = 10; }
+        if (currentTurn == 7) { _outerAI.Oct1(); _outerAI.month = 10; _outerAI.changeMonthIcon(10); }
         if (currentTurn == 8) { _outerAI.Oct2(); _outerAI.month = 10; }
-        if (currentTurn == 9) { _outerAI.Nov1(); _outerAI.month = 11; }
+        if (currentTurn == 9) { _outerAI.Nov1(); _outerAI.month = 11; _outerAI.changeMonthIcon(11); }
         if (currentTurn == 10) { _outerAI.Nov2(); _outerAI.month = 11; }
-        if (currentTurn == 11) { _outerAI.Dec1(); _outerAI.month = 12; }
+        if (currentTurn == 11) { _outerAI.Dec1(); _outerAI.month = 12; _outerAI.changeMonthIcon(12); }
         if (currentTurn == 12) { _outerAI.Dec2(); _outerAI.month = 12; }
-        if (currentTurn == 13) { _outerAI.Jan1(); _outerAI.month = 1; }
+        if (currentTurn == 13) { _outerAI.Jan1(); _outerAI.month = 1; _outerAI.changeMonthIcon(1); }
         if (currentTurn == 14) {_outerAI.Jan2(); _outerAI.month = 1; }
-        if (currentTurn == 15) { _outerAI.Feb1(); _outerAI.month = 2; }
+        if (currentTurn == 15) { _outerAI.Feb1(); _outerAI.month = 2; _outerAI.changeMonthIcon(2); }
         if (currentTurn == 16) { _outerAI.Feb2(); _outerAI.month = 2; }
-        if (currentTurn == 17) { _outerAI.Mar1(); _outerAI.month = 3; }
+        if (currentTurn == 17) { _outerAI.Mar1(); _outerAI.month = 3; _outerAI.changeMonthIcon(3); }
         if (currentTurn == 18) { _outerAI.Mar2(); _outerAI.month = 3; }
-        if (currentTurn == 19) { _outerAI.Apr1(); _outerAI.month = 4; }
+        if (currentTurn == 19) { _outerAI.Apr1(); _outerAI.month = 4; _outerAI.changeMonthIcon(4); }
         if (currentTurn == 20) { _outerAI.Apr2(); _outerAI.month = 4; }
-        if (currentTurn == 21) { _outerAI.May1(); _outerAI.month = 5; }
+        if (currentTurn == 21) { _outerAI.May1(); _outerAI.month = 5; _outerAI.changeMonthIcon(5); }
         if (currentTurn == 22) { _outerAI.May2(); _outerAI.month = 5; }
-        if (currentTurn == 23) { _outerAI.Jun1(); _outerAI.month = 6; }
+        if (currentTurn == 23) { _outerAI.Jun1(); _outerAI.month = 6; _outerAI.changeMonthIcon(6); }
         if (currentTurn == 17) { _outerAI.Jun2(); _outerAI.month = 6; }
 
     }

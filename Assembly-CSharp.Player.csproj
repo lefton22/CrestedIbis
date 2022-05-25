@@ -102,6 +102,8 @@
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\FollowCamera.cs" />
     <Compile Include="Assets\Scripts\txt\MyIbis_eat.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement\Scripts\RoamGrid.cs" />
+    <Compile Include="Assets\Scripts\ibisR.cs" />
+    <Compile Include="Assets\Scripts\ThisIsComment.cs" />
     <Compile Include="Assets\Scripts\rayCastBoundry.cs" />
     <Compile Include="Assets\Scripts\pool\listObjOnLand.cs" />
     <Compile Include="Assets\Scripts\obj\objEgg.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="Assets\Scripts\turnBased.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\00_ChangeColor\Assets\MyCube.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\UnitExplosion.cs" />
+    <Compile Include="Assets\Scripts\obj\break\trapBreak.cs" />
     <Compile Include="Assets\Scripts\genPos.cs" />
     <Compile Include="Assets\Scripts\CrestedIbis.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\ExampleDescription.cs" />
@@ -136,9 +139,7 @@
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleGrid.cs" />
     <Compile Include="Assets\Scripts\getInfo.cs" />
-    <Compile Include="Assets\Scripts\obj\break\trapBreak.cs" />
-    <Compile Include="Assets\Scripts\ibisR.cs" />
-    <Compile Include="Assets\Scripts\ThisIsComment.cs" />
+    <Compile Include="Assets\Scripts\ui\monthsPos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

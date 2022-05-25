@@ -20,6 +20,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 39f164274d52a9248a76848b4e9c4e2c, type: 3}
     - target: {fileID: 1053909251169444628, guid: 82a833f2a6048ba4cab116281ad7edd3, type: 3}
+      propertyPath: m_SortingOrder
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053909251169444628, guid: 82a833f2a6048ba4cab116281ad7edd3, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -89,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778275009493411583, guid: 82a833f2a6048ba4cab116281ad7edd3, type: 3}
       propertyPath: m_Name
-      value: hex_dryLand
+      value: dryLand
       objectReference: {fileID: 0}
     - target: {fileID: 7778275009493411583, guid: 82a833f2a6048ba4cab116281ad7edd3, type: 3}
       propertyPath: m_IsActive
