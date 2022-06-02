@@ -326,7 +326,9 @@ namespace Panda.Ibis {
             //========
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
             print("end turn ");
+
             quenchAllBeBar();
+
             //end this turn 
             _targetPos.transform.position = v3_targetPos;
 
@@ -1726,13 +1728,20 @@ namespace Panda.Ibis {
 
         void quenchAllBeBar()
         {
+            if (_eat)
             _eat.SetActive(false );
+            if (_goToOpIbis)
             _goToOpIbis.SetActive(false);
             _mate.SetActive(false);
+            if(_buildNest)
             _buildNest.SetActive(false);
+            if(_spawn)
             _spawn.SetActive(false);
+            if(_incubate)
             _incubate.SetActive(false);
+            if(_rest)
             _rest.SetActive(false);
+            if(_breed)
             _breed.SetActive(false);
 
             _dot.transform.DOLocalMoveX(-916f, 1f);

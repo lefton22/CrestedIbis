@@ -19,7 +19,7 @@ public class CrestedIbis : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localEulerAngles = new Vector3(0f, 0f, -14f);
+        //transform.localEulerAngles = new Vector3(0f, 0f, -14f);
         //当目标物改变后，需重新按一次Q（寻一次路）才能中途改变路径
         if (Input.GetKeyDown(KeyCode.W))
         { ibisMove1(); }

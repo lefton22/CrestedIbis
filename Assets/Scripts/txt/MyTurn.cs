@@ -565,7 +565,8 @@ namespace Panda.Ibis
 
                     GameObject cardSlot = Instantiate(Resources.Load("goj/cardPos")) as GameObject;
                     cardSlot.transform.position =
-                         new Vector3(v3_middleCard.x - (thisAmount - 1) + i * 2f, v3_middleCard.y, v3_middleCard.z);
+                         // new Vector3(v3_middleCard.x - (thisAmount - 1) + i * 2f, v3_middleCard.y, v3_middleCard.z);
+                         new Vector3(v3_middleCard.x, v3_middleCard.y - (thisAmount - 1) + i * 2f, v3_middleCard.z);
 
                     cardSlot.transform.SetParent(_Cards.transform);
                     cardSlot.name = "cardSlot" + i.ToString();
