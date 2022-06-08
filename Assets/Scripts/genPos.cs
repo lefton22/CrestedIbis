@@ -27,7 +27,37 @@ public class genPos : MonoBehaviour
 
     public List<GameObject> OnThis;
 
+    public string landName;
 
+    listObjOnLand _listObjOnLand;
+    List<string> nameHasExist;
+    
 
+    void Start()
+    {
+        _listObjOnLand = GameObject.Find("Lists").GetComponent<listObjOnLand>();
 
+        nameHasExist = new List<string>();
+
+        claimLandName();
+
+    }
+
+    void claimLandName()
+    {
+        // if (gameObject.tag == "land")
+        //   if (_listObjOnLand.poolLandName.Count!=0)
+        //     {
+
+        int ran;
+        ran = Random.Range(0, _listObjOnLand.poolLandName.Count - 1);
+
+        while (!nameHasExist.Contains(_listObjOnLand.poolLandName[ran]))
+        {
+
+                landName = _listObjOnLand.poolLandName[ran];
+                nameHasExist.Add(_listObjOnLand.poolLandName[ran]);
+        }
+        //    }
+    }
 }

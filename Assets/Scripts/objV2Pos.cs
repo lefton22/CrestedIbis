@@ -9,6 +9,8 @@ using UnityEngine;
 public class objV2Pos : MonoBehaviour
 {
     public Vector2 thisV2;
+    public string thisLand;
+
     listObjOnLand _listObjOnLand;
     Panda.Ibis.MyIbis _myIbis;
 
@@ -36,6 +38,9 @@ public class objV2Pos : MonoBehaviour
         if (collision.gameObject.tag == "land" )
         {
             thisV2 = collision.gameObject.GetComponent<genPos>().thisCo;
+
+            thisLand = collision.gameObject.GetComponent<genPos>().landName;
+
             if (gameObject.tag == "food")
             {
 

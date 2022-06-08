@@ -86,6 +86,8 @@ namespace Panda.Ibis {
 
         allCheck _allCheck;
 
+        turnBased __turnBased;
+
 
         public GameObject _eat;
         public GameObject _goToOpIbis;
@@ -202,7 +204,7 @@ namespace Panda.Ibis {
 
             _allCheck = GameObject.Find("AllCheck").GetComponent<allCheck>();
 
-
+            __turnBased = _turnBased.GetComponent<turnBased>();
 
         }
 
@@ -1635,12 +1637,55 @@ namespace Panda.Ibis {
             GetComponent<Panda.Ibis.MyIbis>().ani.SetBool("hasFeedBaby", true);
         }
 
-/*        public void setHasBreakTrap()
+        /*        public void setHasBreakTrap()
+                {
+                    GetComponent<Panda.Ibis.MyIbis>().ani.SetBool("hasBreakTrap", true);
+                }*/
+
+
+        string monthEnToCh(int month)
         {
-            GetComponent<Panda.Ibis.MyIbis>().ani.SetBool("hasBreakTrap", true);
-        }*/
+            string _month;
+            _month = "没有月份中文值";
+            if (month == 6) { _month = "六月"; }
+            if (month == 7) { _month = "七月"; }
+            if (month == 8) { _month = "八月"; }
+            if (month == 9) { _month = "九月"; }
+            if (month == 10) { _month = "十月"; }
+            if (month == 11) { _month = "十一月"; }
+            if (month == 12) { _month = "十二月"; }
+            if (month == 1) { _month = "一月"; }
+            if (month == 2) { _month = "二月"; }
+            if (month == 3) { _month = "三月"; }
+            if (month == 4) { _month = "四月"; }
+            if (month == 5) { _month = "五月"; }
 
+            return _month ;
+        }
+        string foodEnToCh(string food)
+        {
+            string _food;
+            _food = "没有食物中文值";
+            if (food == "loach") { _food = "泥鳅"; }
+            if (food == "crucian") { _food = "鲫鱼"; }
+            if (food == "frog") { _food = "青蛙"; }
+            if (food == "shrimp") { _food = "小虾"; }
+            if (food == "crab") { _food = "小蟹"; }
+            if (food == "spiralShell") { _food = "螺"; }
+            if (food == "shellFish") { _food = "甲壳类"; }
+            if (food == "snail") { _food = "蜗牛"; }
+            if (food == "cricket") { _food = "蟋蟀"; }
+            if (food == "earthWorm") { _food = "蚯蚓"; }
+            if (food == "rice") { _food = "稻米"; }
+            if (food == "bean") { _food = "豆类"; }
+            if (food == "treeSeed") { _food = "树种子"; }
 
+            return _food;
+        }
+        void landEnToCh()
+        {
+
+        }
 
         //////Start///////Set BeBar/////////////////////
         //////Start///////Set BeBar/////////////////////
@@ -1649,9 +1694,17 @@ namespace Panda.Ibis {
             _eat.SetActive(true);
             _dot.transform.DOLocalMoveX(-347f, 1f);
 
-            Debug.Log("Ibis eats a " + foodAte.name 
-                + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 
-                +" in "  +_outAI.month);
+            string thisPlot;
+            thisPlot = " Ibis eats a " + foodAte.name
+                + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                + " in " + _outAI.month;
+
+            thisPlot = monthEnToCh( _outAI.month)+ " 朱鹮吃了一个 " + foodAte.name
+                + " 在 " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand ;
+
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+
+            Debug.Log(thisPlot);
         }
 
         void lightGoToOpIbis()
@@ -1659,9 +1712,14 @@ namespace Panda.Ibis {
             _goToOpIbis.SetActive(true);
             _dot.transform.DOLocalMoveX(-290f, 1f);
 
-            Debug.Log("Ibis meets " + mate + " then they become a couple in " + _outAI.month
-                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 
-                 + "." );
+            string thisPlot;
+            thisPlot = "Ibis meets " + mate + " then they become a couple in " + _outAI.month
+                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                 + ".";
+
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+
+            Debug.Log(thisPlot);
         }
 
         void lightMate()
@@ -1671,9 +1729,14 @@ namespace Panda.Ibis {
             _mate.SetActive(true);
             _dot.transform.DOLocalMoveX(-95f, 1f);
 
-            Debug.Log("This couple of ibis decide to form a form a family in " + _outAI.month
-                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 
-                 + ".");
+            string thisPlot;
+            thisPlot = "This couple of ibis decide to form a form a family in " + _outAI.month
+                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                 + ".";
+
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+
+            Debug.Log(thisPlot);
         }
 
         void lightBuildNest()
@@ -1681,9 +1744,13 @@ namespace Panda.Ibis {
             _buildNest.SetActive(true);
             _dot.transform.DOLocalMoveX(108f, 1f);
 
-            Debug.Log("Ibis builds a nest in " + _outAI.month
-                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
-                             + ".");
+            string thisPlot;
+            thisPlot = "Ibis builds a nest in " + _outAI.month
+                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                             + ".";
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+
+            Debug.Log(thisPlot);
         }
 
         void lightSpawn(int am_egg)
@@ -1691,9 +1758,14 @@ namespace Panda.Ibis {
             _spawn.SetActive(true);
             _dot.transform.DOLocalMoveX(305f, 1f);
 
-            Debug.Log("Ibis spawns " + am_egg +" eggs "+ _outAI.month
-                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
-                             + ".");
+            string thisPlot;
+            thisPlot = "Ibis spawns " + am_egg + " eggs " + _outAI.month
+                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                             + ".";
+
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+
+            Debug.Log(thisPlot);
         }
 
         void lightIncubate()
@@ -1701,9 +1773,13 @@ namespace Panda.Ibis {
             _incubate.SetActive(true);
             _dot.transform.DOLocalMoveX(510f, 1f);
 
-            Debug.Log("Ibis incubates " + _outAI.month
-                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
-                 + ".");
+            string thisPlot;
+            thisPlot = "Ibis incubates " + _outAI.month
+                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                 + ".";
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+
+            Debug.Log(thisPlot);
         }
 
         void lightBreed()
@@ -1711,9 +1787,13 @@ namespace Panda.Ibis {
             _breed.SetActive(true);
             _dot.transform.DOLocalMoveX(715f, 1f);
 
-            Debug.Log("Ibis feeds its birdlings" + _outAI.month
-                         + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
-                         + ".");
+            string thisPlot;
+            thisPlot = "Ibis feeds its birdlings" + _outAI.month
+                         + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                         + ".";
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+
+            Debug.Log(thisPlot);
         }
 
         void lightRest()
@@ -1721,9 +1801,13 @@ namespace Panda.Ibis {
             _rest.SetActive(true);
             _dot.transform.DOLocalMoveX(915f, 1f);
 
-            Debug.Log("Ibis goes to sleep in " + _outAI.month
-             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
-             + ".");
+            string thisPlot;
+            thisPlot = "Ibis goes to sleep in " + _outAI.month
+             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+             + ".";
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+
+            Debug.Log(thisPlot);
         }
 
         void quenchAllBeBar()
