@@ -5,12 +5,18 @@ using UnityEngine;
 public class story : MonoBehaviour
 {
     public List<string> allStory;
+
+    GameObject _plots;
     void Start()
     {
         for (int i = 0; i < 24; i++)
         {
             allStory.Add(" ");
         }
+
+        _plots = GameObject.Find("plots");
+
+
     }
 
     
@@ -23,8 +29,15 @@ public class story : MonoBehaviour
     {
         if (turn > 0)
         {
-            allStory[turn - 1] += " _ " + thisStory;
+            allStory[turn - 1].Remove(0, 1);
+            allStory[turn - 1] +=  thisStory;
         }
       
+    }
+
+    public void showPlotsThisTurn(string thisTurnPlot) // called from MyIbis.cs
+    {
+        //_plots.GetComponent<TMPro.TextMeshProUGUI>().text ="¶î";
+        _plots.GetComponent<TMPro.TextMeshProUGUI>().text = thisTurnPlot;
     }
 }

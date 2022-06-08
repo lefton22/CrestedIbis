@@ -37,7 +37,7 @@ public class turnBased : MonoBehaviour
     public static GameObject MouseOver_currentLand;
 
 
-
+    public int turn_endCheck;
 
     public delegate void MethodOneDelegate();
 
@@ -90,6 +90,12 @@ public class turnBased : MonoBehaviour
         _thisTurn.transform.SetParent(gameObject.transform);
 
         transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().Reset();
+
+        // go to EndCheck
+        if (turn == turn_endCheck)
+        {
+            GetComponent<endCheck>().checkEnd();
+        }
 
 
         print("turnBased: new turn start." );

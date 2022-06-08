@@ -40,7 +40,7 @@ public class genPos : MonoBehaviour
         nameHasExist = new List<string>();
 
         claimLandName();
-
+        
     }
 
     void claimLandName()

@@ -142,6 +142,9 @@
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleGrid.cs" />
     <Compile Include="Assets\Scripts\getInfo.cs" />
+    <Compile Include="Assets\Scripts\endCheck.cs" />
+    <Compile Include="Assets\Scripts\end_show_narrative\narrativeResult.cs" />
+    <Compile Include="Assets\Scripts\starts\ibis_intro.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

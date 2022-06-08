@@ -1682,10 +1682,7 @@ namespace Panda.Ibis {
 
             return _food;
         }
-        void landEnToCh()
-        {
 
-        }
 
         //////Start///////Set BeBar/////////////////////
         //////Start///////Set BeBar/////////////////////
@@ -1695,14 +1692,15 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(-347f, 1f);
 
             string thisPlot;
-            thisPlot = " Ibis eats a " + foodAte.name
+/*            thisPlot = " Ibis eats a " + foodAte.name
                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                + " in " + _outAI.month;
+                + " in " + _outAI.month;*/
 
-            thisPlot = monthEnToCh( _outAI.month)+ " 朱鹮吃了一个 " + foodAte.name
+            thisPlot = monthEnToCh( _outAI.month)+ " 朱鹮吃了一个 " + foodEnToCh( foodAte.name)
                 + " 在 " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand ;
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             Debug.Log(thisPlot);
         }
