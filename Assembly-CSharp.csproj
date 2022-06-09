@@ -76,7 +76,9 @@
     <Compile Include="Assets\Scripts\bird.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Lights Off\Scripts\SwitchManager.cs" />
     <Compile Include="Assets\Scripts\obj\whichObj.cs" />
+    <Compile Include="Assets\Scripts\end_show_narrative\narrativeResult.cs" />
     <Compile Include="Assets\Scripts\txt\MoveNPC.cs" />
+    <Compile Include="Assets\Scripts\endCheck.cs" />
     <Compile Include="Assets\Scripts\allCheck.cs" />
     <Compile Include="Assets\Scripts\showV2.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\DiscMeshGenerator.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\FollowCamera.cs" />
     <Compile Include="Assets\Scripts\txt\MyIbis_eat.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement\Scripts\RoamGrid.cs" />
+    <Compile Include="Assets\Scripts\starts\ibis_intro.cs" />
     <Compile Include="Assets\Scripts\ibisR.cs" />
     <Compile Include="Assets\Scripts\ThisIsComment.cs" />
     <Compile Include="Assets\Scripts\rayCastBoundry.cs" />
@@ -116,6 +119,7 @@
     <Compile Include="Assets\Scripts\outerAI.cs" />
     <Compile Include="Assets\Scripts\LandGeneration.cs" />
     <Compile Include="Assets\Scripts\NPCIbis.cs" />
+    <Compile Include="Assets\Scripts\ui\introPanel.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Bullet.cs" />
     <Compile Include="Assets\Scripts\obj\objFood.cs" />
     <Compile Include="Assets\Scripts\dragCard.cs" />
@@ -142,9 +146,10 @@
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleGrid.cs" />
     <Compile Include="Assets\Scripts\getInfo.cs" />
-    <Compile Include="Assets\Scripts\endCheck.cs" />
-    <Compile Include="Assets\Scripts\end_show_narrative\narrativeResult.cs" />
-    <Compile Include="Assets\Scripts\starts\ibis_intro.cs" />
+    <Compile Include="Assets\UITabs\scripts\TabButtonUI.cs" />
+    <Compile Include="Assets\UITabs\scripts\TabsUI.cs" />
+    <Compile Include="Assets\UITabs\scripts\TabsUIVertical.cs" />
+    <Compile Include="Assets\UITabs\scripts\TabsUIHorizontal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
