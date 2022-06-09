@@ -2301,6 +2301,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224421765572603708, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
   m_PrefabInstance: {fileID: 1940373285}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &239516916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239516911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3815adc5682c845931d64ec461282d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &247078062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7606649022615464923, guid: 735dd46b3c96ea945abbde21ca068014, type: 3}
@@ -6669,7 +6681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: 0
-  turn_endCheck: 2
+  turn_endCheck: 4
 --- !u!114 &778228792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20507,10 +20519,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 4
   autoRepath:
-    mode: 0
-    interval: 0.5
-    sensitivity: 10.1
-    maximumInterval: 2
+    mode: 1
+    interval: 10
+    sensitivity: 10
+    maximumInterval: 5
     visualizeSensitivity: 0
   canMove: 1
   speed: 3

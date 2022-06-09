@@ -756,11 +756,15 @@ namespace Panda.Ibis {
             {
                 if (_listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender != gender)
                 {
+                    print("n ibis 0");
                     if (_listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().isSingle)
                     { amount = amount + 1;
+                        print("n ibis 1");
                         if (!allOpGenderOp.Contains(_listObjOnLand.NPCibisOnLand[i]))
                         {
+                            print("n ibis 2");
                             allOpGenderOp.Add(_listObjOnLand.NPCibisOnLand[i]);
+                            print("n ibis 3");
                         }
                     }
                     

@@ -150,6 +150,8 @@
     <Compile Include="Assets\UITabs\scripts\TabsUI.cs" />
     <Compile Include="Assets\UITabs\scripts\TabsUIVertical.cs" />
     <Compile Include="Assets\UITabs\scripts\TabsUIHorizontal.cs" />
+    <Compile Include="Assets\Scripts\ui\windowPopUp.cs" />
+    <Compile Include="Assets\Scripts\ui\clickToNext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

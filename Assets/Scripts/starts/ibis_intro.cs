@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class ibis_intro : MonoBehaviour
 {
     List <string> intro;
+    public string scenename;
+
+    float t;
     void Start()
     {
         intro = new List<string>();
@@ -14,9 +19,18 @@ public class ibis_intro : MonoBehaviour
         //放一页朱鹮挤眼泪的动画？
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        // print("time: " + Time.deltaTime);;
+/*        t = t + Time.deltaTime;
+        // print("time: " + t);
+
+        if ()*/
+    }
+
+    void switchToMainScene()
+    {
+        SceneManager.LoadScene(scenename);
     }
 }
