@@ -59,6 +59,7 @@ public class outerAI : MonoBehaviour
     Sprite sp_sleepyEye;
 
     public GameObject _monthNum;
+    public GameObject _monthFrame;
 
     void Start()
     {
@@ -99,6 +100,7 @@ public class outerAI : MonoBehaviour
         sp_sleepyEye = Resources.Load<Sprite>("ui/formal/eye-sleepy");
 
        // _monthNum = GameObject.Find("monthNum");
+
 
         ////////GameObject needed
         ///ðØ
@@ -209,7 +211,7 @@ public class outerAI : MonoBehaviour
     {
         float x;
         x = _monthNum.transform.parent.gameObject.GetComponent<monthsPos>().monthXs[_month];
-        _monthNum.transform.DOLocalMoveX(x,1f);
+        _monthFrame.transform.DOLocalMoveX(x,1f);
     }
     void ibisTranColor() //»»Ã«É«
     {

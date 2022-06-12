@@ -70,15 +70,18 @@ public class allCheck : MonoBehaviour
             print("check all 1");
 
           /// under NPCs(all other ibis)
-            foreach (Transform child in _NPCs.transform) 
+            foreach (Transform child in _ObjOnLand.transform) 
             {
-                if (land.GetComponent<genPos>().thisCo == child.gameObject.GetComponent<objV2Pos>().thisV2)
+                if (child.gameObject.tag == "npc")
                 {
-                    if (!land.GetComponent<genPos>().OnThis.Contains(child.gameObject))
+                    if (land.GetComponent<genPos>().thisCo == child.gameObject.GetComponent<objV2Pos>().thisV2)
                     {
-                        land.GetComponent<genPos>().OnThis.Add(child.gameObject);
+                        if (!land.GetComponent<genPos>().OnThis.Contains(child.gameObject))
+                        {
+                            land.GetComponent<genPos>().OnThis.Add(child.gameObject);
 
-                        print("check all 2");
+                            print("check all 2");
+                        }
                     }
                 }
             }

@@ -8080,6 +8080,7 @@ MonoBehaviour:
   pollutionRate: 0
   MaxPollution: 10
   _monthNum: {fileID: 1587748553}
+  _monthFrame: {fileID: 1683184892}
 --- !u!1001 &888075572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18778,7 +18779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 762f717cbf6355248a75b927b13f8245, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09937024e50c0aa468db6e4d971f2a6d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

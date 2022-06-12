@@ -728,6 +728,14 @@ namespace Panda.Ibis {
                             ThisTask.Succeed();
                         }*/
 
+            foreach (GameObject goj in GameObject.Find("ObjOnLand").transform)
+            {
+                if (goj.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains(goj))
+                {
+                    _listObjOnLand.NPCibisOnLand.Add(goj);
+                }
+            }
+
             int amount;
             amount = 0;
             for (int i = 0; i < _listObjOnLand.NPCibisOnLand.Count; i++)

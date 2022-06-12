@@ -139,6 +139,9 @@ public class objNPC : MonoBehaviour
             _listObjOnLand.NPCibisOnLand.Add(gameObject);
 
             GameObject showInfo = Instantiate(Resources.Load("goj/showInfo")) as GameObject;
+            showInfo.transform.SetParent(gameObject.transform);
+            showInfo.name = "showInfo";
+           
         }
         //  if (whichNPC == "trapMan")
     }
