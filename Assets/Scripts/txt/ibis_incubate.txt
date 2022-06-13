@@ -10,8 +10,8 @@ tree("Root")
 								// checkNestFinished()  //去掉，因为有时候可能是别的巢没完成
 								// Wait(10)
 
-								checkCanIncubate() 
-								Wait(10)
+							//	checkCanIncubate()    //添加check并且巢内无蛋
+							//	Wait(10)
 
 								Next()
 

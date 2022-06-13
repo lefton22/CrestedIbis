@@ -728,22 +728,28 @@ namespace Panda.Ibis {
                             ThisTask.Succeed();
                         }*/
 
-            foreach (GameObject goj in GameObject.Find("ObjOnLand").transform)
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
             {
-                if (goj.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains(goj))
+                if (child.gameObject.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains(child.gameObject))
                 {
-                    _listObjOnLand.NPCibisOnLand.Add(goj);
+                    _listObjOnLand.NPCibisOnLand.Add(child.gameObject);
                 }
             }
 
             int amount;
             amount = 0;
-            for (int i = 0; i < _listObjOnLand.NPCibisOnLand.Count; i++)
+            if (_listObjOnLand.NPCibisOnLand.Count > 0)
             {
-                if (_listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender != gender)
+                for (int i = 0; i < _listObjOnLand.NPCibisOnLand.Count; i++)
                 {
-                 //   print(i + " npc: " + _listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender +" , this gender: " + gender);
-                    amount = amount + 1;
+                    if (_listObjOnLand.NPCibisOnLand[i].name == "ibisAdult")
+                    {
+                        if (_listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender != gender)
+                        {
+                            //   print(i + " npc: " + _listObjOnLand.NPCibisOnLand[i].GetComponent<NPCIbis>().gender +" , this gender: " + gender);
+                            amount = amount + 1;
+                        }
+                    }
                 }
             }
 
@@ -975,12 +981,41 @@ namespace Panda.Ibis {
         }
 
         [Task]
-        void checkNest()// to check if there is no nest
+        void checkBuildNest()// to check if there is no nest
         {
+
             GameObject[] nests;
             nests = GameObject.FindGameObjectsWithTag("nest");
             if (nests.Length > 0)
             { ThisTask.Fail(); }
+            else { ThisTask.Succeed(); }
+        }
+
+            [Task]
+        void checkNest()// to check if there is no nest
+        {
+            bool conA = false;
+            bool conB = false;
+
+            GameObject[] nests;
+            nests = GameObject.FindGameObjectsWithTag("nest");
+            if (nests.Length > 0)
+            { conA = true; }
+            else { conA = false; }
+
+
+            GameObject[] eggs;
+            eggs = GameObject.FindGameObjectsWithTag("egg");
+            if (eggs.Length == 0)
+            {
+                conA = true;
+            }
+            else { conB = false; }
+
+            if (conA & conB)
+            {
+                ThisTask.Fail();
+            }
             else { ThisTask.Succeed(); }
         }
 
@@ -1341,8 +1376,11 @@ namespace Panda.Ibis {
         [Task]
         void endTurn()
         {
-            GameObject.Find("ibis_begin").GetComponent<MyIbis_begin>().enabled = false;
-            GameObject.Find("ibis_begin").SetActive(false);
+            if (GameObject.Find("ibis_begin"))
+            {
+                GameObject.Find("ibis_begin").GetComponent<MyIbis_begin>().enabled = false;
+                GameObject.Find("ibis_begin").SetActive(false);
+            }
 
             hasCheckDes = false;
 
@@ -1701,7 +1739,9 @@ namespace Panda.Ibis {
         void lightEat()
         {
             _eat.SetActive(true);
-            _dot.transform.DOLocalMoveX(-347f, 1f);
+            //_dot.transform.DOLocalMoveX(-347f, 1f);
+
+            _dot.transform.DOLocalMoveX(_eat.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
 /*            thisPlot = " Ibis eats a " + foodAte.name
@@ -1720,7 +1760,7 @@ namespace Panda.Ibis {
         void lightGoToOpIbis()
         {
             _goToOpIbis.SetActive(true);
-            _dot.transform.DOLocalMoveX(-290f, 1f);
+            _dot.transform.DOLocalMoveX(_goToOpIbis.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
             thisPlot = "Ibis meets " + mate + " then they become a couple in " + _outAI.month
@@ -1737,7 +1777,7 @@ namespace Panda.Ibis {
            // print("lightMate.");
 
             _mate.SetActive(true);
-            _dot.transform.DOLocalMoveX(-95f, 1f);
+            _dot.transform.DOLocalMoveX(_mate.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
             thisPlot = "This couple of ibis decide to form a form a family in " + _outAI.month
@@ -1752,7 +1792,7 @@ namespace Panda.Ibis {
         void lightBuildNest()
         {
             _buildNest.SetActive(true);
-            _dot.transform.DOLocalMoveX(108f, 1f);
+            _dot.transform.DOLocalMoveX(_buildNest.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
             thisPlot = "Ibis builds a nest in " + _outAI.month
@@ -1766,7 +1806,7 @@ namespace Panda.Ibis {
         void lightSpawn(int am_egg)
         {
             _spawn.SetActive(true);
-            _dot.transform.DOLocalMoveX(305f, 1f);
+            _dot.transform.DOLocalMoveX(_spawn.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
             thisPlot = "Ibis spawns " + am_egg + " eggs " + _outAI.month
@@ -1781,7 +1821,7 @@ namespace Panda.Ibis {
         void lightIncubate()
         {
             _incubate.SetActive(true);
-            _dot.transform.DOLocalMoveX(510f, 1f);
+            _dot.transform.DOLocalMoveX(_incubate.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
             thisPlot = "Ibis incubates " + _outAI.month
@@ -1795,7 +1835,7 @@ namespace Panda.Ibis {
         void lightBreed()
         {
             _breed.SetActive(true);
-            _dot.transform.DOLocalMoveX(715f, 1f);
+            _dot.transform.DOLocalMoveX(_breed.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
             thisPlot = "Ibis feeds its birdlings" + _outAI.month
@@ -1809,7 +1849,7 @@ namespace Panda.Ibis {
         void lightRest()
         {
             _rest.SetActive(true);
-            _dot.transform.DOLocalMoveX(915f, 1f);
+            _dot.transform.DOLocalMoveX(_rest.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
             thisPlot = "Ibis goes to sleep in " + _outAI.month

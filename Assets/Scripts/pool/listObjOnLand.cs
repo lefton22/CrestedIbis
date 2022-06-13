@@ -64,11 +64,11 @@ public class listObjOnLand : MonoBehaviour
 
     void AddObjIntoList() // this happened after drawing the card
     {
-        //add all npc ibis
+/*        //add all npc ibis
         GameObject[] NPCibisOnLand_array= GameObject.FindGameObjectsWithTag("ibis");
         for (int i = 0; i < NPCibisOnLand_array.Length; i++)
         {
             NPCibisOnLand.Add(NPCibisOnLand_array[i]);
-        }
+        }*/
     }
 }

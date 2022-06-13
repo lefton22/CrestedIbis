@@ -21,7 +21,10 @@ public class dragCard : MonoBehaviour
     bool ifOverlap;
     bool isRightType;
 
-     void Start()
+
+    listObjOnLand _listObjOnLand;
+
+    void Start()
     {
         v3_ori = transform.position;
 
@@ -30,7 +33,9 @@ public class dragCard : MonoBehaviour
 
         ifOverlap = false;
         isRightType = false;
-      //  transform.GetChild(0).gameObject.GetComponent<objV2Pos>().thisV2 = new Vector2(99f,99f);
+        //  transform.GetChild(0).gameObject.GetComponent<objV2Pos>().thisV2 = new Vector2(99f,99f);
+
+        _listObjOnLand = GameObject.Find("Lists").GetComponent<listObjOnLand>();
     }
 
 
@@ -141,6 +146,11 @@ public class dragCard : MonoBehaviour
             /////check if there is obj on the land to prevent from overlapping
             transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>().thisV2 =
             turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //ÎïÆ·×ÅÂ½
+
+            if (transform.GetChild(0).gameObject.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains (transform.GetChild(0).gameObject))
+            {
+                _listObjOnLand.NPCibisOnLand.Add(transform.GetChild(0).gameObject);
+            }
 
             //   print("card land 1.");
 

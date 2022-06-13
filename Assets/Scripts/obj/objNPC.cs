@@ -136,7 +136,7 @@ public class objNPC : MonoBehaviour
             //transform.localScale= new Vector3(0.9f, 0.9f,1f);
             transform.DOScale(new Vector3 (0.9f, 0.9f, 0.9f), 0.001f);
 
-            _listObjOnLand.NPCibisOnLand.Add(gameObject);
+            //_listObjOnLand.NPCibisOnLand.Add(gameObject);
 
             GameObject showInfo = Instantiate(Resources.Load("goj/showInfo")) as GameObject;
             showInfo.transform.SetParent(gameObject.transform);

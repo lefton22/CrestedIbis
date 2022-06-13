@@ -103,6 +103,8 @@ public class turnBased : MonoBehaviour
 
   void checkIbis()
     {
+        Panda.Ibis.MyIbis.full = Panda.Ibis.MyIbis.full - 1;
+
         if (Panda.Ibis.MyIbis.full <= 0)
         {
             //ibisA die,Game Over.

@@ -123,6 +123,10 @@ public class outerAI : MonoBehaviour
         //...?
 
         pollutionRate = Random.Range(0, MaxPollution);
+
+        float x;
+        x = _monthFrame.GetComponent<monthsPos>().monthXs[6];
+        _monthFrame.transform.DOLocalMoveX(x, 1f);
     }
 
     void Update()
@@ -151,11 +155,13 @@ public class outerAI : MonoBehaviour
         {
             //_t_full.GetComponent<TMPro.TextMeshProUGUI>().text = "¶ö ";
             _ISgizzard.GetComponent<Image>().enabled = false;
+           
         }
         if (Panda.Ibis.MyIbis.full == 1)
         {
             //_t_full.GetComponent<TMPro.TextMeshProUGUI>().text = "±¥ ";
             _ISgizzard.GetComponent<Image>().enabled = true;
+            _ISgizzard.GetComponent<Image>().sprite = sp_gizzard;
         }
 
         if (Panda.Ibis.MyIbis.energy == 0)
@@ -210,7 +216,7 @@ public class outerAI : MonoBehaviour
     void setMonthIconPos(int _month)
     {
         float x;
-        x = _monthNum.transform.parent.gameObject.GetComponent<monthsPos>().monthXs[_month];
+        x = _monthFrame.GetComponent<monthsPos>().monthXs[_month-1];
         _monthFrame.transform.DOLocalMoveX(x,1f);
     }
     void ibisTranColor() //»»Ã«É«

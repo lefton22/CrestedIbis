@@ -5,7 +5,7 @@ tree("Root")
 				sequence
 			 
 									checkHasFood() //没食物，则失败
-									Wait(120)
+									Wait(1)
 
 									Next()
 

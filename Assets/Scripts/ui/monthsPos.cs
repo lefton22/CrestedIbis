@@ -19,11 +19,41 @@ public class monthsPos : MonoBehaviour
     // 04:  365        730
     // 05: 455          816
     public List<float> monthXs;
-    public float month6X, month7X, month8X, month9X, month10X, month11X, month12X, month1X, month2X, month3X, month4X, month5X;
+    //public float month7X, month8X, month9X, month10X, month11X, month12X, month1X, month2X, month3X, month4X, month5X, month6X;
+
+    public GameObject _1p;
+    public GameObject _2p;
+    public GameObject _3p;
+    public GameObject _4p;
+    public GameObject _5p;
+    public GameObject _6p;
+    public GameObject _7p;
+    public GameObject _8p;
+    public GameObject _9p;
+    public GameObject _10p;
+    public GameObject _11p;
+    public GameObject _12p;
+
     void Start()
     {
-       //gameObject.transform.localPosition = new Vector3(10f, 10f, 0f);
-       
+        //gameObject.transform.localPosition = new Vector3(10f, 10f, 0f);
+        // month7X = 
+        monthXs.Add(_1p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_2p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_3p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_4p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_5p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_6p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_7p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_8p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_9p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_10p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_11p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_12p.GetComponent<RectTransform>().anchoredPosition.x);
+
+ /*       float x;
+        x = transform.parent.gameObject.GetComponent<monthsPos>().monthXs[6];
+        transform.DOLocalMoveX(x, 1f);*/
     }
 
     // Update is called once per frame

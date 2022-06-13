@@ -3,7 +3,7 @@ tree("Root")
 //有mate goj的朱鹮就可以check这个支路
 		fallback
 					sequence //无巢
-						checkNest()
+						checkBuildNest()
 						Wait(10)
 
 						Next()
