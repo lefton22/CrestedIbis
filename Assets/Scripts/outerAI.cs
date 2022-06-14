@@ -61,6 +61,20 @@ public class outerAI : MonoBehaviour
     public GameObject _monthNum;
     public GameObject _monthFrame;
 
+    public List<float> monthXs;
+/*    public GameObject _1p;
+    public GameObject _2p;
+    public GameObject _3p;
+    public GameObject _4p;
+    public GameObject _5p;
+    public GameObject _6p;
+    public GameObject _7p;
+    public GameObject _8p;
+    public GameObject _9p;
+    public GameObject _10p;
+    public GameObject _11p;
+    public GameObject _12p;*/
+
     void Start()
     {
        
@@ -124,9 +138,24 @@ public class outerAI : MonoBehaviour
 
         pollutionRate = Random.Range(0, MaxPollution);
 
+
+
         float x;
         x = _monthFrame.GetComponent<monthsPos>().monthXs[6];
         _monthFrame.transform.DOLocalMoveX(x, 1f);
+
+/*        monthXs.Add(_1p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_2p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_3p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_4p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_5p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_6p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_7p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_8p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_9p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_10p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_11p.GetComponent<RectTransform>().anchoredPosition.x);
+        monthXs.Add(_12p.GetComponent<RectTransform>().anchoredPosition.x);*/
     }
 
     void Update()
@@ -215,11 +244,39 @@ public class outerAI : MonoBehaviour
     }
     void setMonthIconPos(int _month)
     {
-        float x;
-        x = _monthFrame.GetComponent<monthsPos>().monthXs[_month-1];
-        _monthFrame.transform.DOLocalMoveX(x,1f);
+       // float x;
+        /*        foreach (float f in monthXs)
+                {
+                    print("_month: " + f);
+                } 
+                print("_month: " *//*+ monthXs[1] *//*);*/
+
+        // print("_month: " + _monthFrame.GetComponent<monthsPos>().monthXs[_month - 1]);
+
+        /*         x =monthXs[_month];
+                _monthFrame.transform.DOLocalMoveX(x, 1f);*/
+
+        // _monthFrame.transform.DOLocalMoveX(1, 1f);
+        moveMonth(_month);
     }
-    void ibisTranColor() //»»Ã«É«
+
+    void moveMonth(int __month)
+    {
+        if (__month == 1) { _monthFrame.transform.DOLocalMoveX(23.8f, 1f); }
+        if (__month == 2) { _monthFrame.transform.DOLocalMoveX(107.2f, 1f); }
+        if (__month == 3) { _monthFrame.transform.DOLocalMoveX(191f, 1f); }
+        if (__month == 4) { _monthFrame.transform.DOLocalMoveX(283f, 1f); }
+        if (__month == 5) { _monthFrame.transform.DOLocalMoveX(372f, 1f); }
+        if (__month == 6) { _monthFrame.transform.DOLocalMoveX(448f, 1f); }
+        if (__month == 7) { _monthFrame.transform.DOLocalMoveX(-446.3f, 1f); }
+        if (__month == 8) { _monthFrame.transform.DOLocalMoveX(-370.2f, 1f); }
+        if (__month == 9) { _monthFrame.transform.DOLocalMoveX(-291.1f, 1f); }
+        if (__month == 10) { _monthFrame.transform.DOLocalMoveX(-214.2f, 1f); }
+        if (__month == 11) { _monthFrame.transform.DOLocalMoveX(-134.4f, 1f); }
+        if (__month == 12) { _monthFrame.transform.DOLocalMoveX(-55.1f, 1f); }
+    }
+
+        void ibisTranColor() //»»Ã«É«
     {
         if (month == 6 || month == 7 || month == 8 || month == 9)
         {

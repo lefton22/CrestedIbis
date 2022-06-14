@@ -51,6 +51,8 @@ public class monthsPos : MonoBehaviour
         monthXs.Add(_11p.GetComponent<RectTransform>().anchoredPosition.x);
         monthXs.Add(_12p.GetComponent<RectTransform>().anchoredPosition.x);
 
+        print("monthsPos Add!");
+
  /*       float x;
         x = transform.parent.gameObject.GetComponent<monthsPos>().monthXs[6];
         transform.DOLocalMoveX(x, 1f);*/

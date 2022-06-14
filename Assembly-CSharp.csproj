@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\obj\objEgret.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\ShooterGameController.cs" />
+    <Compile Include="Assets\Scripts\ui\windowPopUp.cs" />
+    <Compile Include="Assets\UITabs\scripts\TabsUI.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\BlockSquare.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Assets\Scripts\raycastGrid.cs" />
     <Compile Include="Assets\Scripts\obj\objEagle.cs" />
     <Compile Include="Assets\Scripts\obj\objSnake.cs" />
+    <Compile Include="Assets\Scripts\ui\clickToNext.cs" />
     <Compile Include="Assets\Scripts\obj\objNPC.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AI.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleExample.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="Assets\Scripts\obj\whichObj.cs" />
     <Compile Include="Assets\Scripts\end_show_narrative\narrativeResult.cs" />
     <Compile Include="Assets\Scripts\txt\MoveNPC.cs" />
+    <Compile Include="Assets\UITabs\scripts\TabsUIHorizontal.cs" />
     <Compile Include="Assets\Scripts\endCheck.cs" />
     <Compile Include="Assets\Scripts\allCheck.cs" />
     <Compile Include="Assets\Scripts\showV2.cs" />
@@ -125,6 +129,7 @@
     <Compile Include="Assets\Scripts\dragCard.cs" />
     <Compile Include="Assets\Scripts\objV2Pos.cs" />
     <Compile Include="Assets\Scripts\turnBased.cs" />
+    <Compile Include="Assets\UITabs\scripts\TabButtonUI.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\00_ChangeColor\Assets\MyCube.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\UnitExplosion.cs" />
     <Compile Include="Assets\Scripts\obj\break\trapBreak.cs" />
@@ -137,6 +142,7 @@
     <Compile Include="Assets\Scripts\grid.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
     <Compile Include="Assets\Scripts\skipToNextTurn.cs" />
+    <Compile Include="Assets\UITabs\scripts\TabsUIVertical.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\BulletImpact.cs" />
     <Compile Include="Assets\Scripts\obj\objIbisAdult.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\RoamGridWithWalls.cs" />
@@ -146,12 +152,6 @@
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleGrid.cs" />
     <Compile Include="Assets\Scripts\getInfo.cs" />
-    <Compile Include="Assets\UITabs\scripts\TabButtonUI.cs" />
-    <Compile Include="Assets\UITabs\scripts\TabsUI.cs" />
-    <Compile Include="Assets\UITabs\scripts\TabsUIVertical.cs" />
-    <Compile Include="Assets\UITabs\scripts\TabsUIHorizontal.cs" />
-    <Compile Include="Assets\Scripts\ui\windowPopUp.cs" />
-    <Compile Include="Assets\Scripts\ui\clickToNext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -103,17 +103,20 @@ public class turnBased : MonoBehaviour
 
   void checkIbis()
     {
-        Panda.Ibis.MyIbis.full = Panda.Ibis.MyIbis.full - 1;
-
-        if (Panda.Ibis.MyIbis.full <= 0)
+        if (turn != 1)
         {
-            //ibisA die,Game Over.
-            Debug.Log("ibisA dies by hungry ,Game Over.");
+            Panda.Ibis.MyIbis.full = Panda.Ibis.MyIbis.full - 1;
 
-        }
-        if (Panda.Ibis.MyIbis.energy <= 0)
-        { 
-            //? next turn's action point would be reduced.
+            if (Panda.Ibis.MyIbis.full <= 0)
+            {
+                //ibisA die,Game Over.
+                Debug.Log("ibisA dies by hungry ,Game Over.");
+
+            }
+            if (Panda.Ibis.MyIbis.energy <= 0)
+            {
+                //? next turn's action point would be reduced.
+            }
         }
     }
 

@@ -6799,7 +6799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: 0
-  turn_endCheck: 10
+  turn_endCheck: 4
 --- !u!114 &778228792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8233,6 +8233,7 @@ MonoBehaviour:
   MaxPollution: 10
   _monthNum: {fileID: 1587748553}
   _monthFrame: {fileID: 1683184892}
+  monthXs: []
 --- !u!1001 &888075572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22200,6 +22201,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 872584500293084058, guid: f1bb1160e329eaa429f70a49ad8df86e, type: 3}
+      propertyPath: s1Card
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 872584500293084058, guid: f1bb1160e329eaa429f70a49ad8df86e, type: 3}
+      propertyPath: s2Card
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 872584500293084058, guid: f1bb1160e329eaa429f70a49ad8df86e, type: 3}
+      propertyPath: s3Card
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 872584500293084058, guid: f1bb1160e329eaa429f70a49ad8df86e, type: 3}
+      propertyPath: s4Card
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 872584500293084058, guid: f1bb1160e329eaa429f70a49ad8df86e, type: 3}
       propertyPath: cardPoses.Array.data[0]
       value: 

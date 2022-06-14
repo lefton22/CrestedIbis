@@ -52,9 +52,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  s1Card: 3
-  s2Card: 5
-  s3Card: 4
+  s1Card: 2
+  s2Card: 4
+  s3Card: 3
   s4Card: 2
   hasSetPandaActive: 0
   hasSetNPCTreeActive: 0

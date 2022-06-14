@@ -29,8 +29,8 @@ public class endCheck : MonoBehaviour
 
         narrative = new List<string>(GameObject.Find("TurnBased").GetComponent<story>().allStory);
 
-        //如果那个月什么都没有做，在空白的组里面加一句话
-        for (int i =0; i < narrative.Count; i++)
+/*        //如果那个月什么都没有做，在空白的组里面加一句话
+        for (int i = 0; i < narrative.Count; i++)
         {
             if (narrative[i] == " ")
             {
@@ -42,12 +42,12 @@ public class endCheck : MonoBehaviour
                 }
                 if (narrative.IndexOf(narrative[i]) > 12)
                 {
-                    e_turn = (narrative.IndexOf(narrative[i]) - 1) / 2 + 7 -12;
+                    e_turn = (narrative.IndexOf(narrative[i]) - 1) / 2 + 7 - 12;
                     narrative[i] += "在" + e_turn.ToString() + "月，什么也没有做成。";
                 }
             }
             print("0 narr: " + narrative[i]);
-        }
+        }*/
 
         foreach (string narr in narrative)
         {
