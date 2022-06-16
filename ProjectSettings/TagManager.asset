@@ -19,6 +19,7 @@ TagManager:
   - birdling
   - thisTurn
   - npcOrder
+  - music
   layers:
   - Default
   - TransparentFX

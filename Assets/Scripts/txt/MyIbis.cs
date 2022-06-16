@@ -128,7 +128,7 @@ namespace Panda.Ibis {
         ////////////////Properties////////////////////
 
             gender = 2;
-            full = 0;// 0¶ö,1±¥
+            full = 2;// 0¶ö,1±¥
             full_max = 1;
             energy = 1;//0 need to rest, 1 no need 
             isSingle = true;

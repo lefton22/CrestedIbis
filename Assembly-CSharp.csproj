@@ -59,6 +59,7 @@
     <Compile Include="Assets\UITabs\scripts\TabsUI.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\BlockSquare.cs" />
+    <Compile Include="Assets\Scripts\audio\musicClass.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
     <Compile Include="Assets\Scripts\txt\MyIbis.cs" />
     <Compile Include="Assets\Grid Framework\Debug\GridDebugger.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleGrid.cs" />
     <Compile Include="Assets\Scripts\getInfo.cs" />
+    <Compile Include="Assets\Scripts\ui\blink.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

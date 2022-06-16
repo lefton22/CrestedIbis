@@ -4,6 +4,8 @@ using UnityEngine;
 
 using Panda;
 
+using UnityEngine.SceneManagement;
+
 public class turnBased : MonoBehaviour
 {
  
@@ -111,6 +113,7 @@ public class turnBased : MonoBehaviour
             {
                 //ibisA die,Game Over.
                 Debug.Log("ibisA dies by hungry ,Game Over.");
+                SceneManager.LoadScene("endShowNarrative");
 
             }
             if (Panda.Ibis.MyIbis.energy <= 0)
