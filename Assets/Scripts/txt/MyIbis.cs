@@ -127,9 +127,9 @@ namespace Panda.Ibis {
         /////////////Properties////////////////////
         ////////////////Properties////////////////////
 
-            gender = 2;
+            gender = 1;
             full = 2;// 0饿,1饱
-            full_max = 1;
+            full_max = 2;
             energy = 1;//0 need to rest, 1 no need 
             isSingle = true;
 
@@ -209,6 +209,9 @@ namespace Panda.Ibis {
         }
 
 
+
+
+
         public void breakWhenIbisAAct() //用于打断
         {
             GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
@@ -248,6 +251,8 @@ namespace Panda.Ibis {
 
         void Update()
         {
+            print("full : " + full);
+
             /*            if (Input.GetKeyDown(KeyCode.F))
                         {
                             transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().speed = 0;
@@ -992,7 +997,52 @@ namespace Panda.Ibis {
         }
 
             [Task]
-        void checkNest()// to check if there is no nest
+        void checkNest()// 需有巢才能进行  -》(反)
+        {
+
+            GameObject[] nests;
+            nests = GameObject.FindGameObjectsWithTag("nest");
+            if (nests.Length > 0)
+            { ThisTask.Fail(); }
+            else { ThisTask.Succeed(); }
+
+
+        }
+
+        [Task]
+        void checkNest_spawn()// 需有巢无蛋才能进行  -》（反） 
+                                            //只有两个都true了才能fail
+        {
+            bool conA = false;
+            bool conB = false;
+
+            GameObject[] nests;
+            nests = GameObject.FindGameObjectsWithTag("nest");
+            if (nests.Length > 0)
+            { conA = true;
+                print("nest 0 : " + nests[0]);
+            }
+            else { conA = false; }
+
+
+            GameObject[] eggs;
+            eggs = GameObject.FindGameObjectsWithTag("egg");
+            if (eggs.Length == 0)
+            {
+                conB = true;
+            }
+            else { conB = false; }
+            print("conA: " + conA + ", conB: " + conB);
+
+            if (conA & conB) //有巢无蛋
+            {
+                ThisTask.Fail();
+            }
+            else { ThisTask.Succeed(); }
+        }
+
+        [Task]
+        void checkNest_incubate()// 需有巢有蛋才能孵化  -》（反） 
         {
             bool conA = false;
             bool conB = false;
@@ -1006,18 +1056,21 @@ namespace Panda.Ibis {
 
             GameObject[] eggs;
             eggs = GameObject.FindGameObjectsWithTag("egg");
-            if (eggs.Length == 0)
+            if (eggs.Length > 0)
             {
-                conA = true;
+                conB = true;
             }
             else { conB = false; }
 
-            if (conA & conB)
+            print("conA: " +conA + ", conB: " +conB);
+            if (conA & conB)//有巢有蛋
             {
                 ThisTask.Fail();
             }
             else { ThisTask.Succeed(); }
         }
+
+
 
         [Task]
         void checkHasBuidlingMaterial()
@@ -1749,7 +1802,7 @@ namespace Panda.Ibis {
                 + " in " + _outAI.month;*/
 
             thisPlot = monthEnToCh( _outAI.month)+ " 朱鹮吃了一个 " + foodEnToCh( foodAte.name)
-                + " 在 " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand ;
+                + " 在 " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand +"." ;
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
@@ -1763,11 +1816,16 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_goToOpIbis.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-            thisPlot = "Ibis meets " + mate + " then they become a couple in " + _outAI.month
+/*            thisPlot = "Ibis meets " + mate + " then they become a couple in " + _outAI.month
                  + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                 + ".";
+                 + ".";*/
+
+                thisPlot = "朱鹮碰见了" + mate +"在"+ monthEnToCh(_outAI.month) + " , 随后它们成为了一对儿 " 
+             + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+             + ".";
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             Debug.Log(thisPlot);
         }
@@ -1780,11 +1838,16 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_mate.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-            thisPlot = "This couple of ibis decide to form a form a family in " + _outAI.month
+/*            thisPlot = "This couple of ibis decide to form a form a family in " + _outAI.month
                  + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                 + ".";
+                 + ".";*/
+
+                    thisPlot = "这对情侣决定在" + monthEnToCh(_outAI.month) +"组成一个小家庭"
+             + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+             + ".";
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             Debug.Log(thisPlot);
         }
@@ -1795,10 +1858,15 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_buildNest.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-            thisPlot = "Ibis builds a nest in " + _outAI.month
+/*            thisPlot = "Ibis builds a nest in " + _outAI.month
                              + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                             + ".";
+                             + ".";*/
+            thisPlot = "在"+monthEnToCh(_outAI.month)+ "朱鹮建了一个新的巢" 
+                 + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                 + ".";
+
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             Debug.Log(thisPlot);
         }
@@ -1809,11 +1877,15 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_spawn.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-            thisPlot = "Ibis spawns " + am_egg + " eggs " + _outAI.month
+/*            thisPlot = "Ibis spawns " + am_egg + " eggs " + _outAI.month
                              + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                             + ".";
+                             + ".";*/
+            thisPlot = "朱鹮孵化了" + am_egg + "个蛋在" + monthEnToCh(_outAI.month)
+                 + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                 + ".";
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             Debug.Log(thisPlot);
         }
@@ -1828,6 +1900,7 @@ namespace Panda.Ibis {
                  + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                  + ".";
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             Debug.Log(thisPlot);
         }
@@ -1842,6 +1915,7 @@ namespace Panda.Ibis {
                          + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                          + ".";
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             Debug.Log(thisPlot);
         }
@@ -1852,10 +1926,14 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_rest.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-            thisPlot = "Ibis goes to sleep in " + _outAI.month
+/*            thisPlot = "Ibis goes to sleep in " + _outAI.month
              + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+             + ".";*/
+                        thisPlot = monthEnToCh( _outAI.month) + "朱鹮去睡觉了 " 
+             + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
              + ".";
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             Debug.Log(thisPlot);
         }

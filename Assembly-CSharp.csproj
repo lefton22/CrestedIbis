@@ -110,7 +110,7 @@
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\FollowCamera.cs" />
     <Compile Include="Assets\Scripts\txt\MyIbis_eat.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement\Scripts\RoamGrid.cs" />
-    <Compile Include="Assets\Scripts\starts\ibis_intro.cs" />
+    <Compile Include="Assets\Scripts\ui\starts\ibis_intro.cs" />
     <Compile Include="Assets\Scripts\ibisR.cs" />
     <Compile Include="Assets\Scripts\ThisIsComment.cs" />
     <Compile Include="Assets\Scripts\rayCastBoundry.cs" />
@@ -139,6 +139,7 @@
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\ExampleDescription.cs" />
     <Compile Include="Assets\Scripts\GridToBG.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Player.cs" />
+    <Compile Include="Assets\Scripts\ui\blink.cs" />
     <Compile Include="Assets\Scripts\obj\objNest.cs" />
     <Compile Include="Assets\Scripts\grid.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
@@ -153,7 +154,6 @@
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleGrid.cs" />
     <Compile Include="Assets\Scripts\getInfo.cs" />
-    <Compile Include="Assets\Scripts\ui\blink.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -203,6 +203,7 @@
     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
     <None Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Sniper.BT.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\csdn_ch_zk.txt" />
     <None Include="Assets\Panda.BT.free\Samples\00_ChangeColor\Assets\ChangeColor.BT.txt" />
     <None Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Hunter.BT.txt" />
     <None Include="Assets\Grid Framework\Changelog.txt" />

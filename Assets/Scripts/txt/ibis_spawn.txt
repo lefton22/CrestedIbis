@@ -16,20 +16,20 @@ tree("Root")
 
 														fallback
 																	 sequence //无巢
-																			 checkNest()
+																			checkNest_spawn() //是否相同，借用先
 																			 Wait(10)
 
-																			 checkNestFinished()
-																			 Wait(10)
+																			 //checkNestFinished()
+																			// Wait(10)
 
 																			 Next()
 
 																	 sequence //有巢
 																			  goToNest()
-																			  Wait(120)
+																			  Wait(100)
 
 																			  spawn()
-																			  Wait(120)
+																			  Wait(100)
 
 																			  Next()
 												        

@@ -3,7 +3,7 @@ tree("Root")
 
 		fallback
 					sequence
-						checkNest()   // 有巢没
+						checkNest()  // 有巢没
 						Wait(10)
 
 						Next()

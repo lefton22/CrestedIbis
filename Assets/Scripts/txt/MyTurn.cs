@@ -356,14 +356,14 @@ namespace Panda.Ibis
             
 
             ///// Top// check the egg // ///////
-            if (Panda.Ibis.MyIbis.eggs.Count > 0)  // if the egg can hatch, hatch them into baby ibis
+/*            if (Panda.Ibis.MyIbis.eggs.Count > 0)  // if the egg can hatch, hatch them into baby ibis
             {
                 foreach (GameObject egg in Panda.Ibis.MyIbis.eggs)
                 {
                     egg.GetComponent<objEgg>().checkHatch();
                 }
                 //Panda.Ibis.MyIbis.eggs.Clear();
-            }
+            }*/
             /////End// check the egg // ///////
 
             ThisTask.Succeed();

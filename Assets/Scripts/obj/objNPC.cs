@@ -122,11 +122,12 @@ public class objNPC : MonoBehaviour
             NPCIbis _NPCIbis = gameObject.AddComponent<NPCIbis>() as NPCIbis;
             //ramdomize npc ibis property
 
-            GetComponent<NPCIbis>().gender = Random.Range(1,2);
-            int ranSingle;
+            //GetComponent<NPCIbis>().gender = Random.Range(1,2);
+            GetComponent<NPCIbis>().gender =2;
+/*            int ranSingle;
             ranSingle = Random.Range(0,1);
             if (ranSingle == 0) { GetComponent<NPCIbis>().isSingle = false; }
-            if (ranSingle == 1) { GetComponent<NPCIbis>().isSingle = true; }
+            if (ranSingle == 1) { GetComponent<NPCIbis>().isSingle = true; }*/
 
             GetComponent<NPCIbis>().isMate = false;
             GetComponent<NPCIbis>().mate = null;

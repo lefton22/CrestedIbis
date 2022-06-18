@@ -16,7 +16,9 @@ public class story : MonoBehaviour
 
         _plots = GameObject.Find("plots");
 
-
+        GameObject[] nests;
+        nests = GameObject.FindGameObjectsWithTag("nest");
+        print("nests " +nests.Length);
     }
 
     
