@@ -67,6 +67,7 @@ namespace Panda.Ibis
 
         allCheck _allCheck;
 
+        public bool drawCardShouldEnd;
         void Start()
         {
             cards = new List<GameObject>();
@@ -117,6 +118,8 @@ namespace Panda.Ibis
             _LandGen2 = GameObject.Find("LandGenerator").GetComponent<LandGen2>();
 
             _allCheck = GameObject.Find("AllCheck").GetComponent<allCheck>();
+
+            drawCardShouldEnd = false;
         }
 
 
@@ -463,6 +466,21 @@ namespace Panda.Ibis
                 GameObject.Find("skipTurn").GetComponent<skipToNextTurn>().enabled = false;
                 GameObject.Find("skipTurn").transform.GetChild(0).gameObject.SetActive(false);
 
+                ThisTask.Succeed();
+            }
+
+            if (drawCardShouldEnd) // used for no place to put any cards
+            {
+                foreach (Transform child in _Cards.transform)
+                {
+                    Destroy(child.gameObject);
+                }
+
+                _allCheck.checkNpcIbisOnAllGrids();
+
+                GameObject.Find("skipTurn").GetComponent<Image>().enabled = false;
+                GameObject.Find("skipTurn").GetComponent<skipToNextTurn>().enabled = false;
+                GameObject.Find("skipTurn").transform.GetChild(0).gameObject.SetActive(false);
                 ThisTask.Succeed();
             }
         }

@@ -96,7 +96,7 @@ public class turnBased : MonoBehaviour
         // go to EndCheck
         if (turn == turn_endCheck)
         {
-            GetComponent<endCheck>().checkEnd();
+            GetComponent<endCheck>().checkEnd(); // jump to end scene
         }
 
 

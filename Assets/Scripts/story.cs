@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class story : MonoBehaviour
 {
     public List<string> allStory;
@@ -39,7 +41,8 @@ public class story : MonoBehaviour
 
     public void showPlotsThisTurn(string thisTurnPlot) // called from MyIbis.cs
     {
-        //_plots.GetComponent<TMPro.TextMeshProUGUI>().text ="¶î";
-        _plots.GetComponent<TMPro.TextMeshProUGUI>().text = thisTurnPlot;
+
+        // _plots.GetComponent<TMPro.TextMeshProUGUI>().text = thisTurnPlot;
+        _plots.GetComponent<Text>().text = thisTurnPlot;
     }
 }

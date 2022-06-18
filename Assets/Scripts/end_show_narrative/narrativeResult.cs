@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class narrativeResult : MonoBehaviour
 {
     public string allPlots;
@@ -33,7 +35,9 @@ public class narrativeResult : MonoBehaviour
 
     void showNarrRes()
     { 
-        GameObject.Find("narResults").GetComponent<TMPro.TextMeshProUGUI>().text = allPlots;
+        //GameObject.Find("narResults").GetComponent<TMPro.TextMeshProUGUI>().text = allPlots;
+
+        GameObject.Find("narResults").GetComponent<Text>().text = allPlots;
     }
 /*    void showNarrResT()
     {

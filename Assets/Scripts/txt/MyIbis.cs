@@ -124,10 +124,12 @@ namespace Panda.Ibis {
 
             hasCheckDes = false;
 
-        /////////////Properties////////////////////
-        ////////////////Properties////////////////////
+            /////////////Properties////////////////////
+            ////////////////Properties////////////////////
 
-            gender = 1;
+            if (chooseGender.cGender == 1) { gender = 1; }
+            if (chooseGender.cGender == 2) { gender = 2; }
+            //gender = 1;
             full = 2;// 0¶ö,1±¥
             full_max = 2;
             energy = 1;//0 need to rest, 1 no need 
@@ -1258,6 +1260,7 @@ namespace Panda.Ibis {
                     egg.name = "egg" + k.ToString();
                     egg.transform.position = transform.parent.gameObject.transform.position;
                     egg.transform.SetParent(GameObject.Find("ObjOnLand").transform);
+                    egg.GetComponent<Rigidbody>().isKinematic = true;
 
                     if (!eggs.Contains(egg))
                     {

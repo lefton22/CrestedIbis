@@ -10,11 +10,15 @@ public class endCheck : MonoBehaviour
 
     static public List<string> narrative;
 
+    static public bool isEndByCheck;
+
     public string scenename; 
 
     void Start()
     {
         _turnBased = GameObject.Find("TurnBased").GetComponent<turnBased>();
+
+        isEndByCheck = false;
     }
 
     void Update()
@@ -26,6 +30,7 @@ public class endCheck : MonoBehaviour
         // go to the end check scene
         // copy the narrative list
     {
+        isEndByCheck = true;
 
         narrative = new List<string>(GameObject.Find("TurnBased").GetComponent<story>().allStory);
 

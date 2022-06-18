@@ -44,7 +44,15 @@ public class dragCard : MonoBehaviour
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         mOffset = gameObject.transform.position - GetMouseWorldPos();
 
-       // Debug.Log("Drag Mouse Down");
+        bool hasPlaySound;
+        hasPlaySound = false;
+        if (!hasPlaySound)
+        {
+            GameObject.Find("clickButton").GetComponent<playSoundEffect>().playThisSF();
+            hasPlaySound = true;
+        }
+
+        // Debug.Log("Drag Mouse Down");
     }
     private Vector3 GetMouseWorldPos()
     {
@@ -53,9 +61,14 @@ public class dragCard : MonoBehaviour
 
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
+
+
+    
     void OnMouseDrag()
     {
         transform.position = GetMouseWorldPos() + mOffset;
+
+
 
         //当牌晃过来时，当前格子亮一下...
  

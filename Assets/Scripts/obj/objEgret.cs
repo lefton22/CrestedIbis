@@ -15,4 +15,15 @@ public class objEgret : MonoBehaviour
     {
         
     }
-}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        print("egret has an collision");
+        if (collision.gameObject.name == "trap")
+        {
+            print(collision.gameObject.name);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    }
+ }
