@@ -137,6 +137,13 @@ public class dragCard : MonoBehaviour
 
     private void OnMouseUp() // 鼠标起来的时候
     {
+        bool hasPlaySound;
+        hasPlaySound = false;
+        if (!hasPlaySound)
+        {
+            GameObject.Find("clickButton2").GetComponent<playSoundEffect>().playThisSF();
+            hasPlaySound = true;
+        }
         ///print("card land -3.");
         for (int i = 0; i < _LandGen2.LandCos_GO.Count; i++)
         {

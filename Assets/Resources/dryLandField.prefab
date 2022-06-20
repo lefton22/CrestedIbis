@@ -98,7 +98,7 @@ MonoBehaviour:
   landType: 0
   _d1: 0
   _d2: 0
-  canRichFood: 1
+  canRichFood: 0
   canAveFood: 1
   canPoorFood: 0
   canNPC: 1

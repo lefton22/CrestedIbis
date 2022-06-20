@@ -23,5 +23,13 @@ public class introPanel : MonoBehaviour
             bool isActive = pPanel.activeSelf;
             pPanel.SetActive(!isActive);
         }
+
+        bool hasPlaySound;
+        hasPlaySound = false;
+        if (!hasPlaySound)
+        {
+            GameObject.Find("clickButton3").GetComponent<playSoundEffect>().playThisSF();
+            hasPlaySound = true;
+        }
     }
 }

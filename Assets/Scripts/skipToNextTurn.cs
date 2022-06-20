@@ -40,8 +40,16 @@ public class skipToNextTurn : MonoBehaviour
 
     public void skip()
     {
-       // print("click the buttom and skip this turn");
-      //  _ibisA.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
+        bool hasPlaySound;
+        hasPlaySound = false;
+        if (!hasPlaySound)
+        {
+            GameObject.Find("clickButton3").GetComponent<playSoundEffect>().playThisSF();
+            hasPlaySound = true;
+        }
+
+        // print("click the buttom and skip this turn");
+        //  _ibisA.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
         GameObject.Find("skipTurn").GetComponent<Image>().enabled = false;
         GameObject.Find("skipTurn").transform.GetChild(0).gameObject.GetComponent<Image>().enabled = false;
        // GameObject.Find("skipTurn").transform.GetChild(0).gameObject.SetActive(false);

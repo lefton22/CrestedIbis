@@ -10,19 +10,19 @@ public class clickToNext : MonoBehaviour
 
     public AudioSource as_click;
 
+    bool hasPlay;
+
     void Start()
     {
         if (GetComponent<AudioSource>())
         {
             as_click = GetComponent<AudioSource>();
         }
+
+        hasPlay = false;
     }
 
     
-    void Update()
-    {
-        
-    }
 
     public void goToNextScene()
     {
@@ -31,9 +31,11 @@ public class clickToNext : MonoBehaviour
 
     public void ClickB()
     {
-        if (as_click)
+
+        if (as_click && !hasPlay)
         {
             as_click.Play();
+            hasPlay = true;
         }
     }
 }

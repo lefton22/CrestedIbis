@@ -18,10 +18,11 @@ public class narrativeResult : MonoBehaviour
 
         for (int i = 0; i < endCheck.narrative.Count; i++)
         {
-            if (i / 2 != 0) //需要把已有的除去。。？
-            { allPlots +=  endCheck.narrative[i]; }
-            if (i / 2 == 0)
-            { allPlots += "<br>" + endCheck.narrative[i]; }
+            /*            if (i / 2 != 0) //需要把已有的除去。。？
+                        { allPlots +=  endCheck.narrative[i]; }
+                        if (i / 2 == 0)
+                        { allPlots += "\n" + endCheck.narrative[i]; }*/
+            allPlots += "\n" + endCheck.narrative[i];
         }
 
         showNarrRes();

@@ -113,7 +113,8 @@ public class turnBased : MonoBehaviour
             {
                 //ibisA die,Game Over.
                 Debug.Log("ibisA dies by hungry ,Game Over.");
-                SceneManager.LoadScene("endShowNarrative");
+                /*                SceneManager.LoadScene("endShowNarrative");*/
+                GetComponent<endCheck>().checkEnd(); // jump to end scene
 
             }
             if (Panda.Ibis.MyIbis.energy <= 0)

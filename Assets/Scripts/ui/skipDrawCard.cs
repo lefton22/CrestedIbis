@@ -31,6 +31,14 @@ public class skipDrawCard : MonoBehaviour
 
     public void skip()
     {
+        bool hasPlaySound;
+        hasPlaySound = false;
+        if (!hasPlaySound)
+        {
+            GameObject.Find("clickButton3").GetComponent<playSoundEffect>().playThisSF();
+            hasPlaySound = true;
+        }
+
         print("skip");
         GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().drawCardShouldEnd = true;
      }
