@@ -38,7 +38,10 @@ namespace Panda.Ibis
         GameObject _trapMan;
 
         //Vector3 v3_trapMan;
-       
+
+        bool isSnake_seekNestWithEgg;
+
+
         void Start()
         {
             end = false;
@@ -58,6 +61,8 @@ namespace Panda.Ibis
 
             _egrets = new List<GameObject>();
             v2_dess = new List<Vector2>();
+
+            isSnake_seekNestWithEgg = false;
 
         }
 
@@ -125,35 +130,46 @@ namespace Panda.Ibis
         }
 
         [Task]
-        void snake_seekNestWithEgg()
+        void snake_seekNestWithEgg() // add a bool to this script to make sure this Task only execute for only once
         {
-            Debug.Log("snake seek Nest With Egg.");
+            int ran;
+            ran = -1;
 
-            // go to the nest. There can only have one nest in the scene.
             GameObject[] eggs;
             eggs = GameObject.FindGameObjectsWithTag("egg");
-
-            int ran;
-            ran = Random.Range(0, eggs.Length - 1);
-
-            _egg = eggs[ran];
-
-            seekLocation(_snake, eggs[ran].transform.position /*, "snake_move" */); // ani name
-
-            Vector2 v2_egg;
-            Vector2 v2_snake;
-            v2_snake = _snake.GetComponent<objV2Pos>().thisV2;
-            v2_egg = eggs[ran].GetComponent<objV2Pos>().thisV2;
-            print("egg v2: " + v2_egg+ " , v2 snake: " + v2_snake);
-            //Debug.Log("going to nest: " + nests[ran].name);
-
-            if (v2_snake == v2_egg)//ibisA reach the nest
+            if (!isSnake_seekNestWithEgg)
             {
-                // Debug.Log("reach to a nest.");
+                Debug.Log("snake seek Nest With Egg.");
 
-                hasCheckDes = false;
-                ThisTask.Succeed();
+                // go to the nest. There can only have one nest in the scene.
+  
+
+  
+                ran = Random.Range(0, eggs.Length - 1);
+
+                _egg = eggs[ran];
+
+                seekLocation(_snake, eggs[ran].transform.position /*, "snake_move" */); // ani name
+
+                isSnake_seekNestWithEgg = true;
             }
+
+                Vector2 v2_egg;
+                Vector2 v2_snake;
+                v2_snake = _snake.GetComponent<objV2Pos>().thisV2;
+                v2_egg = eggs[ran].GetComponent<objV2Pos>().thisV2;
+                print("egg v2: " + v2_egg + " , v2 snake: " + v2_snake);
+                //Debug.Log("going to nest: " + nests[ran].name);
+           
+
+                if (v2_snake == v2_egg)//ibisA reach the nest
+                {
+                    // Debug.Log("reach to a nest.");
+
+                    hasCheckDes = false;
+                    ThisTask.Succeed();
+                }
+            
 
         }
 

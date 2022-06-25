@@ -19,7 +19,7 @@ public class objEgret : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         print("egret has an collision");
-        if (collision.gameObject.name == "trap")
+        if (collision.gameObject.name == "trap" && collision.gameObject.GetComponent<SpriteRenderer>())
         {
             print(collision.gameObject.name);
             Destroy(collision.gameObject);
