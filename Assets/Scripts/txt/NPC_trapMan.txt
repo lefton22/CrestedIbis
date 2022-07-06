@@ -5,10 +5,10 @@ tree("Root")
 							Wait(10)
 
 							trapMan_goToRandomGrid()
-							Wait(200)
+							Wait(10)
 
 							trapMan_setTrap()
-							Wait(100)
+							Wait(10)
 
 							trapMan_leave()
 							Wait(10)

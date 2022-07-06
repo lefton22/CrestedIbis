@@ -1,13 +1,13 @@
 tree("Root")
-//È±´ÆĞÔibisµÄĞĞÎª
-//Ã¿Ò»¸öÖ§Â·µÄÄ©¶Ë¼ÓÉÏNext()½øÈëÏÂÒ»¸ögameobjectÒıµ¼µÄ½Úµã
+//ç¼ºé›Œæ€§ibisçš„è¡Œä¸º
+//æ¯ä¸€ä¸ªæ”¯è·¯çš„æœ«ç«¯åŠ ä¸ŠNext()è¿›å…¥ä¸‹ä¸€ä¸ªgameobjectå¼•å¯¼çš„èŠ‚ç‚¹
 
     fallback
 			sequence              
 				fallback
 						sequence // male
 							isMale()
-							Wait(120)
+							Wait(10)
 
 							fallback
 								sequence // single
@@ -26,10 +26,10 @@ tree("Root")
 														Wait(10)
 
 														goToOpGender()
-														Wait(100)
+														Wait(10)
 
 														Courtship()
-														Wait(120)
+														Wait(10)
 
 														Next()
 
@@ -43,16 +43,16 @@ tree("Root")
 														Wait(10)
 
 														goToMate()
-														Wait(120)
+														Wait(10)
 
 														comb()
-														Wait(120)
+														Wait(10)
 
 														touchBeaks()
-														Wait(120)
+														Wait(10)
 
 														Mate()
-														Wait(120)
+														Wait(10)
 
 														Next()
 
@@ -60,13 +60,13 @@ tree("Root")
 													//			sequence
 
 													//					Mate()
-													//					Wait(120)
+													//					Wait(10)
 
 														//				Next()
 
 													//			sequence // notCourtship
 													//					Courtship()
-													//					Wait(120)
+													//					Wait(10)
 
 														//				Next()
 
@@ -96,10 +96,10 @@ tree("Root")
 												Wait(10)
 
 												goToOpGender()
-												Wait(100)
+												Wait(10)
 
 												Courtship()
-												Wait(120)
+												Wait(10)
 
 												Next()
 

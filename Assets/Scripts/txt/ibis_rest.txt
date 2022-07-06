@@ -1,14 +1,14 @@
 tree("Root")
-//Ã¿¸ö»ØºÏ¿ªÊ¼ºó£¬¿´¿´ÓĞ³²·ñ£¬²¢ÇÒÖ÷½ÇibisĞèÒªĞİÏ¢·ñ
+//æ¯ä¸ªå›åˆå¼€å§‹åï¼Œçœ‹çœ‹æœ‰å·¢å¦ï¼Œå¹¶ä¸”ä¸»è§’ibiséœ€è¦ä¼‘æ¯å¦
 
 		fallback
 					sequence
-						checkNest()  // ÓĞ³²Ã»
+						checkNest()  // æœ‰å·¢æ²¡
 						Wait(10)
 
 						Next()
 
-					fallback //¼Ó¾ßÌåÄÚÈİ
+					fallback //åŠ å…·ä½“å†…å®¹
 								 sequence
 										 checkNestFinished()
 										Wait(10)
@@ -18,9 +18,9 @@ tree("Root")
 								 sequence
 	    
 										 goToNest() // go to the nest
-										 Wait(140)
+										 Wait(10)
 
 										 rest() //sleep
-										 Wait(140)
+										 Wait(10)
 
 										 Next()

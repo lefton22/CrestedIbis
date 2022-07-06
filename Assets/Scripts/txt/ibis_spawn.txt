@@ -1,22 +1,22 @@
 tree("Root")
-//Ã¿¸ö»ØºÏ¿ªÊ¼ºó£¬¿´¿´ÓĞ³²·ñ£¬²¢ÇÒibis ÊÇ²»ÊÇ´ÆµÄ£¬²¢ÇÒmate¹ıÃ»ÓĞ
+//æ¯ä¸ªå›åˆå¼€å§‹åï¼Œçœ‹çœ‹æœ‰å·¢å¦ï¼Œå¹¶ä¸”ibis æ˜¯ä¸æ˜¯é›Œçš„ï¼Œå¹¶ä¸”mateè¿‡æ²¡æœ‰
 //
 		fallback
-					sequence //ĞÛ
+					sequence //é›„
 						isMale()
 						Wait(10)
 
 						Next()
 
-					sequence //´Æ
+					sequence //é›Œ
 								fallback
-											  sequence //mate¹ı
+											  sequence //mateè¿‡
 														hasMate()
 														Wait(10)
 
 														fallback
-																	 sequence //ÎŞ³²
-																			checkNest_spawn() //ÊÇ·ñÏàÍ¬£¬½èÓÃÏÈ
+																	 sequence //æ— å·¢
+																			checkNest_spawn() //æ˜¯å¦ç›¸åŒï¼Œå€Ÿç”¨å…ˆ
 																			 Wait(10)
 
 																			 //checkNestFinished()
@@ -24,15 +24,15 @@ tree("Root")
 
 																			 Next()
 
-																	 sequence //ÓĞ³²
+																	 sequence //æœ‰å·¢
 																			  goToNest()
-																			  Wait(100)
+																			  Wait(10)
 
 																			  spawn()
-																			  Wait(100)
+																			  Wait(10)
 
 																			  Next()
 												        
 								      
-											  sequence // Ã»mate¹ı
+											  sequence // æ²¡MATEè¿‡
 														 Next()

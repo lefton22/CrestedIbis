@@ -33,8 +33,9 @@ public class trapBreak : MonoBehaviour
             _ibisA.GetComponent<Panda.Ibis.MyIbis>().breakWhenIbisAAct();
             Debug.Log(gameObject.name + " meet ibisA.");
 
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<CapsuleCollider2D>().enabled = false;
+            //GetComponent<SpriteRenderer>().enabled = false;
+            //GetComponent<CapsuleCollider2D>().enabled = false;
+            Destroy(gameObject);
         }
     }
 }

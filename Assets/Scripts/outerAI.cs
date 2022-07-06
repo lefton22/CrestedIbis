@@ -15,7 +15,7 @@ public class outerAI : MonoBehaviour
     public int month;
     public int temperature;// 1= low, 2= mid, 3 = warm
     public int elevation; // switch the map through a game?? or adjust the hex's height?
-                          // 1´ú±íµÍº£°Î£¬2´ú±í¸ßº£
+                          // 1ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Î£ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ßºï¿½
 
    // List<int> weight;
     public List<int> cardsWeight;  // 7 slots.
@@ -78,8 +78,8 @@ public class outerAI : MonoBehaviour
     void Start()
     {
        
-        // month = 7;//Ôİ¶¨7ÔÂÆğÊ¼
-        // month = 1;//Ôİ¶¨ test
+        // month = 7;//æš‚å®š7æœˆå¼€å§‹
+        // month = 1;//æš‚å®š test
         temperature = 0;
 
         _t_month = GameObject.Find("t_month");
@@ -117,11 +117,11 @@ public class outerAI : MonoBehaviour
 
 
         ////////GameObject needed
-        ///ğØ
-        ///ÖìûqNPC
-        ///²İ×Ñ
-        ///nest £º·±Ö³ÂÊ
-        ///Ó×ÄñÖìûq£º³É³¤¶È£¬Éú´æ·ñ
+        ///é¹­
+        ///æœ±é¹®NPC
+        ///è‰ç±½
+        ///nest ï¼šç¹æ®–ç‡
+        ///å¹¼é¸Ÿæœ±é¹®ï¼šæˆé•¿åº¦ï¼Œç”Ÿé•¿å¦
         ///
         /////////
         ///
@@ -171,49 +171,49 @@ public class outerAI : MonoBehaviour
 
         if (Panda.Ibis.MyIbis.gender ==1)
         {
-            //_t_gender.GetComponent<TMPro.TextMeshProUGUI>().text = "´Æ"; 
+            //_t_gender.GetComponent<TMPro.TextMeshProUGUI>().text = "é›Œ"; 
             _ISgender.GetComponent<Image>().sprite = sp_female;
         }
         if (Panda.Ibis.MyIbis.gender == 2)
         {
-            // _t_gender.GetComponent<TMPro.TextMeshProUGUI>().text = "ĞÛ"; 
+            // _t_gender.GetComponent<TMPro.TextMeshProUGUI>().text = "é›„"; 
             _ISgender.GetComponent<Image>().sprite = sp_male;
         }
 
         if (Panda.Ibis.MyIbis.full == 0)
         {
-            //_t_full.GetComponent<TMPro.TextMeshProUGUI>().text = "¶ö ";
+            //_t_full.GetComponent<TMPro.TextMeshProUGUI>().text = "é¥¿ ";
             _ISgizzard.GetComponent<Image>().enabled = false;
            
         }
         if (Panda.Ibis.MyIbis.full == 1)
         {
-            //_t_full.GetComponent<TMPro.TextMeshProUGUI>().text = "±¥ ";
+            //_t_full.GetComponent<TMPro.TextMeshProUGUI>().text = "é¥± ";
             _ISgizzard.GetComponent<Image>().enabled = true;
             _ISgizzard.GetComponent<Image>().sprite = sp_gizzard;
         }
 
         if (Panda.Ibis.MyIbis.energy == 0)
         {
-            //_t_energy.GetComponent<TMPro.TextMeshProUGUI>().text = "ĞèÒªĞİÏ¢ ";
+            //_t_energy.GetComponent<TMPro.TextMeshProUGUI>().text = "éœ€è¦ä¼‘æ¯ ";
             _ISeyeOpen.GetComponent<Image>().enabled = false;
             _ISeyeSleepy.GetComponent<Image>().enabled = true;
         }
         if (Panda.Ibis.MyIbis.energy == 1)
         {
-            //_t_energy.GetComponent<TMPro.TextMeshProUGUI>().text = "²»ĞèĞİÏ¢";
+            //_t_energy.GetComponent<TMPro.TextMeshProUGUI>().text = "ä¸éœ€è¦ä¼‘æ¯";
             _ISeyeOpen.GetComponent<Image>().enabled = true;
             _ISeyeSleepy.GetComponent<Image>().enabled = false;
         }
         if (Panda.Ibis.MyIbis.isSingle)
         {
-            //_t_isSingle.GetComponent<TMPro.TextMeshProUGUI>().text = "ĞÎµ¥Ó°Ö» ";
+            //_t_isSingle.GetComponent<TMPro.TextMeshProUGUI>().text = "å½¢å•å½±åª";
             _ISlineNoMate.GetComponent<Image>().enabled = true;
             _ISlineHasMate.GetComponent<Image>().enabled = false;
         }
         if (!Panda.Ibis.MyIbis.isSingle)
         {
-            // _t_isSingle.GetComponent<TMPro.TextMeshProUGUI>().text = "·Çµ¥Éí";
+            // _t_isSingle.GetComponent<TMPro.TextMeshProUGUI>().text = "æœ‰å®¶å®¤";
             _ISlineNoMate.GetComponent<Image>().enabled = false;
             _ISlineHasMate.GetComponent<Image>().enabled = true;
         }
@@ -276,7 +276,7 @@ public class outerAI : MonoBehaviour
         if (__month == 12) { _monthFrame.transform.DOLocalMoveX(-55.1f, 1f); }
     }
 
-        void ibisTranColor() //»»Ã«É«
+        void ibisTranColor() //æ¢æ¯›è‰²
     {
         if (month == 6 || month == 7 || month == 8 || month == 9)
         {
@@ -296,7 +296,7 @@ public class outerAI : MonoBehaviour
         { print("card weight: " + c); }
     }
 
-    public void Jul1() // turn 1 //suppose that July is the start of the game ·±Ö³¼¾½ÚÔÚ6ÔÂ½áÊø
+    public void Jul1() // turn 1 //suppose that July is the start of the game ç¹æ®–å­£èŠ‚åœ¨6æœˆç»“æŸ
     {
         //All outside environemnt
 
@@ -458,10 +458,10 @@ public class outerAI : MonoBehaviour
         {
             if (month ==11 || month ==12|| month == 1)
             {
-                Debug.Log("ÆøÎÂ±äµÍ£¬·Ç·±Ö³ÆÚ£¬¼¯ÈºÉú»î£¬ğØ»á³öÏÖ");
+                Debug.Log("æ°”æ¸©å˜ä½ï¼Œéç¹æ®–æœŸï¼Œé›†ç¾¤ç”Ÿæ´»ï¼Œé¹­ä¼šå‡ºç°");
 
-                //ºÜ¶àÖìûqNPC³öÏÖ
-                //ğØ»á³öÏÖ
+                //å¾ˆå¤šæœ±é¹®å‡ºç°
+                //é¹­ä¼šå‡ºç°
                 TemperatureChange(5);
                 otherIbisShowUp();
                 heronShowUp();
@@ -473,12 +473,12 @@ public class outerAI : MonoBehaviour
         void seekForFood()
         {
             grassSeedShowUp();
-            Debug.Log("²İ×Ñ¡¢Ö²ÎïÏËÎ¬ÁãĞÇ³öÏÖÔÚÆäËüµØ·½");
+            Debug.Log("è‰ç±½ã€æ¤ç‰©çº¤ç»´é›¶æ˜Ÿå‡ºç°åœ¨å…¶å®ƒåœ°æ–¹");
 
 
             if (month == 11 || month == 12 || month == 1)
             {
-                Debug.Log("ºÓÁ÷¡¢µ¾ÌïÀïµÄÊ³Îï¼õÉÙ");
+                Debug.Log("æ²³æµã€ç¨»ç”°é‡Œçš„é£Ÿç‰©å‡å°‘");
             }
         }*/
 
@@ -518,14 +518,14 @@ public class outerAI : MonoBehaviour
         //gen many grass seed card
     }
 
-    void foodInRiver(GameObject food) //Äàöú¡¢ÌïÂİ¡¢»Æ÷­¡¢ÇàÍÜÒÔ¼°ÈíÌå¶¯Îï¡£ºÓÌ²ÖĞÓĞÓã¡¢Ïº¡¢Âİ¡¢Ğ·¼°±´ÀàµÈÊ³Îï
+    void foodInRiver(GameObject food) //æ³¥é³…ã€ç”°èºã€é»„é³ã€é’è›™ä»¥åŠè½¯ä½“åŠ¨ç‰©ã€‚æ²³æ»©ä¸­æœ‰é±¼ã€è™¾ã€èºã€èŸ¹åŠè´ç±»ç­‰é£Ÿç‰©
     {
        
         Debug.Log(food.name + " gened.");
         //gen many grass seed card
     }
 
-    void arbor() //Àë¾ÓÃñ½ü¡¢¾àµØÃæ¸ßÎªÒË
+    void arbor() //ç¦»å±…æ°‘è¿‘ã€è·åœ°é¢é«˜ä¸ºå®œ
     {
         Debug.Log("arbor gened.");
         //gen an arbor seed card

@@ -9,12 +9,12 @@ public class whyDie : MonoBehaviour
     {
         if (endCheck.isEndByCheck)
         {
-            GetComponent<TMPro.TextMeshProUGUI>().text = "Ä¿Ç°°æ±¾ÓÎÏ·½ø³ÌÔİÊ±µ½´Ë¡£";
+            GetComponent<TMPro.TextMeshProUGUI>().text = "ç›®å‰æœ¬ç‰ˆæœ¬è¿›ç¨‹æš‚æ—¶åˆ°æ­¤";
             
         }
         if (!endCheck.isEndByCheck)
         {
-            GetComponent<TMPro.TextMeshProUGUI>().text = "ÕâÖ»²»ĞÒËÀÓÚ¼¢¶ö¡£";
+            GetComponent<TMPro.TextMeshProUGUI>().text = "è¿™åªä¸å¹¸æ­»äºé¥¥é¥¿";
 
         }
     }

@@ -8,7 +8,7 @@ public class objEgg : MonoBehaviour
     public int hatchCurrentTurn;
     void Start()
     {
-        hatchCurrentTurn = 2; ////·õ»¯ÆÚ25-28Ìì¡£°×Ìì¸¸Ä¸Ç×ÂÖÁ÷·õ»¯¡£
+        hatchCurrentTurn = 2; ////å­µåŒ–æœŸ25-28å¤©ã€‚ç™½å¤©çˆ¶æ¯äº²è½®æµå­µåŒ–ã€‚
     }
 
     public void checkHatch() //check if this egg can become baby ibis

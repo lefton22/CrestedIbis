@@ -5,8 +5,8 @@ using UnityEngine;
 public class NPCIbis : MonoBehaviour
 {
 //properties of the bird
-   public  int gender;//1Îª´Æ£¬2ÎªÐÛ
-   public  int full;// 0¶ö,1±¥
+   public  int gender;//1=é›Œï¼Œ2=é›„
+   public  int full;// 0é¥¿,1é¥±
     public int sprite;//0 need to rest, 1 no need 
     public bool isSingle;
     public bool isMate;

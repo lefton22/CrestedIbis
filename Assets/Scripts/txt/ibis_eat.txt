@@ -1,10 +1,10 @@
 tree("Root")
-//����ȱ��ͬ����ʳ��ķ��䣬��ù��ڿ��Ʒ���Ȩ��
+//或许缺不同季节食物的分配，因该归于卡牌发放权重
     fallback
 	        
 				sequence
 			 
-									checkHasFood() //ûʳ���ʧ��
+									checkHasFood() //ûʳ���ʧ��
 									Wait(1)
 
 									Next()

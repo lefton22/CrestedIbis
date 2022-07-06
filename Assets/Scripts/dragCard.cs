@@ -70,9 +70,9 @@ public class dragCard : MonoBehaviour
 
 
 
-        //µ±ÅÆ»Î¹ıÀ´Ê±£¬µ±Ç°¸ñ×ÓÁÁÒ»ÏÂ...
- 
-      //   Debug.Log("OnMouseDrag, " + gameObject.name);
+        //å½“ç‰Œæ™ƒè¿‡æ¥æ—¶ï¼Œå½“å‰æ ¼å­äº®ä¸€ä¸‹...
+
+        //   Debug.Log("OnMouseDrag, " + gameObject.name);
 
         //Notification of Canput obj type
 
@@ -135,7 +135,7 @@ public class dragCard : MonoBehaviour
 
     }
 
-    private void OnMouseUp() // Êó±êÆğÀ´µÄÊ±ºò
+    private void OnMouseUp() // é¼ æ ‡èµ·æ¥çš„æ—¶å€™
     {
         bool hasPlaySound;
         hasPlaySound = false;
@@ -165,7 +165,7 @@ public class dragCard : MonoBehaviour
             //  print("card land 0.");
             /////check if there is obj on the land to prevent from overlapping
             transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>().thisV2 =
-            turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //ÎïÆ·×ÅÂ½
+            turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //ï¿½ï¿½Æ·ï¿½ï¿½Â½
 
             if (transform.GetChild(0).gameObject.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains (transform.GetChild(0).gameObject))
             {

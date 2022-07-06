@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisV2: {x: 0, y: 0}
+  thisLand: 
 --- !u!136 &4789056822359550990
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -136,10 +137,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1
-  m_Height: 0.19999997
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.20284337
+  m_Height: 8.72
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.026694298, z: -0.06449175}
 --- !u!54 &3074075410143660354
 Rigidbody:
   m_ObjectHideFlags: 0

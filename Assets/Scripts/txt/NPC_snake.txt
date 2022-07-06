@@ -11,10 +11,10 @@ tree("Root")
 							 Wait(10)
 
 							snake_seekNestWithEgg()
-							Wait(100)
+							Wait(10)
 
 							snake_eatEgg()
-							Wait(100)
+							Wait(10)
 
 							snake_SeekLeave()
 							Wait(10)

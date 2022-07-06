@@ -1,52 +1,52 @@
 tree("Root")
-//Ã¿¸ö»ØºÏ¿ªÊ¼ºó£¬ÎŞÂÛ´Ë»ØºÏÇ°ÃæÓĞÃ»ÓĞseekLove, mate, 
-//ÓĞmate gojµÄÖìûq¾Í¿ÉÒÔcheckÕâ¸öÖ§Â·
+//æ¯ä¸ªå›åˆå¼€å§‹åï¼Œæ— è®ºæ­¤å›åˆå‰é¢æœ‰æ²¡æœ‰seekLove, mate, 
+//æœ‰mate gojçš„æœ±é¹®å°±å¯ä»¥checkè¿™ä¸ªæ”¯è·¯
 		fallback
-					sequence //ÎŞ³²
+					sequence //æ— å·¢
 						checkBuildNest()
 						Wait(10)
 
 						Next()
 
-					sequence //ÓĞ³²  
+					sequence //æœ‰å·¢ 
 							fallback
 					     
 										 sequence
-												  checkNestFinished() //³²ÒÑÍê³É
+												  checkNestFinished() //å·¢å·²å®Œæˆ
 												  Wait(10)
 
 												  Next()
 												 
 
 										  fallback
-													sequence //ÉíÉÏÓĞ²ÄÁÏ
+													sequence //èº«ä¸Šæœ‰ææ–™
 																							checkHasBuidlingMaterial()
 																							Wait(10)
 
 																							goToNest()
-																							Wait(120)
+																							Wait(10)
 
 																							buildNest()
-																							Wait(120)
+																							Wait(10)
 
 																							Next()
 
-													sequence //ÉíÉÏÎŞ²ÄÁÏ,¾ÍÈ¥checkµØÍ¼ÉÏÓĞÃ»ÓĞ
+													sequence //èº«ä¸Šæ— ææ–™ï¼Œå°±å»CHECKåœ°å›¾ä¸Šæœ‰æ²¡æœ‰
 
 																				fallback
-																							sequence //µØÍ¼ÉÏÓĞ²ÄÁÏ
+																							sequence //åœ°å›¾ä¸Šæœ‰ææ–™
 																											checkMaterialOnMap()
 																											Wait(10)
 
 																											goToMaterial()
-																											Wait(120)
+																											Wait(10)
 
 																											goToNest()
-																											Wait(120)
+																											Wait(10)
 
 																											buildNest()
-																											Wait(120)
+																											Wait(10)
 
 																											Next()
 
-																							Next()//µØÍ¼ÉÏÎŞ²ÄÁÏ	
+																							Next()//åœ°å›¾ä¸Šæ— ææ–™

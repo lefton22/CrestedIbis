@@ -34,25 +34,25 @@ public class endCheck : MonoBehaviour
 
         narrative = new List<string>(GameObject.Find("TurnBased").GetComponent<story>().allStory);
 
-/*        //Èç¹ûÄÇ¸öÔÂÊ²Ã´¶¼Ã»ÓĞ×ö£¬ÔÚ¿Õ°×µÄ×éÀïÃæ¼ÓÒ»¾ä»°
-        for (int i = 0; i < narrative.Count; i++)
-        {
-            if (narrative[i] == " ")
-            {
-                int e_turn;
-                if (narrative.IndexOf(narrative[i]) <= 12)
+        /*         //å¦‚æœé‚£ä¸ªæœˆä»€ä¹ˆéƒ½æ²¡æœ‰åšï¼Œåœ¨ç©ºç™½çš„ç»„é‡Œé¢åŠ ä¸€å¥è¯
+                for (int i = 0; i < narrative.Count; i++)
                 {
-                    e_turn = (narrative.IndexOf(narrative[i]) - 1) / 2 + 7;
-                    narrative[i] += "ÔÚ" + e_turn.ToString() + "ÔÂ£¬Ê²Ã´Ò²Ã»ÓĞ×ö³É¡£";
-                }
-                if (narrative.IndexOf(narrative[i]) > 12)
-                {
-                    e_turn = (narrative.IndexOf(narrative[i]) - 1) / 2 + 7 - 12;
-                    narrative[i] += "ÔÚ" + e_turn.ToString() + "ÔÂ£¬Ê²Ã´Ò²Ã»ÓĞ×ö³É¡£";
-                }
-            }
-            print("0 narr: " + narrative[i]);
-        }*/
+                    if (narrative[i] == " ")
+                    {
+                        int e_turn;
+                        if (narrative.IndexOf(narrative[i]) <= 12)
+                        {
+                            e_turn = (narrative.IndexOf(narrative[i]) - 1) / 2 + 7;
+                            narrative[i] += "åœ¨" + e_turn.ToString() + "æœˆï¼Œä»€ä¹ˆä¹Ÿæ²¡æœ‰åšæˆ";
+                        }
+                        if (narrative.IndexOf(narrative[i]) > 12)
+                        {
+                            e_turn = (narrative.IndexOf(narrative[i]) - 1) / 2 + 7 - 12;
+                            narrative[i] += "åœ¨" + e_turn.ToString() + "æœˆï¼Œä»€ä¹ˆä¹Ÿæ²¡æœ‰åšæˆ";
+                        }
+                    }
+                    print("0 narr: " + narrative[i]);
+                }*/
 
         foreach (string narr in narrative)
         {

@@ -6,8 +6,8 @@ public class objNest : MonoBehaviour
 {
 
 
-    public int build_finished; //(ĞèÒª¼¸¸ö»ØºÏ²ÅÄÜÖşÍê)
-    public int build_current;//Ä¿Ç°½¨ÁË¼¸¸ö»ØºÏ
+    public int build_finished; //(éœ€è¦å‡ ä¸ªå›åˆæ‰èƒ½ç­‘å®Œ)
+    public int build_current;//ç›®å‰å»ºäº†å‡ ä¸ªå›åˆ
 
     public List<string> materials;
 
@@ -44,7 +44,7 @@ public class objNest : MonoBehaviour
         return _isFin;
     }
     
-    public int rateProduce() //ÔÚÃÙÊ³µØ¸½½ü£¬Î»ÖÃ¶Ô·±Ö³ÂÊÓĞÖ±½Ó¹ØÏµ ,£¿ µÈÍ¬ÓÚ³²µÄÖÊÁ¿£¿
+    public int rateProduce() //åœ¨è§…é£Ÿåœ°é™„è¿‘ï¼Œä½ç½®å¯¹ç¹æ®–ç‡æœ‰ç›´æ¥å…³ç³» ,ï¼Ÿ ç­‰åŒäºå·¢çš„è´¨é‡ï¼Ÿ
     {
         int _rateProduce;
         _rateProduce = 0;

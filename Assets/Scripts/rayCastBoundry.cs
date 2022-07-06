@@ -33,11 +33,11 @@ public class rayCastBoundry : MonoBehaviour
 
                 turnBased.MouseOver_currentLand = null;
 
-              //  Debug.Log("touching boundry£º " + gameObject.name + " hits " + hit.transform.gameObject);
+              //  Debug.Log("touching boundryï¼š " + gameObject.name + " hits " + hit.transform.gameObject);
             }
             else 
             {
-                //Debug.Log("touching boundry (no cards)£º " + gameObject.name + " hits " + hit.transform.gameObject);
+                //Debug.Log("touching boundry (no cards)ï¼š " + gameObject.name + " hits " + hit.transform.gameObject);
             }
            
         }

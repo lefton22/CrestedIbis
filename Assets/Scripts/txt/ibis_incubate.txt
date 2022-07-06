@@ -1,26 +1,26 @@
 tree("Root")
-//Ã¿¸ö»ØºÏ¿ªÊ¼ºó£¬¿´¿´ÓĞ³²·ñ£¬²¢ÇÒ³²ÄÚÓĞÃ»ÓĞ¸¸Ä¸Ò»·½ÊÇÖ÷½ÇibisµÄÓ×Äñ
+//æ¯ä¸ªå›åˆå¼€å§‹åï¼Œçœ‹çœ‹æœ‰å·¢å¦ï¼Œå¹¶ä¸”å·¢å†…æœ‰æ²¡æœ‰çˆ¶æ¯ä¸€æ–¹æ˜¯ä¸»è§’ibisçš„å¹¼é¸Ÿ
 //
-		fallback
-					sequence //ÏÈÎŞ³²£¬ºóÎŞµ°
-					             //±ØĞëÈ«²¿¶¼Âú×ãÔòÕâÖ§Ïß³ÉÁ¢
-								checkNest_incubate()
-								Wait(10)
+  fallback
+     sequence //å…ˆæ— å·¢ï¼Œåæ— è›‹
+                  //å¿…é¡»å…¨éƒ¨éƒ½æ»¡è¶³åˆ™è¿™æ”¯çº¿æˆç«‹
+        checkNest_incubate()
+        Wait(10)
 
-								// checkNestFinished()  //È¥µô£¬ÒòÎªÓĞÊ±ºò¿ÉÄÜÊÇ±ğµÄ³²Ã»Íê³É
-								// Wait(10)
+        // checkNestFinished()  //å»æ‰ï¼Œå› ä¸ºæœ‰æ—¶å€™å¯èƒ½æ˜¯åˆ«çš„å·¢æ²¡å®Œæˆ
+        // Wait(10)
 
-							//	checkCanIncubate()    //Ìí¼Ócheck²¢ÇÒ³²ÄÚÎŞµ°
-							//	Wait(10)
+       // checkCanIncubate()    //æ·»åŠ checkå¹¶ä¸”å·¢å†…æ— è›‹
+       // Wait(10)
 
-								Next()
+        Next()
 
-					sequence //ÓĞ³²ÓĞµ°£¬¿ÉÒÔincubate
-	                     
-								 goToNest()
-								 Wait(120)
+     sequence //æœ‰å·¢æœ‰è›‹ï¼Œå¯ä»¥incubate
+                      
+         goToNest()
+         Wait(10)
 
-								 incubate()
-								 Wait(120)
+         incubate()
+         Wait(10)
 
-								 Next()
+         Next()

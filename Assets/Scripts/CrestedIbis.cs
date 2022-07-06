@@ -20,7 +20,7 @@ public class CrestedIbis : MonoBehaviour
     void Update()
     {
         //transform.localEulerAngles = new Vector3(0f, 0f, -14f);
-        //��Ŀ����ı�������°�һ��Q��Ѱһ��·��������;�ı�·��
+        //当目标物改变后，需重新按一次Q（寻一次路）才能途中改变路径
         if (Input.GetKeyDown(KeyCode.W))
         { ibisMove1(); }
 

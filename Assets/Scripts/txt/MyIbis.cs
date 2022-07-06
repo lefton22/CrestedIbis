@@ -16,10 +16,10 @@ namespace Panda.Ibis {
         //check if the destionation of Target2 has identified.
         static bool hasCheckDes;
 
-        [Header(" ¡ñ Normal Properties")]
+        [Header(" ï¿½ï¿½ Normal Properties")]
         // properties of the bird
-        static public int gender;//1Îª´Æ£¬2ÎªĞÛ  // set when game starts, public is comtem...
-        static public int full;// 0¶ö,1±¥
+        static public int gender;//1=é›Œï¼Œ2=é›„  // set when game starts, public is comtem...
+        static public int full;// 0é¥¿,1é¥±
         static public int full_max;
         static public int energy;//0 need to rest, 1 no need 
         static public bool isSingle;
@@ -27,7 +27,7 @@ namespace Panda.Ibis {
         static public int actionPoint;
         static public int maxAP;
 
-        static public bool hasToxic; //ÖĞ¶¾Óë·ñ£¬ÈôÖĞ¶¾£¬Ã¿»ØºÏ¿ªÊ¼Ç°ÅĞ¶¨ÄÜ²»ÄÜ»îÏÂÈ¥
+        static public bool hasToxic; //ä¸­æ¯’ä¸å¦ï¼Œè‹¥ä¸­æ¯’ï¼Œæ¯å›åˆå¼€å§‹å‰åˆ¤å®šèƒ½ä¸èƒ½æ´»ä¸‹å»
 
         static public bool hasBringTwig;
         static public bool hasBringLiana;
@@ -40,7 +40,7 @@ namespace Panda.Ibis {
 
        
 
-        [Header(" ¡ñ Node Structure Mark")]
+        [Header(" ï¿½ï¿½ Node Structure Mark")]
         //node structure mark
         public bool isGoToOpSexSingleMeetOp;
 
@@ -127,10 +127,11 @@ namespace Panda.Ibis {
             /////////////Properties////////////////////
             ////////////////Properties////////////////////
 
-            if (chooseGender.cGender == 1) { gender = 1; }
-            if (chooseGender.cGender == 2) { gender = 2; }
-            //gender = 1;
-            full = 2;// 0¶ö,1±¥
+         //from the start scene, comment it tempera...
+            //if (chooseGender.cGender == 1) { gender = 1; }
+            //if (chooseGender.cGender == 2) { gender = 2; }
+            gender = 1;
+            full = 2;// 0ï¿½ï¿½,1ï¿½ï¿½
             full_max = 2;
             energy = 1;//0 need to rest, 1 no need 
             isSingle = true;
@@ -214,14 +215,16 @@ namespace Panda.Ibis {
 
 
 
-        public void breakWhenIbisAAct() //ÓÃÓÚ´ò¶Ï
+        public void breakWhenIbisAAct() //ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ 
         {
             GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
+            GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().enabled = false;
             GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = false;
             GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled = false;
 
             //ibisR on!
             GameObject.Find("ibisR").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("ibisR").transform.localScale = new Vector3(1.8f, 1.8f, 1f);
             GameObject.Find("ibisR").transform.position = GameObject.Find("ibisA").transform.position;
             GameObject.Find("ibisR").GetComponent<Animator>().Play("ibis_break_trap");
 
@@ -231,7 +234,7 @@ namespace Panda.Ibis {
                 outOfBreakWhenIbisAAct();
                 print("breaking time is over.");
             }
-            /*           
+            /*           s
                         print(Time.deltaTime + " and current time:  " + currentTime);
                         if ( Time.deltaTime - currentTime > 2f)
                         {
@@ -241,10 +244,13 @@ namespace Panda.Ibis {
                         }*/
 
         }
-        public void outOfBreakWhenIbisAAct() //Ìø³ö´ò¶Ï
+        public void outOfBreakWhenIbisAAct() //è·³å‡ºæ‰“æ–­
         {
-            GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 3;
+
             GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = true;
+
+            GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().enabled = true;
+            GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 3;
 
             GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled =true;
             GameObject.Find("ibisR").GetComponent<SpriteRenderer>().enabled = false;
@@ -253,14 +259,25 @@ namespace Panda.Ibis {
 
         void Update()
         {
-           // print("full : " + full);
+            //check if meeting trap over
+
+            if (GameObject.Find("ibisR").GetComponent<Animator>().GetBool("hasBreakTrap"))
+            {
+                outOfBreakWhenIbisAAct();
+                print("breaking time is over.");
+            }
+
+
+            //check if meeting trap over
+
+            // print("full : " + full);
 
             /*            if (Input.GetKeyDown(KeyCode.F))
                         {
                             transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().speed = 0;
                             transform.parent.gameObject.GetComponent<SnapToNode>().enabled = false;
                           //  transform.parent.gameObject.GetComponent<SnapToNode>().enabled = true;
-                            //·À¶¶¶¯£¬Ğè¼ÓÌØĞ§»òÉ¶£¬»ñµÃv2×ø±ê£¬ÓÃdotweenÒÆ¹ıÈ¥
+                            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½É¶ï¿½ï¿½ï¿½ï¿½ï¿½v2ï¿½ï¿½ï¿½ê£¬ï¿½ï¿½dotweenï¿½Æ¹ï¿½È¥
                         }*/
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -282,52 +299,54 @@ namespace Panda.Ibis {
             }
 
 
-
-                        actionPoint = 4- GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>(). landsPassThrough.Count;
-
-
-                        if (_turnBased.turn == 1)
-                        { actionPoint = 4 - GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Count + 1; }
-                        // else { actionPoint = landsPassThrough.Count; }
+            //old AP caculation
+            //actionPoint = 4- GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>(). landsPassThrough.Count;
 
 
-                        //print("ap: " + actionPoint);
-
-                        if (actionPoint < 0)
-                        {
-                            /*                landsPassThrough.Clear();
-                                            GetComponent<PandaBehaviour>().enabled = false;
-
-                                            transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
+            //if (_turnBased.turn == 1)
+            //{ actionPoint = 4 - GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Count + 1; }
+            //// else { actionPoint = landsPassThrough.Count; }
 
 
-                                            // gameObject.GetComponent<PandaBehaviour>().enabled = false;
-
-                                            GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().Reset();
-                                            gameObject.GetComponent<PandaBehaviour>().Reset();
-
-                                            _turnBased.newTurnStart();
-
-                                            Destroy(GameObject.Find("TurnBased").transform.GetChild(0).gameObject);*/
-
-            breakThisTurn();
-/*                //========
-                GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
-                print("end turn ");
-                quenchAllBeBar();
-                //end this turn 
-                _targetPos.transform.position = v3_targetPos;
+            //print("ap: " + actionPoint);
+            //old AP caculation
 
 
-                GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
-                //===========*/
+//            if (actionPoint == 0)
+//            {
+//                /*                landsPassThrough.Clear();
+//                                GetComponent<PandaBehaviour>().enabled = false;
 
-                //print("hasIbisEnded: " + GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded);
-                // gameObject.GetComponent<PandaBehaviour>().enabled = false;
+//                                transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
 
-                //?should be destroyed after this turn?
-                // ThisTask.Succeed();
-            }
+
+//                                // gameObject.GetComponent<PandaBehaviour>().enabled = false;
+
+//                                GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().Reset();
+//                                gameObject.GetComponent<PandaBehaviour>().Reset();
+
+//                                _turnBased.newTurnStart();
+
+//                                Destroy(GameObject.Find("TurnBased").transform.GetChild(0).gameObject);*/
+
+//               breakThisTurn();
+///*                //========
+//                GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
+//                print("end turn ");
+//                quenchAllBeBar();
+//                //end this turn 
+//                _targetPos.transform.position = v3_targetPos;
+
+
+//                GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
+//                //===========*/
+
+//                //print("hasIbisEnded: " + GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded);
+//                // gameObject.GetComponent<PandaBehaviour>().enabled = false;
+
+//                //?should be destroyed after this turn?
+//                // ThisTask.Succeed();
+//            }
         }
 
         public void breakThisTurn()
@@ -382,7 +401,7 @@ namespace Panda.Ibis {
             // v2_allIbils.Add(gameObject.GetComponent<objV2Pos>().thisV2);
             // print(gameObject.GetComponent<objV2Pos>().thisV2);
 
-           // v2_allIbils.Add(new Vector2(0f, 0f));// ÉèibisA³õÊ¼ÔÚÕıÖĞÑë¡£Òò´úÂëÖ´ĞĞË³ĞòÔ­ÒòµÚÒ»´ÎÔËĞĞ³ÌĞòÊ±²É²»µ½ibisA×ø±ê
+            // v2_allIbils.Add(new Vector2(0f, 0f));// è®¾ibisAåˆå§‹åœ¨æ­£ä¸­å¤®ã€‚å› ä»£ç æ‰§è¡Œé¡ºåºåŸå› ç¬¬ä¸€æ¬¡è¿è¡Œç¨‹åºæ—¶é‡‡ä¸åˆ°ibisAåæ ‡
             for (int i = 0; i < _listObjOnLand.NPCibisOnLand.Count; i++)
             {
                 if (!v2_allIbils.Contains(_listObjOnLand.NPCibisOnLand[i].GetComponent<objV2Pos>().thisV2))
@@ -463,7 +482,7 @@ namespace Panda.Ibis {
                 v2_foods_l = new List<Vector2>(_listObjOnLand.foodOnLand);
 
 
-                //Ñ°ÕÒÓĞÊ³ÎïµÄµØµã£ºË®Ìï¡¢ºÓÌ²£¬go!
+                //Ñ°ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½ÄµØµã£ºË®ï¿½ï¡¢ï¿½ï¿½Ì²ï¿½ï¿½go!
 
                 v2_nearestFood = getNearestGrid(transform.parent.gameObject.GetComponent<objV2Pos>().thisV2, _listObjOnLand.foodOnLand);
               //  Debug.Log("v2_nearestFood: " + v2_nearestFood + " , " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
@@ -482,7 +501,7 @@ namespace Panda.Ibis {
                     // Debug.Log("seek food: last half year.");
                 }
 
-                if (transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 == v2_nearestFood) //Ôİ
+                if (transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 == v2_nearestFood) //ï¿½ï¿½
                 {
                 //  Debug.Log("seek food succeed.");
 
@@ -516,11 +535,11 @@ namespace Panda.Ibis {
             _allCheck.check2NpcOnOneGrid(_LandGen2.LandCos_GO[inOf].GetComponent<genPos>().OnThis);
         }
 
-        void seekForFoodJantoJun()//ÃÙÊ³¡£Ë®ÌïÀïÓĞÄàöú¡¢ÌïÂİ¡¢»Æ÷­¡¢ÇàÍÜÒÔ¼°ÈíÌå¶¯Îï¡£
-                                  //ºÓÌ²ÖĞÓĞÓã¡¢Ïº¡¢Âİ¡¢Ğ·¼°±´ÀàµÈÊ³Îï
+        void seekForFoodJantoJun()//è§…é£Ÿã€‚æ°´ç”°é‡Œæœ‰æ³¥é³…ã€ç”°èºã€é»„é³ã€é’è›™ä»¥åŠè½¯ä½“åŠ¨ç‰©ã€‚
+                                  //æ²³æ»©ä¸­æœ‰é±¼ã€è™¾ã€èºã€èŸ¹åŠè´ç±»ç­‰é£Ÿç‰©
         {
 
-            //Ñ°ÕÒ×î½üµÄÄÜÁ¿×î¸ßµÄÉÏÊöÊ³Îï£¬ÒÆ¹ıÈ¥
+            //å¯»æ‰¾æœ€è¿‘çš„èƒ½é‡æœ€é«˜çš„ä¸Šè¿°é£Ÿç‰©ï¼Œç§»è¿‡å»
 
             int index_LandCos;
             index_LandCos = _LandGen2.LandCos.IndexOf(v2_nearestFood);
@@ -534,18 +553,18 @@ namespace Panda.Ibis {
             seekLocation(food_pos);
 
             //....
-            //Èç¹ûÉÏÃæÃ»ÓĞ£¬Ñ°ÕÒÓĞµØµã£ºË®Ìï¡¢ºÓÌ²£¬go!
-            //Èç¹ûÓĞ³ÔµÄ,³Ô
+            //å¦‚æœä¸Šé¢æ²¡æœ‰ï¼Œå¯»æ‰¾æœ‰åœ°ç‚¹ï¼šæ°´ç”°ã€æ²³æ»©ï¼Œgo!
+            //å¦‚æœæœ‰åƒçš„,åƒ
 
-            // ÒÔÉÏall true, succeed
+            // ä»¥ä¸Šall true, succeed
         }
 
-        void seekForFoodJuntoNov()//³£¼ûÓÚºÓÌ²¡¢ºµµØºÍÌÁ¿â±ßÔµ£¨ÃÙÊ³µØ´ó¶ø·ÖÉ¢£©
-                                  //ÃÙÊ³¡£Ö÷ÒªÒÔòÇò¾¡¢Ö±³áÄ¿À¥³æ£¨Èçó¬ó°¡¢ò÷òÁ£©¡¢ó¦Ğ·µÈÎªÖ÷¡£
+        void seekForFoodJuntoNov()///å¸¸è§äºæ²³æ»©ã€æ—±åœ°å’Œå¡˜åº“è¾¹ç¼˜ï¼ˆè§…é£Ÿåœ°å¤§è€Œåˆ†æ•£ï¼‰
+                                  //è§…é£Ÿã€‚ä¸»è¦ä»¥èš¯èš“ã€ç›´ç¿…ç›®æ˜†è™«ï¼ˆå¦‚èŸ‹èŸ€ã€è¼è›„ï¼‰ã€èƒèŸ¹ç­‰ä¸ºä¸»ã€‚
         {
-            //µØµã:ºÓÌ²¡¢ºµµØ¡¢ÌÁ¿â±ßÔµ
+           //åœ°ç‚¹ï¼šæ²³æ»©ã€æ—±åœ°ã€å¡˜åº“è¾¹ç¼˜
 
-            //ÔİÊ±µÄ£º
+            //æš‚æ—¶çš„ï¼š
             int index_LandCos;
             index_LandCos = _LandGen2.LandCos.IndexOf(v2_nearestFood);
             //Debug.Log("index_LandCos: " + index_LandCos);
@@ -617,7 +636,7 @@ namespace Panda.Ibis {
             //print("eat 1");
   //          if (_listObjOnLand.foodOnLand_GO.Count > 0)
    //         {
-                //³Ô
+                //åƒ
                 //Destroy the food & 
 
                 //remove it from the food list
@@ -652,7 +671,7 @@ namespace Panda.Ibis {
                 //check if polluted
                 if (_listObjOnLand.foodOnLand_GO[index_food].GetComponent<objFood>().isToxic)
                     {
-                    print("¸ÃÊ³ÎïÓĞ¶¾");
+                    print("è¯¥é£Ÿç‰©æœ‰æ¯’");
                     // ibis' properties change
                     hasToxic = true;
 
@@ -693,7 +712,7 @@ namespace Panda.Ibis {
 
         void isFemale()
         {
-            if (gender == 1) //ĞÛ
+            if (gender == 1) //ï¿½ï¿½
             { ThisTask.Succeed(); } 
             else { ThisTask.Fail(); }
         
@@ -912,7 +931,8 @@ namespace Panda.Ibis {
 
                 lightMate();
 
-                actionPoint = actionPoint - 1;
+                //APreduce();
+               // actionPoint = actionPoint - 1;
 
                 isMate = true;
                 ThisTask.Succeed();
@@ -945,7 +965,7 @@ namespace Panda.Ibis {
         {
                 //both birds play the ani 
                 transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_touchedBeaks");
-                // choosenIbis.GetComponent<Animator>().Play("ibis_touchedBeaks"); // ĞèÒª½ÏÎ»
+                // choosenIbis.GetComponent<Animator>().Play("ibis_touchedBeaks"); // ï¿½ï¿½Òªï¿½ï¿½Î»
 
                 if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasTouchedBeaks"))
                 {
@@ -999,7 +1019,7 @@ namespace Panda.Ibis {
         }
 
             [Task]
-        void checkNest()// ĞèÓĞ³²²ÅÄÜ½øĞĞ  -¡·(·´)
+        void checkNest()// éœ€æœ‰å·¢æ‰èƒ½è¿›è¡Œ -ã€‹ï¼ˆåï¼‰
         {
 
             GameObject[] nests;
@@ -1012,8 +1032,8 @@ namespace Panda.Ibis {
         }
 
         [Task]
-        void checkNest_spawn()// ĞèÓĞ³²ÎŞµ°²ÅÄÜ½øĞĞ  -¡·£¨·´£© 
-                                            //Ö»ÓĞÁ½¸ö¶¼trueÁË²ÅÄÜfail
+        void checkNest_spawn()// // éœ€æœ‰å·¢æ— è›‹æ‰èƒ½è¿›è¡Œ  -ã€‹ï¼ˆåï¼‰ 
+                              //åªæœ‰ä¸¤ä¸ªéƒ½trueäº†æ‰èƒ½fail
         {
             bool conA = false;
             bool conB = false;
@@ -1036,7 +1056,7 @@ namespace Panda.Ibis {
             else { conB = false; }
             print("conA: " + conA + ", conB: " + conB);
 
-            if (conA & conB) //ÓĞ³²ÎŞµ°
+            if (conA & conB) //ï¿½Ğ³ï¿½ï¿½Şµï¿½
             {
                 ThisTask.Fail();
             }
@@ -1044,7 +1064,7 @@ namespace Panda.Ibis {
         }
 
         [Task]
-        void checkNest_incubate()// ĞèÓĞ³²ÓĞµ°²ÅÄÜ·õ»¯  -¡·£¨·´£© 
+        void checkNest_incubate()// éœ€è¦æœ‰å·¢æœ‰è›‹æ‰èƒ½å­µåŒ– -ã€‹ï¼ˆåï¼‰
         {
             bool conA = false;
             bool conB = false;
@@ -1065,7 +1085,7 @@ namespace Panda.Ibis {
             else { conB = false; }
 
             print("conA: " +conA + ", conB: " +conB);
-            if (conA & conB)//ÓĞ³²ÓĞµ°
+            if (conA & conB)//ï¿½Ğ³ï¿½ï¿½Ğµï¿½
             {
                 ThisTask.Fail();
             }
@@ -1155,7 +1175,7 @@ namespace Panda.Ibis {
                 int ran;
                 ran = Random.Range(0, nests.Length - 1);
 
-            //print("nests[ran]: " + nests[ran]);
+            print("nests[ran]: " + nests[ran]);
             seekLocation(nests[ran] .transform.position);
 
             Vector2 v2_nest;
@@ -1163,11 +1183,11 @@ namespace Panda.Ibis {
             v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
             v2_nest = nests[ran].GetComponent<objV2Pos>().thisV2;
 
-            //Debug.Log("going to nest: " + nests[ran].name);
+            Debug.Log("going to nest: " + nests[ran].name);
 
             if (v2_ibisA == v2_nest)//ibisA reach the nest
             {
-                // Debug.Log("reach to a nest.");
+                 Debug.Log("reach to a nest.");
 
                 hasCheckDes = false;
                
@@ -1188,7 +1208,7 @@ namespace Panda.Ibis {
             // play the build ani
             //both birds play the ani 
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_build");
-            // choosenIbis.GetComponent<Animator>().Play("ibis_touchedBeaks"); // ĞèÒª½ÏÎ»
+            // choosenIbis.GetComponent<Animator>().Play("ibis_touchedBeaks"); // ï¿½ï¿½Òªï¿½ï¿½Î»
 
             if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasBuild"))
             {
@@ -1246,7 +1266,7 @@ namespace Panda.Ibis {
 
             List<int> ran;
             ran = new List<int>();
-            ran.Add(1); ran.Add(2); ran.Add(3); ran.Add(3); ran.Add(3); ran.Add(4);
+            ran.Add(1); ran.Add(2); ran.Add(3); ran.Add(4);
             ran_amounts_egg = ran[Random.Range(0, ran.Count)];
             if (!isSpawn)
             {
@@ -1258,14 +1278,45 @@ namespace Panda.Ibis {
                     // eggs + new eggs(List)
                     GameObject egg = Instantiate(Resources.Load("egg")) as GameObject;
                     egg.name = "egg" + k.ToString();
+
                     egg.transform.position = transform.parent.gameObject.transform.position;
-                    egg.transform.SetParent(GameObject.Find("ObjOnLand").transform);
+                    egg.transform.SetParent(null);
+
                     egg.GetComponent<Rigidbody>().isKinematic = true;
+                    egg.GetComponent<SnapToNode>().enabled = false;
 
                     if (!eggs.Contains(egg))
                     {
                         eggs.Add(egg);
                     }
+
+                    //set egg's position 
+                    //foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+                    //{
+                    //    if (child.gameObject.name == "nest"
+                    //        && child.gameObject.GetComponent<objV2Pos>().thisV2 == GameObject.Find("ibisA").GetComponent<objV2Pos>().thisV2)
+                    //    {
+                    //        egg.transform.position = child.gameObject.transform.position;
+                    //    }
+                    //}
+
+                    //for (int i = 0; i < eggs.Count; i++)
+                    //{
+                    //    float egg_x = eggs[i].transform.position.x;
+                    //    float egg_y = eggs[i].transform.position.y;
+                    //    float egg_z = eggs[i].transform.position.z;
+
+                    //    if (i == 0)
+                    //    { eggs[0].transform.position = new Vector3(egg_x + 0.45f, egg_y + 0.633f, egg_z); }
+                    //    if (i == 1)
+                    //    { eggs[1].transform.position = new Vector3(egg_x + 0.646f, egg_y + 0.552f, egg_z); }
+                    //    if (i == 2)
+                    //    { eggs[2].transform.position = new Vector3(egg_x + 0.138f, egg_y + 0.639f, egg_z); }
+                    //    if (i == 3)
+                    //    { eggs[3].transform.position = new Vector3(egg_x + 0.355f, egg_y + 0.42f, egg_z); }
+                    //}
+
+                    //egg.transform.SetParent(GameObject.Find("ObjOnLand").transform);
 
                     if (k == ran_amounts_egg - 1)
                     {
@@ -1285,7 +1336,7 @@ namespace Panda.Ibis {
 
         [Task]
         void checkCanIncubate()
-        {                                    //Ìí¼Ócheck²¢ÇÒ³²ÄÚÓĞµ°
+        {                                    //æ·»åŠ CHECKå¹¶ä¸”å·¢å†…æœ‰è›‹
             GameObject[] eggs;
             eggs = GameObject.FindGameObjectsWithTag("egg");
             if (eggs.Length == 0)
@@ -1294,22 +1345,22 @@ namespace Panda.Ibis {
             }
             else { ThisTask.Fail(); }
             
-            //if (eggs) //ÒòÎªµ°Ö»ÄÜÔÚÎÑÀï
+            //if (eggs) //å› ä¸ºè›‹åªèƒ½åœ¨çªé‡Œ
         }
 
         [Task]
         void incubate() //once it's an egg...
-            //ºÍnpcÅäÅ¼ÂÖÁ÷Ö´ĞĞ£¬×Ô¼º²»ÔÚ£¬npcÅäÅ¼»áÒ»Ö»ÔÚ£¬»Ø³²ºónpcÅäÅ¼»á³ö³²
+                        //å’Œnpcé…å¶è½®æµæ‰§è¡Œï¼Œè‡ªå·±ä¸åœ¨ï¼Œnpcé…å¶ä¼šä¸€åªåœ¨ï¼Œå›å·¢ånpcé…å¶ä¼šå‡ºå·¢
         {
-/*            if (isSpawn && _outAI.month == monthSpawn + 1)
-            {
-                print(" isSpawn.");
-                // ²úÂÑºó1¸öÔÂÖ´ĞĞ
-                *//*                if (turnsAfterSpawn >= 2)
-                                {*//*
-                seekLocation(GameObject.Find("nest").transform.position);
-                //just stay there, play ani  */
-                transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_incubate");
+            /*            if (isSpawn && _outAI.month == monthSpawn + 1)
+                        {
+                            print(" isSpawn.");
+                            // äº§åµå1ä¸ªæœˆæ‰§è¡Œ
+                            *//*                if (turnsAfterSpawn >= 2)
+                                            {*//*
+                            seekLocation(GameObject.Find("nest").transform.position);
+                            //just stay there, play ani  */
+            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_incubate");
                 // egg's properties change. (And eggs are their own "branches")
 
                 //    }
@@ -1318,7 +1369,7 @@ namespace Panda.Ibis {
                 {
                 //the properties of egg changes
 
-                    foreach (GameObject egg in eggs) // ËùÓĞµ°¼ÆÊı·õ»¯°ë¸öÔÂ
+                    foreach (GameObject egg in eggs) // ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     {
                         egg.GetComponent<objEgg>().hatchCurrentTurn = egg.GetComponent<objEgg>().hatchCurrentTurn + 1;
                     }
@@ -1352,7 +1403,7 @@ namespace Panda.Ibis {
 
             //          if (_listObjOnLand.foodOnLand_GO.Count > 0)
             //         {
-            //³Ô
+            //åƒ
             //Destroy the food & 
 
             //remove it from the food list
@@ -1441,7 +1492,7 @@ namespace Panda.Ibis {
             hasCheckDes = false;
 
             transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
-            transform.parent.gameObject.GetComponent<Animator>().enabled = false;
+            //transform.parent.gameObject.GetComponent<Animator>().enabled = false;
 
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
             print("end turn  ");
@@ -1530,9 +1581,9 @@ namespace Panda.Ibis {
 
         /////////////SSSSSSSSS////////////Gears/////////////////////////
         ///       /////////////////////////Gears/////////////////////////
-        void breakWhenMoving()//ÓÃÕâ¸ö´ò¶Ï£¬È»ºóÈ¥×öÒ»Ğ©ÊÂÇé£¬Ô­ÀíÊÇmove the Target
-                                            //µ«ÊÇ»Ö¸´´ò¶ÏÊ±£¬Òª½«target·Å»ØÔ­À´µÄµØ·½È¥
-                                            //
+        void breakWhenMoving()//ç”¨è¿™ä¸ªæ‰“æ–­ï¼Œç„¶åå»åšä¸€äº›äº‹æƒ…ï¼ŒåŸç†æ˜¯move the Target
+                              //ä½†æ˜¯æ¢å¤æ‰“æ–­æ—¶ï¼Œè¦å°†targetæ”¾å›åŸæ¥çš„åœ°æ–¹å»
+                              //
         {
             Vector3 v3_current;
             v3_current = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
@@ -1575,7 +1626,7 @@ namespace Panda.Ibis {
 
             //Debug.Log("2");
 
-            //È»ºóÔÚxs ºÍysÀïËùÓĞµÄÊıÀïÕÒ¾ø¶ÔÖµ×î´óµÄ
+            //È»ï¿½ï¿½ï¿½ï¿½xs ï¿½ï¿½ysï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¾ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½
             for (int j = 0; j < xs.Count; j++)
             {
                 if (j == 0)
@@ -1642,7 +1693,7 @@ namespace Panda.Ibis {
 
             //Debug.Log("2");
 
-            //È»ºóÔÚxs ºÍysÀïËùÓĞµÄÊıÀïÕÒ¾ø¶ÔÖµ×î´óµÄ
+            //ç„¶ååœ¨xs å’Œysé‡Œæ‰€æœ‰çš„æ•°é‡Œæ‰¾ç»å¯¹å€¼æœ€å¤§çš„
             for (int j = 0; j < xs.Count; j++)
             {
                 if (j == 0)
@@ -1752,41 +1803,46 @@ namespace Panda.Ibis {
         string monthEnToCh(int month)
         {
             string _month;
-            _month = "Ã»ÓĞÔÂ·İÖĞÎÄÖµ";
-            if (month == 6) { _month = "ÁùÔÂ"; }
-            if (month == 7) { _month = "ÆßÔÂ"; }
-            if (month == 8) { _month = "°ËÔÂ"; }
-            if (month == 9) { _month = "¾ÅÔÂ"; }
-            if (month == 10) { _month = "Ê®ÔÂ"; }
-            if (month == 11) { _month = "Ê®Ò»ÔÂ"; }
-            if (month == 12) { _month = "Ê®¶şÔÂ"; }
-            if (month == 1) { _month = "Ò»ÔÂ"; }
-            if (month == 2) { _month = "¶şÔÂ"; }
-            if (month == 3) { _month = "ÈıÔÂ"; }
-            if (month == 4) { _month = "ËÄÔÂ"; }
-            if (month == 5) { _month = "ÎåÔÂ"; }
+            _month = "æ²¡æœ‰æœˆä»½ä¸­æ–‡å€¼";
+            if (month == 6) { _month = "å…­æœˆ"; }
+            if (month == 7) { _month = "ä¸ƒæœˆ"; }
+            if (month == 8) { _month = "å…«æœˆ"; }
+            if (month == 9) { _month = "ä¹æœˆ"; }
+            if (month == 10) { _month = "åæœˆ"; }
+            if (month == 11) { _month = "åä¸€æœˆ"; }
+            if (month == 12) { _month = "åäºŒæœˆ"; }
+            if (month == 1) { _month = "ä¸€æœˆ"; }
+            if (month == 2) { _month = "äºŒæœˆ"; }
+            if (month == 3) { _month = "ä¸‰æœˆ"; }
+            if (month == 4) { _month = "å››æœˆ"; }
+            if (month == 5) { _month = "äº”æœˆ"; }
 
             return _month ;
         }
         string foodEnToCh(string food)
         {
             string _food;
-            _food = "Ã»ÓĞÊ³ÎïÖĞÎÄÖµ";
-            if (food == "loach") { _food = "Äàöú"; }
-            if (food == "crucian") { _food = "öêÓã"; }
-            if (food == "frog") { _food = "ÇàÍÜ"; }
-            if (food == "shrimp") { _food = "Ğ¡Ïº"; }
-            if (food == "crab") { _food = "Ğ¡Ğ·"; }
-            if (food == "spiralShell") { _food = "Âİ"; }
-            if (food == "shellFish") { _food = "¼×¿ÇÀà"; }
-            if (food == "snail") { _food = "ÎÏÅ£"; }
-            if (food == "cricket") { _food = "ó¬ó°"; }
-            if (food == "earthWorm") { _food = "òÇò¾"; }
-            if (food == "rice") { _food = "µ¾Ã×"; }
-            if (food == "bean") { _food = "¶¹Àà"; }
-            if (food == "treeSeed") { _food = "Ê÷ÖÖ×Ó"; }
+            _food = "æ²¡æœ‰é£Ÿç‰©ä¸­æ–‡å€¼";
+            if (food == "loach") { _food = "æ³¥é³…"; }
+            if (food == "crucian") { _food = "é²«é±¼"; }
+            if (food == "frog") { _food = "é’è›™"; }
+            if (food == "shrimp") { _food = "å°è™¾"; }
+            if (food == "crab") { _food = "å°èŸ¹"; }
+            if (food == "spiralShell") { _food = "èº"; }
+            if (food == "shellFish") { _food = "ç”²å£³ç±»"; }
+            if (food == "snail") { _food = "èœ—ç‰›"; }
+            if (food == "cricket") { _food = "èŸ‹èŸ€"; }
+            if (food == "earthWorm") { _food = "èš¯èš“"; }
+            if (food == "rice") { _food = "ç¨»ç±³"; }
+            if (food == "bean") { _food = "è±†ç±»"; }
+            if (food == "treeSeed") { _food = "æ ‘ç§å­"; }
 
             return _food;
+        }
+
+        void APreduce()
+        {
+            actionPoint = actionPoint - 1;
         }
 
 
@@ -1804,8 +1860,8 @@ namespace Panda.Ibis {
                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                 + " in " + _outAI.month;*/
 
-            thisPlot = monthEnToCh( _outAI.month)+ " Öìûq³ÔÁËÒ»¸ö " + foodEnToCh( foodAte.name)
-                + " ÔÚ " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand +"." ;
+            thisPlot = monthEnToCh( _outAI.month)+ " æœ±é¹®åƒäº†ä¸€ä¸ª " + foodEnToCh( foodAte.name)
+                + " åœ¨ " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand +"." ;
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
@@ -1823,8 +1879,8 @@ namespace Panda.Ibis {
                  + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                  + ".";*/
 
-                thisPlot = "ÖìûqÅö¼ûÁË" + mate +"ÔÚ"+ monthEnToCh(_outAI.month) + " , ËæºóËüÃÇ³ÉÎªÁËÒ»¶Ô¶ù " 
-             + "ÔÚ" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                thisPlot = "æœ±é¹®ç¢°è§äº†" + mate +"åœ¨"+ monthEnToCh(_outAI.month) + " , éšåå®ƒä»¬æˆä¸ºäº†ä¸€å¯¹å„¿ " 
+             + "åœ¨" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
              + ".";
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
@@ -1845,8 +1901,8 @@ namespace Panda.Ibis {
                  + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                  + ".";*/
 
-                    thisPlot = "Õâ¶ÔÇéÂÂ¾ö¶¨ÔÚ" + monthEnToCh(_outAI.month) +"×é³ÉÒ»¸öĞ¡¼ÒÍ¥"
-             + "ÔÚ" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                    thisPlot = "è¿™å¯¹æƒ…ä¾£å†³å®šåœ¨" + monthEnToCh(_outAI.month) +"ç»„æˆä¸€ä¸ªå°å®¶åº­"
+             + "åœ¨" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
              + ".";
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
@@ -1864,8 +1920,8 @@ namespace Panda.Ibis {
 /*            thisPlot = "Ibis builds a nest in " + _outAI.month
                              + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                              + ".";*/
-            thisPlot = "ÔÚ"+monthEnToCh(_outAI.month)+ "Öìûq½¨ÁËÒ»¸öĞÂµÄ³²" 
-                 + "ÔÚ" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+            thisPlot = "åœ¨"+monthEnToCh(_outAI.month)+ "æœ±é¹®å»ºäº†ä¸€ä¸ªæ–°å·¢" 
+                 + "åœ¨" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                  + ".";
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
@@ -1883,8 +1939,8 @@ namespace Panda.Ibis {
 /*            thisPlot = "Ibis spawns " + am_egg + " eggs " + _outAI.month
                              + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                              + ".";*/
-            thisPlot = "Öìûq·õ»¯ÁË" + am_egg + "¸öµ°ÔÚ" + monthEnToCh(_outAI.month)
-                 + "ÔÚ" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+            thisPlot = "æœ±é¹®å­µåŒ–äº†" + am_egg + "ä¸ªè›‹åœ¨" + monthEnToCh(_outAI.month)
+                 + "åœ¨" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                  + ".";
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
@@ -1932,8 +1988,8 @@ namespace Panda.Ibis {
 /*            thisPlot = "Ibis goes to sleep in " + _outAI.month
              + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
              + ".";*/
-                        thisPlot = monthEnToCh( _outAI.month) + "ÖìûqÈ¥Ë¯¾õÁË " 
-             + "ÔÚ" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                        thisPlot = monthEnToCh( _outAI.month) + "æœ±é¹®å»ç¡è§‰äº† " 
+             + "åœ¨" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
              + ".";
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
@@ -1974,7 +2030,7 @@ namespace Panda.Ibis {
         [Task]
     void seekLocationT(Vector3 destination)
     {
-/*            //if (bool Ìõ¼ş)
+/*            //if (bool ï¿½ï¿½ï¿½ï¿½)
             // go 
             string _test;
             _test = test;

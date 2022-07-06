@@ -6,15 +6,15 @@ using UnityEngine;
 
 
 /// <summary>
-/// ///Ê£ÏÂ¼ÓÊ×Î²ºÓ¶ËµÄÃÀÊõ½áÎ²´¦±íÏÖĞ§¹û
+/// ///å‰©ä¸‹åŠ é¦–å°¾æ²³ç«¯çš„ç¾æœ¯ç»“å°¾å¤„è¡¨ç°æ•ˆæœ
 /// </summary>
 public class LandGen2 : MonoBehaviour
 {
-    public List<Vector3> LandV3s; //ÊÀ½çÖĞµÄ×ø±ê¼¯
+    public List<Vector3> LandV3s; //ä¸–ç•Œä¸­çš„åæ ‡é›†
 
-    public List<Vector2> LandCos; //×ø±êÏµ¼¯
-    public List<GameObject> LandCos_GO; //×ø±êÏµ¼¯ÉÏµÄÓÎÏ·Îï¼ş¼¯
-    public List<bool> LandCos_hasHex;//±ê¼ÇÒÑÓĞÉú³ÉµØĞÎ¸ñµÄ £¨ĞòºÅÓëÇ°ÃæLIST¶ÔÓ¦£©
+    public List<Vector2> LandCos; //åæ ‡ç³»é›†
+    public List<GameObject> LandCos_GO; //åæ ‡ç³»é›†ä¸Šçš„æ¸¸æˆç‰©ä»¶é›†
+    public List<bool> LandCos_hasHex;//æ ‡è®°å·²æœ‰ç”Ÿæˆåœ°å½¢æ ¼çš„ï¼ˆåºå·ä¸å‰é¢çš„LISTå¯¹åº”ï¼‰
 
     float offSetY;
     float offSetZ;
@@ -30,7 +30,7 @@ public class LandGen2 : MonoBehaviour
 
     listObjOnLand _listObjOnLand;
 
-    public int TimesGen;//Éú³ÉµÚÒ»¸öºó¼ÌĞøÉú³É¼¸´Î
+    public int TimesGen;//ç”Ÿæˆç¬¬ä¸€ä¸ªåç»§ç»­ç”Ÿæˆå‡ æ¬¡
 
     void Start()
     {
@@ -190,8 +190,8 @@ public class LandGen2 : MonoBehaviour
             index_v2 = LandCos.IndexOf(cur_v2);
 /*            Debug.Log("index_v2: " + index_v2);*/
 
-            if (index_v2 < 0) { /*Debug.Log("³ö½ç"); */}
-            if (index_v2 > -1) //ÈôÎ´³ö½ç
+            if (index_v2 < 0) { /*Debug.Log("å‡ºç•Œ"); */}
+            if (index_v2 > -1) //è‹¥æœªå‡ºç•Œ
             { // Get the cur_dir2
                 List<int> restDir;
                 restDir = new List<int>();
@@ -268,7 +268,7 @@ public class LandGen2 : MonoBehaviour
     void GenHexGrid(GameObject land,  string asset_name, int curTerminal) // land means the hex grid attached to
                                                                                  //name means new gameobject's name
                                                                                  // asset_name can identify the two terminals of the river 
-                                                                                 //curTerminal: ÕâÒ»ÂÖÒªÉú³ÉµÄ£¬ÔÚÏÂÒ»¸ö¸ñ×ÓµÄÁù·½×ø±êµÄÎ»ÖÃ
+                                                                                 //curTerminal: è¿™ä¸€è½®è¦ç”Ÿæˆçš„ï¼Œåœ¨ä¸‹ä¸€ä¸ªæ ¼å­çš„å…­æ–¹åæ ‡çš„ä½ç½®
     {
         //gen
 

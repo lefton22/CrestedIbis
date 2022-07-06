@@ -56,7 +56,12 @@ public class objV2Pos : MonoBehaviour
             }
             if (!_myIbis.landsPassThrough.Contains(collision.gameObject) && gameObject.tag =="mainIbis")
             {
-               // print("add a land into passthrough 1.");
+                // print("add a land into passthrough 1.");
+
+                if (_myIbis.landsPassThrough.Count != 0)
+                { Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.actionPoint - 1; }
+                checkAP0(gameObject);
+
                 _myIbis.landsPassThrough.Add(collision.gameObject);
 
               
@@ -66,7 +71,12 @@ public class objV2Pos : MonoBehaviour
                 _myIbis.landsPassThrough[_myIbis.landsPassThrough.Count - 1] != collision.gameObject &&
                  gameObject.tag == "mainIbis")
             {
-               // print("add a land into passthrough 2.");
+                // print("add a land into passthrough 2.");
+
+                if (_myIbis.landsPassThrough.Count != 0)
+                { Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.actionPoint - 1; }
+                checkAP0(gameObject);
+
                 _myIbis.landsPassThrough.Add(collision.gameObject);
 
                
@@ -96,6 +106,19 @@ public class objV2Pos : MonoBehaviour
                 {
                     _listObjOnLand.foodOnLand_GO.Remove(gameObject);
                 }
+            }
+        }
+    }
+
+    void checkAP0(GameObject ibisA) // if AP ==0, call "breakThisTurn()"
+    {
+        if (ibisA == GameObject.Find("ibisA"))
+        {
+            if (Panda.Ibis.MyIbis.actionPoint == 0)
+            {
+                gameObject.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
+
+              //  Panda.Ibis.MyIbis.breakThisTurn();
             }
         }
     }

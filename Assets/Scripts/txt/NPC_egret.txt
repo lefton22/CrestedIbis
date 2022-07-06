@@ -5,10 +5,17 @@ tree("Root")
 							 Wait(10)
 
 							 egret_seekWander()
-				
-							 egret_wander()
+							Wait(10)
 
-							 Next()
+							egret_AILerp_Close()
+							Wait(10)
+
+							egret_AILerp_Open()
+							Wait(10)
+				
+							egret_wander()
+
+							Next()
 
 							 //endAllNPC()
 					    sequence

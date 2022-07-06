@@ -74,7 +74,7 @@ namespace Panda.Ibis
 
 
         [Task]
-        void checkNoSnake() //û�߾ͳɹ�
+        void checkNoSnake() //没蛇就成功
         {
            
             int am_snake;
@@ -132,27 +132,33 @@ namespace Panda.Ibis
         [Task]
         void snake_seekNestWithEgg() // add a bool to this script to make sure this Task only execute for only once
         {
-            int ran;
-            ran = -1;
 
-            GameObject[] eggs;
-            eggs = GameObject.FindGameObjectsWithTag("egg");
-            if (!isSnake_seekNestWithEgg)
-            {
-                Debug.Log("snake seek Nest With Egg.");
+                int ran;
+                ran = -1;
 
-                // go to the nest. There can only have one nest in the scene.
+                GameObject[] eggs;
+                eggs = GameObject.FindGameObjectsWithTag("egg");
+                if (!isSnake_seekNestWithEgg)
+                {
+                    Debug.Log("snake seek Nest With Egg.");
+
+                    // go to the nest. There can only have one nest in the scene.
   
+                    ran = Random.Range(0, eggs.Length - 1);
 
-  
+                    _egg = eggs[ran];
+
+                    seekLocation(_snake, eggs[ran].transform.position /*, "snake_move" */); // ani name
+
+                    isSnake_seekNestWithEgg = true;
+                }
+                if (isSnake_seekNestWithEgg)
+                {
                 ran = Random.Range(0, eggs.Length - 1);
+                }
+                
 
-                _egg = eggs[ran];
-
-                seekLocation(_snake, eggs[ran].transform.position /*, "snake_move" */); // ani name
-
-                isSnake_seekNestWithEgg = true;
-            }
+                print("snake: egg's amount: " + ran);
 
                 Vector2 v2_egg;
                 Vector2 v2_snake;
@@ -250,7 +256,7 @@ namespace Panda.Ibis
         }
 
         [Task]
-        void checkNoEgret() //û�߾ͳɹ�
+        void checkNoEgret() //没鹭就成功
         {
            
             /*            int am_egret;
@@ -282,7 +288,7 @@ namespace Panda.Ibis
         }
 
         [Task]
-        void egret_seekWander() //������һ��
+        void egret_seekWander() //任意走一格
         {
             v2_dess.Clear();
 
@@ -302,6 +308,22 @@ namespace Panda.Ibis
         }
 
         [Task]
+        void egret_AILerp_Close()
+        {
+            foreach (GameObject egret in _egrets)
+            {egret.GetComponent<Pathfinding.AILerp>().enabled = false;
+            }
+        }
+
+        [Task]
+        void egret_AILerp_Open()
+        {
+            foreach (GameObject egret in _egrets)
+            {egret.GetComponent<Pathfinding.AILerp>().enabled = true;
+            }
+        }
+
+        [Task]
         void egret_wander()
         {
             List<Vector3> des_v3s;
@@ -310,6 +332,9 @@ namespace Panda.Ibis
             {
                 _egrets[i].GetComponent<SnapToNode>().enabled = false;
                 _egrets[i].GetComponent<CapsuleCollider>().enabled = true;
+
+                //_egrets[i].GetComponent<Pathfinding.AILerp>().enabled = false; // debug
+                //_egrets[i].GetComponent<Pathfinding.AILerp>().enabled = true; // debug
 
                 int index_v2;
                 index_v2 = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_dess[i]);
@@ -574,10 +599,37 @@ namespace Panda.Ibis
                 if (transform.parent.GetChild(i).gameObject == gameObject)
                 {
                     nextChild = transform.parent.GetChild(i + 1).gameObject;
+                    print("next child: " + nextChild.name);
                 }
             }
 
-            gameObject.GetComponent<PandaBehaviour>().enabled = false;
+            //gameObject.GetComponent<PandaBehaviour>().enabled = false;
+            nextChild.GetComponent<PandaBehaviour>().enabled = true;
+            nextChild.GetComponent<PandaBehaviour>().Reset();
+            nextChild.GetComponent<Panda.Ibis.MyNPC>().enabled = true;
+
+            gameObject.GetComponent<Panda.Ibis.MyNPC>().enabled = false;
+
+            ThisTask.Succeed();
+        }
+
+        public void NextIfEgretDie()
+        {
+            print("next: " + gameObject.name);
+
+            GameObject nextChild;
+            nextChild = null;
+
+            for (int i = 0; i < transform.parent.childCount; i++)
+            {
+                if (transform.parent.GetChild(i).gameObject == gameObject)
+                {
+                    nextChild = transform.parent.GetChild(i + 1).gameObject;
+                    print("next child: " + nextChild.name);
+                }
+            }
+
+            //gameObject.GetComponent<PandaBehaviour>().enabled = false;
             nextChild.GetComponent<PandaBehaviour>().enabled = true;
             nextChild.GetComponent<PandaBehaviour>().Reset();
             nextChild.GetComponent<Panda.Ibis.MyNPC>().enabled = true;

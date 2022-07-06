@@ -18,7 +18,7 @@ public class narrativeResult : MonoBehaviour
 
         for (int i = 0; i < endCheck.narrative.Count; i++)
         {
-            /*            if (i / 2 != 0) //需要把已有的除去。。？
+            /*            if (i / 2 != 0) //闇�瑕佹妸宸叉湁鐨勯櫎鍘伙紵
                         { allPlots +=  endCheck.narrative[i]; }
                         if (i / 2 == 0)
                         { allPlots += "\n" + endCheck.narrative[i]; }*/

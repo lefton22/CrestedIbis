@@ -68,6 +68,7 @@ namespace Panda.Ibis
         allCheck _allCheck;
 
         public bool drawCardShouldEnd;
+
         void Start()
         {
             cards = new List<GameObject>();
@@ -120,6 +121,8 @@ namespace Panda.Ibis
             _allCheck = GameObject.Find("AllCheck").GetComponent<allCheck>();
 
             drawCardShouldEnd = false;
+
+           // print("myTurn Start: _ibisA: " + _ibisA);
         }
 
 
@@ -131,7 +134,8 @@ namespace Panda.Ibis
         {
             hasSetNPCTreeActive = false;
 
-            if (_turnBased.GetComponent<turnBased>().turn == 1)
+            //print("turn based: " +_turnBased.name);
+            if (transform.parent.gameObject.GetComponent<turnBased>().turn == 1)// supposed to be _turnBased
             {
                 GameObject[] lands;
                 lands = GameObject.FindGameObjectsWithTag("land");
@@ -153,7 +157,15 @@ namespace Panda.Ibis
 
                 int ran;
                 ran = Random.Range(0, flatLands.Count-1);
-                _ibisA.transform.position = flatLands[ran].transform.position;
+
+                _ibisA = GameObject.Find("ibisA");
+
+                if (flatLands[ran] != null)
+                {
+                    //print("flat land: " + flatLands[ran].name);
+                    //print("ibisA: " + _ibisA);
+                    _ibisA.transform.position = flatLands[ran].transform.position;
+                }
 
                 _ibisA.GetComponent<objV2Pos>().thisV2 = flatLands[ran].GetComponent<genPos>().thisCo; // to avoid the isObjOnLand bug bcz ibisA's collider has been de actived.
 
@@ -171,7 +183,7 @@ namespace Panda.Ibis
            // _ibisA.GetComponent<SnapToNode>().enabled = false;
             // Recalculate the graph
             AstarPath.active.Scan();
-           // _ibisA.GetComponent<SnapToNode>().enabled = true;
+            _ibisA.GetComponent<SnapToNode>().enabled = true;
 
             ThisTask.Succeed();
         }
@@ -380,7 +392,7 @@ namespace Panda.Ibis
         {
             //_myIbis.setIsObjOnLand();
 
-            Panda.Ibis.MyIbis.actionPoint = 0;
+            Panda.Ibis.MyIbis.actionPoint = 4;
 
             _targetPos.transform.position = new Vector3(_targetPos.transform.position.x, 6f, 1f);
 
@@ -412,7 +424,7 @@ namespace Panda.Ibis
             if (amountsCards(_outerAI.month) >= 4)
             { cardsCanDraw = amountsCards(_outerAI.month) - 2; }
             if (amountsCards(_outerAI.month) < 4 && amountsCards(_outerAI.month) > 0)
-            { cardsCanDraw = amountsCards(_outerAI.month) - 1; } //ÔÝÊ±µÄ
+            { cardsCanDraw = amountsCards(_outerAI.month) - 1; } //ï¿½ï¿½Ê±ï¿½ï¿½
 
 
             int cardsDrew;
@@ -498,7 +510,7 @@ namespace Panda.Ibis
 
             _ibisA.GetComponent<Animator>().enabled = true;
             _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;
-            _ibisA.GetComponent<SnapToNode>().enabled = false;
+            //_ibisA.GetComponent<SnapToNode>().enabled = false;  //X
             _ibisA.GetComponent<CapsuleCollider>().enabled = true;
 
             foreach (Transform child in GameObject.Find("ObjOnLand").transform)
@@ -539,6 +551,8 @@ namespace Panda.Ibis
             _ibisA.GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Clear();
             _ibisA.GetComponent<CapsuleCollider>().enabled = false;
             // _ibisA.GetComponent<PandaBehaviour>().enabled = false;
+             _ibisA.GetComponent<SnapToNode>().enabled = true;
+
             foreach (Transform child in _ibisA.transform)
             {
                 child.gameObject.GetComponent<PandaBehaviour>().enabled = false;
@@ -630,7 +644,7 @@ namespace Panda.Ibis
                     random_index = Random.Range(0, _listObjOnLand.objOnLand.Count);
                     obj.name = _listObjOnLand.objOnLand[random_index];*/
 
-                    // ÉÏÃæÊÇÔÝÊ±µÄ£¬ÏÂÃæÊÇÕæµÄ
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     int rough_ran_index;
 
                     rough_ran_index = Random.Range(0, _outerAI.cardsWeight.Count); //_outerAI.cardsWeight is set in seasons

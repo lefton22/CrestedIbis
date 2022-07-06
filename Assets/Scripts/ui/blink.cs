@@ -63,11 +63,11 @@ public class blink : MonoBehaviour
         {
             //transform.DOScale(new Vector3(1.3f, 1.3f, 1.2f), 1f);
             transform.localScale += scaleChange;
-            print("++++ "  + t); 
+            //print("++++ "  + t); 
         }
         if (t > 2F)
         {  
-            print("=== " +t);
+            //print("=== " +t);
             //transform.DOScale(new Vector3(1f,1f,1f),0.001f);
             transform.localScale -= scaleChange;
         }

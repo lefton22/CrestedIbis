@@ -1,25 +1,25 @@
 tree("Root")
-//Èç¹ûÇ°ÃæcourtshipÁË
+//å¦‚æœå‰é¢courtshipäº†
 
-		fallback
+  fallback
 
-						sequence //ÈôÎŞ³É¹¦ÇóÅ¼£¬ÔòÕâÌõ³É¹¦
+      sequence //è‹¥æ— æˆåŠŸæ±‚å¶ï¼Œåˆ™è¿™æ¡æˆåŠŸ
 
-							  checkIsCourtship()
-							  Wait(140)
+         checkIsCourtship()
+         Wait(10)
 
-							  Next()
+         Next()
 
-				sequence // ¼Ó¾ßÌåÄÚÈİ
-	    
-					 mateWith() 
-					 Wait(140)
+    sequence // åŠ å…·ä½“å†…å®¹
+     
+      mateWith() 
+      Wait(10)
 
-					 comb()
-					 Wait(140)
+      comb()
+      Wait(10)
 
-					 touchBeaks()
-					 Wait(140)
+      touchBeaks()
+      Wait(10)
 
 
-					 Next()
+      Next()

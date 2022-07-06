@@ -13,10 +13,10 @@ public class ibis_intro : MonoBehaviour
     void Start()
     {
         intro = new List<string>();
-        intro.Add ( "¡°¶ÔÓÚÎÒ¶øÑÔ£¬Öìûq²»½ö½öÊÇÒ»ÖÖÄñ¡£ËüÊÇÒ»¸öÉúÃü£¬ÉúÃüÊÇÎÞ¿ÉÌæ´úµÄ£¬ºÍÎÒÃÇÈËÀàµÄÉúÃüÒ»Ñù¡£¡± ");
-        intro.Add(" ¡°ÈË¶¼ÓÐÒ»ËÀ¡£ÈËÉú²¢²»ÒòÎª»áËÀ¾ÍÊ§È¥ÒâÒå¡£¡±");
-        intro.Add(" ¡°ÎÒ²»ÔÚºõ×îÖÕÄÜ ·ñ¸Ä±äËüÃÇµÄÃüÔË£¬Ö»Ï£ÍûËüÃÇÄÜÔÚÃ÷ÖÎ³õÆÚÄÇÑùºÃµÄ×ÔÈ»»·¾³Àï£¬×ßÍêÓàÉú¡£¡± ");
-        //·ÅÒ»Ò³Öìûq¼·ÑÛÀáµÄ¶¯»­£¿
+        intro.Add("â€œå¯¹äºŽæˆ‘è€Œè¨€ï¼Œæœ±é¹®ä¸ä»…ä»…æ˜¯ä¸€ç§é¸Ÿã€‚å®ƒæ˜¯ä¸€ä¸ªç”Ÿå‘½ï¼Œç”Ÿå‘½æ˜¯æ— å¯æ›¿ä»£çš„ï¼Œå’Œæˆ‘ä»¬äººç±»çš„ç”Ÿå‘½ä¸€æ ·ã€‚â€ ");
+        intro.Add(" â€œäººéƒ½æœ‰ä¸€æ­»ã€‚äººç”Ÿå¹¶ä¸å› ä¸ºä¼šæ­»å°±å¤±åŽ»æ„ä¹‰ã€‚â€");
+        intro.Add(" â€œæˆ‘ä¸åœ¨ä¹Žæœ€ç»ˆèƒ½ å¦æ”¹å˜å®ƒä»¬çš„å‘½è¿ï¼Œåªå¸Œæœ›å®ƒä»¬èƒ½åœ¨æ˜Žæ²»åˆæœŸé‚£æ ·å¥½çš„è‡ªç„¶çŽ¯å¢ƒé‡Œï¼Œèµ°å®Œä½™ç”Ÿã€‚â€ ");
+        //æ”¾ä¸€é¡µæœ±é¹®æŒ¤çœ¼æ³ªçš„åŠ¨ç”»ï¼Ÿ
     }
 
     

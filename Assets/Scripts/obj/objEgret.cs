@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class objEgret : MonoBehaviour
 {
-    // Start is called before the first frame update
+   
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -19,11 +19,34 @@ public class objEgret : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         print("egret has an collision");
-        if (collision.gameObject.name == "trap" && collision.gameObject.GetComponent<SpriteRenderer>())
+        if (collision.gameObject.name == "trap" /* && collision.gameObject.GetComponent<SpriteRenderer>() */)
         {
             print(collision.gameObject.name);
+
+            GameObject[] npcOrders;
+            npcOrders = GameObject.FindGameObjectsWithTag("npcOrder");
+
+            for (int i = 0; i < npcOrders.Length; i++)
+            {
+                if (npcOrders[i].name == "NpcOrder_egret(Clone)")
+                {
+                    npcOrders[i].GetComponent<Panda.Ibis.MyNPC>().NextIfEgretDie();
+
+                    Destroy(npcOrders[i]);
+                }
+            }
+
+            
+
+            //play the effect
+
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }
+
+    //void enableTrapManOrder()
+    //{
+        
+    //}
  }
