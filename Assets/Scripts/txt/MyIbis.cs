@@ -88,6 +88,8 @@ namespace Panda.Ibis {
 
         turnBased __turnBased;
 
+        GameObject _ObjOnLand;
+
 
         public GameObject _eat;
         public GameObject _goToOpIbis;
@@ -209,6 +211,8 @@ namespace Panda.Ibis {
 
             __turnBased = _turnBased.GetComponent<turnBased>();
 
+            _ObjOnLand = GameObject.Find("ObjOnLand");
+
         }
 
 
@@ -218,8 +222,8 @@ namespace Panda.Ibis {
         public void breakWhenIbisAAct() //���ڴ�� 
         {
             GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
-            GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().enabled = false;
-            GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = false;
+            //GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().enabled = false;
+            //GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = false;
             GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled = false;
 
             //ibisR on!
@@ -231,6 +235,8 @@ namespace Panda.Ibis {
 
             if (GameObject.Find("ibisR").GetComponent<Animator>().GetBool("hasBreakTrap"))
             {
+                GameObject.Find("ibisR").GetComponent<Animator>().SetBool("hasBreakTrap", false);
+
                 outOfBreakWhenIbisAAct();
                 print("breaking time is over.");
             }
@@ -247,14 +253,16 @@ namespace Panda.Ibis {
         public void outOfBreakWhenIbisAAct() //跳出打断
         {
 
-            GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = true;
+            //GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = true;
 
-            GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().enabled = true;
+            //GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().enabled = true;
             GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 3;
 
             GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled =true;
             GameObject.Find("ibisR").GetComponent<SpriteRenderer>().enabled = false;
             GameObject.Find("ibisR").GetComponent<Animator>().enabled = false;
+
+            GameObject.Find("ibisR").GetComponent<Animator>().SetBool("hasBreakTrap", false);
         }
 
         void Update()
@@ -293,7 +301,9 @@ namespace Panda.Ibis {
 
                 if (GameObject.Find("ibisR").GetComponent<Animator>().GetBool("hasBreakTrap"))
                 {
+                    GameObject.Find("ibisR").GetComponent<Animator>().SetBool("hasBreakTrap", false);
                     outOfBreakWhenIbisAAct();
+
                     print("breaking time is over.");
                 }
             }
@@ -511,6 +521,8 @@ namespace Panda.Ibis {
                 
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
+
+                checkTwoMovingCreatureAtOneGrid();
 
                     ThisTask.Succeed();
                 }
@@ -840,6 +852,8 @@ namespace Panda.Ibis {
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
 
+                checkTwoMovingCreatureAtOneGrid();
+
                 lightGoToOpIbis();
                 ThisTask.Succeed();
             }
@@ -912,6 +926,7 @@ namespace Panda.Ibis {
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
 
+                checkTwoMovingCreatureAtOneGrid();
                 ThisTask.Succeed();
             }
         }
@@ -1155,6 +1170,8 @@ namespace Panda.Ibis {
 
                     Destroy(materials[ran]);
 
+                    checkTwoMovingCreatureAtOneGrid();
+
                     ThisTask.Succeed();
                 }
             }
@@ -1164,39 +1181,102 @@ namespace Panda.Ibis {
 
 
         [Task]
-        void goToNest()
+        void goToNest(bool hasBuild) // true: finish build; fasle: unfinished
         {
-            currentNest = null;
-
-            // go to the nest. There can only have one nest in the scene.
-            GameObject[] nests;
-            nests = GameObject.FindGameObjectsWithTag("nest");
-
-                int ran;
-                ran = Random.Range(0, nests.Length - 1);
-
-            print("nests[ran]: " + nests[ran]);
-            seekLocation(nests[ran] .transform.position);
-
-            Vector2 v2_nest;
-            Vector2 v2_ibisA;
-            v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
-            v2_nest = nests[ran].GetComponent<objV2Pos>().thisV2;
-
-            Debug.Log("going to nest: " + nests[ran].name);
-
-            if (v2_ibisA == v2_nest)//ibisA reach the nest
+            if (!hasBuild)
             {
-                 Debug.Log("reach to a nest.");
+                currentNest = null;
 
-                hasCheckDes = false;
-               
-                // add ibisA's v2 to the land grid's list and check
-                addIbisOnCurrentLand();
+                // go to the nest. There can only have one nest in the scene.
+                // for the last line: need a nest marked as home
+                GameObject[] nests;
+                nests = GameObject.FindGameObjectsWithTag("nest");
 
-                currentNest = nests[ran];
+                GameObject goal_nest = null;
 
-                ThisTask.Succeed();
+                foreach (GameObject nest in nests)
+                {
+                    if (!nest.GetComponent<objNest>()._isFinished)
+                    {
+                        goal_nest = nest;
+                    }
+                }
+                //int ran;
+                //ran = Random.Range(0, nests.Length - 1);
+
+                //print("nests[ran]: " + nests[ran]);
+                seekLocation(goal_nest.transform.position);
+
+                Vector2 v2_nest;
+                Vector2 v2_ibisA;
+                v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
+                v2_nest = goal_nest.GetComponent<objV2Pos>().thisV2;
+
+                Debug.Log("going to nest: " + goal_nest.name);
+
+                if (v2_ibisA == v2_nest)//ibisA reach the nest
+                {
+                    Debug.Log("reach to a nest.");
+
+                    hasCheckDes = false;
+
+                    // add ibisA's v2 to the land grid's list and check
+                    addIbisOnCurrentLand();
+
+                    currentNest = goal_nest;
+
+                    checkTwoMovingCreatureAtOneGrid();
+
+                    ThisTask.Succeed();
+                }
+            }
+
+            if (hasBuild)
+            {
+                currentNest = null;
+
+                // go to the nest. There can only have one nest in the scene.
+                // for the last line: need a nest marked as home
+                GameObject[] nests;
+                nests = GameObject.FindGameObjectsWithTag("nest");
+
+                GameObject goal_nest = null;
+
+                foreach (GameObject nest in nests)
+                {
+                    if (nest.GetComponent<objNest>()._isFinished)
+                    {
+                        goal_nest = nest;
+                    }
+                }
+                //int ran;
+                //ran = Random.Range(0, nests.Length - 1);
+
+                //print("nests[ran]: " + nests[ran]);
+                seekLocation(goal_nest.transform.position);
+
+                Vector2 v2_nest;
+                Vector2 v2_ibisA;
+                v2_ibisA = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
+                v2_nest = goal_nest.GetComponent<objV2Pos>().thisV2;
+
+                Debug.Log("going to nest: " + goal_nest.name);
+
+                if (v2_ibisA == v2_nest)//ibisA reach the nest
+                {
+                    Debug.Log("reach to a nest.");
+
+                    hasCheckDes = false;
+
+                    // add ibisA's v2 to the land grid's list and check
+                    addIbisOnCurrentLand();
+
+                    currentNest = goal_nest;
+
+                    checkTwoMovingCreatureAtOneGrid();
+
+                    ThisTask.Succeed();
+                }
             }
 
         }
@@ -1214,7 +1294,9 @@ namespace Panda.Ibis {
             {
 
                 //change the nest's properties
-                currentNest.GetComponent<objNest>(). addOneBuildPoint();
+                 //currentNest.GetComponent<objNest>(). addOneBuildPoint();
+
+                currentNest.GetComponent<objNest>()._isFinished = true;
 
                 //after finishing it , unlock the bool, succeed
 
@@ -1228,14 +1310,14 @@ namespace Panda.Ibis {
 
         [Task]
 
-        void checkNestFinished()
+        void checkNestFinished() // current: _isFinished is Succeed
         {
             GameObject[] nests;
             nests = GameObject.FindGameObjectsWithTag("nest");
 
             for (int i = 0; i < nests.Length; i++)
             {
-                if (nests[i].GetComponent<objNest>().isFinished())
+                if (nests[i].GetComponent<objNest>()._isFinished)
                 {
                     ThisTask.Succeed();
                 }
@@ -1581,6 +1663,75 @@ namespace Panda.Ibis {
 
         /////////////SSSSSSSSS////////////Gears/////////////////////////
         ///       /////////////////////////Gears/////////////////////////
+        ///
+
+        void checkTwoMovingCreatureAtOneGrid()
+        {
+            foreach (Transform child in _ObjOnLand.transform)
+            {
+                if (child.gameObject.name =="ibisAdult" && !_listObjOnLand.allIbisAdults.Contains(child.gameObject))
+                {
+                    _listObjOnLand.allIbisAdults.Add(child.gameObject);
+                }
+                if (child.gameObject.name == "egret" && !_listObjOnLand.allEgrets.Contains(child.gameObject))
+                {
+                    _listObjOnLand.allEgrets.Add(child.gameObject);
+                }
+            }
+
+            //compare all ibisA, ibisAdults, egret
+            Vector2 v2_ibisA = GameObject.Find("ibisA").GetComponent<objV2Pos>().thisV2;
+
+            
+            for (int i = 0; i < _listObjOnLand.allIbisAdults.Count; i++)
+            {
+                if (v2_ibisA == _listObjOnLand.allIbisAdults[i].GetComponent<objV2Pos>().thisV2)
+                {
+                    print("ibisA meets an adult ibis.");
+                    twoMove(GameObject.Find("ibisA"), _listObjOnLand.allIbisAdults[i]) ;
+                    //two move.
+                }
+            }
+            for (int i = 0; i < _listObjOnLand.allEgrets.Count; i++)
+            {
+                if (v2_ibisA == _listObjOnLand.allEgrets[i].GetComponent<objV2Pos>().thisV2)
+                {
+                    print("ibisA meets an egret.");
+                    twoMove(GameObject.Find("ibisA"), _listObjOnLand.allEgrets[i]);
+                    //two move.
+                }
+            }
+            for (int i = 0; i < _listObjOnLand.allEgrets.Count; i++)
+            {
+                for (int k = 0; k < _listObjOnLand.allIbisAdults.Count; k++)
+                {
+                    if (_listObjOnLand.allIbisAdults[i].GetComponent<objV2Pos>().thisV2
+                        == _listObjOnLand.allEgrets[k].GetComponent<objV2Pos>().thisV2)
+                    {
+                        print("an ibis adult meets an egret.");
+                        twoMove(_listObjOnLand.allIbisAdults[i], _listObjOnLand.allEgrets[k]);
+                        //two move.
+                    }
+                }
+            }
+        }
+
+        void twoMove(GameObject gojA, GameObject gojB)//  同一格子时，两只都让一让
+        {
+            gojA.GetComponent<SnapToNode>().enabled = false;
+            gojB.GetComponent<SnapToNode>().enabled = false;
+
+            float endX = gojA.transform.position.x -0.613f;
+            float endY = gojA.transform.position.y + 0.195f;
+
+            float B_endX = gojB.transform.position.x + 0.64f;
+            float B_endY = gojA.transform.position.y - 0.21f;
+
+            gojA.transform.DOMove(new Vector3(endX, endY, gojA.transform.position.z), 0.5f);
+            gojB.transform.DOMove(new Vector3(B_endX, B_endY, gojB.transform.position.z), 0.5f);
+
+        }
+
         void breakWhenMoving()//用这个打断，然后去做一些事情，原理是move the Target
                               //但是恢复打断时，要将target放回原来的地方去
                               //
@@ -1866,6 +2017,8 @@ namespace Panda.Ibis {
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
+            APreduce();
+
             Debug.Log(thisPlot);
         }
 
@@ -1885,6 +2038,8 @@ namespace Panda.Ibis {
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
+
+            APreduce();
 
             Debug.Log(thisPlot);
         }
@@ -1908,6 +2063,8 @@ namespace Panda.Ibis {
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
+            APreduce();
+
             Debug.Log(thisPlot);
         }
 
@@ -1926,6 +2083,8 @@ namespace Panda.Ibis {
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
+
+            APreduce();
 
             Debug.Log(thisPlot);
         }
@@ -1946,6 +2105,8 @@ namespace Panda.Ibis {
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
+            APreduce();
+
             Debug.Log(thisPlot);
         }
 
@@ -1961,6 +2122,8 @@ namespace Panda.Ibis {
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
+            APreduce();
+
             Debug.Log(thisPlot);
         }
 
@@ -1975,6 +2138,8 @@ namespace Panda.Ibis {
                          + ".";
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
+
+            APreduce();
 
             Debug.Log(thisPlot);
         }
@@ -1993,6 +2158,8 @@ namespace Panda.Ibis {
              + ".";
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
+
+            APreduce();
 
             Debug.Log(thisPlot);
         }

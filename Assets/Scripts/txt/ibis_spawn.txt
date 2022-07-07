@@ -25,7 +25,7 @@ tree("Root")
 																			 Next()
 
 																	 sequence //有巢
-																			  goToNest()
+																			  goToNest(true)
 																			  Wait(10)
 
 																			  spawn()

@@ -298,29 +298,51 @@ namespace Panda.Ibis
                 c_v2 = NearGrid1(_egrets[i].GetComponent<objV2Pos>().thisV2);
                 if (!v2_dess.Contains(c_v2))
                 {
-                    v2_dess.Add( c_v2); 
-                    Debug.Log("egret wander to: " + c_v2);
+                    //// add if not hills
+                    Vector2 v2_except;
+                    v2_except = new Vector2(999,999);
+                        
+                    foreach (Transform child in GameObject.Find("Chesses").transform)
+                    {
+                        if (child.gameObject.tag == "land")
+                        {
+                            if (child.GetChild(0).gameObject.name == "highHill")
+                            {
+                                v2_except = child.gameObject.GetComponent<genPos>().thisCo;
+                            }
+                        }
+                    }
+                    ////
+                    ///
+                    if (c_v2 != v2_except)
+                    {
+                        v2_dess.Add(c_v2);
+                        Debug.Log("egret wander to: " + c_v2);
+                    }
                 }
             }
 
-            ThisTask.Succeed();
+            if (v2_dess.Count > 0)
+            { ThisTask.Succeed(); }
 
         }
 
         [Task]
-        void egret_AILerp_Close()
+        void egret_AILerp_Close()   // for a bug
         {
             foreach (GameObject egret in _egrets)
             {egret.GetComponent<Pathfinding.AILerp>().enabled = false;
             }
+            ThisTask.Succeed();
         }
 
         [Task]
-        void egret_AILerp_Open()
+        void egret_AILerp_Open()    // for a bug
         {
             foreach (GameObject egret in _egrets)
             {egret.GetComponent<Pathfinding.AILerp>().enabled = true;
             }
+            ThisTask.Succeed();
         }
 
         [Task]
@@ -613,6 +635,7 @@ namespace Panda.Ibis
             ThisTask.Succeed();
         }
 
+
         public void NextIfEgretDie()
         {
             print("next: " + gameObject.name);
@@ -634,9 +657,9 @@ namespace Panda.Ibis
             nextChild.GetComponent<PandaBehaviour>().Reset();
             nextChild.GetComponent<Panda.Ibis.MyNPC>().enabled = true;
 
-            gameObject.GetComponent<Panda.Ibis.MyNPC>().enabled = false;
+           // gameObject.GetComponent<Panda.Ibis.MyNPC>().enabled = false; // debug
 
-            ThisTask.Succeed();
+            
         }
 
         /////////////////////////Functions//////////////////

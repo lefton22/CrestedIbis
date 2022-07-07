@@ -6,13 +6,14 @@ public class objNest : MonoBehaviour
 {
 
 
-    public int build_finished; //(需要几个回合才能筑完)
+    public int build_finished; //(需要几个回合才能筑完)// 先建一次就建完 //
     public int build_current;//目前建了几个回合
 
     public List<string> materials;
 
     public int _rateProduce;
 
+    public bool _isFinished;
 
     void Start()
     {
@@ -22,11 +23,14 @@ public class objNest : MonoBehaviour
         build_current = 0;
         //checkRateProduce();
         _rateProduce= rateProduce();
+
+        _isFinished = false;
     }
 
     void Update()
     {
         //show UI
+        
     }
 
     public void addOneBuildPoint()

@@ -9,10 +9,13 @@ public class forTest : MonoBehaviour
     List<GameObject> eggs;
 
     //
+    bool isGenEgret;
 
     void Start()
     {
         eggs = new List<GameObject>();
+
+        isGenEgret = false;
     }
 
     // Update is called once per frame
@@ -21,8 +24,58 @@ public class forTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         { spawn(); }
 
+        if (Input.GetKey(KeyCode.M) && Input.GetKey(KeyCode.N) )
+        {
+            if (!isGenEgret)
+            {
+                print("gen egret.");
+                genEgret();
+            }
+        }
+
     }
 
+
+    void genEgret()
+    {
+
+        GameObject obj_test = Instantiate(Resources.Load("obj/obj")) as GameObject;
+
+        Destroy(obj_test.GetComponent<objFood>());
+        obj_test.GetComponent<objNPC>().enabled = true;
+        Destroy(obj_test.GetComponent<objNest>());
+        Destroy(obj_test.GetComponent<objEgg>());
+        obj_test.tag = "npc";
+
+        objEgret sc = obj_test.AddComponent<objEgret>() as objEgret;
+
+        Pathfinding.Seeker seeker = obj_test.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
+        Pathfinding.AILerp aiLerp = obj_test.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+        //disable enable rotation!!!
+        obj_test.GetComponent<Pathfinding.AILerp>().enableRotation = false;
+
+        sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
+        faceToCamera _ftc = obj_test.AddComponent<faceToCamera>() as faceToCamera;
+        objV2Pos _ovp = obj_test.AddComponent<objV2Pos>() as objV2Pos;
+        // Capsule collider & Rigidbody need to be on the obj
+        Animator _ani = obj_test.AddComponent<Animator>() as Animator;
+        MoveNPC _mn = obj_test.AddComponent<MoveNPC>() as MoveNPC;
+
+        obj_test.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/egret");
+
+        obj_test.GetComponent<CapsuleCollider>().enabled = true;
+
+        // transform.localScale = new Vector3(1f, 1f,1f);
+        obj_test.name = "egret";
+         
+        // set position
+        int ran;
+        ran = Random.Range(0,19);
+        obj_test.transform.position = GameObject.Find("LandGenerator").GetComponent<LandGen2>().LandCos_GO[ran].transform.position;
+        //
+        obj_test.transform.SetParent(GameObject.Find("ObjOnLand").transform);
+        isGenEgret = true;
+    }
 
 
     void spawn()

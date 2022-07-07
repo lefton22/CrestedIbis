@@ -15,6 +15,8 @@ public class listObjOnLand : MonoBehaviour
 
     public List<string> landNameThisTurn;
 
+   
+
 
 
     // would change in run time
@@ -29,6 +31,11 @@ public class listObjOnLand : MonoBehaviour
     {
         this.isObjOnLand = isObjOnland;
     }
+
+    // creature list
+    public List<GameObject> allIbisAdults;
+    public List<GameObject> allEgrets;
+    public List<GameObject> allSnake;
 
     void Start()
     {

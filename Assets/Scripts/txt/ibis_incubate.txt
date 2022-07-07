@@ -17,7 +17,7 @@ tree("Root")
 
      sequence //有巢有蛋，可以incubate
                       
-         goToNest()
+         goToNest(true)
          Wait(10)
 
          incubate()

@@ -19,7 +19,7 @@ public class rayCastBoundry : MonoBehaviour
 
         Vector3 toCamera = (GameObject.Find("Camera1").transform.position - transform.position).normalized;
 
-        Debug.DrawLine(v3_offSet, GameObject.Find("Camera1").transform.position);
+       // Debug.DrawLine(v3_offSet, GameObject.Find("Camera1").transform.position);
 
         var ray = new Ray(v3_offSet, toCamera);
         RaycastHit hit;

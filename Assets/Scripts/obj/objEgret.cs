@@ -36,9 +36,9 @@ public class objEgret : MonoBehaviour
                 }
             }
 
-            
-
             //play the effect
+
+            GameObject.Find("Lists").GetComponent<listObjOnLand>().allEgrets.Remove(gameObject);
 
             Destroy(collision.gameObject);
             Destroy(gameObject);

@@ -23,7 +23,7 @@ tree("Root")
 																							checkHasBuidlingMaterial()
 																							Wait(10)
 
-																							goToNest()
+																							goToNest(false)
 																							Wait(10)
 
 																							buildNest()
@@ -41,7 +41,7 @@ tree("Root")
 																											goToMaterial()
 																											Wait(10)
 
-																											goToNest()
+																											goToNest(false)
 																											Wait(10)
 
 																											buildNest()

@@ -13,14 +13,14 @@ tree("Root")
 										 checkNestFinished()
 										Wait(10)
 
+										goToNest(true)
+										Wait(10)
+
+										rest()
+										Wait(10)
+
 										Next()
 
 								 sequence
-	    
-										 goToNest() // go to the nest
-										 Wait(10)
-
-										 rest() //sleep
-										 Wait(10)
 
 										 Next()

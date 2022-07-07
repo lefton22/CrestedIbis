@@ -34,6 +34,7 @@ public class objNPC : MonoBehaviour
 
             Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
             Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+            GetComponent<Pathfinding.AILerp>().enableRotation = false;
             sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
             faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
            objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
@@ -84,6 +85,7 @@ public class objNPC : MonoBehaviour
 
             Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
             Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+            GetComponent<Pathfinding.AILerp>().enableRotation = false;
             sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
             //  faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
             // objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
@@ -108,8 +110,9 @@ public class objNPC : MonoBehaviour
             ibisNPC.transform.SetParent(gameObject.transform);
             ibisNPC.transform.position = gameObject.transform.position;*/
 
-            Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
-            Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+           // Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker; //先不要
+          //  Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp; //先不要
+
            // faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
           //  objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
             // Capsule collider & Rigidbody need to be on the obj
@@ -123,8 +126,10 @@ public class objNPC : MonoBehaviour
             //ramdomize npc ibis property
 
             //GetComponent<NPCIbis>().gender = Random.Range(1,2);
-            if (chooseGender.cGender == 1) { GetComponent<NPCIbis>().gender = 2; }
-            if (chooseGender.cGender == 2) { GetComponent<NPCIbis>().gender = 1; }
+
+            //if (chooseGender.cGender == 1) { GetComponent<NPCIbis>().gender = 2; } //能自由选雌雄了再调回来
+            //if (chooseGender.cGender == 2) { GetComponent<NPCIbis>().gender = 1; } //能自由选雌雄了再调回来
+            GetComponent<NPCIbis>().gender = 2;
 
             /*            int ranSingle;
                         ranSingle = Random.Range(0,1);

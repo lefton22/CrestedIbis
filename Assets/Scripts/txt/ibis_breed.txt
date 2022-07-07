@@ -42,7 +42,7 @@ tree("Root")
 																						pickFood()
 																						Wait(10)
 
-																						goToNest()
+																						goToNest(true)
 																						Wait(10)
 
 																						breed() // feed the baby bird

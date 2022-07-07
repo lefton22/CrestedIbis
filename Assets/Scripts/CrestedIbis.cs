@@ -15,6 +15,8 @@ public class CrestedIbis : MonoBehaviour
 
         transform.localEulerAngles = new Vector3(0f, 0f, -14f);
 
+        
+
     }
     // Update is called once per frame
     void Update()
@@ -32,6 +34,8 @@ public class CrestedIbis : MonoBehaviour
             seeker.StartPath(transform.position, targetPos.position);
             Debug.Log("move.");
         }
+
+        GetComponent<Pathfinding.AILerp>().repathRate = 9999999f;
     }
 
     public void ibisMove1()
