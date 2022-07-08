@@ -6,18 +6,20 @@
       <Breakpoint file="/Users/rie/Documents/GitHub/CrestedIbis/Assets/Scripts/txt/MyIbis.cs" relfile="Assets/Scripts/txt/MyIbis.cs" line="1345" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/txt/MyIbis.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/txt/MyNPC.cs">
     <Files>
       <File FileName="Assets/Scripts/obj/objNPC.cs" Line="73" Column="1" />
       <File FileName="Assets/Scripts/txt/MyTurn.cs" Line="255" Column="77" />
-      <File FileName="Assets/Scripts/objV2Pos.cs" Line="74" Column="60" />
+      <File FileName="Assets/Scripts/objV2Pos.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ui/forTest.cs" Line="55" Column="76" />
       <File FileName="Assets/Scripts/txt/MyIbis.cs" Line="2162" Column="24" />
-      <File FileName="Assets/Scripts/txt/MyNPC.cs" Line="325" Column="35" />
+      <File FileName="Assets/Scripts/txt/MyNPC.cs" Line="334" Column="45" />
       <File FileName="Assets/Scripts/obj/objEgret.cs" Line="36" Column="18" />
       <File FileName="Assets/Scripts/obj/objNest.cs" Line="27" Column="29" />
       <File FileName="Assets/Scripts/txt/ibis_nest.txt" Line="43" Column="1" />
       <File FileName="Assets/Scripts/txt/ibis_rest.txt" Line="21" Column="1" />
+      <File FileName="Assets/AstarPathfindingProject/Core/AI/AILerp.cs" Line="49" Column="16" />
+      <File FileName="Assets/Scripts/CrestedIbis.cs" Line="34" Column="70" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,6 +27,9 @@
           <Node name="CrestedIbis" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="AstarPathfindingProject" expanded="True">
+                <Node name="Core" expanded="True">
+                  <Node name="AI" expanded="True" />
+                </Node>
                 <Node name="Navmesh" expanded="True" />
               </Node>
               <Node name="Scripts" expanded="True">
@@ -34,7 +39,7 @@
                 </Node>
                 <Node name="pool" expanded="True" />
                 <Node name="txt" expanded="True">
-                  <Node name="MyIbis.cs" selected="True" />
+                  <Node name="MyNPC.cs" selected="True" />
                 </Node>
                 <Node name="ui" expanded="True">
                   <Node name="endScene" expanded="True" />
