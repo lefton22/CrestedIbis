@@ -290,6 +290,21 @@ namespace Panda.Ibis
                             ThisTask.Succeed();
                         }*/
 
+            //set sprite order
+                //ibisA
+                _ibisA.GetComponent<spriteOrder>().adjustOrder();
+                //all npc  => objOnLnad
+                //all obj gened by cards => objOnLnad
+                //all trap => objOnLnad
+                foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+                    {
+                    if (child.gameObject.GetComponent<spriteOrder>())
+                        {
+                          child.GetComponent<spriteOrder>().adjustOrder();
+                        }
+                    }
+            //set sprite order
+
             if (Panda.Ibis.MyNPC.end)
             {
 
@@ -498,6 +513,15 @@ namespace Panda.Ibis
         }
 
         [Task]
+        void checkGraph()
+        {
+            // Recalculate the graph
+            AstarPath.active.Scan();
+
+            ThisTask.Succeed();
+        }
+
+        [Task]
         void ibisAct()
         {
             foreach (Transform child in GameObject.Find("ObjOnLand").transform)
@@ -506,7 +530,7 @@ namespace Panda.Ibis
                 { child.gameObject.GetComponent<CapsuleCollider>().enabled = false; }
             }
             // Recalculate the graph
-            AstarPath.active.Scan();
+           // AstarPath.active.Scan();
 
             _ibisA.GetComponent<Animator>().enabled = true;
             _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;
@@ -537,6 +561,33 @@ namespace Panda.Ibis
                 GameObject.Find("ibis_begin").GetComponent<MyIbis_begin>().enabled = true;
                 hasSetPandaActive = true;
             }
+
+            //set sprite order
+            //ibisA
+            _ibisA.GetComponent<spriteOrder>().adjustOrder();
+            //all npc  => objOnLnad
+            //all obj gened by cards => objOnLnad
+            //all trap => objOnLnad
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+            {
+                if (child.gameObject.GetComponent<spriteOrder>())
+                {
+                    child.GetComponent<spriteOrder>().adjustOrder();
+                }
+            }
+
+            //trap -> obj-> npc -> ibisA
+
+            //set sprite order
+
+             if (Panda.Ibis.MyIbis.actionPoint == 0)
+            {
+                _ibisA.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
+
+                Debug.Log("AP = 0.");
+              //  Panda.Ibis.MyIbis.breakThisTurn();
+            }
+
             if (hasIbisEnded)
             {
               //  _ibisA.transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().enabled = false;

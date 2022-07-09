@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7338731357361081475}
   - component: {fileID: 6423886831410558645}
   - component: {fileID: 7427274126323771903}
+  - component: {fileID: -3608008521099547165}
   m_Layer: 0
   m_Name: obj
   m_TagString: Untagged
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisV2: {x: 0, y: 0}
+  thisLand: 
 --- !u!114 &1852575964813122942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +179,7 @@ MonoBehaviour:
   - twig
   - liana
   _rateProduce: 0
+  _isFinished: 0
 --- !u!114 &-8115781983150745352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,3 +236,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-3608008521099547165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878479221176644071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9571133fe5f104c94a0a86acd2b75de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

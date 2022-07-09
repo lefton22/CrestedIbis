@@ -46,6 +46,8 @@ public class objNPC : MonoBehaviour
 
             GetComponent<CapsuleCollider>().enabled = true;
 
+            spriteOrder sp_order = gameObject.AddComponent<spriteOrder>() as spriteOrder;
+
             // transform.localScale = new Vector3(1f, 1f,1f);
             name = "egret";
 
@@ -71,6 +73,8 @@ public class objNPC : MonoBehaviour
 
             GetComponent<CapsuleCollider>().enabled = true;
 
+            spriteOrder sp_order = gameObject.AddComponent<spriteOrder>() as spriteOrder;
+
             transform.localScale = new Vector3(1f, 1f, 1f);
             name = "snake";
         }
@@ -94,6 +98,8 @@ public class objNPC : MonoBehaviour
             MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
 
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/trapMan");
+
+            spriteOrder sp_order = gameObject.AddComponent<spriteOrder>() as spriteOrder;
 
             GetComponent<CapsuleCollider>().enabled = true;
             transform.localScale = new Vector3(1f, 1f, 1f);
@@ -149,7 +155,9 @@ public class objNPC : MonoBehaviour
             GameObject showInfo = Instantiate(Resources.Load("goj/showInfo")) as GameObject;
             showInfo.transform.SetParent(gameObject.transform);
             showInfo.name = "showInfo";
-           
+
+            spriteOrder sp_order = gameObject.AddComponent<spriteOrder>() as spriteOrder;
+
         }
         //  if (whichNPC == "trapMan")
     }

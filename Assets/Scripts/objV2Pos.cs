@@ -118,6 +118,7 @@ public class objV2Pos : MonoBehaviour
             {
                 gameObject.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
 
+                Debug.Log("AP = 0.");
               //  Panda.Ibis.MyIbis.breakThisTurn();
             }
         }

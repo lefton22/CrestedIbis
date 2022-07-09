@@ -23,6 +23,9 @@ tree("Root")
                         checkPollution()
                         Wait(1)
 
+                        checkGraph()
+                        Wait(1)
+
                         ibisAct
                         Wait(30)
 

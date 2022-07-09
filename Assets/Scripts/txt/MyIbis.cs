@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 using Panda;
 
+using Pathfinding;
+
 using DG.Tweening;
 
 
@@ -249,6 +251,7 @@ namespace Panda.Ibis {
                             print("breaking time is over.");
                         }*/
 
+            actionPoint = 0;
         }
         public void outOfBreakWhenIbisAAct() //跳出打断
         {
@@ -475,6 +478,7 @@ namespace Panda.Ibis {
         [Task]
         void seekFood()
         {
+
             _listObjOnLand.foodOnLand.Clear();
             _listObjOnLand.foodOnLand_GO.Clear();
             foreach (Transform child in GameObject.Find("ObjOnLand").transform)

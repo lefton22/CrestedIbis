@@ -35,7 +35,7 @@ public class CrestedIbis : MonoBehaviour
             Debug.Log("move.");
         }
 
-        GetComponent<Pathfinding.AILerp>().repathRate = 9999999f;
+        //GetComponent<Pathfinding.AILerp>().repathRate = 9999999f;
     }
 
     public void ibisMove1()

@@ -563,11 +563,14 @@ namespace Panda.Ibis
         void trapMan_setTrap()
         {
             GameObject trap = Instantiate(Resources.Load("goj/trap")) as GameObject;
+
+            trap.GetComponent<CapsuleCollider>().enabled = true;
+
             trap.transform.position = _trapMan.transform.position;
             trap.transform.SetParent(GameObject.Find("ObjOnLand").transform);
             trap.name = "trap";
 
-             trap.GetComponent<CapsuleCollider>().enabled = true;
+            
            // Destroy(trap.GetComponent<Rigidbody>());
 /*            bool hasSet;
             hasSet = false;

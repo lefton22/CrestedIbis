@@ -125,6 +125,7 @@
     <Compile Include="Assets/Scripts/pool/listObjOnLand.cs" />
     <Compile Include="Assets/Scripts/obj/objEgg.cs" />
     <Compile Include="Assets/Scripts/ui/monthsPos.cs" />
+    <Compile Include="Assets/Scripts/spriteOrder.cs" />
     <Compile Include="Assets/Scripts/ui/gameStart.cs" />
     <Compile Include="Assets/Panda.BT.free/Samples/03_Shooter/Assets/AIVision.cs" />
     <Compile Include="Assets/Grid Framework/Examples/Runtime Snapping/Scripts/SnappingUnits.cs" />
