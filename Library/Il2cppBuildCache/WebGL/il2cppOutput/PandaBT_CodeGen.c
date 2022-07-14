@@ -1041,7 +1041,7 @@ static const Il2CppTokenRangePair s_rgctxIndices[2] =
 static const Il2CppRGCTXDefinition s_rgctxValues[2] = 
 {
 	{ (Il2CppRGCTXDataType)2, 169 },
-	{ (Il2CppRGCTXDataType)3, 16146 },
+	{ (Il2CppRGCTXDataType)3, 16149 },
 };
 extern const CustomAttributesCacheGenerator g_PandaBT_AttributeGenerators[];
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_PandaBT_CodeGenModule;

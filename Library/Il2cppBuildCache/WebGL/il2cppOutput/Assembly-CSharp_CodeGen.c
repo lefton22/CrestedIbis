@@ -376,8 +376,8 @@ extern void dragCardBoundry__ctor_mF7349008C4B2B920746F885FBFDC83B637765137 (voi
 extern void endCheck_Start_m259DC97CB280C820ABA05A1BB5AAB2110224B717 (void);
 // 0x000000B6 System.Void endCheck::Update()
 extern void endCheck_Update_mBEDCF14AED2FD3C357522004A71A0068753C851D (void);
-// 0x000000B7 System.Void endCheck::checkEnd()
-extern void endCheck_checkEnd_m2014411E0F41BCEECA4F61118B206BF668364B35 (void);
+// 0x000000B7 System.Void endCheck::checkEnd(System.Boolean)
+extern void endCheck_checkEnd_m14B6C6C5B1373E6CB442E409073C9751B16573A8 (void);
 // 0x000000B8 System.Void endCheck::loadMainScene()
 extern void endCheck_loadMainScene_m94DB5503C69A0E6C7A9C4C3313FEBA465E7AB75A (void);
 // 0x000000B9 System.Void endCheck::.ctor()
@@ -552,865 +552,899 @@ extern void objV2Pos_Update_mB66BF2DC2BCA63E5C43D0EEEA9A376D5D5D14C73 (void);
 extern void objV2Pos_OnCollisionEnter_m9B8314243576D949EA5E8DA6A400D926CD45CF93 (void);
 // 0x0000010E System.Void objV2Pos::OnCollisionExit(UnityEngine.Collision)
 extern void objV2Pos_OnCollisionExit_m6B042BA195814187E074C088F476FFF1CC0839E7 (void);
-// 0x0000010F System.Void objV2Pos::.ctor()
+// 0x0000010F System.Void objV2Pos::checkAP0(UnityEngine.GameObject)
+extern void objV2Pos_checkAP0_mF66B937C9A9BC2A1F32FBF82FC929170984A6DF3 (void);
+// 0x00000110 System.Void objV2Pos::.ctor()
 extern void objV2Pos__ctor_mDB60A87000A6C28642476C1152BD01B61E897AD1 (void);
-// 0x00000110 System.Void outerAI::Start()
+// 0x00000111 System.Void outerAI::Start()
 extern void outerAI_Start_m62A4A57C21C785357082E374DDEEB9477CCE1753 (void);
-// 0x00000111 System.Void outerAI::Update()
+// 0x00000112 System.Void outerAI::Update()
 extern void outerAI_Update_m3890994207E67F8536A20622B76F5BBE06C53E1A (void);
-// 0x00000112 System.Void outerAI::changeMonthIcon(System.Int32)
+// 0x00000113 System.Void outerAI::changeMonthIcon(System.Int32)
 extern void outerAI_changeMonthIcon_m940A020BF2FE82701C1694413725700F84BE39CF (void);
-// 0x00000113 System.Void outerAI::setMonthIconPos(System.Int32)
+// 0x00000114 System.Void outerAI::setMonthIconPos(System.Int32)
 extern void outerAI_setMonthIconPos_m76B84DF4A99B61AA113F104341005EF204880721 (void);
-// 0x00000114 System.Void outerAI::moveMonth(System.Int32)
+// 0x00000115 System.Void outerAI::moveMonth(System.Int32)
 extern void outerAI_moveMonth_mCD982BDF72E5959A895068B8F853B502040C1F74 (void);
-// 0x00000115 System.Void outerAI::ibisTranColor()
+// 0x00000116 System.Void outerAI::ibisTranColor()
 extern void outerAI_ibisTranColor_mBDA243F5CB8350063A1F2DAF4F99AA2671C0AEA4 (void);
-// 0x00000116 System.Void outerAI::checkCardsWeight()
+// 0x00000117 System.Void outerAI::checkCardsWeight()
 extern void outerAI_checkCardsWeight_m8F07368E1FB4DD909717E36A8472E74240CAAD3C (void);
-// 0x00000117 System.Void outerAI::Jul1()
+// 0x00000118 System.Void outerAI::Jul1()
 extern void outerAI_Jul1_m6F01CD5C09B33AC7F36522F6A9FF49FB32C0E094 (void);
-// 0x00000118 System.Void outerAI::Jul2()
+// 0x00000119 System.Void outerAI::Jul2()
 extern void outerAI_Jul2_mE48BCA551AAA7282F4C52F14CCA7F825B218232C (void);
-// 0x00000119 System.Void outerAI::Aug1()
+// 0x0000011A System.Void outerAI::Aug1()
 extern void outerAI_Aug1_mBC1EBDEE5A012AFA540ED41583F986A60CEE59EF (void);
-// 0x0000011A System.Void outerAI::Aug2()
+// 0x0000011B System.Void outerAI::Aug2()
 extern void outerAI_Aug2_m13C4E82240998F31B391DF76C75F51E3E938ED65 (void);
-// 0x0000011B System.Void outerAI::Sept1()
+// 0x0000011C System.Void outerAI::Sept1()
 extern void outerAI_Sept1_mEE25C134DAD9FDF5823A1FA9E4879FAADE4240F3 (void);
-// 0x0000011C System.Void outerAI::Sept2()
+// 0x0000011D System.Void outerAI::Sept2()
 extern void outerAI_Sept2_m274366D805CACE4898DEBE9B47F2953486EE5555 (void);
-// 0x0000011D System.Void outerAI::Oct1()
+// 0x0000011E System.Void outerAI::Oct1()
 extern void outerAI_Oct1_m820A89F169BD103BB656CE61CBBDD5C521857643 (void);
-// 0x0000011E System.Void outerAI::Oct2()
+// 0x0000011F System.Void outerAI::Oct2()
 extern void outerAI_Oct2_mDCFF6C1DF6474DA6830C6523C7BF3E4276B7D068 (void);
-// 0x0000011F System.Void outerAI::Nov1()
+// 0x00000120 System.Void outerAI::Nov1()
 extern void outerAI_Nov1_mFBC67CB23F66BAA00C06BDE25A2A00B955B409FD (void);
-// 0x00000120 System.Void outerAI::Nov2()
+// 0x00000121 System.Void outerAI::Nov2()
 extern void outerAI_Nov2_m865EDFF6D999CF9F1D110E714564A8846F794515 (void);
-// 0x00000121 System.Void outerAI::Dec1()
+// 0x00000122 System.Void outerAI::Dec1()
 extern void outerAI_Dec1_mF32A44C2F89D957D4ED72E775D03C26D817DCE03 (void);
-// 0x00000122 System.Void outerAI::Dec2()
+// 0x00000123 System.Void outerAI::Dec2()
 extern void outerAI_Dec2_mB28ED00CB9820C0CEBE4406C5076B1BC0968C7A8 (void);
-// 0x00000123 System.Void outerAI::Jan1()
+// 0x00000124 System.Void outerAI::Jan1()
 extern void outerAI_Jan1_mBC76A4700393666B8540E3C38CAF224CA36C9AC3 (void);
-// 0x00000124 System.Void outerAI::Jan2()
+// 0x00000125 System.Void outerAI::Jan2()
 extern void outerAI_Jan2_mFEB1D629921C1E2B2463CA88BB185A404ABDD73C (void);
-// 0x00000125 System.Void outerAI::Feb1()
+// 0x00000126 System.Void outerAI::Feb1()
 extern void outerAI_Feb1_mC8B7F234FB57D07C38DBAFF42E0C4B67DCC0508D (void);
-// 0x00000126 System.Void outerAI::Feb2()
+// 0x00000127 System.Void outerAI::Feb2()
 extern void outerAI_Feb2_mF22E674A8B3876F77214C7FDE2C3F46CC6B7B21D (void);
-// 0x00000127 System.Void outerAI::Mar1()
+// 0x00000128 System.Void outerAI::Mar1()
 extern void outerAI_Mar1_m70FA84BE0AA4806D688F3D781549190A047482A1 (void);
-// 0x00000128 System.Void outerAI::Mar2()
+// 0x00000129 System.Void outerAI::Mar2()
 extern void outerAI_Mar2_m34745B1606B29242C0DBFBD64D5CBF26D03D3C39 (void);
-// 0x00000129 System.Void outerAI::Apr1()
+// 0x0000012A System.Void outerAI::Apr1()
 extern void outerAI_Apr1_mF7B524D74D6E9115967EB3DA1C4B146AFE876E83 (void);
-// 0x0000012A System.Void outerAI::Apr2()
+// 0x0000012B System.Void outerAI::Apr2()
 extern void outerAI_Apr2_mFFE0C118E4EE0123CF8A656036E47BD6E4E423C9 (void);
-// 0x0000012B System.Void outerAI::May1()
+// 0x0000012C System.Void outerAI::May1()
 extern void outerAI_May1_m1869E153B95E60D9BFC04A4C3C870463158E616B (void);
-// 0x0000012C System.Void outerAI::May2()
+// 0x0000012D System.Void outerAI::May2()
 extern void outerAI_May2_m8A2E893B820CFEC1BCFF961765017BBB0B1F9C6E (void);
-// 0x0000012D System.Void outerAI::Jun1()
+// 0x0000012E System.Void outerAI::Jun1()
 extern void outerAI_Jun1_mF3B005576A04F8536B611FA1C60BED4EA9E1557B (void);
-// 0x0000012E System.Void outerAI::Jun2()
+// 0x0000012F System.Void outerAI::Jun2()
 extern void outerAI_Jun2_mD098F4B57FBE137CCB9E168EB4D33F87670ADBC5 (void);
-// 0x0000012F System.Int32 outerAI::TemperatureChange(System.Int32)
+// 0x00000130 System.Int32 outerAI::TemperatureChange(System.Int32)
 extern void outerAI_TemperatureChange_m98AB52954EB8C7A95D59AFCA60C1D1794193EBD0 (void);
-// 0x00000130 System.Void outerAI::heronShowUp()
+// 0x00000131 System.Void outerAI::heronShowUp()
 extern void outerAI_heronShowUp_m00B372D3559D504A630914BE49BDF073F059D397 (void);
-// 0x00000131 System.Void outerAI::otherIbisShowUp()
+// 0x00000132 System.Void outerAI::otherIbisShowUp()
 extern void outerAI_otherIbisShowUp_m13CDC20E2EE56E7ECDA15ECBBCAEF28F250A260A (void);
-// 0x00000132 System.Void outerAI::grassSeed()
+// 0x00000133 System.Void outerAI::grassSeed()
 extern void outerAI_grassSeed_mC1DDF0DBEE7E35BBBFA17B1797BBF8D155D3374A (void);
-// 0x00000133 System.Void outerAI::foodInRiver(UnityEngine.GameObject)
+// 0x00000134 System.Void outerAI::foodInRiver(UnityEngine.GameObject)
 extern void outerAI_foodInRiver_m2E9E02684EEBFD5834EBE3E1D997B2D2481D9FF9 (void);
-// 0x00000134 System.Void outerAI::arbor()
+// 0x00000135 System.Void outerAI::arbor()
 extern void outerAI_arbor_m6F6A6F35F55EE072D3E9CB75C11FD089F7A9CA8A (void);
-// 0x00000135 System.Void outerAI::.ctor()
+// 0x00000136 System.Void outerAI::.ctor()
 extern void outerAI__ctor_mE5AE3361BF34E96F164003A7273BA74031638160 (void);
-// 0x00000136 System.Void ListExtenstions::AddMany(System.Collections.Generic.List`1<T>,T[])
-// 0x00000137 System.Void listCurrentHitLandGrid::.ctor()
+// 0x00000137 System.Void ListExtenstions::AddMany(System.Collections.Generic.List`1<T>,T[])
+// 0x00000138 System.Void listCurrentHitLandGrid::.ctor()
 extern void listCurrentHitLandGrid__ctor_mF5996B70D5B75D6C4D1D21A62229B0B20F69ACFF (void);
-// 0x00000138 System.Void listObjOnLand::.ctor(System.Collections.Generic.List`1<System.Boolean>)
+// 0x00000139 System.Void listObjOnLand::.ctor(System.Collections.Generic.List`1<System.Boolean>)
 extern void listObjOnLand__ctor_mF319C17AA7CB5915025411575ED51F34433ACCF0 (void);
-// 0x00000139 System.Void listObjOnLand::Start()
+// 0x0000013A System.Void listObjOnLand::Start()
 extern void listObjOnLand_Start_mF6AF0976130FD2F9DFC48237286BDC5F5011D9F9 (void);
-// 0x0000013A System.Void listObjOnLand::AddObjIntoList()
+// 0x0000013B System.Void listObjOnLand::AddObjIntoList()
 extern void listObjOnLand_AddObjIntoList_mA379953194173949C9DC9F67E434DC8193F31F85 (void);
-// 0x0000013B System.Void rayCastBoundry::Start()
+// 0x0000013C System.Void rayCastBoundry::Start()
 extern void rayCastBoundry_Start_mA680D62F46ABAAA15ECC0C098DC91877D409A62E (void);
-// 0x0000013C System.Void rayCastBoundry::FixedUpdate()
+// 0x0000013D System.Void rayCastBoundry::FixedUpdate()
 extern void rayCastBoundry_FixedUpdate_m9F10EB56DD656C2BABED42678D308368ED6B6FC8 (void);
-// 0x0000013D System.Void rayCastBoundry::.ctor()
+// 0x0000013E System.Void rayCastBoundry::.ctor()
 extern void rayCastBoundry__ctor_mEEB02F9D9207EBF1A4B68FBB6CF45BE9E443B8A6 (void);
-// 0x0000013E System.Void raycastGrid::Start()
+// 0x0000013F System.Void raycastGrid::Start()
 extern void raycastGrid_Start_m08A9EB31F4A92884EFD0BB7CBAABB8D7E04EA0A1 (void);
-// 0x0000013F System.Void raycastGrid::FixedUpdate()
+// 0x00000140 System.Void raycastGrid::FixedUpdate()
 extern void raycastGrid_FixedUpdate_m7C22B945ADFD9162E0E8C90F337DD7288B7F524C (void);
-// 0x00000140 System.Void raycastGrid::genCanPutNotification(System.Boolean,System.String,UnityEngine.Vector3)
+// 0x00000141 System.Void raycastGrid::genCanPutNotification(System.Boolean,System.String,UnityEngine.Vector3)
 extern void raycastGrid_genCanPutNotification_m01CCCA8BC36F30169F36B4603B94671786D8970E (void);
-// 0x00000141 System.Void raycastGrid::showCanPutNotification(System.Boolean,UnityEngine.GameObject)
+// 0x00000142 System.Void raycastGrid::showCanPutNotification(System.Boolean,UnityEngine.GameObject)
 extern void raycastGrid_showCanPutNotification_m99D47199A0B79F38A86DF515515285A081D6DDBF (void);
-// 0x00000142 System.Void raycastGrid::checkCorrectColor(UnityEngine.RaycastHit)
+// 0x00000143 System.Void raycastGrid::checkCorrectColor(UnityEngine.RaycastHit)
 extern void raycastGrid_checkCorrectColor_m5D0C64EF950BFE5479DE99FE47B0AED26A3F79C5 (void);
-// 0x00000143 System.Void raycastGrid::.ctor()
+// 0x00000144 System.Void raycastGrid::.ctor()
 extern void raycastGrid__ctor_m057CA37FFA09D1E7B783F28BD11E0246A66F9435 (void);
-// 0x00000144 System.Void riverLand::.ctor()
+// 0x00000145 System.Void riverLand::.ctor()
 extern void riverLand__ctor_m94DAABFE2B9AB270AA9E6E910BB58B8BEFC9670F (void);
-// 0x00000145 System.Void showV2::Start()
+// 0x00000146 System.Void showV2::Start()
 extern void showV2_Start_m24F534C2CF3A052E9EBF8084D23215C96C184BCA (void);
-// 0x00000146 System.Void showV2::show_V2()
+// 0x00000147 System.Void showV2::show_V2()
 extern void showV2_show_V2_mF97490740C82196C562BD77972045C18171E7A18 (void);
-// 0x00000147 System.Void showV2::.ctor()
+// 0x00000148 System.Void showV2::.ctor()
 extern void showV2__ctor_m0623BC0A1FF97C7F948DB3E34E3C812FE1AA3390 (void);
-// 0x00000148 System.Void skipToNextTurn::Start()
+// 0x00000149 System.Void skipToNextTurn::Start()
 extern void skipToNextTurn_Start_m50DBDC3B198DC5FC8C38297F06A236968B265EC5 (void);
-// 0x00000149 System.Void skipToNextTurn::Update()
+// 0x0000014A System.Void skipToNextTurn::Update()
 extern void skipToNextTurn_Update_m1D2FF48415DAA5898E164886C18C33D6B74BCF36 (void);
-// 0x0000014A System.Void skipToNextTurn::skip()
+// 0x0000014B System.Void skipToNextTurn::skip()
 extern void skipToNextTurn_skip_m87B0499B739DAFD31E809ADCFB48958D261E6995 (void);
-// 0x0000014B System.Void skipToNextTurn::.ctor()
+// 0x0000014C System.Void skipToNextTurn::.ctor()
 extern void skipToNextTurn__ctor_mB2B92B5FFB0410EA868547D7510928744AB09719 (void);
-// 0x0000014C System.Void square::Start()
+// 0x0000014D System.Void spriteOrder::Start()
+extern void spriteOrder_Start_m5AB7C33A5943DBD20D41AC40AA757D12302853C6 (void);
+// 0x0000014E System.Void spriteOrder::adjustOrder()
+extern void spriteOrder_adjustOrder_m45E03D2C32F505C6C4CF1E6CE7A92894A27B6035 (void);
+// 0x0000014F System.Void spriteOrder::adjustOrder0(System.Int32,System.Int32)
+extern void spriteOrder_adjustOrder0_m86A7489C984454CE7133D9BBEF3EB829E3038FEA (void);
+// 0x00000150 System.Void spriteOrder::.ctor()
+extern void spriteOrder__ctor_m1F063F164524293CB13B525B43CB3B9596608E57 (void);
+// 0x00000151 System.Void square::Start()
 extern void square_Start_mD9D8C2E3492568955CF203035E7340CA35DC4C70 (void);
-// 0x0000014D System.Void square::Update()
+// 0x00000152 System.Void square::Update()
 extern void square_Update_m0B17AFA152433C1BA0AFE644855816C9C4E3460C (void);
-// 0x0000014E System.Void square::.ctor()
+// 0x00000153 System.Void square::.ctor()
 extern void square__ctor_m5BD81F2483A555184FA4371C5C8582979DE1926B (void);
-// 0x0000014F System.Void story::Start()
+// 0x00000154 System.Void story::Start()
 extern void story_Start_m8BF355CDBE987FA0F3BEA26C68F7217C6C34F47A (void);
-// 0x00000150 System.Void story::Update()
+// 0x00000155 System.Void story::Update()
 extern void story_Update_m611B432EE8F2EDFEAE2DA18D6918DEBDF7170F0F (void);
-// 0x00000151 System.Void story::addTurnStory(System.Int32,System.String)
+// 0x00000156 System.Void story::addTurnStory(System.Int32,System.String)
 extern void story_addTurnStory_m8EFE126E9BCCE1C1BE2DE0A6AE89FAFD05CFCADA (void);
-// 0x00000152 System.Void story::showPlotsThisTurn(System.String)
+// 0x00000157 System.Void story::showPlotsThisTurn(System.String)
 extern void story_showPlotsThisTurn_m257395F83334AFFA2E045DE0A9330FF473886DF7 (void);
-// 0x00000153 System.Void story::.ctor()
+// 0x00000158 System.Void story::.ctor()
 extern void story__ctor_mB63841678FC9A54052B947F41D29124A42A744EB (void);
-// 0x00000154 System.Void try1::Start()
+// 0x00000159 System.Void try1::Start()
 extern void try1_Start_m6B7724D2187FF13DEC00A3AA6F617B21C96C77DB (void);
-// 0x00000155 System.Void try1::Update()
+// 0x0000015A System.Void try1::Update()
 extern void try1_Update_m661318A561386EC701A17546D81ADFC946AB5543 (void);
-// 0x00000156 System.Void try1::.ctor()
+// 0x0000015B System.Void try1::.ctor()
 extern void try1__ctor_m46CFC50478EFAC65D2C8146FBCB4BC99F93B77C7 (void);
-// 0x00000157 System.Void turnBased::executeMethod(turnBased/MethodOneDelegate)
+// 0x0000015C System.Void turnBased::executeMethod(turnBased/MethodOneDelegate)
 extern void turnBased_executeMethod_m3F3417770E84FE4754909CB8E97DE9B7A3E20D21 (void);
-// 0x00000158 System.Void turnBased::Start()
+// 0x0000015D System.Void turnBased::Start()
 extern void turnBased_Start_m28BE408525264A0EC5191EDDC0C682E3562FAB3A (void);
-// 0x00000159 System.Void turnBased::Update()
+// 0x0000015E System.Void turnBased::Update()
 extern void turnBased_Update_mDB70088E3296F351020808122026087236B1BBAC (void);
-// 0x0000015A System.Void turnBased::newTurnStart()
+// 0x0000015F System.Void turnBased::newTurnStart()
 extern void turnBased_newTurnStart_mB2D62EEAB36AC0CC924169D2C448914F0E849DD2 (void);
-// 0x0000015B System.Void turnBased::checkIbis()
+// 0x00000160 System.Void turnBased::checkIbis()
 extern void turnBased_checkIbis_m95B1A7AA4370C4153853C58F00CEC17140983D8D (void);
-// 0x0000015C System.Void turnBased::checkSeasons(System.Int32)
+// 0x00000161 System.Void turnBased::checkSeasons(System.Int32)
 extern void turnBased_checkSeasons_mD7C3D546226641523DB9001DDC5421B8883FB270 (void);
-// 0x0000015D System.Void turnBased::.ctor()
+// 0x00000162 System.Void turnBased::.ctor()
 extern void turnBased__ctor_m287977B003AF97F0777BD16E2039520D46DF0516 (void);
-// 0x0000015E System.Void turnBased/MethodOneDelegate::.ctor(System.Object,System.IntPtr)
+// 0x00000163 System.Void turnBased/MethodOneDelegate::.ctor(System.Object,System.IntPtr)
 extern void MethodOneDelegate__ctor_m6EBB1FD0833C02A45C16FDC772D062A9070D0D96 (void);
-// 0x0000015F System.Void turnBased/MethodOneDelegate::Invoke()
+// 0x00000164 System.Void turnBased/MethodOneDelegate::Invoke()
 extern void MethodOneDelegate_Invoke_mB017E4F84CAB849091E9D15410CB5AF0E7DE5491 (void);
-// 0x00000160 System.IAsyncResult turnBased/MethodOneDelegate::BeginInvoke(System.AsyncCallback,System.Object)
+// 0x00000165 System.IAsyncResult turnBased/MethodOneDelegate::BeginInvoke(System.AsyncCallback,System.Object)
 extern void MethodOneDelegate_BeginInvoke_m514658D803FEEB309B8C908ACB80425923C69CDD (void);
-// 0x00000161 System.Void turnBased/MethodOneDelegate::EndInvoke(System.IAsyncResult)
+// 0x00000166 System.Void turnBased/MethodOneDelegate::EndInvoke(System.IAsyncResult)
 extern void MethodOneDelegate_EndInvoke_m711630346E795E4A11058B46975853CC1B28D1F4 (void);
-// 0x00000162 System.Void MoveNPC::Start()
+// 0x00000167 System.Void MoveNPC::Start()
 extern void MoveNPC_Start_m8B65B796C97ADFA2486455C6AEF6E5EF90EDB439 (void);
-// 0x00000163 System.Void MoveNPC::Update()
+// 0x00000168 System.Void MoveNPC::Update()
 extern void MoveNPC_Update_m69E47E40979F47F55105B3562467B8EF7DFA776B (void);
-// 0x00000164 System.Void MoveNPC::Move1()
+// 0x00000169 System.Void MoveNPC::Move1()
 extern void MoveNPC_Move1_mCC4A12066C3A31C0E4E322715177AB166E889309 (void);
-// 0x00000165 System.Void MoveNPC::Move2(UnityEngine.Vector3)
+// 0x0000016A System.Void MoveNPC::Move2(UnityEngine.Vector3)
 extern void MoveNPC_Move2_m1EFF3F5C0047C2FD16718C25FD0B6D58E98C7DEB (void);
-// 0x00000166 System.Void MoveNPC::.ctor()
+// 0x0000016B System.Void MoveNPC::.ctor()
 extern void MoveNPC__ctor_mE581D92F3D8190AF17E790FDBBF2D3D013DE0F79 (void);
-// 0x00000167 System.Void blink::Start()
+// 0x0000016C System.Void blink::Start()
 extern void blink_Start_m3DE48C5661DF8739AE9F78FDC72475B35DD9AFF5 (void);
-// 0x00000168 System.Void blink::Update()
+// 0x0000016D System.Void blink::Update()
 extern void blink_Update_m61283BF6574122D3CDF59D43F419C60A0436A084 (void);
-// 0x00000169 System.Void blink::.ctor()
+// 0x0000016E System.Void blink::.ctor()
 extern void blink__ctor_m0926DC815040C9C8844EFA001FDEC99ED41DF379 (void);
-// 0x0000016A System.Void clickToNext::Start()
+// 0x0000016F System.Void clickToNext::Start()
 extern void clickToNext_Start_m3424446AAF4D36B87542AC37D9679C5C8E968300 (void);
-// 0x0000016B System.Void clickToNext::goToNextScene()
+// 0x00000170 System.Void clickToNext::goToNextScene()
 extern void clickToNext_goToNextScene_m9F6102310FBCC174D5F093D163DA9FB6D7CF16C4 (void);
-// 0x0000016C System.Void clickToNext::ClickB()
+// 0x00000171 System.Void clickToNext::ClickB()
 extern void clickToNext_ClickB_m9985A42776E96E870CB0E0E09D52AFC2716C9952 (void);
-// 0x0000016D System.Void clickToNext::.ctor()
+// 0x00000172 System.Void clickToNext::.ctor()
 extern void clickToNext__ctor_m09BC8F6B9F377C0DC4BEB3D03C3E64AE318A9C3D (void);
-// 0x0000016E System.Void whyDie::Start()
+// 0x00000173 System.Void whyDie::Start()
 extern void whyDie_Start_mB917E6C8559AB779EF67CC2053699C8552DD2767 (void);
-// 0x0000016F System.Void whyDie::Update()
+// 0x00000174 System.Void whyDie::Update()
 extern void whyDie_Update_mE8F20068CDCD40D9481253E59F0D27B380C3C233 (void);
-// 0x00000170 System.Void whyDie::.ctor()
+// 0x00000175 System.Void whyDie::.ctor()
 extern void whyDie__ctor_m20B289B3E8F3CC94DB6D4DE4E8965A078A624802 (void);
-// 0x00000171 System.Void gameStart::Start()
+// 0x00000176 System.Void forTest::Start()
+extern void forTest_Start_mEF44DF22AEBEB91C16CFF7388EB91154A11D6085 (void);
+// 0x00000177 System.Void forTest::Update()
+extern void forTest_Update_m8AD199795EE7FC7CA8B7135E1245C0AAA8D07935 (void);
+// 0x00000178 System.Void forTest::genEgret()
+extern void forTest_genEgret_m154D42A02A86701F0FE032BAB0145C8DE00A1FC5 (void);
+// 0x00000179 System.Void forTest::spawn()
+extern void forTest_spawn_mF5FEE5FD7F177B2B1FF36D6FDAE95C305E4BA1AB (void);
+// 0x0000017A System.Void forTest::.ctor()
+extern void forTest__ctor_m005058EA7AFB8C4BB63B0D780CCCEC77AF3FFC8D (void);
+// 0x0000017B System.Void gameStart::Start()
 extern void gameStart_Start_m0781ADEAA7637B7A38484A9A99DF8CE0D2E50D1C (void);
-// 0x00000172 System.Void gameStart::loadMainScene()
+// 0x0000017C System.Void gameStart::loadMainScene()
 extern void gameStart_loadMainScene_m2575C56E358B7B6E8A47B887F141592255439805 (void);
-// 0x00000173 System.Void gameStart::.ctor()
+// 0x0000017D System.Void gameStart::.ctor()
 extern void gameStart__ctor_m4468B481B21293407B4975BC279C03668BD29AA5 (void);
-// 0x00000174 System.Void introPanel::Start()
+// 0x0000017E System.Void introPanel::Start()
 extern void introPanel_Start_m1BA9F886D40BBBF464AE14DB22F6D06B33842BFE (void);
-// 0x00000175 System.Void introPanel::Update()
+// 0x0000017F System.Void introPanel::Update()
 extern void introPanel_Update_mA400600CA7D940DA61716C29EFA1EB3F1EFAC619 (void);
-// 0x00000176 System.Void introPanel::openPanel()
+// 0x00000180 System.Void introPanel::openPanel()
 extern void introPanel_openPanel_mF33BC0C9FF857AC14F6C6719372EF40D8F59FBF8 (void);
-// 0x00000177 System.Void introPanel::.ctor()
+// 0x00000181 System.Void introPanel::.ctor()
 extern void introPanel__ctor_m7131545DF4AE5B628EB91351E8DE7331657F9D4D (void);
-// 0x00000178 System.Void monthsPos::Start()
+// 0x00000182 System.Void monthsPos::Start()
 extern void monthsPos_Start_mE7E2691A3E4CA36BBE4E2A49A679F910D94CEF4B (void);
-// 0x00000179 System.Void monthsPos::Update()
+// 0x00000183 System.Void monthsPos::Update()
 extern void monthsPos_Update_m28E266897B03C08F9F5464A35C25CA370EB4A516 (void);
-// 0x0000017A System.Void monthsPos::.ctor()
+// 0x00000184 System.Void monthsPos::.ctor()
 extern void monthsPos__ctor_mD5B266228FA285D37E685525B5FF8F199D2B2BD2 (void);
-// 0x0000017B System.Void showHowHungry::Start()
+// 0x00000185 System.Void showHowHungry::Start()
 extern void showHowHungry_Start_m4B777F0AB56068BCF495A98E1B0DF870475EB1BC (void);
-// 0x0000017C System.Void showHowHungry::Update()
+// 0x00000186 System.Void showHowHungry::Update()
 extern void showHowHungry_Update_m180FC80C67B8CBBBD1F7037ABBE3FE6B214F9BEF (void);
-// 0x0000017D System.Void showHowHungry::.ctor()
+// 0x00000187 System.Void showHowHungry::.ctor()
 extern void showHowHungry__ctor_m6341282F720B40998E2CFC45599BE058B53F4CE7 (void);
-// 0x0000017E System.Void skipDrawCard::Start()
+// 0x00000188 System.Void skipDrawCard::Start()
 extern void skipDrawCard_Start_m765ADEAF62B8E2C3D549F4EABC387413B81CCCCD (void);
-// 0x0000017F System.Void skipDrawCard::Update()
+// 0x00000189 System.Void skipDrawCard::Update()
 extern void skipDrawCard_Update_m653B63401F002EA1FE586BFC13BA8D782D2E174B (void);
-// 0x00000180 System.Void skipDrawCard::skip()
+// 0x0000018A System.Void skipDrawCard::skip()
 extern void skipDrawCard_skip_m9B3507AA956E9E34D8E60B617E3CBF633DF5E8D3 (void);
-// 0x00000181 System.Void skipDrawCard::.ctor()
+// 0x0000018B System.Void skipDrawCard::.ctor()
 extern void skipDrawCard__ctor_m8115A4ED3820A46CD0F1611216FD96C905DA8F20 (void);
-// 0x00000182 System.Void chooseGender::Start()
+// 0x0000018C System.Void chooseGender::Start()
 extern void chooseGender_Start_m1443EFCE247229BE67D8EA83B36A618E66BBC62F (void);
-// 0x00000183 System.Void chooseGender::Update()
+// 0x0000018D System.Void chooseGender::Update()
 extern void chooseGender_Update_m0EF9A59F4DFDD012455B74801AB3B3D7959FA89F (void);
-// 0x00000184 System.Void chooseGender::cFemale()
+// 0x0000018E System.Void chooseGender::cFemale()
 extern void chooseGender_cFemale_m14DE8CF69344A10B3AEDD4D5EF8615B0E74DAA95 (void);
-// 0x00000185 System.Void chooseGender::cMale()
+// 0x0000018F System.Void chooseGender::cMale()
 extern void chooseGender_cMale_m7D1CE9EB41888DC12D8CD5464E23DD98A8059F35 (void);
-// 0x00000186 System.Void chooseGender::ClickB()
+// 0x00000190 System.Void chooseGender::ClickB()
 extern void chooseGender_ClickB_m6C8CB93C75AC5891BB4E2DAF867555DDA1405247 (void);
-// 0x00000187 System.Void chooseGender::.ctor()
+// 0x00000191 System.Void chooseGender::.ctor()
 extern void chooseGender__ctor_m15ADEABB27FC6F0DBE9FA772D7AA83F3F4280CA1 (void);
-// 0x00000188 System.Void ibis_intro::Start()
+// 0x00000192 System.Void ibis_intro::Start()
 extern void ibis_intro_Start_m03F95C5AE3FA52B60BC4E59D646FD7D59FEE07D7 (void);
-// 0x00000189 System.Void ibis_intro::Update()
+// 0x00000193 System.Void ibis_intro::Update()
 extern void ibis_intro_Update_m55DDCBC30A5667BD44E187658337D6AFB90E9247 (void);
-// 0x0000018A System.Void ibis_intro::switchToMainScene()
+// 0x00000194 System.Void ibis_intro::switchToMainScene()
 extern void ibis_intro_switchToMainScene_m2537AAB9ABEAB43B1D38FCFCDFBDDEE6BF11D31F (void);
-// 0x0000018B System.Void ibis_intro::.ctor()
+// 0x00000195 System.Void ibis_intro::.ctor()
 extern void ibis_intro__ctor_mE4777861D0838201D53CCEFA141306D1A9174F79 (void);
-// 0x0000018C System.Void windowPopUp::Start()
+// 0x00000196 System.Void windowPopUp::Start()
 extern void windowPopUp_Start_m179FB0425A400D2EB20020A54C548AF732317F4E (void);
-// 0x0000018D System.Void windowPopUp::Update()
+// 0x00000197 System.Void windowPopUp::Update()
 extern void windowPopUp_Update_m2AEE958C1B1B67B267334EE7B6CFEBDC2BDF93AE (void);
-// 0x0000018E System.Void windowPopUp::.ctor()
+// 0x00000198 System.Void windowPopUp::.ctor()
 extern void windowPopUp__ctor_m5DD9516139BC4E91B7D345ADE7CFF410338ECD0A (void);
-// 0x0000018F System.Void TabButtonUI::.ctor()
+// 0x00000199 System.Void TabButtonUI::.ctor()
 extern void TabButtonUI__ctor_m4F88C59892CC13210BDA2A13FD07F58BCBED93F4 (void);
-// 0x00000190 System.Void TabsUIHorizontal::.ctor()
+// 0x0000019A System.Void TabsUIHorizontal::.ctor()
 extern void TabsUIHorizontal__ctor_mE916697EBD00B035DF7511795781F83DEA64C991 (void);
-// 0x00000191 System.Void TabsUIVertical::.ctor()
+// 0x0000019B System.Void TabsUIVertical::.ctor()
 extern void TabsUIVertical__ctor_mB0CE2C4096432648DAC27163C1154862650DCD39 (void);
-// 0x00000192 System.Void EasyUI.Tabs.TabsUI::Start()
+// 0x0000019C System.Void EasyUI.Tabs.TabsUI::Start()
 extern void TabsUI_Start_mCAB2BD732E643C8705E1486161756F7499FD4A20 (void);
-// 0x00000193 System.Void EasyUI.Tabs.TabsUI::GetTabBtns()
+// 0x0000019D System.Void EasyUI.Tabs.TabsUI::GetTabBtns()
 extern void TabsUI_GetTabBtns_mF04584E22E536B24673F7EDA10134D013CE36F51 (void);
-// 0x00000194 System.Void EasyUI.Tabs.TabsUI::OnTabButtonClicked(System.Int32)
+// 0x0000019E System.Void EasyUI.Tabs.TabsUI::OnTabButtonClicked(System.Int32)
 extern void TabsUI_OnTabButtonClicked_m379FFB1EFDFB0B2196739D4837059B4183944AB1 (void);
-// 0x00000195 System.Void EasyUI.Tabs.TabsUI::.ctor()
+// 0x0000019F System.Void EasyUI.Tabs.TabsUI::.ctor()
 extern void TabsUI__ctor_mFF3D61C41B711B15F6518206096D64ACBCAAA035 (void);
-// 0x00000196 System.Void EasyUI.Tabs.TabsUI/TabsUIEvent::.ctor()
+// 0x000001A0 System.Void EasyUI.Tabs.TabsUI/TabsUIEvent::.ctor()
 extern void TabsUIEvent__ctor_mC1682AD1AB5D72B6116FB1286AA708472377C51E (void);
-// 0x00000197 System.Void EasyUI.Tabs.TabsUI/<>c__DisplayClass15_0::.ctor()
+// 0x000001A1 System.Void EasyUI.Tabs.TabsUI/<>c__DisplayClass15_0::.ctor()
 extern void U3CU3Ec__DisplayClass15_0__ctor_mF42737CDA0C0890682DC5402A982871E8D128226 (void);
-// 0x00000198 System.Void EasyUI.Tabs.TabsUI/<>c__DisplayClass15_0::<GetTabBtns>b__0()
+// 0x000001A2 System.Void EasyUI.Tabs.TabsUI/<>c__DisplayClass15_0::<GetTabBtns>b__0()
 extern void U3CU3Ec__DisplayClass15_0_U3CGetTabBtnsU3Eb__0_mC362396941B07B1AB34BD54D6B283AC13DB0E0D6 (void);
-// 0x00000199 System.Void Panda.Ibis.MyIbis::Start()
+// 0x000001A3 System.Void Panda.Ibis.MyIbis::Start()
 extern void MyIbis_Start_m790C448821CDB1F6CC0519E7AD5E98394CC1B3DE (void);
-// 0x0000019A System.Void Panda.Ibis.MyIbis::breakWhenIbisAAct()
+// 0x000001A4 System.Void Panda.Ibis.MyIbis::breakWhenIbisAAct()
 extern void MyIbis_breakWhenIbisAAct_m07C8D3C2D7896FB8262A34F45B66E56EFB152C93 (void);
-// 0x0000019B System.Void Panda.Ibis.MyIbis::outOfBreakWhenIbisAAct()
+// 0x000001A5 System.Void Panda.Ibis.MyIbis::outOfBreakWhenIbisAAct()
 extern void MyIbis_outOfBreakWhenIbisAAct_m291D3F53DE5C73F5F87AC1DD3AF1C05F4EDDF935 (void);
-// 0x0000019C System.Void Panda.Ibis.MyIbis::Update()
+// 0x000001A6 System.Void Panda.Ibis.MyIbis::Update()
 extern void MyIbis_Update_m749C336DAB963CE6548D225FE69E92C2E6C7471B (void);
-// 0x0000019D System.Void Panda.Ibis.MyIbis::breakThisTurn()
+// 0x000001A7 System.Void Panda.Ibis.MyIbis::breakThisTurn()
 extern void MyIbis_breakThisTurn_mF1ED0E9460FDD962C364CFF0F2626CDF06E51E57 (void);
-// 0x0000019E System.Boolean Panda.Ibis.MyIbis::isFirstHalfYear()
+// 0x000001A8 System.Boolean Panda.Ibis.MyIbis::isFirstHalfYear()
 extern void MyIbis_isFirstHalfYear_mAA7359B7436A0A6E60369F06B5090FB2E8DB7DD0 (void);
-// 0x0000019F System.Boolean Panda.Ibis.MyIbis::isLastHalfYear()
+// 0x000001A9 System.Boolean Panda.Ibis.MyIbis::isLastHalfYear()
 extern void MyIbis_isLastHalfYear_mA53812DC2EEB04DB8E2627EDE7777F098CA3CB58 (void);
-// 0x000001A0 System.Void Panda.Ibis.MyIbis::setIsObjOnLand()
+// 0x000001AA System.Void Panda.Ibis.MyIbis::setIsObjOnLand()
 extern void MyIbis_setIsObjOnLand_m3C231B13D3E9645BCA34C66CB9AD121E5F255166 (void);
-// 0x000001A1 System.Void Panda.Ibis.MyIbis::enableAILerp()
+// 0x000001AB System.Void Panda.Ibis.MyIbis::enableAILerp()
 extern void MyIbis_enableAILerp_m208B2D7A99F61D918A2B6FCAC777F62393110695 (void);
-// 0x000001A2 System.Void Panda.Ibis.MyIbis::checkHasFood()
+// 0x000001AC System.Void Panda.Ibis.MyIbis::checkHasFood()
 extern void MyIbis_checkHasFood_m75EC72103B4ED475275C3064034799B77577AF2B (void);
-// 0x000001A3 System.Void Panda.Ibis.MyIbis::seekFood()
+// 0x000001AD System.Void Panda.Ibis.MyIbis::seekFood()
 extern void MyIbis_seekFood_m2693930A88D572E29C2E871D5343EDA3060B7CBF (void);
-// 0x000001A4 System.Void Panda.Ibis.MyIbis::addIbisOnCurrentLand()
+// 0x000001AE System.Void Panda.Ibis.MyIbis::addIbisOnCurrentLand()
 extern void MyIbis_addIbisOnCurrentLand_m98B0336F9B5A270DBF771230B0D90C7624FF853E (void);
-// 0x000001A5 System.Void Panda.Ibis.MyIbis::seekForFoodJantoJun()
+// 0x000001AF System.Void Panda.Ibis.MyIbis::seekForFoodJantoJun()
 extern void MyIbis_seekForFoodJantoJun_mFD85B6A34DD27F18A328CD39AE90B9338D546BF8 (void);
-// 0x000001A6 System.Void Panda.Ibis.MyIbis::seekForFoodJuntoNov()
+// 0x000001B0 System.Void Panda.Ibis.MyIbis::seekForFoodJuntoNov()
 extern void MyIbis_seekForFoodJuntoNov_m599D07A163AC6ACAD3FADFDC32D7C0D2B4763197 (void);
-// 0x000001A7 System.Void Panda.Ibis.MyIbis::ifO()
+// 0x000001B1 System.Void Panda.Ibis.MyIbis::ifO()
 extern void MyIbis_ifO_m2D3EF0C9E9FCFBD80397E40BE499E3801F413758 (void);
-// 0x000001A8 System.Void Panda.Ibis.MyIbis::checkItemsOnLand()
+// 0x000001B2 System.Void Panda.Ibis.MyIbis::checkItemsOnLand()
 extern void MyIbis_checkItemsOnLand_m9E4347A74A72B9FEFFF56092B5CF84CCA7594A12 (void);
-// 0x000001A9 System.Void Panda.Ibis.MyIbis::eat()
+// 0x000001B3 System.Void Panda.Ibis.MyIbis::eat()
 extern void MyIbis_eat_m623DA434119751860969580B19F5C133AE019CF0 (void);
-// 0x000001AA System.Void Panda.Ibis.MyIbis::isFemale()
+// 0x000001B4 System.Void Panda.Ibis.MyIbis::isFemale()
 extern void MyIbis_isFemale_m75DECE8D23724BF088D690B34FCAE3E849C3E826 (void);
-// 0x000001AB System.Void Panda.Ibis.MyIbis::isMale()
+// 0x000001B5 System.Void Panda.Ibis.MyIbis::isMale()
 extern void MyIbis_isMale_m9639EA9E72958AF0535D9D4C93962F6B433BF476 (void);
-// 0x000001AC System.Void Panda.Ibis.MyIbis::isThisSingle()
+// 0x000001B6 System.Void Panda.Ibis.MyIbis::isThisSingle()
 extern void MyIbis_isThisSingle_mA0B1A52533131DF81766590596BDDA7D52EB94A7 (void);
-// 0x000001AD System.Void Panda.Ibis.MyIbis::isThereNPCIbis()
+// 0x000001B7 System.Void Panda.Ibis.MyIbis::isThereNPCIbis()
 extern void MyIbis_isThereNPCIbis_mF3E6776E0BF1F905D0C8BFA00615656951AFFA8F (void);
-// 0x000001AE System.Void Panda.Ibis.MyIbis::isThereOpGender()
+// 0x000001B8 System.Void Panda.Ibis.MyIbis::isThereOpGender()
 extern void MyIbis_isThereOpGender_m6F18401BEC58C1A9198E71D7D9DD365B4AAF8E76 (void);
-// 0x000001AF System.Void Panda.Ibis.MyIbis::isThereSingleOpGender()
+// 0x000001B9 System.Void Panda.Ibis.MyIbis::isThereSingleOpGender()
 extern void MyIbis_isThereSingleOpGender_m3E98A986506084B38B5945B48B505537FEF916A5 (void);
-// 0x000001B0 System.Void Panda.Ibis.MyIbis::goToOpGender()
+// 0x000001BA System.Void Panda.Ibis.MyIbis::goToOpGender()
 extern void MyIbis_goToOpGender_m7F8A0CDEF49C70654491B68BCEF9C2F2F897D961 (void);
-// 0x000001B1 System.Void Panda.Ibis.MyIbis::isPartnerOnTheMap()
+// 0x000001BB System.Void Panda.Ibis.MyIbis::isPartnerOnTheMap()
 extern void MyIbis_isPartnerOnTheMap_m707B39536418CAC15FE0A21BD9526C4A881F654E (void);
-// 0x000001B2 System.Void Panda.Ibis.MyIbis::isThisCourtship()
+// 0x000001BC System.Void Panda.Ibis.MyIbis::isThisCourtship()
 extern void MyIbis_isThisCourtship_mE2BC6A99189E58A9CF02AADB00795FC2F56C41BA (void);
-// 0x000001B3 System.Void Panda.Ibis.MyIbis::Courtship()
+// 0x000001BD System.Void Panda.Ibis.MyIbis::Courtship()
 extern void MyIbis_Courtship_mA48AF1774A88CC57F79E8083B395A223277EE864 (void);
-// 0x000001B4 System.Void Panda.Ibis.MyIbis::goToMate()
+// 0x000001BE System.Void Panda.Ibis.MyIbis::goToMate()
 extern void MyIbis_goToMate_m19D6CFD24C560A61C06C5B147057EBF0CB474FF4 (void);
-// 0x000001B5 System.Void Panda.Ibis.MyIbis::Mate()
+// 0x000001BF System.Void Panda.Ibis.MyIbis::Mate()
 extern void MyIbis_Mate_m9ABB55D9E1F824F067EB657CDD19620B164FEAC6 (void);
-// 0x000001B6 System.Void Panda.Ibis.MyIbis::comb()
+// 0x000001C0 System.Void Panda.Ibis.MyIbis::comb()
 extern void MyIbis_comb_m97AA8E526C93DA543B0B2214453F905BDCBF5B90 (void);
-// 0x000001B7 System.Void Panda.Ibis.MyIbis::touchBeaks()
+// 0x000001C1 System.Void Panda.Ibis.MyIbis::touchBeaks()
 extern void MyIbis_touchBeaks_m0BDDC96A445B397D95678CAAC9947078DF5156AF (void);
-// 0x000001B8 System.Void Panda.Ibis.MyIbis::quarrelWithLoveRival()
+// 0x000001C2 System.Void Panda.Ibis.MyIbis::quarrelWithLoveRival()
 extern void MyIbis_quarrelWithLoveRival_m96940CFCC41B4F0415155F982C9CE35456951514 (void);
-// 0x000001B9 System.Void Panda.Ibis.MyIbis::checkMateIbis()
+// 0x000001C3 System.Void Panda.Ibis.MyIbis::checkMateIbis()
 extern void MyIbis_checkMateIbis_mE0B41641C0C7E9D3DFE4571F7AE2229F61206824 (void);
-// 0x000001BA System.Void Panda.Ibis.MyIbis::checkBuildNest()
+// 0x000001C4 System.Void Panda.Ibis.MyIbis::checkBuildNest()
 extern void MyIbis_checkBuildNest_m6994FE936403DC817AC52DE7B8B0C431CC309BDF (void);
-// 0x000001BB System.Void Panda.Ibis.MyIbis::checkNest()
+// 0x000001C5 System.Void Panda.Ibis.MyIbis::checkNest()
 extern void MyIbis_checkNest_mEF607EBE6D6C1CD4B159F60C44576B6B14459A3C (void);
-// 0x000001BC System.Void Panda.Ibis.MyIbis::checkNest_spawn()
+// 0x000001C6 System.Void Panda.Ibis.MyIbis::checkNest_spawn()
 extern void MyIbis_checkNest_spawn_m4D23152DE603E9DBAEE5701F41AF79B51C0B07DF (void);
-// 0x000001BD System.Void Panda.Ibis.MyIbis::checkNest_incubate()
+// 0x000001C7 System.Void Panda.Ibis.MyIbis::checkNest_incubate()
 extern void MyIbis_checkNest_incubate_mD343018E19ADC6D4BE43AF450EB78627EEDBB802 (void);
-// 0x000001BE System.Void Panda.Ibis.MyIbis::checkHasBuidlingMaterial()
+// 0x000001C8 System.Void Panda.Ibis.MyIbis::checkHasBuidlingMaterial()
 extern void MyIbis_checkHasBuidlingMaterial_m985C5D20B2BF6D31A4CE944CD7FF05CE29BD7AB3 (void);
-// 0x000001BF System.Void Panda.Ibis.MyIbis::checkMaterialOnMap()
+// 0x000001C9 System.Void Panda.Ibis.MyIbis::checkMaterialOnMap()
 extern void MyIbis_checkMaterialOnMap_m479A5C1440E0F021F2EFE2DD7B82DB7B3CEE9651 (void);
-// 0x000001C0 System.Void Panda.Ibis.MyIbis::goToMaterial()
+// 0x000001CA System.Void Panda.Ibis.MyIbis::goToMaterial()
 extern void MyIbis_goToMaterial_mB6C89AB0DD870B4DC4BEEDFC3871304F0D4694D0 (void);
-// 0x000001C1 System.Void Panda.Ibis.MyIbis::goToNest()
-extern void MyIbis_goToNest_m8C2055911FFDD14B629D4E3BDDE0DD8FF41FAFD6 (void);
-// 0x000001C2 System.Void Panda.Ibis.MyIbis::buildNest()
+// 0x000001CB System.Void Panda.Ibis.MyIbis::goToNest(System.Boolean)
+extern void MyIbis_goToNest_m15FC021F734188CB384221A47E1A3C630ABB8806 (void);
+// 0x000001CC System.Void Panda.Ibis.MyIbis::buildNest()
 extern void MyIbis_buildNest_mFDCC20DDCE377D0AD4DFA18FEFCE164DC86B4164 (void);
-// 0x000001C3 System.Void Panda.Ibis.MyIbis::checkNestFinished()
+// 0x000001CD System.Void Panda.Ibis.MyIbis::checkNestFinished()
 extern void MyIbis_checkNestFinished_mA3F83E0155F9A80958868AB428E37C392E581F95 (void);
-// 0x000001C4 System.Void Panda.Ibis.MyIbis::hasMate()
+// 0x000001CE System.Void Panda.Ibis.MyIbis::hasMate()
 extern void MyIbis_hasMate_m7456F11EE9C5F581CD4944001F3E5961B1B63D0B (void);
-// 0x000001C5 System.Void Panda.Ibis.MyIbis::spawn()
+// 0x000001CF System.Void Panda.Ibis.MyIbis::spawn()
 extern void MyIbis_spawn_mB7616929B636C04551B8FF114FD41D1F656DDA5D (void);
-// 0x000001C6 System.Void Panda.Ibis.MyIbis::checkCanIncubate()
+// 0x000001D0 System.Void Panda.Ibis.MyIbis::checkCanIncubate()
 extern void MyIbis_checkCanIncubate_m5C2ADBA412D816DD5190586715AFDFD8C0499692 (void);
-// 0x000001C7 System.Void Panda.Ibis.MyIbis::incubate()
+// 0x000001D1 System.Void Panda.Ibis.MyIbis::incubate()
 extern void MyIbis_incubate_m2EB2ABBA65517B57272C8C0B0DAC47915EDE3183 (void);
-// 0x000001C8 System.Void Panda.Ibis.MyIbis::checkBirdling()
+// 0x000001D2 System.Void Panda.Ibis.MyIbis::checkBirdling()
 extern void MyIbis_checkBirdling_m3E982901476F166992D5FDA5485EFFD548F92E7B (void);
-// 0x000001C9 System.Void Panda.Ibis.MyIbis::pickFood()
+// 0x000001D3 System.Void Panda.Ibis.MyIbis::pickFood()
 extern void MyIbis_pickFood_m9FD15681D8F220B47F772BEA406AE404B312BE65 (void);
-// 0x000001CA System.Void Panda.Ibis.MyIbis::breed()
+// 0x000001D4 System.Void Panda.Ibis.MyIbis::breed()
 extern void MyIbis_breed_mCFD79121BECC90D9DB80F20FC4701DBF2051712F (void);
-// 0x000001CB System.Void Panda.Ibis.MyIbis::rest()
+// 0x000001D5 System.Void Panda.Ibis.MyIbis::rest()
 extern void MyIbis_rest_m20FC4097CD763AF5E1BC9981D8530EE612282190 (void);
-// 0x000001CC System.Void Panda.Ibis.MyIbis::endTurn()
+// 0x000001D6 System.Void Panda.Ibis.MyIbis::endTurn()
 extern void MyIbis_endTurn_m2ACF14E77A6052CBEB27D892D16078216DC112DD (void);
-// 0x000001CD System.Void Panda.Ibis.MyIbis::Next()
+// 0x000001D7 System.Void Panda.Ibis.MyIbis::Next()
 extern void MyIbis_Next_mC0859BF0755A0B67105EA9D978B11F232A39DC91 (void);
-// 0x000001CE System.Void Panda.Ibis.MyIbis::seekLocation(UnityEngine.Vector3)
+// 0x000001D8 System.Void Panda.Ibis.MyIbis::seekLocation(UnityEngine.Vector3)
 extern void MyIbis_seekLocation_mF3D6190A8631A85FB60352ACA4AF4F3F98A47AE2 (void);
-// 0x000001CF System.Void Panda.Ibis.MyIbis::breakWhenMoving()
+// 0x000001D9 System.Void Panda.Ibis.MyIbis::checkTwoMovingCreatureAtOneGrid()
+extern void MyIbis_checkTwoMovingCreatureAtOneGrid_m6D0F65144188A6D41FF7832C8F1A095F1611B6EF (void);
+// 0x000001DA System.Void Panda.Ibis.MyIbis::twoMove(UnityEngine.GameObject,UnityEngine.GameObject)
+extern void MyIbis_twoMove_m8A2D801416E4B78C59C548E122A3E647FD91E194 (void);
+// 0x000001DB System.Void Panda.Ibis.MyIbis::breakWhenMoving()
 extern void MyIbis_breakWhenMoving_m1D8D2F81728174B096F95927D868027DBBA9E5A5 (void);
-// 0x000001D0 UnityEngine.Vector2 Panda.Ibis.MyIbis::geFarthestGrid(UnityEngine.Vector2,System.Collections.Generic.List`1<UnityEngine.Vector2>)
+// 0x000001DC UnityEngine.Vector2 Panda.Ibis.MyIbis::geFarthestGrid(UnityEngine.Vector2,System.Collections.Generic.List`1<UnityEngine.Vector2>)
 extern void MyIbis_geFarthestGrid_mBD5B14BBAF94BA9C461988BC71533E2200B34F20 (void);
-// 0x000001D1 UnityEngine.Vector2 Panda.Ibis.MyIbis::getNearestGrid(UnityEngine.Vector2,System.Collections.Generic.List`1<UnityEngine.Vector2>)
+// 0x000001DD UnityEngine.Vector2 Panda.Ibis.MyIbis::getNearestGrid(UnityEngine.Vector2,System.Collections.Generic.List`1<UnityEngine.Vector2>)
 extern void MyIbis_getNearestGrid_m3933F7832FF802EBB0172B2EA8AFFA8069D79BB1 (void);
-// 0x000001D2 System.Void Panda.Ibis.MyIbis::stopAni()
+// 0x000001DE System.Void Panda.Ibis.MyIbis::stopAni()
 extern void MyIbis_stopAni_mB2B6203AD228595A1C2CB2E59E8665784C5BA648 (void);
-// 0x000001D3 System.Void Panda.Ibis.MyIbis::setHasFood()
+// 0x000001DF System.Void Panda.Ibis.MyIbis::setHasFood()
 extern void MyIbis_setHasFood_mEC285E1D98FDAEBC77780FE00C4262A5E5F4FF87 (void);
-// 0x000001D4 System.Void Panda.Ibis.MyIbis::setHasBuild()
+// 0x000001E0 System.Void Panda.Ibis.MyIbis::setHasBuild()
 extern void MyIbis_setHasBuild_m0A624137DF958617D3CED52994514E65EC63CD79 (void);
-// 0x000001D5 System.Void Panda.Ibis.MyIbis::setHasWalked()
+// 0x000001E1 System.Void Panda.Ibis.MyIbis::setHasWalked()
 extern void MyIbis_setHasWalked_m5AAC4F4DA7823742FE03DBF21BAC397DF1E2CE3D (void);
-// 0x000001D6 System.Void Panda.Ibis.MyIbis::setHasCombed()
+// 0x000001E2 System.Void Panda.Ibis.MyIbis::setHasCombed()
 extern void MyIbis_setHasCombed_mD72DBA93C0FE5247FF7AE2A8F96BA383C0EAE591 (void);
-// 0x000001D7 System.Void Panda.Ibis.MyIbis::setHasRest()
+// 0x000001E3 System.Void Panda.Ibis.MyIbis::setHasRest()
 extern void MyIbis_setHasRest_mA42FAB72D3339491279E71546400DB813ACB18C6 (void);
-// 0x000001D8 System.Void Panda.Ibis.MyIbis::setCourtship()
+// 0x000001E4 System.Void Panda.Ibis.MyIbis::setCourtship()
 extern void MyIbis_setCourtship_m5A6CA0BB6AB7895464C655AFB83FE6CC248CA03E (void);
-// 0x000001D9 System.Void Panda.Ibis.MyIbis::setHasQuarrelled()
+// 0x000001E5 System.Void Panda.Ibis.MyIbis::setHasQuarrelled()
 extern void MyIbis_setHasQuarrelled_m1BADF285EAC653BDC123FAF5FA7D6A99677EE4ED (void);
-// 0x000001DA System.Void Panda.Ibis.MyIbis::setHasProducedEggs()
+// 0x000001E6 System.Void Panda.Ibis.MyIbis::setHasProducedEggs()
 extern void MyIbis_setHasProducedEggs_m5F7DD727BCABDEB056C24B8F70DDFD097082F657 (void);
-// 0x000001DB System.Void Panda.Ibis.MyIbis::setHasTouchedBeaks()
+// 0x000001E7 System.Void Panda.Ibis.MyIbis::setHasTouchedBeaks()
 extern void MyIbis_setHasTouchedBeaks_m024B972452A763F69C9E58B6CCC0DC5570F2E2F9 (void);
-// 0x000001DC System.Void Panda.Ibis.MyIbis::setHasIncubated()
+// 0x000001E8 System.Void Panda.Ibis.MyIbis::setHasIncubated()
 extern void MyIbis_setHasIncubated_mDCE2B6E7AC3AD1DDAC39E0C2D2FAE10BE1C78279 (void);
-// 0x000001DD System.Void Panda.Ibis.MyIbis::setHasFeedBaby()
+// 0x000001E9 System.Void Panda.Ibis.MyIbis::setHasFeedBaby()
 extern void MyIbis_setHasFeedBaby_m4560F6DC688A34EBB5DFEAAFFE8D50944CBA79EF (void);
-// 0x000001DE System.String Panda.Ibis.MyIbis::monthEnToCh(System.Int32)
+// 0x000001EA System.String Panda.Ibis.MyIbis::monthEnToCh(System.Int32)
 extern void MyIbis_monthEnToCh_m29AD84165499C11E814B5980C65C48C317FE9CAF (void);
-// 0x000001DF System.String Panda.Ibis.MyIbis::foodEnToCh(System.String)
+// 0x000001EB System.String Panda.Ibis.MyIbis::foodEnToCh(System.String)
 extern void MyIbis_foodEnToCh_mFE7CFB2F46D49DBBA6C2DDC14BB69D3B5BCB4C66 (void);
-// 0x000001E0 System.Void Panda.Ibis.MyIbis::lightEat()
+// 0x000001EC System.Void Panda.Ibis.MyIbis::APreduce()
+extern void MyIbis_APreduce_m0B4338BA330069357CF7583830075007A4C5494B (void);
+// 0x000001ED System.Void Panda.Ibis.MyIbis::lightEat()
 extern void MyIbis_lightEat_m885E0C73E4A6C878F0AA9B8410C22718228FF914 (void);
-// 0x000001E1 System.Void Panda.Ibis.MyIbis::lightGoToOpIbis()
+// 0x000001EE System.Void Panda.Ibis.MyIbis::lightGoToOpIbis()
 extern void MyIbis_lightGoToOpIbis_m16DC761B9C434C7B4EF2E6941044CED0EB87C25C (void);
-// 0x000001E2 System.Void Panda.Ibis.MyIbis::lightMate()
+// 0x000001EF System.Void Panda.Ibis.MyIbis::lightMate()
 extern void MyIbis_lightMate_m9C90841F72B4B6AF6279BCD88BDDB319E99EB1B4 (void);
-// 0x000001E3 System.Void Panda.Ibis.MyIbis::lightBuildNest()
+// 0x000001F0 System.Void Panda.Ibis.MyIbis::lightBuildNest()
 extern void MyIbis_lightBuildNest_m9D79E2D1DCD6FBC7A9E73201A6EF765AF1546339 (void);
-// 0x000001E4 System.Void Panda.Ibis.MyIbis::lightSpawn(System.Int32)
+// 0x000001F1 System.Void Panda.Ibis.MyIbis::lightSpawn(System.Int32)
 extern void MyIbis_lightSpawn_mEA63824AF2EDBEAF9D72F38C7E0BC02F3F6E5975 (void);
-// 0x000001E5 System.Void Panda.Ibis.MyIbis::lightIncubate()
+// 0x000001F2 System.Void Panda.Ibis.MyIbis::lightIncubate()
 extern void MyIbis_lightIncubate_m4E9E552F49307F0534353CE02204B11C137A72D7 (void);
-// 0x000001E6 System.Void Panda.Ibis.MyIbis::lightBreed()
+// 0x000001F3 System.Void Panda.Ibis.MyIbis::lightBreed()
 extern void MyIbis_lightBreed_m7669B483B6133A780216BA359CBD61881930031F (void);
-// 0x000001E7 System.Void Panda.Ibis.MyIbis::lightRest()
+// 0x000001F4 System.Void Panda.Ibis.MyIbis::lightRest()
 extern void MyIbis_lightRest_m4885350EC6FE61968FF2BD79593789586558538A (void);
-// 0x000001E8 System.Void Panda.Ibis.MyIbis::quenchAllBeBar()
+// 0x000001F5 System.Void Panda.Ibis.MyIbis::quenchAllBeBar()
 extern void MyIbis_quenchAllBeBar_m089541F1BB38E7881C0E1402BDA62BFC65D825C2 (void);
-// 0x000001E9 System.Void Panda.Ibis.MyIbis::seekLocationT(UnityEngine.Vector3)
+// 0x000001F6 System.Void Panda.Ibis.MyIbis::seekLocationT(UnityEngine.Vector3)
 extern void MyIbis_seekLocationT_m38CB76442A5D8EB3E6B64EC25F089DC779ADCA26 (void);
-// 0x000001EA System.Void Panda.Ibis.MyIbis::SetColor(System.Single,System.Single,System.Single)
+// 0x000001F7 System.Void Panda.Ibis.MyIbis::SetColor(System.Single,System.Single,System.Single)
 extern void MyIbis_SetColor_mA6CD7D71852D096778C4883532DC4C4C40A7EC57 (void);
-// 0x000001EB System.Void Panda.Ibis.MyIbis::.ctor()
+// 0x000001F8 System.Void Panda.Ibis.MyIbis::.ctor()
 extern void MyIbis__ctor_m2199175998774DF4B19B2F32BF45C45539F68D96 (void);
-// 0x000001EC System.Void Panda.Ibis.MyIbis_begin::Start()
+// 0x000001F9 System.Void Panda.Ibis.MyIbis_begin::Start()
 extern void MyIbis_begin_Start_m930E1A4D182CD14AB83EAE60845C57D89A377160 (void);
-// 0x000001ED System.Void Panda.Ibis.MyIbis_begin::Update()
+// 0x000001FA System.Void Panda.Ibis.MyIbis_begin::Update()
 extern void MyIbis_begin_Update_m20A5AC3AE3F8E50CB25377FB405B6A4C654810F7 (void);
-// 0x000001EE System.Void Panda.Ibis.MyIbis_begin::enableAILerp()
+// 0x000001FB System.Void Panda.Ibis.MyIbis_begin::enableAILerp()
 extern void MyIbis_begin_enableAILerp_mA995F50429F1F4211343217E2718E12770C46D0B (void);
-// 0x000001EF System.Void Panda.Ibis.MyIbis_begin::EnableAILerp()
+// 0x000001FC System.Void Panda.Ibis.MyIbis_begin::EnableAILerp()
 extern void MyIbis_begin_EnableAILerp_m51A0C73B84C1D73FEEEE042E13F3892ECDEAD61B (void);
-// 0x000001F0 System.Void Panda.Ibis.MyIbis_begin::EndTask()
+// 0x000001FD System.Void Panda.Ibis.MyIbis_begin::EndTask()
 extern void MyIbis_begin_EndTask_mC9BD2A424124A9BC29937CAA0B577BC983EE7F7C (void);
-// 0x000001F1 System.Void Panda.Ibis.MyIbis_begin::ifA()
+// 0x000001FE System.Void Panda.Ibis.MyIbis_begin::ifA()
 extern void MyIbis_begin_ifA_m30F6384116BA389918A9895CF65FA42FF83BD348 (void);
-// 0x000001F2 System.Void Panda.Ibis.MyIbis_begin::ifB()
+// 0x000001FF System.Void Panda.Ibis.MyIbis_begin::ifB()
 extern void MyIbis_begin_ifB_mDFA4C4C5816E1CF51922633A6D6BC33246D64AF6 (void);
-// 0x000001F3 System.Void Panda.Ibis.MyIbis_begin::ifC()
+// 0x00000200 System.Void Panda.Ibis.MyIbis_begin::ifC()
 extern void MyIbis_begin_ifC_m6DB3C88EA419F1E5C42E949F00EFFFF956D68CA8 (void);
-// 0x000001F4 System.Void Panda.Ibis.MyIbis_begin::Next()
+// 0x00000201 System.Void Panda.Ibis.MyIbis_begin::Next()
 extern void MyIbis_begin_Next_m5531DEAAD6732A93F2AE01DCB53EC04E61D80792 (void);
-// 0x000001F5 System.Void Panda.Ibis.MyIbis_begin::.ctor()
+// 0x00000202 System.Void Panda.Ibis.MyIbis_begin::.ctor()
 extern void MyIbis_begin__ctor_mA0B9B64B23C1DF89D0469FD889C4149B2996140D (void);
-// 0x000001F6 System.Void Panda.Ibis.MyIbis_eat::Start()
+// 0x00000203 System.Void Panda.Ibis.MyIbis_eat::Start()
 extern void MyIbis_eat_Start_mA338ECE37E43EFD4848A71B9A403F43CC85D1D7E (void);
-// 0x000001F7 System.Void Panda.Ibis.MyIbis_eat::Update()
+// 0x00000204 System.Void Panda.Ibis.MyIbis_eat::Update()
 extern void MyIbis_eat_Update_m2452E98E4198FD95038193236D526A8EA914E219 (void);
-// 0x000001F8 System.Void Panda.Ibis.MyIbis_eat::seekFood()
+// 0x00000205 System.Void Panda.Ibis.MyIbis_eat::seekFood()
 extern void MyIbis_eat_seekFood_mC2B9EBE41E539C6FE44B123D81D12F9E0A58543C (void);
-// 0x000001F9 System.Boolean Panda.Ibis.MyIbis_eat::isFirstHalfYear()
+// 0x00000206 System.Boolean Panda.Ibis.MyIbis_eat::isFirstHalfYear()
 extern void MyIbis_eat_isFirstHalfYear_m374826DEDDCFF870C04AD6E2B977594DAA8681A4 (void);
-// 0x000001FA System.Boolean Panda.Ibis.MyIbis_eat::isLastHalfYear()
+// 0x00000207 System.Boolean Panda.Ibis.MyIbis_eat::isLastHalfYear()
 extern void MyIbis_eat_isLastHalfYear_mCBA0126E60D1B4A391CFBC5D62F5CC8F91ED5598 (void);
-// 0x000001FB System.Void Panda.Ibis.MyIbis_eat::Next()
+// 0x00000208 System.Void Panda.Ibis.MyIbis_eat::Next()
 extern void MyIbis_eat_Next_m6608497916C8913EC332A64127F7F280A71E290D (void);
-// 0x000001FC System.Void Panda.Ibis.MyIbis_eat::seekForFoodJantoJun()
+// 0x00000209 System.Void Panda.Ibis.MyIbis_eat::seekForFoodJantoJun()
 extern void MyIbis_eat_seekForFoodJantoJun_m4A1B71578AE81D052C5AAB3C99FEDA5676E52E23 (void);
-// 0x000001FD System.Void Panda.Ibis.MyIbis_eat::seekForFoodJuntoNov()
+// 0x0000020A System.Void Panda.Ibis.MyIbis_eat::seekForFoodJuntoNov()
 extern void MyIbis_eat_seekForFoodJuntoNov_mA40683CC070C12C6E8BE9EDBC6892E29735E8471 (void);
-// 0x000001FE System.Void Panda.Ibis.MyIbis_eat::seekLocation(UnityEngine.Vector3)
+// 0x0000020B System.Void Panda.Ibis.MyIbis_eat::seekLocation(UnityEngine.Vector3)
 extern void MyIbis_eat_seekLocation_mEB7A3E33A8BA32E0D8BE124E57B9B7F43807A57E (void);
-// 0x000001FF UnityEngine.Vector2 Panda.Ibis.MyIbis_eat::getNearestGrid(UnityEngine.Vector2,System.Collections.Generic.List`1<UnityEngine.Vector2>)
+// 0x0000020C UnityEngine.Vector2 Panda.Ibis.MyIbis_eat::getNearestGrid(UnityEngine.Vector2,System.Collections.Generic.List`1<UnityEngine.Vector2>)
 extern void MyIbis_eat_getNearestGrid_mAB1971B9D6A491C59060F4DB3F4433B963A62D07 (void);
-// 0x00000200 System.Void Panda.Ibis.MyIbis_eat::.ctor()
+// 0x0000020D System.Void Panda.Ibis.MyIbis_eat::.ctor()
 extern void MyIbis_eat__ctor_mF974639F2CD95C5EFCC2A68D92BE0EA58BEDCBC6 (void);
-// 0x00000201 System.Void Panda.Ibis.MyNPC::Start()
+// 0x0000020E System.Void Panda.Ibis.MyNPC::Start()
 extern void MyNPC_Start_m196CB253F998A3C494E3A24BB0CBEBDFF9CEE172 (void);
-// 0x00000202 System.Void Panda.Ibis.MyNPC::Update()
+// 0x0000020F System.Void Panda.Ibis.MyNPC::Update()
 extern void MyNPC_Update_m06A797C4EB483CDF1FE716E17AB511C41E74CA95 (void);
-// 0x00000203 System.Void Panda.Ibis.MyNPC::checkNoSnake()
+// 0x00000210 System.Void Panda.Ibis.MyNPC::checkNoSnake()
 extern void MyNPC_checkNoSnake_mB64D8494005B1FB33B5B64D2AD84EC0F7CFE2526 (void);
-// 0x00000204 System.Void Panda.Ibis.MyNPC::checkNest()
+// 0x00000211 System.Void Panda.Ibis.MyNPC::checkNest()
 extern void MyNPC_checkNest_mDA0F24E3EB100F7A7BAEA8AFE62FA30170E04FAE (void);
-// 0x00000205 System.Void Panda.Ibis.MyNPC::checkEggs()
+// 0x00000212 System.Void Panda.Ibis.MyNPC::checkEggs()
 extern void MyNPC_checkEggs_m1784D69D97F83704F81EE38B14441CC9C555FB54 (void);
-// 0x00000206 System.Void Panda.Ibis.MyNPC::snake_seekNestWithEgg()
+// 0x00000213 System.Void Panda.Ibis.MyNPC::snake_seekNestWithEgg()
 extern void MyNPC_snake_seekNestWithEgg_m8E546C74CE86A0E5551F2079BF124EC6DA9A6AA4 (void);
-// 0x00000207 System.Void Panda.Ibis.MyNPC::snake_eatEgg()
+// 0x00000214 System.Void Panda.Ibis.MyNPC::snake_eatEgg()
 extern void MyNPC_snake_eatEgg_m350559E0C3E0C39C916C848A3BE5BEA043267B45 (void);
-// 0x00000208 System.Void Panda.Ibis.MyNPC::snake_SeekLeave()
+// 0x00000215 System.Void Panda.Ibis.MyNPC::snake_SeekLeave()
 extern void MyNPC_snake_SeekLeave_mDAE5E91F91DB58EAD23DE143372F864BF83B6393 (void);
-// 0x00000209 System.Void Panda.Ibis.MyNPC::snake_leave()
+// 0x00000216 System.Void Panda.Ibis.MyNPC::snake_leave()
 extern void MyNPC_snake_leave_mD80CAC88A08CC1644B133FA14F6E78075584BAB0 (void);
-// 0x0000020A System.Void Panda.Ibis.MyNPC::checkNoEgret()
+// 0x00000217 System.Void Panda.Ibis.MyNPC::checkNoEgret()
 extern void MyNPC_checkNoEgret_m052C44482EACB4CBED330209594181A4670CDC5E (void);
-// 0x0000020B System.Void Panda.Ibis.MyNPC::egret_seekWander()
+// 0x00000218 System.Void Panda.Ibis.MyNPC::egret_seekWander()
 extern void MyNPC_egret_seekWander_m601863649644D6619001E69796E236F412C138AB (void);
-// 0x0000020C System.Void Panda.Ibis.MyNPC::egret_wander()
+// 0x00000219 System.Void Panda.Ibis.MyNPC::egret_AILerp_Close()
+extern void MyNPC_egret_AILerp_Close_mEBA4B9B13E71AAD6353BC9FA0670E27E2160098F (void);
+// 0x0000021A System.Void Panda.Ibis.MyNPC::egret_AILerp_Open()
+extern void MyNPC_egret_AILerp_Open_m7693C116C12F562CC33291386DD53FE3EADF78BE (void);
+// 0x0000021B System.Void Panda.Ibis.MyNPC::egret_wander()
 extern void MyNPC_egret_wander_mD58671F05DFAE975C3224E07ED833247496D2441 (void);
-// 0x0000020D System.Void Panda.Ibis.MyNPC::checkTrapMan_appear(System.Int32,System.Int32)
+// 0x0000021C System.Void Panda.Ibis.MyNPC::checkTrapMan_appear(System.Int32,System.Int32)
 extern void MyNPC_checkTrapMan_appear_m72B32BD54C18A7826F6285575AED7C36467C4270 (void);
-// 0x0000020E System.Void Panda.Ibis.MyNPC::trapMan_goToRandomGrid()
+// 0x0000021D System.Void Panda.Ibis.MyNPC::trapMan_goToRandomGrid()
 extern void MyNPC_trapMan_goToRandomGrid_m27F7E1C51D159F00358EB3ACDA8F80F4A8F880F7 (void);
-// 0x0000020F System.Void Panda.Ibis.MyNPC::trapMan_setTrap()
+// 0x0000021E System.Void Panda.Ibis.MyNPC::trapMan_setTrap()
 extern void MyNPC_trapMan_setTrap_m2E9A45ADD10E0ACF804BBFFF801B106A1EAEC3C2 (void);
-// 0x00000210 System.Void Panda.Ibis.MyNPC::trapMan_leave()
+// 0x0000021F System.Void Panda.Ibis.MyNPC::trapMan_leave()
 extern void MyNPC_trapMan_leave_m22874FA52A80C0D8A3B21828EC07BD0DAC394287 (void);
-// 0x00000211 System.Void Panda.Ibis.MyNPC::endAllNPC()
+// 0x00000220 System.Void Panda.Ibis.MyNPC::endAllNPC()
 extern void MyNPC_endAllNPC_m3F3319985EAB99EA5E5122F93826D15C845DF4E6 (void);
-// 0x00000212 System.Void Panda.Ibis.MyNPC::Next()
+// 0x00000221 System.Void Panda.Ibis.MyNPC::Next()
 extern void MyNPC_Next_m6F77712F125454F86A04B226FE55EEEB9EDC4DD8 (void);
-// 0x00000213 System.Void Panda.Ibis.MyNPC::seekLocation(UnityEngine.GameObject,UnityEngine.Vector3)
+// 0x00000222 System.Void Panda.Ibis.MyNPC::NextIfEgretDie()
+extern void MyNPC_NextIfEgretDie_m770210A55B65F4C206174164BE840A137D03BBFD (void);
+// 0x00000223 System.Void Panda.Ibis.MyNPC::seekLocation(UnityEngine.GameObject,UnityEngine.Vector3)
 extern void MyNPC_seekLocation_mCF73FB900F3B75B7658D12174EAB743AE21F578D (void);
-// 0x00000214 System.Void Panda.Ibis.MyNPC::seekMultiLocations(System.Collections.Generic.List`1<UnityEngine.GameObject>,System.Collections.Generic.List`1<UnityEngine.Vector3>)
+// 0x00000224 System.Void Panda.Ibis.MyNPC::seekMultiLocations(System.Collections.Generic.List`1<UnityEngine.GameObject>,System.Collections.Generic.List`1<UnityEngine.Vector3>)
 extern void MyNPC_seekMultiLocations_m13F443021FA77C70502E5DBB6D6E3BFF7470F2CA (void);
-// 0x00000215 UnityEngine.Vector2 Panda.Ibis.MyNPC::NearGrid1(UnityEngine.Vector2)
+// 0x00000225 UnityEngine.Vector2 Panda.Ibis.MyNPC::NearGrid1(UnityEngine.Vector2)
 extern void MyNPC_NearGrid1_m321DD87AD2BC375256D203504571EBC8BA6FE90C (void);
-// 0x00000216 System.Void Panda.Ibis.MyNPC::.ctor()
+// 0x00000226 System.Void Panda.Ibis.MyNPC::.ctor()
 extern void MyNPC__ctor_m64C2844DC767205A8863A5CCA803CF753B88C350 (void);
-// 0x00000217 System.Void Panda.Ibis.MyTurn::Start()
+// 0x00000227 System.Void Panda.Ibis.MyTurn::Start()
 extern void MyTurn_Start_m97461555EFA34C3CADA36A23EA839FD71F25F6FD (void);
-// 0x00000218 System.Void Panda.Ibis.MyTurn::genIbisA()
+// 0x00000228 System.Void Panda.Ibis.MyTurn::genIbisA()
 extern void MyTurn_genIbisA_m9F8DEFF69FD8055B71D2CF2B1F6ECC0EF56E414C (void);
-// 0x00000219 System.Void Panda.Ibis.MyTurn::pollution()
+// 0x00000229 System.Void Panda.Ibis.MyTurn::pollution()
 extern void MyTurn_pollution_m3680DA7AA5DC839C674200FDD0C9904CBE3D21AA (void);
-// 0x0000021A System.Void Panda.Ibis.MyTurn::checkPollution()
+// 0x0000022A System.Void Panda.Ibis.MyTurn::checkPollution()
 extern void MyTurn_checkPollution_m987305B1FF5300BF4AF20F5D00F4C9E14870EFA5 (void);
-// 0x0000021B System.Void Panda.Ibis.MyTurn::NPCAct()
+// 0x0000022B System.Void Panda.Ibis.MyTurn::NPCAct()
 extern void MyTurn_NPCAct_m6DFFAD5714C565816572D3A5F06753D90D3B777A (void);
-// 0x0000021C System.Void Panda.Ibis.MyTurn::checkAllObjNPC()
+// 0x0000022C System.Void Panda.Ibis.MyTurn::checkAllObjNPC()
 extern void MyTurn_checkAllObjNPC_m6A731C5C9E95A7C966D24A0B6E2DD40874992F03 (void);
-// 0x0000021D System.Void Panda.Ibis.MyTurn::dealCards()
+// 0x0000022D System.Void Panda.Ibis.MyTurn::dealCards()
 extern void MyTurn_dealCards_m9526AF9AC87A72772D67E14E34231C348544F8B9 (void);
-// 0x0000021E System.Void Panda.Ibis.MyTurn::drawCards()
+// 0x0000022E System.Void Panda.Ibis.MyTurn::drawCards()
 extern void MyTurn_drawCards_m3664931F2F71B8C9FEAFF453531C45DFDC480DB9 (void);
-// 0x0000021F System.Void Panda.Ibis.MyTurn::ibisAct()
+// 0x0000022F System.Void Panda.Ibis.MyTurn::checkGraph()
+extern void MyTurn_checkGraph_m817632716DCAD35138BFC68672F5512350D4A81B (void);
+// 0x00000230 System.Void Panda.Ibis.MyTurn::ibisAct()
 extern void MyTurn_ibisAct_m4D3DE856585BF56CE42E30A09CB0FC66D76A08B7 (void);
-// 0x00000220 System.Void Panda.Ibis.MyTurn::endThisTurn()
+// 0x00000231 System.Void Panda.Ibis.MyTurn::endThisTurn()
 extern void MyTurn_endThisTurn_m574CCBF28A9ABD596D2DA5446A7E9A3A5D1F1AAC (void);
-// 0x00000221 System.Void Panda.Ibis.MyTurn::genCards()
+// 0x00000232 System.Void Panda.Ibis.MyTurn::genCards()
 extern void MyTurn_genCards_mF24EE2F40206A03499633A86903490E8148199E0 (void);
-// 0x00000222 System.Int32 Panda.Ibis.MyTurn::amountsCards(System.Int32)
+// 0x00000233 System.Int32 Panda.Ibis.MyTurn::amountsCards(System.Int32)
 extern void MyTurn_amountsCards_m773C732559843382C5B3AEAC440EB6C493301E00 (void);
-// 0x00000223 System.Void Panda.Ibis.MyTurn::range_e_index(System.Int32,System.Int32,System.Int32,UnityEngine.GameObject,UnityEngine.GameObject)
+// 0x00000234 System.Void Panda.Ibis.MyTurn::range_e_index(System.Int32,System.Int32,System.Int32,UnityEngine.GameObject,UnityEngine.GameObject)
 extern void MyTurn_range_e_index_m4F02EA23BFB0275C6C22A514DDFC9EA021295E1B (void);
-// 0x00000224 System.Void Panda.Ibis.MyTurn::.ctor()
+// 0x00000235 System.Void Panda.Ibis.MyTurn::.ctor()
 extern void MyTurn__ctor_mE5AAF4471C14420442F024167D37736C4B594805 (void);
-// 0x00000225 System.Void Panda.Examples.FollowCamera::Start()
+// 0x00000236 System.Void Panda.Examples.FollowCamera::Start()
 extern void FollowCamera_Start_m6D0E27D0D6590F5C0F2F29E39A57D95A57BAF509 (void);
-// 0x00000226 System.Void Panda.Examples.FollowCamera::Update()
+// 0x00000237 System.Void Panda.Examples.FollowCamera::Update()
 extern void FollowCamera_Update_m552D938EEA583F37E34A8F5B2049D7929E2BD14D (void);
-// 0x00000227 System.Void Panda.Examples.FollowCamera::.ctor()
+// 0x00000238 System.Void Panda.Examples.FollowCamera::.ctor()
 extern void FollowCamera__ctor_m8C12074EFF59EAA44B54C5BFE236AF1ED75EAA54 (void);
-// 0x00000228 System.Boolean Panda.Examples.Shooter.AI::SetTarget_Enemy()
+// 0x00000239 System.Boolean Panda.Examples.Shooter.AI::SetTarget_Enemy()
 extern void AI_SetTarget_Enemy_m0C342FF14C97F87E2CF6091E852E372406828940 (void);
-// 0x00000229 System.Boolean Panda.Examples.Shooter.AI::SetTarget_EnemyLastSeenPosition()
+// 0x0000023A System.Boolean Panda.Examples.Shooter.AI::SetTarget_EnemyLastSeenPosition()
 extern void AI_SetTarget_EnemyLastSeenPosition_mA1C8E1028A489C650F71E6114CC498F4B0DF2BFE (void);
-// 0x0000022A System.Boolean Panda.Examples.Shooter.AI::SetTarget_Angle(System.Single)
+// 0x0000023B System.Boolean Panda.Examples.Shooter.AI::SetTarget_Angle(System.Single)
 extern void AI_SetTarget_Angle_mE36AA5A3447881D2A89BA320978561451391883F (void);
-// 0x0000022B System.Void Panda.Examples.Shooter.AI::Acquire_Enemy()
+// 0x0000023C System.Void Panda.Examples.Shooter.AI::Acquire_Enemy()
 extern void AI_Acquire_Enemy_mFC518317F31ECDCD1F54BB88D98D79B2BBD419F3 (void);
-// 0x0000022C System.Boolean Panda.Examples.Shooter.AI::HasAmmo_Ememy()
+// 0x0000023D System.Boolean Panda.Examples.Shooter.AI::HasAmmo_Ememy()
 extern void AI_HasAmmo_Ememy_m9ADEBBFF111D65A9457760B3BFCCC24FED3B8F9B (void);
-// 0x0000022D System.Boolean Panda.Examples.Shooter.AI::Clear_Enemy()
+// 0x0000023E System.Boolean Panda.Examples.Shooter.AI::Clear_Enemy()
 extern void AI_Clear_Enemy_mE3B6C8637ACF2CE06899EA3953285E6B8B7489E0 (void);
-// 0x0000022E System.Boolean Panda.Examples.Shooter.AI::IsVisible_Enemy()
+// 0x0000023F System.Boolean Panda.Examples.Shooter.AI::IsVisible_Enemy()
 extern void AI_IsVisible_Enemy_mF2E697CEAF3055DFF27B9052F1C5F8E48588FFF4 (void);
-// 0x0000022F System.Boolean Panda.Examples.Shooter.AI::SetDestination_Enemy()
+// 0x00000240 System.Boolean Panda.Examples.Shooter.AI::SetDestination_Enemy()
 extern void AI_SetDestination_Enemy_mE4124521867F616C8FEEBFDC3E2062F6B9C14B4C (void);
-// 0x00000230 System.Boolean Panda.Examples.Shooter.AI::SetDestination_Random(System.Single)
+// 0x00000241 System.Boolean Panda.Examples.Shooter.AI::SetDestination_Random(System.Single)
 extern void AI_SetDestination_Random_m9D5D85B4B2D73CD4AC2E2DB971CC36E28D6E7D04 (void);
-// 0x00000231 System.Boolean Panda.Examples.Shooter.AI::SetDestination_Random()
+// 0x00000242 System.Boolean Panda.Examples.Shooter.AI::SetDestination_Random()
 extern void AI_SetDestination_Random_m2DFA187F35AA563777E5C6BFDCC68D401C3575FC (void);
-// 0x00000232 System.Boolean Panda.Examples.Shooter.AI::HasEnemy()
+// 0x00000243 System.Boolean Panda.Examples.Shooter.AI::HasEnemy()
 extern void AI_HasEnemy_mFC12F450430DAFC50729C0443AD5753CD19DAF01 (void);
-// 0x00000233 System.Boolean Panda.Examples.Shooter.AI::IsThereLineOfSight_Attacker_Destination()
+// 0x00000244 System.Boolean Panda.Examples.Shooter.AI::IsThereLineOfSight_Attacker_Destination()
 extern void AI_IsThereLineOfSight_Attacker_Destination_mD4BB6CD0D4D3514C0438C93719A3F13036A2980C (void);
-// 0x00000234 System.Boolean Panda.Examples.Shooter.AI::LastBulletSeenTime_LessThan(System.Single)
+// 0x00000245 System.Boolean Panda.Examples.Shooter.AI::LastBulletSeenTime_LessThan(System.Single)
 extern void AI_LastBulletSeenTime_LessThan_m5FDD40A5CF292F6EA345FAF81A59B465DD127FE1 (void);
-// 0x00000235 System.Boolean Panda.Examples.Shooter.AI::HasLoS(UnityEngine.Vector3,UnityEngine.Vector3,System.Collections.Generic.List`1<UnityEngine.GameObject>)
+// 0x00000246 System.Boolean Panda.Examples.Shooter.AI::HasLoS(UnityEngine.Vector3,UnityEngine.Vector3,System.Collections.Generic.List`1<UnityEngine.GameObject>)
 extern void AI_HasLoS_m269ED20DC12214ADEFF925E6AEB785B4B0299D39 (void);
-// 0x00000236 System.Boolean Panda.Examples.Shooter.AI::SetDestination_Cover()
+// 0x00000247 System.Boolean Panda.Examples.Shooter.AI::SetDestination_Cover()
 extern void AI_SetDestination_Cover_m730F95E27D30C16AD837EC7A69503C57180BB201 (void);
-// 0x00000237 System.Single Panda.Examples.Shooter.AI::PathLength(UnityEngine.AI.NavMeshPath)
+// 0x00000248 System.Single Panda.Examples.Shooter.AI::PathLength(UnityEngine.AI.NavMeshPath)
 extern void AI_PathLength_m866FE82180CE43C2BDF92CB683401AC31CA49B9C (void);
-// 0x00000238 System.Void Panda.Examples.Shooter.AI::Start()
+// 0x00000249 System.Void Panda.Examples.Shooter.AI::Start()
 extern void AI_Start_m21E429D92D7326686B5FB548BE2676D74F113F44 (void);
-// 0x00000239 System.Void Panda.Examples.Shooter.AI::.ctor()
+// 0x0000024A System.Void Panda.Examples.Shooter.AI::.ctor()
 extern void AI__ctor_mDD8DE029F78F2D724F8F3EABC48A2211F4498DA0 (void);
-// 0x0000023A System.Void Panda.Examples.Shooter.AIVision::OnTriggerEnter(UnityEngine.Collider)
+// 0x0000024B System.Void Panda.Examples.Shooter.AIVision::OnTriggerEnter(UnityEngine.Collider)
 extern void AIVision_OnTriggerEnter_mC0FC0CD32F848C7BC62B6D2FDAEBB9AC3C92AB4D (void);
-// 0x0000023B System.Void Panda.Examples.Shooter.AIVision::OnTriggerExit(UnityEngine.Collider)
+// 0x0000024C System.Void Panda.Examples.Shooter.AIVision::OnTriggerExit(UnityEngine.Collider)
 extern void AIVision_OnTriggerExit_m352087D75880FCFF99A7C23AA9DC13BE5443FEF6 (void);
-// 0x0000023C System.Void Panda.Examples.Shooter.AIVision::UpdateVisibility()
+// 0x0000024D System.Void Panda.Examples.Shooter.AIVision::UpdateVisibility()
 extern void AIVision_UpdateVisibility_mF2AA846D96ACEDB9F426A5E2F297E54B03DDBF09 (void);
-// 0x0000023D System.Boolean Panda.Examples.Shooter.AIVision::HasLoS(UnityEngine.GameObject)
+// 0x0000024E System.Boolean Panda.Examples.Shooter.AIVision::HasLoS(UnityEngine.GameObject)
 extern void AIVision_HasLoS_m3B13A404C46C7EEEE30567A526646768705123FE (void);
-// 0x0000023E System.Void Panda.Examples.Shooter.AIVision::Start()
+// 0x0000024F System.Void Panda.Examples.Shooter.AIVision::Start()
 extern void AIVision_Start_m32E44ACB48D04BC2A6384BFF936AFFC3C991624B (void);
-// 0x0000023F System.Void Panda.Examples.Shooter.AIVision::Update()
+// 0x00000250 System.Void Panda.Examples.Shooter.AIVision::Update()
 extern void AIVision_Update_m0F4D2F4E7950196E28CC2A746110AA40E9DB4DC1 (void);
-// 0x00000240 System.Void Panda.Examples.Shooter.AIVision::.ctor()
+// 0x00000251 System.Void Panda.Examples.Shooter.AIVision::.ctor()
 extern void AIVision__ctor_m261B1A1404BECB5A998876A2092DEA3F21A06F1B (void);
-// 0x00000241 System.Void Panda.Examples.Shooter.AIVision/<>c::.cctor()
+// 0x00000252 System.Void Panda.Examples.Shooter.AIVision/<>c::.cctor()
 extern void U3CU3Ec__cctor_m9C9F3A42DF4ABC43874C3589DF3A30EF0C027D84 (void);
-// 0x00000242 System.Void Panda.Examples.Shooter.AIVision/<>c::.ctor()
+// 0x00000253 System.Void Panda.Examples.Shooter.AIVision/<>c::.ctor()
 extern void U3CU3Ec__ctor_m9672C1BE3ED9C6CE6FDD45FAFC6743AEB34D05C9 (void);
-// 0x00000243 System.Boolean Panda.Examples.Shooter.AIVision/<>c::<OnTriggerEnter>b__6_0(UnityEngine.Collider)
+// 0x00000254 System.Boolean Panda.Examples.Shooter.AIVision/<>c::<OnTriggerEnter>b__6_0(UnityEngine.Collider)
 extern void U3CU3Ec_U3COnTriggerEnterU3Eb__6_0_mE09636357EBC35F20049EAD6796C35F31887DD71 (void);
-// 0x00000244 System.Boolean Panda.Examples.Shooter.AIVision/<>c::<OnTriggerExit>b__7_0(UnityEngine.Collider)
+// 0x00000255 System.Boolean Panda.Examples.Shooter.AIVision/<>c::<OnTriggerExit>b__7_0(UnityEngine.Collider)
 extern void U3CU3Ec_U3COnTriggerExitU3Eb__7_0_m57A624F10A1FDC6988CAD2ECA33BD9284BDBAA7F (void);
-// 0x00000245 System.Void Panda.Examples.Shooter.Bullet::Start()
+// 0x00000256 System.Void Panda.Examples.Shooter.Bullet::Start()
 extern void Bullet_Start_m389594CE4947B9CF01585AE2329017AFCB2C0D73 (void);
-// 0x00000246 System.Void Panda.Examples.Shooter.Bullet::FixedUpdate()
+// 0x00000257 System.Void Panda.Examples.Shooter.Bullet::FixedUpdate()
 extern void Bullet_FixedUpdate_mF4C7BFC8257709D3011B68BE9B34F851C6413A31 (void);
-// 0x00000247 System.Void Panda.Examples.Shooter.Bullet::BulletScan()
+// 0x00000258 System.Void Panda.Examples.Shooter.Bullet::BulletScan()
 extern void Bullet_BulletScan_mBE4FAB77DE8CB291A28224925B8053CC396D30D4 (void);
-// 0x00000248 System.Void Panda.Examples.Shooter.Bullet::OnHit(Panda.Examples.Shooter.Unit)
+// 0x00000259 System.Void Panda.Examples.Shooter.Bullet::OnHit(Panda.Examples.Shooter.Unit)
 extern void Bullet_OnHit_mF95DDBC93771142109AB116657E944020044C04E (void);
-// 0x00000249 System.Void Panda.Examples.Shooter.Bullet::Explode(UnityEngine.RaycastHit)
+// 0x0000025A System.Void Panda.Examples.Shooter.Bullet::Explode(UnityEngine.RaycastHit)
 extern void Bullet_Explode_m49A5D5D3FC02F2E16E57B109F9D737FACE13748C (void);
-// 0x0000024A System.Void Panda.Examples.Shooter.Bullet::.ctor()
+// 0x0000025B System.Void Panda.Examples.Shooter.Bullet::.ctor()
 extern void Bullet__ctor_m2348D50EDCD5451D4DAA00144632C13089C1579F (void);
-// 0x0000024B System.Void Panda.Examples.Shooter.HUD::Start()
+// 0x0000025C System.Void Panda.Examples.Shooter.HUD::Start()
 extern void HUD_Start_mA4AA54D7A91BE7CFD5C74F0F8495FF952152B3EA (void);
-// 0x0000024C System.Void Panda.Examples.Shooter.HUD::Update()
+// 0x0000025D System.Void Panda.Examples.Shooter.HUD::Update()
 extern void HUD_Update_mC17CDA4FE9EEA7578839188E6979097B106DFE1C (void);
-// 0x0000024D System.Void Panda.Examples.Shooter.HUD::UpdateHUD()
+// 0x0000025E System.Void Panda.Examples.Shooter.HUD::UpdateHUD()
 extern void HUD_UpdateHUD_mED2839919DCD3B681B19CD36683004195D30AC4A (void);
-// 0x0000024E System.Void Panda.Examples.Shooter.HUD::.ctor()
+// 0x0000025F System.Void Panda.Examples.Shooter.HUD::.ctor()
 extern void HUD__ctor_mFD819E2E1929135C3CDF7652039B235427FADBAA (void);
-// 0x0000024F System.Void Panda.Examples.Shooter.Patroller::Start()
+// 0x00000260 System.Void Panda.Examples.Shooter.Patroller::Start()
 extern void Patroller_Start_mE4DED52EBEB1095AF80AB78C4A56F0461EA25351 (void);
-// 0x00000250 System.Void Panda.Examples.Shooter.Patroller::Update()
+// 0x00000261 System.Void Panda.Examples.Shooter.Patroller::Update()
 extern void Patroller_Update_mD15AEE5ED2E035630804F96B8DA195A50B5716AE (void);
-// 0x00000251 System.Boolean Panda.Examples.Shooter.Patroller::NextWaypoint()
+// 0x00000262 System.Boolean Panda.Examples.Shooter.Patroller::NextWaypoint()
 extern void Patroller_NextWaypoint_m3CD2B300FF8882CC72F92200C6CDBA665ACEC90D (void);
-// 0x00000252 System.Boolean Panda.Examples.Shooter.Patroller::SetDestination_Waypoint()
+// 0x00000263 System.Boolean Panda.Examples.Shooter.Patroller::SetDestination_Waypoint()
 extern void Patroller_SetDestination_Waypoint_mA5DB95BAD1901CAC557B16ADCB0F60DA1CBCDBA4 (void);
-// 0x00000253 System.Boolean Panda.Examples.Shooter.Patroller::SetDestination_Waypoint(System.Int32)
+// 0x00000264 System.Boolean Panda.Examples.Shooter.Patroller::SetDestination_Waypoint(System.Int32)
 extern void Patroller_SetDestination_Waypoint_mF53689EFC21B3B01BEA424681813C833CA0D5CB4 (void);
-// 0x00000254 System.Void Panda.Examples.Shooter.Patroller::MoveTo(System.Int32)
+// 0x00000265 System.Void Panda.Examples.Shooter.Patroller::MoveTo(System.Int32)
 extern void Patroller_MoveTo_mF829F55D380009A74177EF919DFE8040942016F4 (void);
-// 0x00000255 System.Void Panda.Examples.Shooter.Patroller::LookAt(System.Int32)
+// 0x00000266 System.Void Panda.Examples.Shooter.Patroller::LookAt(System.Int32)
 extern void Patroller_LookAt_m60804944E19EFC31E47306054337D933F4B01537 (void);
-// 0x00000256 System.Int32 Panda.Examples.Shooter.Patroller::get_waypointArrayIndex()
+// 0x00000267 System.Int32 Panda.Examples.Shooter.Patroller::get_waypointArrayIndex()
 extern void Patroller_get_waypointArrayIndex_m0559E5B95B0694C85EFF5DBF8D0B21E232EBE2EA (void);
-// 0x00000257 System.Void Panda.Examples.Shooter.Patroller::.ctor()
+// 0x00000268 System.Void Panda.Examples.Shooter.Patroller::.ctor()
 extern void Patroller__ctor_mA45AF4B89E5955009833DFF8B9094535A70EAAB1 (void);
-// 0x00000258 Panda.Examples.Shooter.ShooterGameController Panda.Examples.Shooter.ShooterGameController::get_instance()
+// 0x00000269 Panda.Examples.Shooter.ShooterGameController Panda.Examples.Shooter.ShooterGameController::get_instance()
 extern void ShooterGameController_get_instance_mC2029E7CEEABE4E189858E5238157B3AB8A33C15 (void);
-// 0x00000259 System.Void Panda.Examples.Shooter.ShooterGameController::OnUnitDestroy(Panda.Examples.Shooter.Unit)
+// 0x0000026A System.Void Panda.Examples.Shooter.ShooterGameController::OnUnitDestroy(Panda.Examples.Shooter.Unit)
 extern void ShooterGameController_OnUnitDestroy_mBFD3A58C1A17945B508D8DC2B8E579AC28557A3F (void);
-// 0x0000025A System.Boolean Panda.Examples.Shooter.ShooterGameController::IsPlayerDead()
+// 0x0000026B System.Boolean Panda.Examples.Shooter.ShooterGameController::IsPlayerDead()
 extern void ShooterGameController_IsPlayerDead_mB2197A75ADAE04D1D8A9649A0C64BDD1C591CC40 (void);
-// 0x0000025B System.Boolean Panda.Examples.Shooter.ShooterGameController::IsLevelCompleted()
+// 0x0000026C System.Boolean Panda.Examples.Shooter.ShooterGameController::IsLevelCompleted()
 extern void ShooterGameController_IsLevelCompleted_mE40B91907AE153C6A2B4AA8C94C591B3956C0ECC (void);
-// 0x0000025C System.Boolean Panda.Examples.Shooter.ShooterGameController::ReloadLevel()
+// 0x0000026D System.Boolean Panda.Examples.Shooter.ShooterGameController::ReloadLevel()
 extern void ShooterGameController_ReloadLevel_m413EB64013D68117F28F038246A9286FE1ADA73C (void);
-// 0x0000025D System.Boolean Panda.Examples.Shooter.ShooterGameController::Display(System.String)
+// 0x0000026E System.Boolean Panda.Examples.Shooter.ShooterGameController::Display(System.String)
 extern void ShooterGameController_Display_m45F5D8A312C60A10F2AE41D8AF5EA50DCD4B4F83 (void);
-// 0x0000025E System.Void Panda.Examples.Shooter.ShooterGameController::Start()
+// 0x0000026F System.Void Panda.Examples.Shooter.ShooterGameController::Start()
 extern void ShooterGameController_Start_mE36B19AD28DDC46B07C8771CF81A2FE32FDFE057 (void);
-// 0x0000025F System.Void Panda.Examples.Shooter.ShooterGameController::Update()
+// 0x00000270 System.Void Panda.Examples.Shooter.ShooterGameController::Update()
 extern void ShooterGameController_Update_m31CCD25B2873262F1A38C0687D0ECE2B3F2246F9 (void);
-// 0x00000260 System.Void Panda.Examples.Shooter.ShooterGameController::.ctor()
+// 0x00000271 System.Void Panda.Examples.Shooter.ShooterGameController::.ctor()
 extern void ShooterGameController__ctor_m9D9E90CBAC1B26FAED57F4987CEE12A279D43180 (void);
-// 0x00000261 System.Void Panda.Examples.Shooter.ShooterGameController::.cctor()
+// 0x00000272 System.Void Panda.Examples.Shooter.ShooterGameController::.cctor()
 extern void ShooterGameController__cctor_m111CA9DB384B497420773BCF025FB63FBE72A986 (void);
-// 0x00000262 System.Boolean Panda.Examples.Shooter.ShooterGameController::<Start>b__11_0(Panda.Examples.Shooter.Unit)
+// 0x00000273 System.Boolean Panda.Examples.Shooter.ShooterGameController::<Start>b__11_0(Panda.Examples.Shooter.Unit)
 extern void ShooterGameController_U3CStartU3Eb__11_0_m8EEB1780A371F27BD727937653366BBF3412196B (void);
-// 0x00000263 System.Void Panda.Examples.Shooter.TriggerType::.ctor()
+// 0x00000274 System.Void Panda.Examples.Shooter.TriggerType::.ctor()
 extern void TriggerType__ctor_m70E2C474E2EC018C63E90830FFC8968F00CFEAFF (void);
-// 0x00000264 System.Void Panda.Examples.Shooter.Unit::Start()
+// 0x00000275 System.Void Panda.Examples.Shooter.Unit::Start()
 extern void Unit_Start_mDBB9AC02A8CC8CE5728B33DF4838F1AE331E5B5C (void);
-// 0x00000265 System.Void Panda.Examples.Shooter.Unit::Update()
+// 0x00000276 System.Void Panda.Examples.Shooter.Unit::Update()
 extern void Unit_Update_m7A34102CEF7D1B8D61CB01A9D814BB2D68F3B96C (void);
-// 0x00000266 UnityEngine.Vector3 Panda.Examples.Shooter.Unit::GetMousePosition()
+// 0x00000277 UnityEngine.Vector3 Panda.Examples.Shooter.Unit::GetMousePosition()
 extern void Unit_GetMousePosition_m47884F2D933A174D48878C58535D3ADCF89F0115 (void);
-// 0x00000267 System.Boolean Panda.Examples.Shooter.Unit::IsHealthLessThan(System.Single)
+// 0x00000278 System.Boolean Panda.Examples.Shooter.Unit::IsHealthLessThan(System.Single)
 extern void Unit_IsHealthLessThan_mC8E2ADA3A183F7A8117E35EF2DB902E3FC9592F7 (void);
-// 0x00000268 System.Boolean Panda.Examples.Shooter.Unit::IsHealth_PercentLessThan(System.Single)
+// 0x00000279 System.Boolean Panda.Examples.Shooter.Unit::IsHealth_PercentLessThan(System.Single)
 extern void Unit_IsHealth_PercentLessThan_m75F1EE0921FE0974A60295B2B228CFEDF5B4E8DB (void);
-// 0x00000269 System.Boolean Panda.Examples.Shooter.Unit::HasAmmo()
+// 0x0000027A System.Boolean Panda.Examples.Shooter.Unit::HasAmmo()
 extern void Unit_HasAmmo_mCE4726C265697600985086ADC833E473F2F19136 (void);
-// 0x0000026A System.Boolean Panda.Examples.Shooter.Unit::Ammo_LessThan(System.Int32)
+// 0x0000027B System.Boolean Panda.Examples.Shooter.Unit::Ammo_LessThan(System.Int32)
 extern void Unit_Ammo_LessThan_mFC15542F685A511BD03AF3B5E3730ADFABBD6A62 (void);
-// 0x0000026B System.Boolean Panda.Examples.Shooter.Unit::SetDestination(UnityEngine.Vector3)
+// 0x0000027C System.Boolean Panda.Examples.Shooter.Unit::SetDestination(UnityEngine.Vector3)
 extern void Unit_SetDestination_mE9C3B6F5677FA8B546CF1F810E0DD52C0EBC15A0 (void);
-// 0x0000026C System.Void Panda.Examples.Shooter.Unit::WaitArrival()
+// 0x0000027D System.Void Panda.Examples.Shooter.Unit::WaitArrival()
 extern void Unit_WaitArrival_m4AEEEBBC7D9D8626C6A433A9371A22BDA7558529 (void);
-// 0x0000026D System.Void Panda.Examples.Shooter.Unit::MoveTo(UnityEngine.Vector3)
+// 0x0000027E System.Void Panda.Examples.Shooter.Unit::MoveTo(UnityEngine.Vector3)
 extern void Unit_MoveTo_m5FC06D4151280D3DE06606F7C950506056A83C86 (void);
-// 0x0000026E System.Void Panda.Examples.Shooter.Unit::MoveTo_Destination()
+// 0x0000027F System.Void Panda.Examples.Shooter.Unit::MoveTo_Destination()
 extern void Unit_MoveTo_Destination_m41C3E7BE668A336106522F4A4FB3BA080D0620EB (void);
-// 0x0000026F System.Boolean Panda.Examples.Shooter.Unit::SetDestination_Mouse()
+// 0x00000280 System.Boolean Panda.Examples.Shooter.Unit::SetDestination_Mouse()
 extern void Unit_SetDestination_Mouse_mED479A9995064C3AA34B51702D5E848D62762593 (void);
-// 0x00000270 System.Boolean Panda.Examples.Shooter.Unit::SetDestination_WASD()
+// 0x00000281 System.Boolean Panda.Examples.Shooter.Unit::SetDestination_WASD()
 extern void Unit_SetDestination_WASD_m63948E3E71EDB28555166F400263096D14CDAA21 (void);
-// 0x00000271 System.Boolean Panda.Examples.Shooter.Unit::Stop()
+// 0x00000282 System.Boolean Panda.Examples.Shooter.Unit::Stop()
 extern void Unit_Stop_m229DB67E91E3B708BD952846D608BC8DA2128615 (void);
-// 0x00000272 System.Boolean Panda.Examples.Shooter.Unit::LastShotTime_LessThan(System.Single)
+// 0x00000283 System.Boolean Panda.Examples.Shooter.Unit::LastShotTime_LessThan(System.Single)
 extern void Unit_LastShotTime_LessThan_m47645F0BB66DCA1E27D61835B92AF4C844DE8665 (void);
-// 0x00000273 System.Boolean Panda.Examples.Shooter.Unit::Fire()
+// 0x00000284 System.Boolean Panda.Examples.Shooter.Unit::Fire()
 extern void Unit_Fire_m389FF021C8C54AA53EB6220C7AF3EA0414BD4F19 (void);
-// 0x00000274 System.Boolean Panda.Examples.Shooter.Unit::SetTarget(UnityEngine.Vector3)
+// 0x00000285 System.Boolean Panda.Examples.Shooter.Unit::SetTarget(UnityEngine.Vector3)
 extern void Unit_SetTarget_mFFFBC6383FCAB3A09BC9CE7199E7C9893A0092B8 (void);
-// 0x00000275 System.Boolean Panda.Examples.Shooter.Unit::SetTarget_Mouse()
+// 0x00000286 System.Boolean Panda.Examples.Shooter.Unit::SetTarget_Mouse()
 extern void Unit_SetTarget_Mouse_m1BD5DBC07B8FC6AAE146E86177132B58DB50BE49 (void);
-// 0x00000276 System.Boolean Panda.Examples.Shooter.Unit::SetTarget_Destination()
+// 0x00000287 System.Boolean Panda.Examples.Shooter.Unit::SetTarget_Destination()
 extern void Unit_SetTarget_Destination_m5FDF415DEC4DD2C54C27ADF16CA2277475AABF2E (void);
-// 0x00000277 System.Void Panda.Examples.Shooter.Unit::AimAt_Target()
+// 0x00000288 System.Void Panda.Examples.Shooter.Unit::AimAt_Target()
 extern void Unit_AimAt_Target_mC2E7939EB7521A472C3735B79058A09740891C0F (void);
-// 0x00000278 System.Boolean Panda.Examples.Shooter.Unit::Explode()
+// 0x00000289 System.Boolean Panda.Examples.Shooter.Unit::Explode()
 extern void Unit_Explode_mBEA5741741875CD8E7DAC5626627411445872993 (void);
-// 0x00000279 System.Void Panda.Examples.Shooter.Unit::.ctor()
+// 0x0000028A System.Void Panda.Examples.Shooter.Unit::.ctor()
 extern void Unit__ctor_mF2A3CBC8680C803E914162DF5D621A22B3193486 (void);
-// 0x0000027A System.Void Panda.Examples.Shooter.UnitExplosion::Start()
+// 0x0000028B System.Void Panda.Examples.Shooter.UnitExplosion::Start()
 extern void UnitExplosion_Start_m7C4584DA38B57C0EC0B2C35B1BF57A7CE6B9C451 (void);
-// 0x0000027B System.Void Panda.Examples.Shooter.UnitExplosion::Update()
+// 0x0000028C System.Void Panda.Examples.Shooter.UnitExplosion::Update()
 extern void UnitExplosion_Update_m453FA0761373804AE6AA48C5B961865D8DCE3243 (void);
-// 0x0000027C System.Void Panda.Examples.Shooter.UnitExplosion::.ctor()
+// 0x0000028D System.Void Panda.Examples.Shooter.UnitExplosion::.ctor()
 extern void UnitExplosion__ctor_mF070D91287D5A398498D0BED38C7BE9066339E6D (void);
-// 0x0000027D UnityEngine.Transform[] Panda.Examples.Shooter.WaypointPath::get_waypoints()
+// 0x0000028E UnityEngine.Transform[] Panda.Examples.Shooter.WaypointPath::get_waypoints()
 extern void WaypointPath_get_waypoints_m885695469F4019933C0BB384268C6597E121621A (void);
-// 0x0000027E System.Void Panda.Examples.Shooter.WaypointPath::Start()
+// 0x0000028F System.Void Panda.Examples.Shooter.WaypointPath::Start()
 extern void WaypointPath_Start_m9C1B2040848FCD7CB814C371FFBD804DF377A567 (void);
-// 0x0000027F System.Void Panda.Examples.Shooter.WaypointPath::Update()
+// 0x00000290 System.Void Panda.Examples.Shooter.WaypointPath::Update()
 extern void WaypointPath_Update_mB929C5A3733134DADFC63F2E61C8BCEEA56A4628 (void);
-// 0x00000280 System.Void Panda.Examples.Shooter.WaypointPath::OnDrawGizmos()
+// 0x00000291 System.Void Panda.Examples.Shooter.WaypointPath::OnDrawGizmos()
 extern void WaypointPath_OnDrawGizmos_mCC4620D8B461914E913EB6BE90AAD44238EF0256 (void);
-// 0x00000281 System.Void Panda.Examples.Shooter.WaypointPath::OnDrawGizmosSelected()
+// 0x00000292 System.Void Panda.Examples.Shooter.WaypointPath::OnDrawGizmosSelected()
 extern void WaypointPath_OnDrawGizmosSelected_m2E04750EC55C4B2132725A27482DDC3AB3B99ED3 (void);
-// 0x00000282 System.Void Panda.Examples.Shooter.WaypointPath::DrawSpheres(System.Single)
+// 0x00000293 System.Void Panda.Examples.Shooter.WaypointPath::DrawSpheres(System.Single)
 extern void WaypointPath_DrawSpheres_mCD532AE2E16EB79E3869E02AC20A304B2ED4A20E (void);
-// 0x00000283 System.Void Panda.Examples.Shooter.WaypointPath::DrawLines()
+// 0x00000294 System.Void Panda.Examples.Shooter.WaypointPath::DrawLines()
 extern void WaypointPath_DrawLines_m1E7C86B0DEA0A49C7EC9697E4811E7A19D21825E (void);
-// 0x00000284 System.Void Panda.Examples.Shooter.WaypointPath::.ctor()
+// 0x00000295 System.Void Panda.Examples.Shooter.WaypointPath::.ctor()
 extern void WaypointPath__ctor_mE1025B07D729CE6324F4D5EC0AF21BC051B44E46 (void);
-// 0x00000285 System.Void Panda.Examples.Shooter.Panda.BulletImpact::Start()
+// 0x00000296 System.Void Panda.Examples.Shooter.Panda.BulletImpact::Start()
 extern void BulletImpact_Start_mC5966075CFE84A5037E1CE0AA5D24A8EEF2D43DD (void);
-// 0x00000286 System.Void Panda.Examples.Shooter.Panda.BulletImpact::Update()
+// 0x00000297 System.Void Panda.Examples.Shooter.Panda.BulletImpact::Update()
 extern void BulletImpact_Update_mA3E59D6F35DA299ECA2312643E944044755F3A4E (void);
-// 0x00000287 System.Void Panda.Examples.Shooter.Panda.BulletImpact::.ctor()
+// 0x00000298 System.Void Panda.Examples.Shooter.Panda.BulletImpact::.ctor()
 extern void BulletImpact__ctor_m0963EBB8CD45C1C8A852E79B98581239BBF8969B (void);
-// 0x00000288 System.Boolean Panda.Examples.PlayTag.Computer::get_IsColliding_Player()
+// 0x00000299 System.Boolean Panda.Examples.PlayTag.Computer::get_IsColliding_Player()
 extern void Computer_get_IsColliding_Player_mE12BC5CF607D9A073FA21CFBBFF0DBBB99EE5EA1 (void);
-// 0x00000289 System.Void Panda.Examples.PlayTag.Computer::IsPlayerNear()
+// 0x0000029A System.Void Panda.Examples.PlayTag.Computer::IsPlayerNear()
 extern void Computer_IsPlayerNear_m648B4CC25CEF3AB2801A30773444318501F9FDFD (void);
-// 0x0000028A System.Boolean Panda.Examples.PlayTag.Computer::Say(System.String)
+// 0x0000029B System.Boolean Panda.Examples.PlayTag.Computer::Say(System.String)
 extern void Computer_Say_m9DF4FD0F4F4F31B26A67F80F979E16F66631DC6E (void);
-// 0x0000028B System.Void Panda.Examples.PlayTag.Computer::MoveToDestination()
+// 0x0000029C System.Void Panda.Examples.PlayTag.Computer::MoveToDestination()
 extern void Computer_MoveToDestination_m92E94803E12204F4BE81235D1C406BCF5BC26DC1 (void);
-// 0x0000028C System.Boolean Panda.Examples.PlayTag.Computer::SetDestination_Player()
+// 0x0000029D System.Boolean Panda.Examples.PlayTag.Computer::SetDestination_Player()
 extern void Computer_SetDestination_Player_mBD33BDCE4B8E9F3D09FBAB1DB5FA9E6E88384C13 (void);
-// 0x0000028D System.Boolean Panda.Examples.PlayTag.Computer::SetDestination_Random()
+// 0x0000029E System.Boolean Panda.Examples.PlayTag.Computer::SetDestination_Random()
 extern void Computer_SetDestination_Random_mF1E92199BD1513EAB83CE7DBA952B49C509FE8E7 (void);
-// 0x0000028E System.Boolean Panda.Examples.PlayTag.Computer::get_IsDirectionSafe()
+// 0x0000029F System.Boolean Panda.Examples.PlayTag.Computer::get_IsDirectionSafe()
 extern void Computer_get_IsDirectionSafe_m0B7B27C871A308B7427E95B6D73DE8DC95322EF4 (void);
-// 0x0000028F System.Boolean Panda.Examples.PlayTag.Computer::SetSpeed(System.Single)
+// 0x000002A0 System.Boolean Panda.Examples.PlayTag.Computer::SetSpeed(System.Single)
 extern void Computer_SetSpeed_mEC6F32D9F3592D9AA7A539B3975F56B50641D030 (void);
-// 0x00000290 System.Boolean Panda.Examples.PlayTag.Computer::Tag()
+// 0x000002A1 System.Boolean Panda.Examples.PlayTag.Computer::Tag()
 extern void Computer_Tag_m4E110263E19CE259B3B8D7AF5DC7017D0047F808 (void);
-// 0x00000291 System.Void Panda.Examples.PlayTag.Computer::DoTag()
+// 0x000002A2 System.Void Panda.Examples.PlayTag.Computer::DoTag()
 extern void Computer_DoTag_m64418C578DD2C98808B54027E3E31FB4E82FF124 (void);
-// 0x00000292 System.Void Panda.Examples.PlayTag.Computer::Start()
+// 0x000002A3 System.Void Panda.Examples.PlayTag.Computer::Start()
 extern void Computer_Start_mCDD4C8AA51B8050E31E172514877994DA4252C0D (void);
-// 0x00000293 System.Void Panda.Examples.PlayTag.Computer::OnTriggerEnter(UnityEngine.Collider)
+// 0x000002A4 System.Void Panda.Examples.PlayTag.Computer::OnTriggerEnter(UnityEngine.Collider)
 extern void Computer_OnTriggerEnter_m8056C4EF9F613B8373CF7BBED10768A74170D0F3 (void);
-// 0x00000294 System.Void Panda.Examples.PlayTag.Computer::OnTriggerExit(UnityEngine.Collider)
+// 0x000002A5 System.Void Panda.Examples.PlayTag.Computer::OnTriggerExit(UnityEngine.Collider)
 extern void Computer_OnTriggerExit_m603C3A569D0072209ACFA35CB19B583F28BB3A69 (void);
-// 0x00000295 System.Void Panda.Examples.PlayTag.Computer::.ctor()
+// 0x000002A6 System.Void Panda.Examples.PlayTag.Computer::.ctor()
 extern void Computer__ctor_m707D018C2041C703034DD692335DF40D5AA7D4DF (void);
-// 0x00000296 System.Void Panda.Examples.PlayTag.Dialogue::EnableText(System.Boolean)
+// 0x000002A7 System.Void Panda.Examples.PlayTag.Dialogue::EnableText(System.Boolean)
 extern void Dialogue_EnableText_m5E67E906BE2A620169A254730AD266333CE632DA (void);
-// 0x00000297 System.Void Panda.Examples.PlayTag.Dialogue::SetText(System.String)
+// 0x000002A8 System.Void Panda.Examples.PlayTag.Dialogue::SetText(System.String)
 extern void Dialogue_SetText_m48B434092ABEF8D4B5EC771FB50FF32287AED18E (void);
-// 0x00000298 System.Void Panda.Examples.PlayTag.Dialogue::ShowText()
+// 0x000002A9 System.Void Panda.Examples.PlayTag.Dialogue::ShowText()
 extern void Dialogue_ShowText_mCCF21054A4888B805D71A8DD49923CC528317274 (void);
-// 0x00000299 System.Void Panda.Examples.PlayTag.Dialogue::Start()
+// 0x000002AA System.Void Panda.Examples.PlayTag.Dialogue::Start()
 extern void Dialogue_Start_mC005E7D869A0F6818F4FBA158C894B868E01A876 (void);
-// 0x0000029A System.Void Panda.Examples.PlayTag.Dialogue::Update()
+// 0x000002AB System.Void Panda.Examples.PlayTag.Dialogue::Update()
 extern void Dialogue_Update_m314B236B3C8FAC9963FFA31C7FB47730B6013CDF (void);
-// 0x0000029B System.Void Panda.Examples.PlayTag.Dialogue::.ctor()
+// 0x000002AC System.Void Panda.Examples.PlayTag.Dialogue::.ctor()
 extern void Dialogue__ctor_mED5E98330798A00C808054ADC36F9EFEF0A00343 (void);
-// 0x0000029C System.Void Panda.Examples.PlayTag.Player::Start()
+// 0x000002AD System.Void Panda.Examples.PlayTag.Player::Start()
 extern void Player_Start_m8248C95C613AACC16A6DB01D951FA1CCB1FA48C8 (void);
-// 0x0000029D System.Void Panda.Examples.PlayTag.Player::Update()
+// 0x000002AE System.Void Panda.Examples.PlayTag.Player::Update()
 extern void Player_Update_m9A0B83F5D94B9DC6D5F747577294BB1906470A55 (void);
-// 0x0000029E System.Void Panda.Examples.PlayTag.Player::.ctor()
+// 0x000002AF System.Void Panda.Examples.PlayTag.Player::.ctor()
 extern void Player__ctor_m38A9153A8B38698B29B2A43AB97F909B0F558B65 (void);
-// 0x0000029F System.Void Panda.Examples.Move.Move::MoveTo(System.Single,System.Single)
+// 0x000002B0 System.Void Panda.Examples.Move.Move::MoveTo(System.Single,System.Single)
 extern void Move_MoveTo_mA545E8EE08F38399D526FE793D76A265BE163F3A (void);
-// 0x000002A0 System.Void Panda.Examples.Move.Move::Rotate(System.Single,System.Single)
+// 0x000002B1 System.Void Panda.Examples.Move.Move::Rotate(System.Single,System.Single)
 extern void Move_Rotate_m1521695F96E88EA145B448BEB130D088676DC7CC (void);
-// 0x000002A1 System.Void Panda.Examples.Move.Move::.ctor()
+// 0x000002B2 System.Void Panda.Examples.Move.Move::.ctor()
 extern void Move__ctor_mD4817C058FB5DCB3900455FE99713B864D24CF74 (void);
-// 0x000002A2 System.Void Panda.Examples.ChangeColor.MyCube::SetColor(System.Single,System.Single,System.Single)
+// 0x000002B3 System.Void Panda.Examples.ChangeColor.MyCube::SetColor(System.Single,System.Single,System.Single)
 extern void MyCube_SetColor_mEF8B18DCD315A898BE0D450CBB639533819501B1 (void);
-// 0x000002A3 System.Void Panda.Examples.ChangeColor.MyCube::.ctor()
+// 0x000002B4 System.Void Panda.Examples.ChangeColor.MyCube::.ctor()
 extern void MyCube__ctor_mE1ECB8416172A08EF1E2AC377410DDDE5FB94AC9 (void);
-// 0x000002A4 System.Void DG.Tweening.DOTweenAnimation::Awake()
+// 0x000002B5 System.Void DG.Tweening.DOTweenAnimation::Awake()
 extern void DOTweenAnimation_Awake_m35A406FA39777B6E235B040F8067102982BA033F (void);
-// 0x000002A5 System.Void DG.Tweening.DOTweenAnimation::Start()
+// 0x000002B6 System.Void DG.Tweening.DOTweenAnimation::Start()
 extern void DOTweenAnimation_Start_mF876C56C5A958B3B0A1B5E863E352FE33A79204C (void);
-// 0x000002A6 System.Void DG.Tweening.DOTweenAnimation::OnDestroy()
+// 0x000002B7 System.Void DG.Tweening.DOTweenAnimation::OnDestroy()
 extern void DOTweenAnimation_OnDestroy_m3FD188E9F789695A40CB80D9221AB5D89247182F (void);
-// 0x000002A7 System.Void DG.Tweening.DOTweenAnimation::CreateTween()
+// 0x000002B8 System.Void DG.Tweening.DOTweenAnimation::CreateTween()
 extern void DOTweenAnimation_CreateTween_m84C9A8E5B55B72BF46B1FBC713DCE1FF6D09CAB2 (void);
-// 0x000002A8 System.Void DG.Tweening.DOTweenAnimation::DOPlay()
+// 0x000002B9 System.Void DG.Tweening.DOTweenAnimation::DOPlay()
 extern void DOTweenAnimation_DOPlay_mA06F333F47B38B61EF2DDB290AB13966CD825B75 (void);
-// 0x000002A9 System.Void DG.Tweening.DOTweenAnimation::DOPlayBackwards()
+// 0x000002BA System.Void DG.Tweening.DOTweenAnimation::DOPlayBackwards()
 extern void DOTweenAnimation_DOPlayBackwards_m9120DC868A103FA32A6E00B782ABAA5EB17F4FE7 (void);
-// 0x000002AA System.Void DG.Tweening.DOTweenAnimation::DOPlayForward()
+// 0x000002BB System.Void DG.Tweening.DOTweenAnimation::DOPlayForward()
 extern void DOTweenAnimation_DOPlayForward_m76601E1EF9BD1F8B6FA37F78F31EE23A61050503 (void);
-// 0x000002AB System.Void DG.Tweening.DOTweenAnimation::DOPause()
+// 0x000002BC System.Void DG.Tweening.DOTweenAnimation::DOPause()
 extern void DOTweenAnimation_DOPause_m256497DF35FA49E77CDAFE381AD5CE3A62EEA3A5 (void);
-// 0x000002AC System.Void DG.Tweening.DOTweenAnimation::DOTogglePause()
+// 0x000002BD System.Void DG.Tweening.DOTweenAnimation::DOTogglePause()
 extern void DOTweenAnimation_DOTogglePause_m0E7921B6223D9BFA1428E9DB8A74E3CD6FD7B5F9 (void);
-// 0x000002AD System.Void DG.Tweening.DOTweenAnimation::DORewind()
+// 0x000002BE System.Void DG.Tweening.DOTweenAnimation::DORewind()
 extern void DOTweenAnimation_DORewind_m1029E3A22721E178F56752A3A58002DE15C128DE (void);
-// 0x000002AE System.Void DG.Tweening.DOTweenAnimation::DORestart(System.Boolean)
+// 0x000002BF System.Void DG.Tweening.DOTweenAnimation::DORestart(System.Boolean)
 extern void DOTweenAnimation_DORestart_m8DAF74EB8A6174344B692AA3EF1BDC6911294F94 (void);
-// 0x000002AF System.Void DG.Tweening.DOTweenAnimation::DOComplete()
+// 0x000002C0 System.Void DG.Tweening.DOTweenAnimation::DOComplete()
 extern void DOTweenAnimation_DOComplete_m238D7860AE9CD950C68042516E5980B5B95F82A4 (void);
-// 0x000002B0 System.Void DG.Tweening.DOTweenAnimation::DOKill()
+// 0x000002C1 System.Void DG.Tweening.DOTweenAnimation::DOKill()
 extern void DOTweenAnimation_DOKill_mD4025106079AA40F00B94E032BA0CB3BAF8FF86B (void);
-// 0x000002B1 System.Void DG.Tweening.DOTweenAnimation::DOPlayById(System.String)
+// 0x000002C2 System.Void DG.Tweening.DOTweenAnimation::DOPlayById(System.String)
 extern void DOTweenAnimation_DOPlayById_m8B9596EF4A314B1D7E409F2FA9D16479AB8BCBB1 (void);
-// 0x000002B2 System.Void DG.Tweening.DOTweenAnimation::DOPlayAllById(System.String)
+// 0x000002C3 System.Void DG.Tweening.DOTweenAnimation::DOPlayAllById(System.String)
 extern void DOTweenAnimation_DOPlayAllById_m0DB6D98C7B9D91D9D28BDFA0BA6C641E63D5864E (void);
-// 0x000002B3 System.Void DG.Tweening.DOTweenAnimation::DOPlayNext()
+// 0x000002C4 System.Void DG.Tweening.DOTweenAnimation::DOPlayNext()
 extern void DOTweenAnimation_DOPlayNext_mDF8E4EB2954298C774BD7282F4EA854E2962CEB6 (void);
-// 0x000002B4 System.Void DG.Tweening.DOTweenAnimation::DORewindAndPlayNext()
+// 0x000002C5 System.Void DG.Tweening.DOTweenAnimation::DORewindAndPlayNext()
 extern void DOTweenAnimation_DORewindAndPlayNext_mC925554CAA2B2CE7456A377056510202D6612517 (void);
-// 0x000002B5 System.Void DG.Tweening.DOTweenAnimation::DORestartById(System.String)
+// 0x000002C6 System.Void DG.Tweening.DOTweenAnimation::DORestartById(System.String)
 extern void DOTweenAnimation_DORestartById_mECA298C0C42450203F31A393328BD51118D76CF0 (void);
-// 0x000002B6 System.Void DG.Tweening.DOTweenAnimation::DORestartAllById(System.String)
+// 0x000002C7 System.Void DG.Tweening.DOTweenAnimation::DORestartAllById(System.String)
 extern void DOTweenAnimation_DORestartAllById_mA7270F86349BA9534FC33B85B84895B95FD481AA (void);
-// 0x000002B7 System.Collections.Generic.List`1<DG.Tweening.Tween> DG.Tweening.DOTweenAnimation::GetTweens()
+// 0x000002C8 System.Collections.Generic.List`1<DG.Tweening.Tween> DG.Tweening.DOTweenAnimation::GetTweens()
 extern void DOTweenAnimation_GetTweens_m1384C33BBC1B8FE42CB189E82F66BB12D81EB857 (void);
-// 0x000002B8 DG.Tweening.Core.TargetType DG.Tweening.DOTweenAnimation::TypeToDOTargetType(System.Type)
+// 0x000002C9 DG.Tweening.Core.TargetType DG.Tweening.DOTweenAnimation::TypeToDOTargetType(System.Type)
 extern void DOTweenAnimation_TypeToDOTargetType_mEB611E42CE1111AECC04DEF7003F80B4BD183C43 (void);
-// 0x000002B9 System.Void DG.Tweening.DOTweenAnimation::ReEvaluateRelativeTween()
+// 0x000002CA System.Void DG.Tweening.DOTweenAnimation::ReEvaluateRelativeTween()
 extern void DOTweenAnimation_ReEvaluateRelativeTween_m5A4C6393A9517790FE3794DC698F7D26C9D3AEA7 (void);
-// 0x000002BA System.Void DG.Tweening.DOTweenAnimation::.ctor()
+// 0x000002CB System.Void DG.Tweening.DOTweenAnimation::.ctor()
 extern void DOTweenAnimation__ctor_mCED218D304357241E7EF9159DA1422B21532FE97 (void);
-// 0x000002BB System.Void DG.Tweening.DOTweenAnimation::<CreateTween>b__37_0()
+// 0x000002CC System.Void DG.Tweening.DOTweenAnimation::<CreateTween>b__37_0()
 extern void DOTweenAnimation_U3CCreateTweenU3Eb__37_0_m4350D5B9F6785C53935B05EFC96FCEACDCBC61C4 (void);
-// 0x000002BC System.Boolean DG.Tweening.DOTweenAnimationExtensions::IsSameOrSubclassOf(UnityEngine.Component)
-static Il2CppMethodPointer s_methodPointers[700] = 
+// 0x000002CD System.Boolean DG.Tweening.DOTweenAnimationExtensions::IsSameOrSubclassOf(UnityEngine.Component)
+static Il2CppMethodPointer s_methodPointers[717] = 
 {
 	GridDebugger_get__transform_m945FD84091AA5A4F4EF1401BDC9FF0CDC8EA8DC5,
 	GridDebugger_OnDrawGizmos_m546B7666ACCFD315E46C03A211033CED6366FA20,
@@ -1594,7 +1628,7 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	dragCardBoundry__ctor_mF7349008C4B2B920746F885FBFDC83B637765137,
 	endCheck_Start_m259DC97CB280C820ABA05A1BB5AAB2110224B717,
 	endCheck_Update_mBEDCF14AED2FD3C357522004A71A0068753C851D,
-	endCheck_checkEnd_m2014411E0F41BCEECA4F61118B206BF668364B35,
+	endCheck_checkEnd_m14B6C6C5B1373E6CB442E409073C9751B16573A8,
 	endCheck_loadMainScene_m94DB5503C69A0E6C7A9C4C3313FEBA465E7AB75A,
 	endCheck__ctor_mB5D0E96EC5587F7392654BDC339F9333E174CAB9,
 	narrativeResult_Start_m3A0F4228B7B16687E6FCBE427F1F4D6296608E67,
@@ -1682,6 +1716,7 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	objV2Pos_Update_mB66BF2DC2BCA63E5C43D0EEEA9A376D5D5D14C73,
 	objV2Pos_OnCollisionEnter_m9B8314243576D949EA5E8DA6A400D926CD45CF93,
 	objV2Pos_OnCollisionExit_m6B042BA195814187E074C088F476FFF1CC0839E7,
+	objV2Pos_checkAP0_mF66B937C9A9BC2A1F32FBF82FC929170984A6DF3,
 	objV2Pos__ctor_mDB60A87000A6C28642476C1152BD01B61E897AD1,
 	outerAI_Start_m62A4A57C21C785357082E374DDEEB9477CCE1753,
 	outerAI_Update_m3890994207E67F8536A20622B76F5BBE06C53E1A,
@@ -1743,6 +1778,10 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	skipToNextTurn_Update_m1D2FF48415DAA5898E164886C18C33D6B74BCF36,
 	skipToNextTurn_skip_m87B0499B739DAFD31E809ADCFB48958D261E6995,
 	skipToNextTurn__ctor_mB2B92B5FFB0410EA868547D7510928744AB09719,
+	spriteOrder_Start_m5AB7C33A5943DBD20D41AC40AA757D12302853C6,
+	spriteOrder_adjustOrder_m45E03D2C32F505C6C4CF1E6CE7A92894A27B6035,
+	spriteOrder_adjustOrder0_m86A7489C984454CE7133D9BBEF3EB829E3038FEA,
+	spriteOrder__ctor_m1F063F164524293CB13B525B43CB3B9596608E57,
 	square_Start_mD9D8C2E3492568955CF203035E7340CA35DC4C70,
 	square_Update_m0B17AFA152433C1BA0AFE644855816C9C4E3460C,
 	square__ctor_m5BD81F2483A555184FA4371C5C8582979DE1926B,
@@ -1780,6 +1819,11 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	whyDie_Start_mB917E6C8559AB779EF67CC2053699C8552DD2767,
 	whyDie_Update_mE8F20068CDCD40D9481253E59F0D27B380C3C233,
 	whyDie__ctor_m20B289B3E8F3CC94DB6D4DE4E8965A078A624802,
+	forTest_Start_mEF44DF22AEBEB91C16CFF7388EB91154A11D6085,
+	forTest_Update_m8AD199795EE7FC7CA8B7135E1245C0AAA8D07935,
+	forTest_genEgret_m154D42A02A86701F0FE032BAB0145C8DE00A1FC5,
+	forTest_spawn_mF5FEE5FD7F177B2B1FF36D6FDAE95C305E4BA1AB,
+	forTest__ctor_m005058EA7AFB8C4BB63B0D780CCCEC77AF3FFC8D,
 	gameStart_Start_m0781ADEAA7637B7A38484A9A99DF8CE0D2E50D1C,
 	gameStart_loadMainScene_m2575C56E358B7B6E8A47B887F141592255439805,
 	gameStart__ctor_m4468B481B21293407B4975BC279C03668BD29AA5,
@@ -1860,7 +1904,7 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	MyIbis_checkHasBuidlingMaterial_m985C5D20B2BF6D31A4CE944CD7FF05CE29BD7AB3,
 	MyIbis_checkMaterialOnMap_m479A5C1440E0F021F2EFE2DD7B82DB7B3CEE9651,
 	MyIbis_goToMaterial_mB6C89AB0DD870B4DC4BEEDFC3871304F0D4694D0,
-	MyIbis_goToNest_m8C2055911FFDD14B629D4E3BDDE0DD8FF41FAFD6,
+	MyIbis_goToNest_m15FC021F734188CB384221A47E1A3C630ABB8806,
 	MyIbis_buildNest_mFDCC20DDCE377D0AD4DFA18FEFCE164DC86B4164,
 	MyIbis_checkNestFinished_mA3F83E0155F9A80958868AB428E37C392E581F95,
 	MyIbis_hasMate_m7456F11EE9C5F581CD4944001F3E5961B1B63D0B,
@@ -1874,6 +1918,8 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	MyIbis_endTurn_m2ACF14E77A6052CBEB27D892D16078216DC112DD,
 	MyIbis_Next_mC0859BF0755A0B67105EA9D978B11F232A39DC91,
 	MyIbis_seekLocation_mF3D6190A8631A85FB60352ACA4AF4F3F98A47AE2,
+	MyIbis_checkTwoMovingCreatureAtOneGrid_m6D0F65144188A6D41FF7832C8F1A095F1611B6EF,
+	MyIbis_twoMove_m8A2D801416E4B78C59C548E122A3E647FD91E194,
 	MyIbis_breakWhenMoving_m1D8D2F81728174B096F95927D868027DBBA9E5A5,
 	MyIbis_geFarthestGrid_mBD5B14BBAF94BA9C461988BC71533E2200B34F20,
 	MyIbis_getNearestGrid_m3933F7832FF802EBB0172B2EA8AFFA8069D79BB1,
@@ -1891,6 +1937,7 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	MyIbis_setHasFeedBaby_m4560F6DC688A34EBB5DFEAAFFE8D50944CBA79EF,
 	MyIbis_monthEnToCh_m29AD84165499C11E814B5980C65C48C317FE9CAF,
 	MyIbis_foodEnToCh_mFE7CFB2F46D49DBBA6C2DDC14BB69D3B5BCB4C66,
+	MyIbis_APreduce_m0B4338BA330069357CF7583830075007A4C5494B,
 	MyIbis_lightEat_m885E0C73E4A6C878F0AA9B8410C22718228FF914,
 	MyIbis_lightGoToOpIbis_m16DC761B9C434C7B4EF2E6941044CED0EB87C25C,
 	MyIbis_lightMate_m9C90841F72B4B6AF6279BCD88BDDB319E99EB1B4,
@@ -1935,6 +1982,8 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	MyNPC_snake_leave_mD80CAC88A08CC1644B133FA14F6E78075584BAB0,
 	MyNPC_checkNoEgret_m052C44482EACB4CBED330209594181A4670CDC5E,
 	MyNPC_egret_seekWander_m601863649644D6619001E69796E236F412C138AB,
+	MyNPC_egret_AILerp_Close_mEBA4B9B13E71AAD6353BC9FA0670E27E2160098F,
+	MyNPC_egret_AILerp_Open_m7693C116C12F562CC33291386DD53FE3EADF78BE,
 	MyNPC_egret_wander_mD58671F05DFAE975C3224E07ED833247496D2441,
 	MyNPC_checkTrapMan_appear_m72B32BD54C18A7826F6285575AED7C36467C4270,
 	MyNPC_trapMan_goToRandomGrid_m27F7E1C51D159F00358EB3ACDA8F80F4A8F880F7,
@@ -1942,6 +1991,7 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	MyNPC_trapMan_leave_m22874FA52A80C0D8A3B21828EC07BD0DAC394287,
 	MyNPC_endAllNPC_m3F3319985EAB99EA5E5122F93826D15C845DF4E6,
 	MyNPC_Next_m6F77712F125454F86A04B226FE55EEEB9EDC4DD8,
+	MyNPC_NextIfEgretDie_m770210A55B65F4C206174164BE840A137D03BBFD,
 	MyNPC_seekLocation_mCF73FB900F3B75B7658D12174EAB743AE21F578D,
 	MyNPC_seekMultiLocations_m13F443021FA77C70502E5DBB6D6E3BFF7470F2CA,
 	MyNPC_NearGrid1_m321DD87AD2BC375256D203504571EBC8BA6FE90C,
@@ -1954,6 +2004,7 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	MyTurn_checkAllObjNPC_m6A731C5C9E95A7C966D24A0B6E2DD40874992F03,
 	MyTurn_dealCards_m9526AF9AC87A72772D67E14E34231C348544F8B9,
 	MyTurn_drawCards_m3664931F2F71B8C9FEAFF453531C45DFDC480DB9,
+	MyTurn_checkGraph_m817632716DCAD35138BFC68672F5512350D4A81B,
 	MyTurn_ibisAct_m4D3DE856585BF56CE42E30A09CB0FC66D76A08B7,
 	MyTurn_endThisTurn_m574CCBF28A9ABD596D2DA5446A7E9A3A5D1F1AAC,
 	MyTurn_genCards_mF24EE2F40206A03499633A86903490E8148199E0,
@@ -2113,7 +2164,7 @@ static Il2CppMethodPointer s_methodPointers[700] =
 	DOTweenAnimation_U3CCreateTweenU3Eb__37_0_m4350D5B9F6785C53935B05EFC96FCEACDCBC61C4,
 	NULL,
 };
-static const int32_t s_InvokerIndices[700] = 
+static const int32_t s_InvokerIndices[717] = 
 {
 	2342,
 	2388,
@@ -2297,7 +2348,7 @@ static const int32_t s_InvokerIndices[700] =
 	2388,
 	2388,
 	2388,
-	2388,
+	2018,
 	2388,
 	2388,
 	2388,
@@ -2385,6 +2436,7 @@ static const int32_t s_InvokerIndices[700] =
 	2388,
 	1999,
 	1999,
+	1999,
 	2388,
 	2388,
 	2388,
@@ -2445,6 +2497,10 @@ static const int32_t s_InvokerIndices[700] =
 	2388,
 	2388,
 	2388,
+	2388,
+	2388,
+	2388,
+	1173,
 	2388,
 	2388,
 	2388,
@@ -2518,6 +2574,11 @@ static const int32_t s_InvokerIndices[700] =
 	2388,
 	2388,
 	2388,
+	2388,
+	2388,
+	2388,
+	2388,
+	2388,
 	1984,
 	2388,
 	2388,
@@ -2563,7 +2624,7 @@ static const int32_t s_InvokerIndices[700] =
 	2388,
 	2388,
 	2388,
-	2388,
+	2018,
 	2388,
 	2388,
 	2388,
@@ -2577,6 +2638,8 @@ static const int32_t s_InvokerIndices[700] =
 	2388,
 	2388,
 	2040,
+	2388,
+	1270,
 	2388,
 	1054,
 	1054,
@@ -2594,6 +2657,7 @@ static const int32_t s_InvokerIndices[700] =
 	2388,
 	1605,
 	1609,
+	2388,
 	2388,
 	2388,
 	2388,
@@ -2639,7 +2703,10 @@ static const int32_t s_InvokerIndices[700] =
 	2388,
 	2388,
 	2388,
+	2388,
+	2388,
 	1173,
+	2388,
 	2388,
 	2388,
 	2388,
@@ -2648,6 +2715,7 @@ static const int32_t s_InvokerIndices[700] =
 	1278,
 	1270,
 	1876,
+	2388,
 	2388,
 	2388,
 	2388,
@@ -2818,8 +2886,8 @@ static const int32_t s_InvokerIndices[700] =
 };
 static const Il2CppTokenRangePair s_rgctxIndices[2] = 
 {
-	{ 0x06000136, { 0, 1 } },
-	{ 0x060002BC, { 1, 1 } },
+	{ 0x06000137, { 0, 1 } },
+	{ 0x060002CD, { 1, 1 } },
 };
 static const Il2CppRGCTXDefinition s_rgctxValues[2] = 
 {
@@ -2831,7 +2899,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	700,
+	717,
 	s_methodPointers,
 	0,
 	NULL,

@@ -12238,7 +12238,7 @@ static const Il2CppRGCTXDefinition s_rgctxValues[121] =
 	{ (Il2CppRGCTXDataType)2, 2856 },
 	{ (Il2CppRGCTXDataType)3, 7280 },
 	{ (Il2CppRGCTXDataType)3, 7282 },
-	{ (Il2CppRGCTXDataType)3, 15899 },
+	{ (Il2CppRGCTXDataType)3, 15902 },
 	{ (Il2CppRGCTXDataType)3, 7565 },
 	{ (Il2CppRGCTXDataType)3, 7566 },
 	{ (Il2CppRGCTXDataType)2, 1774 },
@@ -12313,7 +12313,7 @@ static const Il2CppRGCTXDefinition s_rgctxValues[121] =
 	{ (Il2CppRGCTXDataType)2, 570 },
 	{ (Il2CppRGCTXDataType)3, 65 },
 	{ (Il2CppRGCTXDataType)3, 66 },
-	{ (Il2CppRGCTXDataType)3, 15534 },
+	{ (Il2CppRGCTXDataType)3, 15535 },
 };
 extern const CustomAttributesCacheGenerator g_AstarPathfindingProject_AttributeGenerators[];
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AstarPathfindingProject_CodeGenModule;

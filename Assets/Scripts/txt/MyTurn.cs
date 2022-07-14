@@ -529,8 +529,10 @@ namespace Panda.Ibis
                 if (child.gameObject.GetComponent<CapsuleCollider>())
                 { child.gameObject.GetComponent<CapsuleCollider>().enabled = false; }
             }
+
+            //how about create 24 bools for scan in 24 turns?
             // Recalculate the graph
-           // AstarPath.active.Scan();
+            AstarPath.active.Scan();
 
             _ibisA.GetComponent<Animator>().enabled = true;
             _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;

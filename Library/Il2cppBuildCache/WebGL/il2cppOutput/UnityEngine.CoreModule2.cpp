@@ -2920,6 +2920,38 @@ public:
 };
 
 
+// UnityEngine.PlayerLoop.PostLateUpdate/UIWidgetsVSync
+struct UIWidgetsVSync_tF45F16B02A0B88C293EF13A103370434DF4E8805 
+{
+public:
+	union
+	{
+		struct
+		{
+		};
+		uint8_t UIWidgetsVSync_tF45F16B02A0B88C293EF13A103370434DF4E8805__padding[1];
+	};
+
+public:
+};
+
+
+// UnityEngine.PlayerLoop.PostLateUpdate/UIWidgetsWait
+struct UIWidgetsWait_tED9A39DD45CDD7F0FB27744C8C63B0B40E817DF6 
+{
+public:
+	union
+	{
+		struct
+		{
+		};
+		uint8_t UIWidgetsWait_tED9A39DD45CDD7F0FB27744C8C63B0B40E817DF6__padding[1];
+	};
+
+public:
+};
+
+
 // UnityEngine.PlayerLoop.PostLateUpdate/UpdateAllRenderers
 struct UpdateAllRenderers_t96FC2DF53BC1D90C7E40E2CAD10B8C674A94B86C 
 {
@@ -3691,6 +3723,22 @@ public:
 		{
 		};
 		uint8_t ScriptRunDelayedTasks_t87535B3420E907071EA14E80AD9D811F29AA978A__padding[1];
+	};
+
+public:
+};
+
+
+// UnityEngine.PlayerLoop.Update/UIWidgetsUpdate
+struct UIWidgetsUpdate_tFFC010CB5AA31564175901ED00434740523DDACE 
+{
+public:
+	union
+	{
+		struct
+		{
+		};
+		uint8_t UIWidgetsUpdate_tFFC010CB5AA31564175901ED00434740523DDACE__padding[1];
 	};
 
 public:
@@ -8216,6 +8264,22 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UpdateFunction_EndInvoke_mB4BC0AA40E9C83
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 // System.Void Unity.Profiling.ProfilerMarker/AutoScope::.ctor(System.IntPtr)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AutoScope__ctor_m4131730A501F687FF95B2963EABAC7844C6B9859 (AutoScope_tEB00834B4CEE8558238837BA3A36B64020E48F8D * __this, intptr_t ___markerPtr0, const RuntimeMethod* method)
 {
@@ -8790,6 +8854,14 @@ IL2CPP_EXTERN_C  void WorkRequest_Invoke_m1C292B7297918C5F2DBE70971895FE8D5C33AA
 	WorkRequest_tA19FD4D1269D8EE2EA886AAF036C4F7F09154393 * _thisAdjusted = reinterpret_cast<WorkRequest_tA19FD4D1269D8EE2EA886AAF036C4F7F09154393 *>(__this + _offset);
 	WorkRequest_Invoke_m1C292B7297918C5F2DBE70971895FE8D5C33AA20(_thisAdjusted, method);
 }
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

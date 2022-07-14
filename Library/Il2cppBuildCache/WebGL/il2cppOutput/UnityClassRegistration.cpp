@@ -83,7 +83,7 @@ namespace UI { class CanvasGroup; } template <> void RegisterUnityClass<UI::Canv
 namespace Unity { class Cloth; } 
 class Collider2D; template <> void RegisterUnityClass<Collider2D>(const char*);
 class BoxCollider2D; 
-class CapsuleCollider2D; template <> void RegisterUnityClass<CapsuleCollider2D>(const char*);
+class CapsuleCollider2D; 
 class CircleCollider2D; 
 class CompositeCollider2D; 
 class EdgeCollider2D; 
@@ -287,7 +287,7 @@ void RegisterAllClasses()
 {
 void RegisterBuiltinTypes();
 RegisterBuiltinTypes();
-	//Total: 92 non stripped classes
+	//Total: 91 non stripped classes
 	//0. NavMeshAgent
 	RegisterUnityClass<NavMeshAgent>("AI");
 	//1. NavMeshProjectSettings
@@ -450,27 +450,25 @@ RegisterBuiltinTypes();
 	RegisterUnityClass<Rigidbody>("Physics");
 	//80. SphereCollider
 	RegisterUnityClass<SphereCollider>("Physics");
-	//81. CapsuleCollider2D
-	RegisterUnityClass<CapsuleCollider2D>("Physics2D");
-	//82. Collider2D
+	//81. Collider2D
 	RegisterUnityClass<Collider2D>("Physics2D");
-	//83. Physics2DSettings
+	//82. Physics2DSettings
 	RegisterUnityClass<Physics2DSettings>("Physics2D");
-	//84. PolygonCollider2D
+	//83. PolygonCollider2D
 	RegisterUnityClass<PolygonCollider2D>("Physics2D");
-	//85. Rigidbody2D
+	//84. Rigidbody2D
 	RegisterUnityClass<Rigidbody2D>("Physics2D");
-	//86. Terrain
+	//85. Terrain
 	RegisterUnityClass<Terrain>("Terrain");
-	//87. TerrainData
+	//86. TerrainData
 	RegisterUnityClass<TerrainData>("Terrain");
-	//88. TextRendering::Font
+	//87. TextRendering::Font
 	RegisterUnityClass<TextRendering::Font>("TextRendering");
-	//89. UI::Canvas
+	//88. UI::Canvas
 	RegisterUnityClass<UI::Canvas>("UI");
-	//90. UI::CanvasGroup
+	//89. UI::CanvasGroup
 	RegisterUnityClass<UI::CanvasGroup>("UI");
-	//91. UI::CanvasRenderer
+	//90. UI::CanvasRenderer
 	RegisterUnityClass<UI::CanvasRenderer>("UI");
 
 }

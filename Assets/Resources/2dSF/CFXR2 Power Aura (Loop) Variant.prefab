@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7054633275861091751
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1064919628000095574, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.8539901
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.0861828
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.017282
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095575, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064919628000095592, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_Name
+      value: CFXR2 Power Aura (Loop)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3258320602985216455, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079464696666216990, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396156250386781283, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8609859
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396156250386781283, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6433735
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396156250386781283, guid: 885f95ee485017e47972d993c5815757, type: 3}
+      propertyPath: m_Intensity
+      value: 2.6795607
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 885f95ee485017e47972d993c5815757, type: 3}

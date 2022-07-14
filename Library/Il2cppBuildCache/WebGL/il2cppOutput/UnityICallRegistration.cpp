@@ -1914,6 +1914,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Mesh_HasVertexAttribute();
 		Register_UnityEngine_Mesh_HasVertexAttribute();
 
+		//System.Boolean UnityEngine.Mesh::IsCloudResource()
+		void Register_UnityEngine_Mesh_IsCloudResource();
+		Register_UnityEngine_Mesh_IsCloudResource();
+
 		//System.Boolean UnityEngine.Mesh::get_canAccess()
 		void Register_UnityEngine_Mesh_get_canAccess();
 		Register_UnityEngine_Mesh_get_canAccess();
@@ -2882,6 +2886,10 @@ void RegisterAllStrippedInternalCalls()
 
 	//Start Registrations for type : UnityEngine.Sprite
 
+		//System.Boolean UnityEngine.Sprite::get_isUsingPlaceholder()
+		void Register_UnityEngine_Sprite_get_isUsingPlaceholder();
+		Register_UnityEngine_Sprite_get_isUsingPlaceholder();
+
 		//System.Int32 UnityEngine.Sprite::GetPacked()
 		void Register_UnityEngine_Sprite_GetPacked();
 		Register_UnityEngine_Sprite_GetPacked();
@@ -3178,13 +3186,13 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Texture_get_isReadable();
 		Register_UnityEngine_Texture_get_isReadable();
 
-		//System.Int32 UnityEngine.Texture::GetDataHeight()
-		void Register_UnityEngine_Texture_GetDataHeight();
-		Register_UnityEngine_Texture_GetDataHeight();
+		//System.Int32 UnityEngine.Texture::GetScriptHeight()
+		void Register_UnityEngine_Texture_GetScriptHeight();
+		Register_UnityEngine_Texture_GetScriptHeight();
 
-		//System.Int32 UnityEngine.Texture::GetDataWidth()
-		void Register_UnityEngine_Texture_GetDataWidth();
-		Register_UnityEngine_Texture_GetDataWidth();
+		//System.Int32 UnityEngine.Texture::GetScriptWidth()
+		void Register_UnityEngine_Texture_GetScriptWidth();
+		Register_UnityEngine_Texture_GetScriptWidth();
 
 		//System.Int32 UnityEngine.Texture::Internal_GetActiveTextureColorSpace()
 		void Register_UnityEngine_Texture_Internal_GetActiveTextureColorSpace();
@@ -3505,6 +3513,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Boolean UnityEngine.U2D.SpriteAtlas::CanBindTo(UnityEngine.Sprite)
 		void Register_UnityEngine_U2D_SpriteAtlas_CanBindTo();
 		Register_UnityEngine_U2D_SpriteAtlas_CanBindTo();
+
+		//System.Boolean UnityEngine.U2D.SpriteAtlas::IsPlaceholder()
+		void Register_UnityEngine_U2D_SpriteAtlas_IsPlaceholder();
+		Register_UnityEngine_U2D_SpriteAtlas_IsPlaceholder();
 
 	//End Registrations for type : UnityEngine.U2D.SpriteAtlas
 

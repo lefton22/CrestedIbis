@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8808387040220187819
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1029124727209574653, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692074878377, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692074878379, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919798, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919799, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Name
+      value: CFXR2 Magic Explosion (Lit, Blue)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919799, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.4540756
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22179702
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.2087822
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692228919800, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692407351269, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692484715714, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692484715714, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692484715714, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692484715714, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623692484715715, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623693579979712, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054623694040678828, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635853998887995431, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837415328816277859, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597049320961160825, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275961130951784552, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913960038696965085, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bd5703d32b8e83a458aaf927f2cc030d, type: 3}

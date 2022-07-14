@@ -6930,6 +6930,22 @@ public:
 };
 
 
+// UnityEngine.PlayerLoop.EarlyUpdate/UpdateAutoStreamer
+struct UpdateAutoStreamer_t7D973CF64989CFDD36D200878B3211ECD60EE06E 
+{
+public:
+	union
+	{
+		struct
+		{
+		};
+		uint8_t UpdateAutoStreamer_t7D973CF64989CFDD36D200878B3211ECD60EE06E__padding[1];
+	};
+
+public:
+};
+
+
 // UnityEngine.PlayerLoop.EarlyUpdate/UpdateCanvasRectTransform
 struct UpdateCanvasRectTransform_t6BD3BF9EC17DC88DCCACE9DA694623B8184D4C08 
 {
@@ -16161,12 +16177,12 @@ inline Encoding_tE901442411E2E70039D2A4AE77FB81C3D6064827 * KeyValuePair_2_get_V
 {
 	return ((  Encoding_tE901442411E2E70039D2A4AE77FB81C3D6064827 * (*) (KeyValuePair_2_t3A7CB634D4B37FBC5AD1F3511F36FC672A31B11B *, const RuntimeMethod*))KeyValuePair_2_get_Value_m622223593F7461E7812C581DDB145270016ED303_gshared_inline)(__this, method);
 }
-// System.Int32 UnityEngine.Texture::GetDataWidth()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Texture_GetDataWidth_m5EE88F5417E01649909C3E11408491DB88AA9442 (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE * __this, const RuntimeMethod* method);
+// System.Int32 UnityEngine.Texture::GetScriptWidth()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Texture_GetScriptWidth_m829B066371BA1EC8F9EE6C34284DF914399A0E8E (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE * __this, const RuntimeMethod* method);
 // System.Void System.NotImplementedException::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NotImplementedException__ctor_mA2E9CE7F00CB335581A296D2596082D57E45BA83 (NotImplementedException_t26260C4EE0444C5FA022994203060B3A42A3ADE6 * __this, const RuntimeMethod* method);
-// System.Int32 UnityEngine.Texture::GetDataHeight()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Texture_GetDataHeight_m1DFF41FBC7542D2CDB0247CF02A0FE0ACB60FB99 (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE * __this, const RuntimeMethod* method);
+// System.Int32 UnityEngine.Texture::GetScriptHeight()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Texture_GetScriptHeight_m9366F84163DC793C1515F4001B63FA0950A7A3FF (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.Texture::get_texelSize_Injected(UnityEngine.Vector2&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Texture_get_texelSize_Injected_mE4C2F32E9803126870079BDF7EB701CDD19910E2 (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE * __this, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9 * ___ret0, const RuntimeMethod* method);
 // System.Int32 UnityEngine.Texture::Internal_GetActiveTextureColorSpace()
@@ -30147,6 +30163,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7E
 		return L_0;
 	}
 }
+// System.Boolean UnityEngine.Sprite::get_isUsingPlaceholder()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Sprite_get_isUsingPlaceholder_m2A262CBB59091B637A56852D8D66A97ECF02F57B (Sprite_t5B10B1178EC2E6F53D33FFD77557F31C08A51ED9 * __this, const RuntimeMethod* method)
+{
+	typedef bool (*Sprite_get_isUsingPlaceholder_m2A262CBB59091B637A56852D8D66A97ECF02F57B_ftn) (Sprite_t5B10B1178EC2E6F53D33FFD77557F31C08A51ED9 *);
+	static Sprite_get_isUsingPlaceholder_m2A262CBB59091B637A56852D8D66A97ECF02F57B_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Sprite_get_isUsingPlaceholder_m2A262CBB59091B637A56852D8D66A97ECF02F57B_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Sprite::get_isUsingPlaceholder()");
+	bool icallRetVal = _il2cpp_icall_func(__this);
+	return icallRetVal;
+}
 // System.Boolean UnityEngine.Sprite::get_packed()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Sprite_get_packed_m075910C79D785DC2572B171DA93918CF2793B133 (Sprite_t5B10B1178EC2E6F53D33FFD77557F31C08A51ED9 * __this, const RuntimeMethod* method)
 {
@@ -30356,6 +30382,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool SpriteAtlas_CanBindTo_m01D0066BE96095821
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (SpriteAtlas_CanBindTo_m01D0066BE9609582194ADA0DA70E598530DACF03_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.U2D.SpriteAtlas::CanBindTo(UnityEngine.Sprite)");
 	bool icallRetVal = _il2cpp_icall_func(__this, ___sprite0);
+	return icallRetVal;
+}
+// System.Boolean UnityEngine.U2D.SpriteAtlas::IsPlaceholder()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool SpriteAtlas_IsPlaceholder_m0290047C95A7D44C313749017C4A2F1981475346 (SpriteAtlas_t72834B063A58822D683F5557DF8D164740C8A5F9 * __this, const RuntimeMethod* method)
+{
+	typedef bool (*SpriteAtlas_IsPlaceholder_m0290047C95A7D44C313749017C4A2F1981475346_ftn) (SpriteAtlas_t72834B063A58822D683F5557DF8D164740C8A5F9 *);
+	static SpriteAtlas_IsPlaceholder_m0290047C95A7D44C313749017C4A2F1981475346_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (SpriteAtlas_IsPlaceholder_m0290047C95A7D44C313749017C4A2F1981475346_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.U2D.SpriteAtlas::IsPlaceholder()");
+	bool icallRetVal = _il2cpp_icall_func(__this);
 	return icallRetVal;
 }
 #ifdef __clang__
@@ -33120,23 +33156,23 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Texture__ctor_mA6FE9CC0AF05A99FADCEF0BED
 		return;
 	}
 }
-// System.Int32 UnityEngine.Texture::GetDataWidth()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Texture_GetDataWidth_m5EE88F5417E01649909C3E11408491DB88AA9442 (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE * __this, const RuntimeMethod* method)
+// System.Int32 UnityEngine.Texture::GetScriptWidth()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Texture_GetScriptWidth_m829B066371BA1EC8F9EE6C34284DF914399A0E8E (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE * __this, const RuntimeMethod* method)
 {
-	typedef int32_t (*Texture_GetDataWidth_m5EE88F5417E01649909C3E11408491DB88AA9442_ftn) (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE *);
-	static Texture_GetDataWidth_m5EE88F5417E01649909C3E11408491DB88AA9442_ftn _il2cpp_icall_func;
+	typedef int32_t (*Texture_GetScriptWidth_m829B066371BA1EC8F9EE6C34284DF914399A0E8E_ftn) (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE *);
+	static Texture_GetScriptWidth_m829B066371BA1EC8F9EE6C34284DF914399A0E8E_ftn _il2cpp_icall_func;
 	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (Texture_GetDataWidth_m5EE88F5417E01649909C3E11408491DB88AA9442_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Texture::GetDataWidth()");
+	_il2cpp_icall_func = (Texture_GetScriptWidth_m829B066371BA1EC8F9EE6C34284DF914399A0E8E_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Texture::GetScriptWidth()");
 	int32_t icallRetVal = _il2cpp_icall_func(__this);
 	return icallRetVal;
 }
-// System.Int32 UnityEngine.Texture::GetDataHeight()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Texture_GetDataHeight_m1DFF41FBC7542D2CDB0247CF02A0FE0ACB60FB99 (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE * __this, const RuntimeMethod* method)
+// System.Int32 UnityEngine.Texture::GetScriptHeight()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Texture_GetScriptHeight_m9366F84163DC793C1515F4001B63FA0950A7A3FF (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE * __this, const RuntimeMethod* method)
 {
-	typedef int32_t (*Texture_GetDataHeight_m1DFF41FBC7542D2CDB0247CF02A0FE0ACB60FB99_ftn) (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE *);
-	static Texture_GetDataHeight_m1DFF41FBC7542D2CDB0247CF02A0FE0ACB60FB99_ftn _il2cpp_icall_func;
+	typedef int32_t (*Texture_GetScriptHeight_m9366F84163DC793C1515F4001B63FA0950A7A3FF_ftn) (Texture_t9FE0218A1EEDF266E8C85879FE123265CACC95AE *);
+	static Texture_GetScriptHeight_m9366F84163DC793C1515F4001B63FA0950A7A3FF_ftn _il2cpp_icall_func;
 	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (Texture_GetDataHeight_m1DFF41FBC7542D2CDB0247CF02A0FE0ACB60FB99_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Texture::GetDataHeight()");
+	_il2cpp_icall_func = (Texture_GetScriptHeight_m9366F84163DC793C1515F4001B63FA0950A7A3FF_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Texture::GetScriptHeight()");
 	int32_t icallRetVal = _il2cpp_icall_func(__this);
 	return icallRetVal;
 }
@@ -33146,7 +33182,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Texture_get_width_m98E7185116DB24A73E
 	int32_t V_0 = 0;
 	{
 		int32_t L_0;
-		L_0 = Texture_GetDataWidth_m5EE88F5417E01649909C3E11408491DB88AA9442(__this, /*hidden argument*/NULL);
+		L_0 = Texture_GetScriptWidth_m829B066371BA1EC8F9EE6C34284DF914399A0E8E(__this, /*hidden argument*/NULL);
 		V_0 = L_0;
 		goto IL_000a;
 	}
@@ -33172,7 +33208,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Texture_get_height_m3D849F551F396027D
 	int32_t V_0 = 0;
 	{
 		int32_t L_0;
-		L_0 = Texture_GetDataHeight_m1DFF41FBC7542D2CDB0247CF02A0FE0ACB60FB99(__this, /*hidden argument*/NULL);
+		L_0 = Texture_GetScriptHeight_m9366F84163DC793C1515F4001B63FA0950A7A3FF(__this, /*hidden argument*/NULL);
 		V_0 = L_0;
 		goto IL_000a;
 	}
@@ -44143,6 +44179,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DisplaysUpdatedDelegate_EndInvoke_mBE00D
 {
 	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
 }
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

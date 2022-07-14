@@ -104,6 +104,8 @@ namespace Panda.Ibis {
 
         public GameObject _dot;
 
+        public GameObject _ibisA_FX;
+
 
         [Header("Theirtory")]
         public List<GameObject> landsPassThrough;
@@ -215,6 +217,8 @@ namespace Panda.Ibis {
 
             _ObjOnLand = GameObject.Find("ObjOnLand");
 
+           // _ibisA_FX =GameObject.Find("ibisA_FX");
+
         }
 
 
@@ -223,6 +227,8 @@ namespace Panda.Ibis {
 
         public void breakWhenIbisAAct() //���ڴ�� 
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("brambles", false);
+
             GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
             //GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().enabled = false;
             //GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = false;
@@ -255,6 +261,7 @@ namespace Panda.Ibis {
         }
         public void outOfBreakWhenIbisAAct() //跳出打断
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             //GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = true;
 
@@ -446,6 +453,8 @@ namespace Panda.Ibis {
         [Task]
         void enableAILerp()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = true;
 
             ThisTask.Succeed();
@@ -454,6 +463,8 @@ namespace Panda.Ibis {
         [Task]
         void checkHasFood()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             GameObject[] foods2 = GameObject.FindGameObjectsWithTag("food");
             /*            _listObjOnLand.foodOnLand.Clear();
                         _listObjOnLand.foodOnLand_GO.Clear();*/
@@ -478,6 +489,7 @@ namespace Panda.Ibis {
         [Task]
         void seekFood()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
             _listObjOnLand.foodOnLand.Clear();
             _listObjOnLand.foodOnLand_GO.Clear();
@@ -605,6 +617,8 @@ namespace Panda.Ibis {
         void checkItemsOnLand() // now traps...
                                                 //but ibisA cannot seek to a place on which has trap on
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             List<GameObject> items;
             items = new List<GameObject>();
 
@@ -646,6 +660,9 @@ namespace Panda.Ibis {
         [Task]
         void eat()
         {
+
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             int amount_food;
             amount_food = _listObjOnLand.foodOnLand.Count;
 
@@ -728,6 +745,8 @@ namespace Panda.Ibis {
 
         void isFemale()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             if (gender == 1) //��
             { ThisTask.Succeed(); } 
             else { ThisTask.Fail(); }
@@ -737,6 +756,8 @@ namespace Panda.Ibis {
         [Task]
         void isMale()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             if (gender == 2)
             { ThisTask.Succeed(); }
             else { ThisTask.Fail(); }
@@ -746,6 +767,8 @@ namespace Panda.Ibis {
         [Task]
         void isThisSingle()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             if (isSingle) 
             { ThisTask.Succeed(); }
             else { ThisTask.Fail(); }
@@ -754,6 +777,8 @@ namespace Panda.Ibis {
         [Task]
         void isThereNPCIbis()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             if (_listObjOnLand.NPCibisOnLand.Count > 0)
             { ThisTask.Succeed(); }
             else { ThisTask.Fail(); }
@@ -769,6 +794,7 @@ namespace Panda.Ibis {
                         {
                             ThisTask.Succeed();
                         }*/
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             foreach (Transform child in GameObject.Find("ObjOnLand").transform)
             {
@@ -803,6 +829,8 @@ namespace Panda.Ibis {
         [Task]
         void isThereSingleOpGender()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             int amount;
             amount = 0;
             List<GameObject> allOpGenderOp;
@@ -838,6 +866,8 @@ namespace Panda.Ibis {
         [Task]
         void goToOpGender()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
+
             seekLocation(choosenIbis.transform.position);
 
             Vector2 v2_ibisB;
@@ -866,6 +896,8 @@ namespace Panda.Ibis {
         [Task]
         void isPartnerOnTheMap()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             if (mate)
             {
                 ThisTask.Succeed();
@@ -876,6 +908,7 @@ namespace Panda.Ibis {
         [Task]
         void isThisCourtship()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             if (isCourtship)
             {
@@ -887,6 +920,8 @@ namespace Panda.Ibis {
         [Task]
         void Courtship()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             // play ani
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_courtship");
 
@@ -912,6 +947,8 @@ namespace Panda.Ibis {
         [Task]
         void goToMate()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
+
             seekLocation(mate.transform.position);
 
             Vector2 v2_ibisB;
@@ -938,6 +975,8 @@ namespace Panda.Ibis {
         [Task]
         void Mate()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             // play mate ani (egg)
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_produceEggs");//ani should be changed
 
@@ -965,8 +1004,10 @@ namespace Panda.Ibis {
         [Task]
         void comb()
         {
-                //play the ani
-                transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_comb");
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
+            //play the ani
+            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_comb");
                 // //after playing the ani, task succeed
                 if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasCombed"))
                 {
@@ -982,8 +1023,10 @@ namespace Panda.Ibis {
         [Task]
         void touchBeaks()  // combo for combing??!
         {
-                //both birds play the ani 
-                transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_touchedBeaks");
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
+            //both birds play the ani 
+            transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_touchedBeaks");
                 // choosenIbis.GetComponent<Animator>().Play("ibis_touchedBeaks"); // ��Ҫ��λ
 
                 if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasTouchedBeaks"))
@@ -998,6 +1041,9 @@ namespace Panda.Ibis {
         [Task]
         void quarrelWithLoveRival()
         {
+
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             Debug.Log("qua0");
             if (isGoToOpSexNotSingleMeetOp)
             {
@@ -1019,6 +1065,8 @@ namespace Panda.Ibis {
         [Task]
         void checkMateIbis()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             if (mate)
             {
                 ThisTask.Succeed();
@@ -1029,6 +1077,7 @@ namespace Panda.Ibis {
         [Task]
         void checkBuildNest()// to check if there is no nest
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             GameObject[] nests;
             nests = GameObject.FindGameObjectsWithTag("nest");
@@ -1040,6 +1089,7 @@ namespace Panda.Ibis {
             [Task]
         void checkNest()// 需有巢才能进行 -》（反）
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             GameObject[] nests;
             nests = GameObject.FindGameObjectsWithTag("nest");
@@ -1054,6 +1104,8 @@ namespace Panda.Ibis {
         void checkNest_spawn()// // 需有巢无蛋才能进行  -》（反） 
                               //只有两个都true了才能fail
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             bool conA = false;
             bool conB = false;
 
@@ -1085,6 +1137,8 @@ namespace Panda.Ibis {
         [Task]
         void checkNest_incubate()// 需要有巢有蛋才能孵化 -》（反）
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             bool conA = false;
             bool conB = false;
 
@@ -1116,8 +1170,10 @@ namespace Panda.Ibis {
         [Task]
         void checkHasBuidlingMaterial()
         {
-/*            GameObject[] nests;
-            nests = GameObject.FindGameObjectsWithTag("nest");*/
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
+            /*            GameObject[] nests;
+                        nests = GameObject.FindGameObjectsWithTag("nest");*/
 
             if (hasBringLiana || hasBringTwig)
             { ThisTask.Succeed(); }
@@ -1127,6 +1183,8 @@ namespace Panda.Ibis {
         [Task]
         void checkMaterialOnMap()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             GameObject[] materials;
             materials = GameObject.FindGameObjectsWithTag("material");  
 
@@ -1143,6 +1201,8 @@ namespace Panda.Ibis {
 
             if (materials.Length > 0)
             {
+                _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
+
                 int ran;
 
                     ran = Random.Range(0, materials.Length - 1);
@@ -1187,6 +1247,8 @@ namespace Panda.Ibis {
         [Task]
         void goToNest(bool hasBuild) // true: finish build; fasle: unfinished
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
+
             if (!hasBuild)
             {
                 currentNest = null;
@@ -1288,6 +1350,7 @@ namespace Panda.Ibis {
         [Task]
         void buildNest()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             // play the build ani
             //both birds play the ani 
@@ -1316,6 +1379,7 @@ namespace Panda.Ibis {
 
         void checkNestFinished() // current: _isFinished is Succeed
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
             GameObject[] nests;
             nests = GameObject.FindGameObjectsWithTag("nest");
 
@@ -1338,6 +1402,8 @@ namespace Panda.Ibis {
         [Task]
         void hasMate()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             if (mate)
             { ThisTask.Succeed(); }
             else { ThisTask.Fail(); }
@@ -1347,6 +1413,8 @@ namespace Panda.Ibis {
 
         void spawn()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             int ran_amounts_egg;
             ran_amounts_egg = -1;
 
@@ -1423,6 +1491,9 @@ namespace Panda.Ibis {
         [Task]
         void checkCanIncubate()
         {                                    //添加CHECK并且巢内有蛋
+
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             GameObject[] eggs;
             eggs = GameObject.FindGameObjectsWithTag("egg");
             if (eggs.Length == 0)
@@ -1446,6 +1517,8 @@ namespace Panda.Ibis {
                                             {*//*
                             seekLocation(GameObject.Find("nest").transform.position);
                             //just stay there, play ani  */
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_incubate");
                 // egg's properties change. (And eggs are their own "branches")
 
@@ -1470,6 +1543,8 @@ namespace Panda.Ibis {
         [Task]
         void checkBirdling() // need to add checking birdling stuff
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             GameObject[] birdlings;
             birdlings = GameObject.FindGameObjectsWithTag("birdling");
             if (birdlings.Length == 0)
@@ -1484,6 +1559,8 @@ namespace Panda.Ibis {
         [Task]
         void pickFood()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             int amount_food;
             amount_food = _listObjOnLand.foodOnLand.Count;
 
@@ -1531,6 +1608,8 @@ namespace Panda.Ibis {
         [Task]
         void breed()///feed the baby bird
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             // play the ani
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_feedBaby");
 
@@ -1551,6 +1630,8 @@ namespace Panda.Ibis {
         [Task]
         void rest()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("zzzz", false);
+
             //play sleep ani
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_rest");
 
@@ -1569,6 +1650,8 @@ namespace Panda.Ibis {
         [Task]
         void endTurn()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
             if (GameObject.Find("ibis_begin"))
             {
                 GameObject.Find("ibis_begin").GetComponent<MyIbis_begin>().enabled = false;
@@ -1606,6 +1689,8 @@ namespace Panda.Ibis {
         [Task]
         void Next()
         {
+            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", true);
+
             print("next - " + gameObject.name );
 
             GameObject nextChild;
@@ -1644,9 +1729,19 @@ namespace Panda.Ibis {
                 // go 
                 transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_walk");
                 _CrestedIbis.ibisMove1();
-           // }
 
-          //  Debug.Log("move to destination: " + destination);
+            //play FX
+            //_ibisA_FX.SetActive
+ 
+                //bool isActive = _ibisA_FX.activeSelf;
+                //_ibisA_FX.SetActive(!isActive);
+
+                //print("play fx.");
+            
+
+            // }
+
+              Debug.Log("move to destination: " + destination);
 
 
         }
