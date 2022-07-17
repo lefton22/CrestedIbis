@@ -44,7 +44,8 @@ public class objNPC : MonoBehaviour
 
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/egret");
 
-            GetComponent<CapsuleCollider>().enabled = true;
+            GetComponent<CapsuleCollider>().enabled = false; // ori is true
+            GetComponent<Rigidbody>().useGravity = false;
 
             spriteOrder sp_order = gameObject.AddComponent<spriteOrder>() as spriteOrder;
 
@@ -71,7 +72,8 @@ public class objNPC : MonoBehaviour
 
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/snake");
 
-            GetComponent<CapsuleCollider>().enabled = true;
+            GetComponent<CapsuleCollider>().enabled = false; // ori is true
+            GetComponent<Rigidbody>().useGravity = false;
 
             spriteOrder sp_order = gameObject.AddComponent<spriteOrder>() as spriteOrder;
 
@@ -102,6 +104,8 @@ public class objNPC : MonoBehaviour
             spriteOrder sp_order = gameObject.AddComponent<spriteOrder>() as spriteOrder;
 
             GetComponent<CapsuleCollider>().enabled = true;
+            GetComponent<Rigidbody>().useGravity = false;
+
             transform.localScale = new Vector3(1f, 1f, 1f);
             name = "trapMan";
 
@@ -125,7 +129,8 @@ public class objNPC : MonoBehaviour
             Animator _ani = gameObject.AddComponent<Animator>() as Animator;
             MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
 
-            GetComponent<CapsuleCollider>().enabled = true;
+            GetComponent<CapsuleCollider>().enabled = false; // ori is true
+            GetComponent<Rigidbody>().useGravity = false;
 
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/ibisB");
             NPCIbis _NPCIbis = gameObject.AddComponent<NPCIbis>() as NPCIbis;

@@ -85,6 +85,7 @@
     <Compile Include="Assets/Grid Framework/Examples/Lights Off/Scripts/Extension Methods/GFGridLightsExampleExtensions.cs" />
     <Compile Include="Assets/Demigiant/DOTweenPro/DOTweenAnimation.cs" />
     <Compile Include="Assets/Grid Framework/Examples/Level Design + Text Parsing/Scripts/LevelTextParser.cs" />
+    <Compile Include="Assets/Scripts/ibisA_2D_Fx.cs" />
     <Compile Include="Assets/Scripts/ui/skipDrawCard.cs" />
     <Compile Include="Assets/Scripts/faceToCamera.cs" />
     <Compile Include="Assets/Grid Framework/Examples/Lights Off/Scripts/LightsBehaviour.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Assets/Scripts/ui/blink.cs" />
     <Compile Include="Assets/Panda.BT.free/Samples/03_Shooter/Assets/BulletImpact.cs" />
     <Compile Include="Assets/Grid Framework/Examples/Movement with Walls/Scripts/RoamGridWithWalls.cs" />
+    <Compile Include="Assets/Scripts/setRefRes.cs" />
     <Compile Include="Assets/Scripts/highHill.cs" />
     <Compile Include="Assets/Scripts/LandGen2.cs" />
     <Compile Include="Assets/Grid Framework/Examples/Sliding Puzzle/Scripts/SlidingPuzzleGrid.cs" />
@@ -143,6 +145,7 @@
     <Compile Include="Assets/Scripts/showV2.cs" />
     <Compile Include="Assets/Scripts/riverLand.cs" />
     <Compile Include="Assets/Grid Framework/Examples/Sliding Puzzle/Scripts/DragBlock.cs" />
+    <Compile Include="Assets/Scripts/setRes.cs" />
     <Compile Include="Assets/Grid Framework/Examples/Runtime Snapping/Scripts/PointDebug.cs" />
     <Compile Include="Assets/JMO Assets/Cartoon FX (legacy)/Scripts/CFX2_AutoRotate.cs" />
     <Compile Include="Assets/Scripts/try1.cs" />
@@ -177,7 +180,7 @@
     <Compile Include="Assets/Scripts/obj/objIbisAdult.cs" />
     <Compile Include="Assets/Grid Framework/Examples/Movement with Walls/Scripts/SetupForbiddenTiles.cs" />
     <Compile Include="Assets/Scripts/obj/objTrapMan.cs" />
-    <Compile Include="Assets/Scripts/ibisA_2D_Fx.cs" />
+    <Compile Include="Assets/Scripts/pollutionPopUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

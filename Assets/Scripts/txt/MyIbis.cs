@@ -169,8 +169,8 @@ namespace Panda.Ibis {
 
             /////////////Node Structure Mark////////////////////
 
-            transform.DOScaleX(1.8f, 0.001f);
-            transform.DOScaleY(1.8f, 0.001f);
+            transform.DOScaleX(1.3f, 0.001f);
+            transform.DOScaleY(1.3f, 0.001f);
 
 
             isMate = false;
@@ -1251,6 +1251,8 @@ namespace Panda.Ibis {
 
             if (!hasBuild)
             {
+                print("goToNest: hasBuild: " + hasBuild);
+
                 currentNest = null;
 
                 // go to the nest. There can only have one nest in the scene.
@@ -1271,7 +1273,12 @@ namespace Panda.Ibis {
                 //ran = Random.Range(0, nests.Length - 1);
 
                 //print("nests[ran]: " + nests[ran]);
-                seekLocation(goal_nest.transform.position);
+
+                if (goal_nest != null)
+                {
+                    seekLocation(goal_nest.transform.position);
+                }
+                if (goal_nest == null) { print("goal_nest = null."); }
 
                 Vector2 v2_nest;
                 Vector2 v2_ibisA;
@@ -1299,6 +1306,8 @@ namespace Panda.Ibis {
 
             if (hasBuild)
             {
+                print("goToNest: hasBuild: " + hasBuild);
+
                 currentNest = null;
 
                 // go to the nest. There can only have one nest in the scene.
@@ -1741,7 +1750,7 @@ namespace Panda.Ibis {
 
             // }
 
-              Debug.Log("move to destination: " + destination);
+//              Debug.Log("move to destination: " + destination);
 
 
         }

@@ -24393,7 +24393,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CU3Ec__DisplayClass66_0_U3CFindGraphWh
 		Type_t * L_4;
 		L_4 = WindowsStoreCompatibility_GetTypeInfo_mF5DFCB8987C5BF83A8471786B378204F5C4D4B04(L_3, /*hidden argument*/NULL);
 		bool L_5;
-		L_5 = VirtFuncInvoker1< bool, Type_t * >::Invoke(110 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_4);
+		L_5 = VirtFuncInvoker1< bool, Type_t * >::Invoke(113 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_4);
 		return L_5;
 	}
 }

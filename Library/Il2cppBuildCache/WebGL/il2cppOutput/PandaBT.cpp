@@ -26077,7 +26077,7 @@ IL_0074:
 		int32_t L_17 = L_16;
 		Type_t * L_18 = (L_15)->GetAtUnchecked(static_cast<il2cpp_array_size_t>(L_17));
 		bool L_19;
-		L_19 = VirtFuncInvoker0< bool >::Invoke(71 /* System.Boolean System.Type::get_IsEnum() */, L_18);
+		L_19 = VirtFuncInvoker0< bool >::Invoke(74 /* System.Boolean System.Type::get_IsEnum() */, L_18);
 		if (!L_19)
 		{
 			goto IL_00be;
@@ -26352,7 +26352,7 @@ IL_0042:
 		IL2CPP_RUNTIME_CLASS_INIT(TaskImplementation_tFC975787A6EAA2CEA4CBC63D3486EB6833173913_il2cpp_TypeInfo_var);
 		int32_t L_17 = ((TaskImplementation_tFC975787A6EAA2CEA4CBC63D3486EB6833173913_StaticFields*)il2cpp_codegen_static_fields_for(TaskImplementation_tFC975787A6EAA2CEA4CBC63D3486EB6833173913_il2cpp_TypeInfo_var))->get_bindingFlags_3();
 		MemberInfoU5BU5D_t04CE6CC3692D77C74DC079E7CAF110CBF031C99E* L_18;
-		L_18 = VirtFuncInvoker1< MemberInfoU5BU5D_t04CE6CC3692D77C74DC079E7CAF110CBF031C99E*, int32_t >::Invoke(58 /* System.Reflection.MemberInfo[] System.Type::GetMembers(System.Reflection.BindingFlags) */, L_16, L_17);
+		L_18 = VirtFuncInvoker1< MemberInfoU5BU5D_t04CE6CC3692D77C74DC079E7CAF110CBF031C99E*, int32_t >::Invoke(61 /* System.Reflection.MemberInfo[] System.Type::GetMembers(System.Reflection.BindingFlags) */, L_16, L_17);
 		V_7 = L_18;
 		MemberInfoU5BU5D_t04CE6CC3692D77C74DC079E7CAF110CBF031C99E* L_19 = V_7;
 		V_9 = L_19;
@@ -26626,7 +26626,7 @@ IL_008d:
 	{
 		Type_t * L_26 = V_4;
 		bool L_27;
-		L_27 = VirtFuncInvoker0< bool >::Invoke(71 /* System.Boolean System.Type::get_IsEnum() */, L_26);
+		L_27 = VirtFuncInvoker0< bool >::Invoke(74 /* System.Boolean System.Type::get_IsEnum() */, L_26);
 		if (!L_27)
 		{
 			goto IL_00c0;

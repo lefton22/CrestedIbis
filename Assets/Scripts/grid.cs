@@ -73,11 +73,19 @@ public class grid : MonoBehaviour
         {
             hasPolluted = true;
 
+            //play pollution ani
+            GameObject pollution_PU = Instantiate(Resources.Load("goj/popup-pollution")) as GameObject;
+            pollution_PU.transform.position = gameObject.transform.position;
+
             //change sprite
         }
         if (landType == 4)
         {
             hasPolluted = true;
+
+            //play pollution ani
+            GameObject pollution_PU = Instantiate(Resources.Load("goj/popup-pollution")) as GameObject;
+            pollution_PU.transform.position = gameObject.transform.position;
 
             //change sprite}
         }
@@ -85,6 +93,10 @@ public class grid : MonoBehaviour
         if (landType == 7) // river
         {
             hasPolluted = true;
+
+            //play pollution ani
+            GameObject pollution_PU = Instantiate(Resources.Load("goj/popup-pollution")) as GameObject;
+            pollution_PU.transform.position = gameObject.transform.position;
 
             //change sprite}
         }
@@ -120,6 +132,10 @@ public class grid : MonoBehaviour
                         {
                             // obj's sprite change
                             gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.3f, 0.5f, 1);
+
+                            //play pollution ani ===> should be food be polluted ani
+                            GameObject pollution_PU = Instantiate(Resources.Load("goj/popup-pollution")) as GameObject;
+                            pollution_PU.transform.position = gameObject.transform.position;
 
                             // obj's food's rich change; isToxic = true
                             child.gameObject.GetComponent<objFood>().getPolluted();

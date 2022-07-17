@@ -47,14 +47,15 @@ public class ibisA_2D_Fx : MonoBehaviour
             }
 
 
-                for (int i = 0; i < ibisA_FXs.Count; i++)
-                {
-                    ibisA_FXs[i].SetActive(false);
-                    if (ibisA_FXs[i].name == "brambles")
-                    {
-                       ibisA_FXs[i].SetActive(true);
-                    }
-                }
+                //for (int i = 0; i < ibisA_FXs.Count; i++)
+                //{
+                //if (ibisA_FXs[i].name == "brambles")
+                //{
+                //    ibisA_FXs[i].SetActive(false);
+
+                //       ibisA_FXs[i].SetActive(true);
+                //    }
+                //}
 
         }
     }

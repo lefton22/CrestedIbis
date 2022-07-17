@@ -14,6 +14,7 @@ public class SnapToNode : MonoBehaviour {
 			var node = AstarPath.active.GetNearest(transform.position, NNConstraint.None).node;
 			if (node != null) {
 				transform.position = (Vector3)node.position;
+				//transform.position = new Vector3(node.position.x + 0.56f, node.position.y + 0.068f, node.position.z);
 				transform.hasChanged = false;
 			}
 		}

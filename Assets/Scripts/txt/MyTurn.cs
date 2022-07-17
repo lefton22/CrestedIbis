@@ -172,7 +172,7 @@ namespace Panda.Ibis
 
                // _ibisA.GetComponent<SnapToNode>().enabled = false;
                 // Recalculate the graph
-                AstarPath.active.Scan();
+                   AstarPath.active.Scan();
 
                // _ibisA.GetComponent<SnapToNode>().enabled = true;
 
@@ -182,7 +182,7 @@ namespace Panda.Ibis
 
            // _ibisA.GetComponent<SnapToNode>().enabled = false;
             // Recalculate the graph
-            AstarPath.active.Scan();
+               AstarPath.active.Scan();
             _ibisA.GetComponent<SnapToNode>().enabled = true;
 
             ThisTask.Succeed();
@@ -220,7 +220,7 @@ namespace Panda.Ibis
 
 
             // Recalculate the graph
-            AstarPath.active.Scan();
+             AstarPath.active.Scan();
           //  _ibisA.GetComponent<SnapToNode>().enabled = true;
 
             ThisTask.Succeed();
@@ -361,13 +361,13 @@ namespace Panda.Ibis
             _listObjOnLand.isObjOnLand[index_ibisA] = true;
             ////////////
             ///remove the trap's Rigidbody
-            foreach (Transform obj_child in GameObject.Find("ObjOnLand").transform)
-            {
-                if (obj_child.gameObject.name == "trap")
-                {
-                    Destroy(obj_child.gameObject.GetComponent<Rigidbody>());
-                }
-            }
+            //foreach (Transform obj_child in GameObject.Find("ObjOnLand").transform)
+            //{
+            //    if (obj_child.gameObject.name == "trap")
+            //    {
+            //        Destroy(obj_child.gameObject.GetComponent<Rigidbody>());
+            //    }
+            //}
 
              //de active all "Snap To " of obj  under "objOnland"
 
@@ -382,7 +382,7 @@ namespace Panda.Ibis
             //_ibisA.GetComponent<SnapToNode>().enabled = false;
 
             // Recalculate the graph
-            AstarPath.active.Scan();
+             AstarPath.active.Scan();
             
 
             ///// Top// check the egg // ///////
@@ -532,7 +532,7 @@ namespace Panda.Ibis
 
             //how about create 24 bools for scan in 24 turns?
             // Recalculate the graph
-            AstarPath.active.Scan();
+            //AstarPath.active.Scan();
 
             _ibisA.GetComponent<Animator>().enabled = true;
             _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;
@@ -690,7 +690,7 @@ namespace Panda.Ibis
                     obj.transform.SetParent(card.transform);
                     obj.GetComponent<SnapToNode>().enabled = false;
                     obj.transform.position = new Vector3(999f, 999f, 999f);
-                    obj.transform.localScale = new Vector3(1f,1f,1f);
+                    obj.transform.localScale = new Vector3(0.75f,0.75f,0.75f);
 
                     //decide what this card is
 /*                    int random_index;

@@ -21,13 +21,16 @@ public class objV2Pos : MonoBehaviour
 
         _myIbis = GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>();
 
-      //  ori_Rotation = transform.localRotation.eulerAngles;
+        //  ori_Rotation = transform.localRotation.eulerAngles;
+
+       
     }
 
     void Update()
     {
       //  if (gameObject.name != "ibisA")
        // transform.localEulerAngles= ori_Rotation;
+
         transform.localEulerAngles = new Vector3(0f,0f,-18f);
 
 

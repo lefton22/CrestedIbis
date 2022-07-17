@@ -1,16 +1,13 @@
 ﻿<Properties StartupConfiguration="{0FE10F89-23AC-F0E1-1DA9-1EED4E7DAA4F}|">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="060c7833-dd20-4ca0-85e2-c07f8a730673" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/txt/MyIbis.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/txt/MyNPC.cs">
     <Files>
-      <File FileName="Assets/Scripts/txt/MyTurn.cs" Line="536" Column="1" />
-      <File FileName="Assets/Scripts/txt/MyNPC.cs" Line="372" Column="1" />
-      <File FileName="Assets/Scripts/dragCard.cs" Line="182" Column="60" />
-      <File FileName="Assets/Scripts/txt/MyIbis.cs" Line="1627" Column="1" />
-      <File FileName="Assets/Scripts/ui/introPanel.cs" Line="21" Column="1" />
-      <File FileName="Assets/Scripts/ibisA_2D_Fx.cs" Line="43" Column="1" />
+      <File FileName="Assets/Scripts/txt/MyTurn.cs" Line="385" Column="13" />
+      <File FileName="Assets/Scripts/txt/MyNPC.cs" Line="405" Column="1" />
+      <File FileName="Assets/Scripts/obj/objNPC.cs" Line="109" Column="60" />
+      <File FileName="Assets/Scripts/txt/MyIbis.cs" Line="1278" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -30,7 +27,8 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/rie/Documents/GitHub/CrestedIbis/Assets/Scripts/txt/MyIbis.cs" relfile="Assets/Scripts/txt/MyIbis.cs" line="1412" column="1" />
+      <Breakpoint file="/Users/rie/Documents/GitHub/CrestedIbis/Assets/Scripts/txt/MyIbis.cs" relfile="Assets/Scripts/txt/MyIbis.cs" line="1424" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9b63a015-7c95-480f-8a13-842b392d5214" />
 </Properties>
