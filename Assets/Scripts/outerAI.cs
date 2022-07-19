@@ -162,12 +162,15 @@ public class outerAI : MonoBehaviour
     {
       // _t_month.GetComponent<TMPro.TextMeshProUGUI>().text = "Month : " + month;
       //  _t_temperature.GetComponent<TMPro.TextMeshProUGUI>().text = "C : " + temperature;
-        _t_turn.GetComponent<TMPro.TextMeshProUGUI>() .text =_turnBased.GetComponent<turnBased>().turn.ToString();
+
+       // _t_turn.GetComponent<TMPro.TextMeshProUGUI>() .text =_turnBased.GetComponent<turnBased>().turn.ToString();
+        _t_turn.GetComponent<Text>().text = _turnBased.GetComponent<turnBased>().turn.ToString();
 
         //print("Gender: " + Panda.Ibis.MyIbis.gender
         //
-       // print("panda ap: " + Panda.Ibis.MyIbis.actionPoint);
-        _t_actionPoint.GetComponent<TMPro.TextMeshProUGUI>().text = /* "AP: " + */Panda.Ibis.MyIbis.actionPoint.ToString();
+        // print("panda ap: " + Panda.Ibis.MyIbis.actionPoint);
+        //_t_actionPoint.GetComponent<TMPro.TextMeshProUGUI>().text = /* "AP: " + */Panda.Ibis.MyIbis.actionPoint.ToString();
+        _t_actionPoint.GetComponent<Text>().text = /* "AP: " + */Panda.Ibis.MyIbis.actionPoint.ToString();
 
         if (Panda.Ibis.MyIbis.gender ==1)
         {

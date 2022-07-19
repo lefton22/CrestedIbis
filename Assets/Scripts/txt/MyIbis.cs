@@ -40,6 +40,10 @@ namespace Panda.Ibis {
 
         static public List<GameObject> eggs; // all eggs belongs to this ibis
 
+        static public int APreduced; // due to eating polluted food, max AP would reduced  
+
+        public bool APhasReducedThisTurn;
+
        
 
         [Header(" �� Node Structure Mark")]
@@ -217,7 +221,10 @@ namespace Panda.Ibis {
 
             _ObjOnLand = GameObject.Find("ObjOnLand");
 
-           // _ibisA_FX =GameObject.Find("ibisA_FX");
+            // _ibisA_FX =GameObject.Find("ibisA_FX");
+
+            APreduced = 0;
+            APhasReducedThisTurn = false;
 
         }
 
@@ -707,6 +714,14 @@ namespace Panda.Ibis {
                     print("该食物有毒");
                     // ibis' properties change
                     hasToxic = true;
+
+                    if (!APhasReducedThisTurn)
+                    {
+                        Panda.Ibis.MyIbis.APreduced = Panda.Ibis.MyIbis.APreduced + 1;
+                        APhasReducedThisTurn = true;
+
+                        print("Panda.Ibis.MyIbis.APreduced = Panda.Ibis.MyIbis.APreduced + 1;");
+                    }
 
               //      print("eat 3");
                 }

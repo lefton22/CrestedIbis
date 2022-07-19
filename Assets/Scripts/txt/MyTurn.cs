@@ -69,6 +69,10 @@ namespace Panda.Ibis
 
         public bool drawCardShouldEnd;
 
+       int pollutionTimesEachTurn;
+        int TimesHasPolluttedEachTurn;
+        bool hasCalculateAP;
+
         void Start()
         {
             cards = new List<GameObject>();
@@ -121,6 +125,10 @@ namespace Panda.Ibis
             _allCheck = GameObject.Find("AllCheck").GetComponent<allCheck>();
 
             drawCardShouldEnd = false;
+
+            pollutionTimesEachTurn =2;
+            TimesHasPolluttedEachTurn = 0;
+            hasCalculateAP = false;
 
            // print("myTurn Start: _ibisA: " + _ibisA);
         }
@@ -196,12 +204,24 @@ namespace Panda.Ibis
 
             foreach (GameObject grid in grids)
             {
-                if (_outerAI.pollutionRate > 5)   
+                if (_outerAI.pollutionRate > 0)   
                 {
                     int ran;
                     ran = Random.Range(0, 2);
-                    if (ran> 0)
-                    { grid.GetComponent<grid>().polluteThis(); }
+                    if (ran> 0 && TimesHasPolluttedEachTurn < pollutionTimesEachTurn )
+                    {
+                        if (grid.GetComponent<grid>().landType == 2 ||
+                            grid.GetComponent<grid>().landType == 3 ||
+                            grid.GetComponent<grid>().landType == 4 ||
+                            grid.GetComponent<grid>().landType == 7)
+                        {
+                            grid.GetComponent<grid>().polluteThis();
+                            TimesHasPolluttedEachTurn = TimesHasPolluttedEachTurn + 1;
+
+                            print("TimesHasPolluttedEachTurn: " + TimesHasPolluttedEachTurn);
+                        }
+                        
+                    }
                 }
             }
 
@@ -340,7 +360,33 @@ namespace Panda.Ibis
                             _listObjOnLand.isObjOnLand[i] = false;
                         }*/
 
-            for(int i =0; i<  _listObjOnLand.isObjOnLand.Count; i++)
+            //0//check all obj's lastTurn
+                //trap
+            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+            {
+                if (child.gameObject.name == "trap")
+                {
+                    child.gameObject.GetComponent<trapBreak>().reduce1LastTurn();
+                    child.gameObject.GetComponent<trapBreak>().checkIfLast();
+                }
+            }
+
+            //polluted gird
+
+            GameObject[] grids;
+            grids = GameObject.FindGameObjectsWithTag("grid");
+            foreach (GameObject grid in grids)
+            {
+                if (grid.GetComponent<grid>().landType == 8)
+                {
+                    grid.GetComponent<grid>().reduce1LastTurn();
+                    grid.GetComponent<grid>().checkIfLast();
+                }
+            }
+
+            //1//check all obj's lastTurn
+
+            for (int i =0; i<  _listObjOnLand.isObjOnLand.Count; i++)
             { _listObjOnLand.isObjOnLand[i] = false; }
 
             // add objs
@@ -399,15 +445,28 @@ namespace Panda.Ibis
             ThisTask.Succeed();
         }
 
+        [Task]
+        void calculateAP()
+        {
+            if (!hasCalculateAP)
+            {
+                Panda.Ibis.MyIbis.actionPoint = 4 - Panda.Ibis.MyIbis.APreduced;
 
+                hasCalculateAP = true;
+
+                print("[Task]  calculateAP()");
+            }
+            ThisTask.Succeed();
+        }
 
 
         [Task]
         void dealCards()
         {
             //_myIbis.setIsObjOnLand();
+           
 
-            Panda.Ibis.MyIbis.actionPoint = 4;
+           
 
             _targetPos.transform.position = new Vector3(_targetPos.transform.position.x, 6f, 1f);
 
@@ -582,7 +641,7 @@ namespace Panda.Ibis
 
             //set sprite order
 
-             if (Panda.Ibis.MyIbis.actionPoint == 0)
+             if (Panda.Ibis.MyIbis.actionPoint <= 0)
             {
                 _ibisA.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
 

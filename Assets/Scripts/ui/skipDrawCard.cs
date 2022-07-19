@@ -23,7 +23,7 @@ public class skipDrawCard : MonoBehaviour
         {
             // print("can i skip this turn?");
             gameObject.GetComponent<Image>().enabled = true;
-            transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().enabled = true;
+            transform.GetChild(0).gameObject.GetComponent<Text>().enabled = true;
 
             hasCheck = true;
         }

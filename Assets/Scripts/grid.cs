@@ -44,6 +44,15 @@ public class grid : MonoBehaviour
 
     public bool hasPolluted;
 
+    public int lastTurn;
+
+    int oriLandType;
+
+    GameObject _pollutedStuffs;
+
+    GameObject this_pollution_PU;
+    GameObject this_pollution_mark;
+
     void Start()
     {
         getLandType("dryLand", 0);
@@ -60,6 +69,12 @@ public class grid : MonoBehaviour
         else { isRiver = false; }
 
         if (isRiver) { landType = 7; }
+
+        lastTurn = 2;
+
+        oriLandType = landType;
+
+        _pollutedStuffs = GameObject.Find("pollutedStuffs");
     }
 
     void getLandType(string name, int type)
@@ -69,37 +84,23 @@ public class grid : MonoBehaviour
     }
     public void polluteThis()
     {
-        if (landType == 3)
+        if (landType == 2 || landType == 3 || landType == 4 || landType == 7) // double check
         {
             hasPolluted = true;
 
             //play pollution ani
             GameObject pollution_PU = Instantiate(Resources.Load("goj/popup-pollution")) as GameObject;
             pollution_PU.transform.position = gameObject.transform.position;
+            pollution_PU.transform.SetParent(_pollutedStuffs.transform);
+            this_pollution_PU = pollution_PU;
 
             //change sprite
-        }
-        if (landType == 4)
-        {
-            hasPolluted = true;
-
-            //play pollution ani
-            GameObject pollution_PU = Instantiate(Resources.Load("goj/popup-pollution")) as GameObject;
-            pollution_PU.transform.position = gameObject.transform.position;
-
-            //change sprite}
+            GameObject pollution_mark = Instantiate(Resources.Load("goj/pollutionMark")) as GameObject;
+            pollution_mark.transform.position = gameObject.transform.position;
+            pollution_mark.transform.SetParent(_pollutedStuffs.transform);
+            this_pollution_mark = pollution_mark;
         }
 
-        if (landType == 7) // river
-        {
-            hasPolluted = true;
-
-            //play pollution ani
-            GameObject pollution_PU = Instantiate(Resources.Load("goj/popup-pollution")) as GameObject;
-            pollution_PU.transform.position = gameObject.transform.position;
-
-            //change sprite}
-        }
 
         print("pollute " + gameObject.name +" .");
     }
@@ -116,7 +117,7 @@ public class grid : MonoBehaviour
 
 
                     //change the landtype
-                    if (landType == 3 || landType == 4)
+                    if (landType == 2 || landType == 3 || landType == 4 || landType == 7)
                     {
                         landType = 8;
                     }
@@ -133,9 +134,12 @@ public class grid : MonoBehaviour
                             // obj's sprite change
                             gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.3f, 0.5f, 1);
 
-                            //play pollution ani ===> should be food be polluted ani
-                            GameObject pollution_PU = Instantiate(Resources.Load("goj/popup-pollution")) as GameObject;
-                            pollution_PU.transform.position = gameObject.transform.position;
+/*                            GameObject pollution_mark = Instantiate(Resources.Load("goj/pollutionMark")) as GameObject;
+                            pollution_mark.transform.position = gameObject.transform.position;*/
+
+                    //play pollution ani ===> should be food be polluted ani
+                    //GameObject pollution_PU = Instantiate(Resources.Load("goj/popup-pollution")) as GameObject;
+                     //       pollution_PU.transform.position = gameObject.transform.position;
 
                             // obj's food's rich change; isToxic = true
                             child.gameObject.GetComponent<objFood>().getPolluted();
@@ -162,4 +166,30 @@ public class grid : MonoBehaviour
     void OnCollisionExit(Collision collision)
     { }
 
+    public void reduce1LastTurn()
+    {
+        lastTurn = lastTurn - 1;
+        print("grid pollution -1");
+    }
+    public void checkIfLast()
+    {
+        if (lastTurn < 0)
+        {
+            //play FX
+
+            landType = oriLandType;
+            getLandType("dryLand", 0);
+            getLandType("idleDryLand", 1);
+            getLandType("dryLandField", 2);
+            getLandType("slopeWithGrass", 3);
+            getLandType("grassLand", 4);
+            getLandType("treeLand", 5);
+            getLandType("treeWithNest", 6);
+
+            print("remove grid's pollution.");
+
+            Destroy(this_pollution_mark);
+
+        }
+    }
 }

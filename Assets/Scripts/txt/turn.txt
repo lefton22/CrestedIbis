@@ -6,19 +6,22 @@ tree("Root")
                         Wait(10)
 
                         pollution()
-                        Wait(1)
+                        Wait(200)
 
                         NPCAct()
-                        Wait(40)
+                        Wait(100)
 
                         checkAllObjNPC()
-                        Wait(40)
+                        Wait(1)
+
+                        calculateAP()
+                        Wait(1)
 
                         dealCards
-                        Wait(40)
+                        Wait(50)
 
                         drawCards
-                        Wait(40)
+                        Wait(20)
 
                         checkPollution()
                         Wait(1)
