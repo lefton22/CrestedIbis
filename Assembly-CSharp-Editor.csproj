@@ -66,8 +66,8 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Editor\CFX_SpawnSystemEditor.cs" />
     <Compile Include="Assets\Editor\Grid Framework\GFGridAlignPanel.cs" />
     <Compile Include="Assets\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
-    <Compile Include="Assets\Editor\Grid Framework\Inspectors\GFGridEditor.cs" />
     <Compile Include="Assets\Alpha Masking\Editor\MaskEditor.cs" />
+    <Compile Include="Assets\Editor\Grid Framework\Inspectors\GFGridEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.dll" />

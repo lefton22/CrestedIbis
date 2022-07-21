@@ -749,7 +749,7 @@ namespace Panda.Ibis
                     obj.transform.SetParent(card.transform);
                     obj.GetComponent<SnapToNode>().enabled = false;
                     obj.transform.position = new Vector3(999f, 999f, 999f);
-                    obj.transform.localScale = new Vector3(0.75f,0.75f,0.75f);
+                    obj.transform.localScale = new Vector3(0.65f,0.65f,0.65f);
 
                     //decide what this card is
 /*                    int random_index;

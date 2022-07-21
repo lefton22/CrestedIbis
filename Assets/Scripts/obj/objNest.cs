@@ -15,6 +15,8 @@ public class objNest : MonoBehaviour
 
     public bool _isFinished;
 
+    Obj_icons _Obj_icons;
+
     void Start()
     {
         materials = new List<string>();
@@ -25,12 +27,43 @@ public class objNest : MonoBehaviour
         _rateProduce= rateProduce();
 
         _isFinished = false;
+
+        _Obj_icons = GameObject.Find("Lists").GetComponent<Obj_icons>();
+
+        for (int i = 0; i < build_finished; i++)
+        {
+            GameObject nest_HP = Instantiate(Resources.Load("goj/HP-dot-Grey")) as GameObject;
+            nest_HP.transform.position = transform.position;
+            nest_HP.transform.localScale = new Vector3(2f, 2f, 2f);
+            nest_HP.transform.SetParent(transform);
+            nest_HP.GetComponent<SpriteRenderer>().sprite = _Obj_icons.nestHP_grey[i];
+            nest_HP.name = "NestHP" + i.ToString();
+
+            faceToCamera sc = nest_HP.AddComponent<faceToCamera>() as faceToCamera;
+        }
+
+
     }
 
     void Update()
     {
         //show UI
         
+    }
+
+    public void checkNestHP() // call this in MyTurn.cs
+    {
+        for (int i = 0; i < build_current; i++)
+        {
+            GameObject nest_ac_HP = Instantiate(Resources.Load("goj/HP-dot-Green")) as GameObject;
+            nest_ac_HP.transform.position = transform.position;
+            nest_ac_HP.transform.localScale = new Vector3(2f, 2f, 2f);
+            nest_ac_HP.transform.SetParent(transform);
+            nest_ac_HP.GetComponent<SpriteRenderer>().sprite = _Obj_icons.nestHP_grey[i];
+            nest_ac_HP.name = "Nest_ac_HP" + i.ToString();
+
+            faceToCamera sc = nest_ac_HP.AddComponent<faceToCamera>() as faceToCamera;
+        }
     }
 
     public void addOneBuildPoint()

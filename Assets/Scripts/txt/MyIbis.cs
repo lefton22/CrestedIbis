@@ -29,7 +29,7 @@ namespace Panda.Ibis {
         static public int actionPoint;
         static public int maxAP;
 
-        static public bool hasToxic; //中毒与否，若中毒，每回合开始前判定能不能活下去
+        static public bool hasToxic; //中毒与否，若中毒，每回合开始前判定能不能活下去 //no no no, 若是中毒太深就活不下去
 
         static public bool hasBringTwig;
         static public bool hasBringLiana;
@@ -142,7 +142,7 @@ namespace Panda.Ibis {
             //if (chooseGender.cGender == 2) { gender = 2; }
             gender = 1;
             full = 2;// 0��,1��
-            full_max = 2;
+            full_max = 5;
             energy = 1;//0 need to rest, 1 no need 
             isSingle = true;
 

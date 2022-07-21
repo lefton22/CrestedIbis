@@ -76,10 +76,13 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\endCheck.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\DiscMeshGenerator.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Alpha Masking\UIMaterialModifier.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\ForbiddenTilesExample.cs" />
     <Compile Include="Assets\Scripts\obj\objBirdling.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\WaypointPath.cs" />
+    <Compile Include="Assets\Scripts\Map.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Lights Off\Scripts\ConstructPolarBlocks.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\IntersectionTrigger.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Lights Off\Scripts\Extension Methods\GFGridLightsExampleExtensions.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="Assets\Scripts\rayCastBoundry.cs" />
     <Compile Include="Assets\Scripts\pool\listObjOnLand.cs" />
     <Compile Include="Assets\Scripts\ui\monthsPos.cs" />
+    <Compile Include="Assets\Alpha Masking\Samples\Scripts\LogoSpecularityAnimator.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AIVision.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\SnappingUnits.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\TriggerType.cs" />
@@ -107,9 +111,11 @@
     <Compile Include="Assets\Scripts\NPCIbis.cs" />
     <Compile Include="Assets\Scripts\ui\introPanel.cs" />
     <Compile Include="Assets\Scripts\turnBased.cs" />
+    <Compile Include="Assets\Alpha Masking\Samples\Scripts\DungeonCharacterAnimator.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\00_ChangeColor\Assets\MyCube.cs" />
     <Compile Include="Assets\Scripts\genPos.cs" />
     <Compile Include="Assets\Scripts\CrestedIbis.cs" />
+    <Compile Include="Assets\Scripts\Nav.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Scripts\GridToBG.cs" />
     <Compile Include="Assets\Scripts\ui\blink.cs" />
@@ -128,6 +134,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\UITabs\scripts\TabsUI.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
+    <Compile Include="Assets\Alpha Masking\Samples\Scripts\ShipMover.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\BlockSquare.cs" />
     <Compile Include="Assets\Scripts\audio\musicClass.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
@@ -150,9 +157,12 @@
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\PointDebug.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX2_AutoRotate.cs" />
     <Compile Include="Assets\Scripts\try1.cs" />
+    <Compile Include="Assets\Alpha Masking\Samples\Scripts\NightAndDayMaskAnimator.cs" />
+    <Compile Include="Assets\Alpha Masking\Samples\Scripts\UVAnimator.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Seeming Endless Grid\InfinityCamera.cs" />
     <Compile Include="Assets\Scripts\obj\objJackDaw.cs" />
     <Compile Include="Assets\Scripts\txt\MyNPC.cs" />
+    <Compile Include="Assets\Alpha Masking\Samples\Scripts\FogOfWarAlphaPositioner.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
     <Compile Include="Assets\Scripts\ui\starts\ibis_intro.cs" />
     <Compile Include="Assets\Scripts\ibisR.cs" />
@@ -160,12 +170,14 @@
     <Compile Include="Assets\Scripts\spriteOrder.cs" />
     <Compile Include="Assets\Scripts\ui\gameStart.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_Translate.cs" />
+    <Compile Include="Assets\Scripts\Gird.cs" />
     <Compile Include="Assets\Scripts\LandGeneration.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Bullet.cs" />
     <Compile Include="Assets\Scripts\obj\objFood.cs" />
     <Compile Include="Assets\Scripts\dragCard.cs" />
     <Compile Include="Assets\Scripts\objV2Pos.cs" />
+    <Compile Include="Assets\Alpha Masking\Mask.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs" />
     <Compile Include="Assets\UITabs\scripts\TabButtonUI.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\UnitExplosion.cs" />
@@ -181,14 +193,7 @@
     <Compile Include="Assets\Scripts\obj\objIbisAdult.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\SetupForbiddenTiles.cs" />
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
-    <Compile Include="Assets\Alpha Masking\UIMaterialModifier.cs" />
-    <Compile Include="Assets\Alpha Masking\Mask.cs" />
-    <Compile Include="Assets\Alpha Masking\Samples\Scripts\NightAndDayMaskAnimator.cs" />
-    <Compile Include="Assets\Alpha Masking\Samples\Scripts\UVAnimator.cs" />
-    <Compile Include="Assets\Alpha Masking\Samples\Scripts\LogoSpecularityAnimator.cs" />
-    <Compile Include="Assets\Alpha Masking\Samples\Scripts\FogOfWarAlphaPositioner.cs" />
-    <Compile Include="Assets\Alpha Masking\Samples\Scripts\DungeonCharacterAnimator.cs" />
-    <Compile Include="Assets\Alpha Masking\Samples\Scripts\ShipMover.cs" />
+    <Compile Include="Assets\Scripts\obj\Obj_icons.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

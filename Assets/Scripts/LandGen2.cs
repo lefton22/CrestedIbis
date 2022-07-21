@@ -287,7 +287,7 @@ public class LandGen2 : MonoBehaviour
 
         Vector3 eulerRotation = grid_2d.transform.rotation.eulerAngles;
         // grid_2d.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 31.55f);
-        grid_2d.transform.localScale = new Vector3(0.28f, 0.28f, 0.5f);
+        grid_2d.transform.localScale = new Vector3(1f, 1f, 0.5f);
 
         lastRiver = grid_2d;
         lastRiver_dir2 = curTerminal;

@@ -53,6 +53,8 @@ public class grid : MonoBehaviour
     GameObject this_pollution_PU;
     GameObject this_pollution_mark;
 
+    Obj_icons _Obj_icons;
+
     void Start()
     {
         getLandType("dryLand", 0);
@@ -70,11 +72,28 @@ public class grid : MonoBehaviour
 
         if (isRiver) { landType = 7; }
 
-        lastTurn = 2;
+        lastTurn = 8;
 
         oriLandType = landType;
 
         _pollutedStuffs = GameObject.Find("pollutedStuffs");
+
+        _Obj_icons = GameObject.Find("Lists").GetComponent<Obj_icons>();
+
+
+        for (int i = 0; i < lastTurn; i++)
+        {
+            GameObject pollu_HP = Instantiate(Resources.Load("goj/HP-dot-dirtyPurple")) as GameObject;
+            pollu_HP.transform.position = transform.position;
+            pollu_HP.transform.localScale = new Vector3(2f, 2f, 2f);
+            pollu_HP.transform.SetParent(transform);
+            pollu_HP.GetComponent<SpriteRenderer>().sprite = _Obj_icons.pollutionHP[i];
+            pollu_HP.name = "pollutionHP" + i.ToString();
+
+            faceToCamera sc = pollu_HP.AddComponent<faceToCamera>() as faceToCamera;
+
+
+        }
     }
 
     void getLandType(string name, int type)

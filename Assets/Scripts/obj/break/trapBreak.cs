@@ -10,18 +10,31 @@ public class trapBreak : MonoBehaviour
 
     public int lastTurn;
 
+    Obj_icons _Obj_icons;
+
     void Start()
     {
         _ibisA = GameObject.Find("ibisA");
         //hasCheck = false;
-        lastTurn = 2;
+        lastTurn = 4;
+
+        _Obj_icons = GameObject.Find("Lists").GetComponent<Obj_icons>();
+
+        for (int i = 0; i < lastTurn; i++)
+        {
+            GameObject trap_hp = Instantiate(Resources.Load("goj/HP-dot-Red")) as GameObject;
+            trap_hp.transform.position = transform.position;
+            trap_hp.transform.localScale = new Vector3(2f, 2f, 2f);
+            trap_hp.transform.SetParent(transform);
+            trap_hp.GetComponent<SpriteRenderer>().sprite = _Obj_icons.trapHP[i];
+            trap_hp.name = "trapHP" + i.ToString();
+
+            faceToCamera sc = trap_hp.AddComponent<faceToCamera>() as faceToCamera;
+
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter(Collision collision)
     {
