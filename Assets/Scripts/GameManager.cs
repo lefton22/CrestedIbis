@@ -23,6 +23,13 @@ public class GameManager : MonoBehaviour
     private Nav selectNav;
     private int navIndex;
     public static GameManager istance;
+
+
+    /// <summary>
+    /// // self adding content
+    public List<Nav> allObjsNav; // includes all elements on the lands
+
+    /// </summary>
     private void Awake()
     {
         istance = this;
@@ -43,6 +50,30 @@ public class GameManager : MonoBehaviour
         B2.transform.position = Map.instance.girds[B2pos].transform.position;
 
         selectNav = A;
+
+        /// <summary>
+        /// // self adding content
+        allObjsNav = new List<Nav>();
+        // add all Navs
+       // allObjsNav.Add(GameObject.Find("ibisA").GetComponent<Nav>());
+
+       
+        addInAllObjsNav("ibisA");
+        addInAllObjsNav("trap");
+
+
+
+
+        // set all Navs pos
+
+        for (int i =0; i < allObjsNav.Count; i++)
+        {
+            setNavPos(allObjsNav[i], i+2); // pos?
+            
+        }
+
+        /// </summary>
+
     }
 
     private void Update()
@@ -71,12 +102,23 @@ public class GameManager : MonoBehaviour
             }
             else if (navIndex % 3 == 1)
             {
-                selectNav = B1;
+                selectNav =GameObject.Find("ibisA").GetComponent<Nav>();
             }
             else if (navIndex % 3 == 2)
             {
-                selectNav = B2;
+                selectNav = GameObject.Find("trap").GetComponent<Nav>(); ;
             }
         }
+    }
+
+    public void setNavPos(Nav objOnLand, int pos)
+    {
+        objOnLand.transform.position = Map.instance.girds[pos].transform.position;
+    }
+
+    void addInAllObjsNav(string GojHasNav)
+    {
+        if (!allObjsNav.Contains(GameObject.Find(GojHasNav).GetComponent<Nav>()))
+        { allObjsNav.Add(GameObject.Find(GojHasNav).GetComponent<Nav>()); }
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\ui\clickToNext.cs" />
     <Compile Include="Assets\Scripts\obj\objNPC.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AI.cs" />
+    <Compile Include="Assets\Scripts\obj\Obj_icons.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\01_Move\Assets\Move.cs" />
     <Compile Include="Assets\Scripts\square.cs" />
     <Compile Include="Assets\Scripts\bird.cs" />
@@ -72,8 +73,8 @@
     <Compile Include="Assets\Scripts\end_show_narrative\narrativeResult.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutodestructWhenNoChildren.cs" />
     <Compile Include="Assets\UITabs\scripts\TabsUIHorizontal.cs" />
-    <Compile Include="Assets\Scripts\allCheck.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\Scripts\allCheck.cs" />
     <Compile Include="Assets\Scripts\endCheck.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\DiscMeshGenerator.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -193,7 +194,7 @@
     <Compile Include="Assets\Scripts\obj\objIbisAdult.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\SetupForbiddenTiles.cs" />
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
-    <Compile Include="Assets\Scripts\obj\Obj_icons.cs" />
+    <Compile Include="Assets\Scripts\LandGen3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -231,11 +232,9 @@
     <None Include="Assets\Grid Framework\Examples\Level Design + Text Parsing\Level Design Files\Level 3.txt" />
     <None Include="Assets\Scripts\txt\ibis_mate.txt" />
     <None Include="Assets\Scripts\txt\ibis_begin.txt" />
-    <None Include="Assets\Feel\readme.txt" />
     <None Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Player.BT.txt" />
     <None Include="Assets\zh_cn2.txt" />
     <None Include="Assets\Scripts\txt\ibis_seekLove.txt" />
-    <None Include="Assets\Feel\license.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Scripts\txt\ibis_spawn.txt" />
     <None Include="Assets\Demigiant\DOTween\DOTween43.dll" />
@@ -502,9 +501,6 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.24f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween50">
-      <HintPath>Assets\Demigiant\DOTween\DOTween50.dll</HintPath>
-    </Reference>
     <Reference Include="PandaBT">
       <HintPath>Assets\Panda.BT.free\Runtime\PandaBT.dll</HintPath>
     </Reference>
@@ -529,14 +525,17 @@
     <Reference Include="Pathfinding.Poly2Tri">
       <HintPath>Assets\AstarPathfindingProject\Plugins\Poly2Tri\Pathfinding.Poly2Tri.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="DOTween43">
       <HintPath>Assets\Demigiant\DOTween\DOTween43.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>Assets\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>Assets\Demigiant\DOTween\DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.24f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -916,11 +915,14 @@
     <Reference Include="Unity.2D.IK.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Path.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+      <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
@@ -939,9 +941,6 @@
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
@@ -991,18 +990,6 @@
       <Project>{4EE28802-2636-AB19-E489-207F4F3A45D5}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
-    <ProjectReference Include="Lofelt.NiceVibrations.Editor.csproj">
-      <Project>{BA0F7C0E-FF9D-AC43-7FA6-C303E0F29285}</Project>
-      <Name>Lofelt.NiceVibrations.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.HDRP.csproj">
-      <Project>{47C51874-AA91-B9DB-B9A2-D97CDD180702}</Project>
-      <Name>MoreMountains.Feedbacks.HDRP</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
-      <Project>{97CAEBCC-A7B2-EA56-F7B3-431810EAF047}</Project>
-      <Name>MoreMountains.Tools.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="PandaBehaviour.csproj">
       <Project>{565A46CE-8C93-311E-A3D9-911A9B69311E}</Project>
       <Name>PandaBehaviour</Name>
@@ -1023,10 +1010,6 @@
       <Project>{EE2FE7CB-EE00-4B09-B2CE-E508897157DC}</Project>
       <Name>CFXREditor</Name>
     </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.URP.csproj">
-      <Project>{C5A54296-F6A6-19A5-DBA8-F5946AE3F682}</Project>
-      <Name>MoreMountains.Feedbacks.URP</Name>
-    </ProjectReference>
     <ProjectReference Include="CFXRDemo.csproj">
       <Project>{BCF1A5F7-7A8A-B2B8-D7F0-C86E6804C0F7}</Project>
       <Name>CFXRDemo</Name>
@@ -1035,57 +1018,17 @@
       <Project>{059D00C8-2ED8-8CEB-17B9-1E02EDB86214}</Project>
       <Name>PandaBehaviourEditor</Name>
     </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
-      <Project>{8B161092-EEBB-7572-C397-73F6435BEB18}</Project>
-      <Name>MoreMountains.Feedbacks.MMTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.PostProcessing.csproj">
-      <Project>{69582021-84B9-89F3-40A3-A8084A485285}</Project>
-      <Name>MoreMountains.Feedbacks.PostProcessing</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.NiceVibrations.csproj">
-      <Project>{F667939E-44AE-74C1-2AD8-CB2BC25FCCCE}</Project>
-      <Name>MoreMountains.Feedbacks.NiceVibrations</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.Editor.csproj">
-      <Project>{5E3BA1A7-283A-2782-46E9-5BE1EFE9DD5F}</Project>
-      <Name>MoreMountains.Feedbacks.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
       <Project>{0F75ACD5-926F-2FE8-7D8D-EE71A6AD8F14}</Project>
       <Name>AstarPathfindingProject</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.csproj">
-      <Project>{F6E315C2-47B9-AF78-397B-EBFE9A4EA2F2}</Project>
-      <Name>MoreMountains.Feedbacks</Name>
-    </ProjectReference>
-    <ProjectReference Include="Lofelt.NiceVibrations.csproj">
-      <Project>{214C1278-4001-33D1-FB8B-E74C03D9ECA2}</Project>
-      <Name>Lofelt.NiceVibrations</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.TextMeshPro.csproj">
-      <Project>{2D4465C2-8263-EE83-E2CB-F89EE9242A10}</Project>
-      <Name>MoreMountains.Feedbacks.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
       <Project>{C2F3DC10-7BBD-918A-3542-B2EF966C596B}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
-    <ProjectReference Include="Lofelt.NiceVibrations.Demo.csproj">
-      <Project>{FF3765CB-243F-2810-2764-AADC32FB18C8}</Project>
-      <Name>Lofelt.NiceVibrations.Demo</Name>
-    </ProjectReference>
     <ProjectReference Include="CFXRRuntime.csproj">
       <Project>{BE35F21F-E5CB-3180-0A84-3AE0BCCA2E8D}</Project>
       <Name>CFXRRuntime</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.csproj">
-      <Project>{43312B82-5222-F8B5-CA21-4181078940E8}</Project>
-      <Name>MoreMountains.Tools</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.Cinemachine.csproj">
-      <Project>{C872CD08-F0BA-8402-848B-4BF81E64FE43}</Project>
-      <Name>MoreMountains.Feedbacks.Cinemachine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

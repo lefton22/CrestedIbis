@@ -46,6 +46,8 @@ public class Map : MonoBehaviour
             gird.transform.position = girdPos[i];
             girds.Add(gird.GetComponent<Gird>());
 
+            gird.name = "gird" + i.ToString();
+
             allItemList.Add(new State());
             itemAList.Add(new State());
             itemBList.Add(new State());

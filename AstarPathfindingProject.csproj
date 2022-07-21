@@ -97,8 +97,8 @@
     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\Draw.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Generators\PointGenerator.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\Voxels\VoxelUtility.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Generators\NavmeshBase.cs" />
     <Compile Include="Assets\AstarPathfindingProject\RVO\RVOSimulator.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Generators\NavmeshBase.cs" />
     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\Example14_TurnBased_Hexagon\TurnBasedDoor.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Utilities\Funnel.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\RecastMeshGatherer.cs" />
@@ -472,9 +472,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween50">
-      <HintPath>Assets\Demigiant\DOTween\DOTween50.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -487,11 +484,11 @@
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.4\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="unityplastic">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.4\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
-    </Reference>
     <Reference Include="DOTweenProEditor">
       <HintPath>Assets\Demigiant\DOTweenPro\Editor\DOTweenProEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.4\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
@@ -523,14 +520,17 @@
     <Reference Include="Pathfinding.Poly2Tri">
       <HintPath>Assets\AstarPathfindingProject\Plugins\Poly2Tri\Pathfinding.Poly2Tri.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="DOTween43">
       <HintPath>Assets\Demigiant\DOTween\DOTween43.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>Assets\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>Assets\Demigiant\DOTween\DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.24f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

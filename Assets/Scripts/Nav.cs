@@ -166,7 +166,7 @@ public class Nav : MonoBehaviour
 
         if (navType ==  NavType.NavA) //默认为A 触发事件暂停
         {
-            isStoped = true;
+            isStoped = false; // ori = true, if it need to stop it should be true
             Adjust();
         }
 

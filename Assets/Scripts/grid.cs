@@ -81,19 +81,6 @@ public class grid : MonoBehaviour
         _Obj_icons = GameObject.Find("Lists").GetComponent<Obj_icons>();
 
 
-        for (int i = 0; i < lastTurn; i++)
-        {
-            GameObject pollu_HP = Instantiate(Resources.Load("goj/HP-dot-dirtyPurple")) as GameObject;
-            pollu_HP.transform.position = transform.position;
-            pollu_HP.transform.localScale = new Vector3(2f, 2f, 2f);
-            pollu_HP.transform.SetParent(transform);
-            pollu_HP.GetComponent<SpriteRenderer>().sprite = _Obj_icons.pollutionHP[i];
-            pollu_HP.name = "pollutionHP" + i.ToString();
-
-            faceToCamera sc = pollu_HP.AddComponent<faceToCamera>() as faceToCamera;
-
-
-        }
     }
 
     void getLandType(string name, int type)
@@ -121,6 +108,23 @@ public class grid : MonoBehaviour
         }
 
 
+        // add last turn icons
+        if (hasPolluted)
+        {
+            for (int i = 0; i < lastTurn; i++)
+            {
+                GameObject pollu_HP = Instantiate(Resources.Load("goj/HP-dot-dirtyPurple")) as GameObject;
+                pollu_HP.transform.position = transform.position;
+                pollu_HP.transform.localScale = new Vector3(2f, 2f, 2f);
+                pollu_HP.transform.SetParent(transform);
+                pollu_HP.GetComponent<SpriteRenderer>().sprite = _Obj_icons.pollutionHP[i];
+                pollu_HP.GetComponent<SpriteRenderer>().sortingOrder = pollu_HP.GetComponent<SpriteRenderer>().sortingOrder + i;
+                pollu_HP.name = "pollutionHP" + i.ToString();
+
+
+                faceToCamera sc = pollu_HP.AddComponent<faceToCamera>() as faceToCamera;
+            }
+        }
         print("pollute " + gameObject.name +" .");
     }
 

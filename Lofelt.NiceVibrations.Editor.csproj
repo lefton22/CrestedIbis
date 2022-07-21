@@ -728,10 +728,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Lofelt.NiceVibrations.csproj">
-      <Project>{214C1278-4001-33D1-FB8B-E74C03D9ECA2}</Project>
-      <Name>Lofelt.NiceVibrations</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
