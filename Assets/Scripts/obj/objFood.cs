@@ -27,7 +27,7 @@ public class objFood : MonoBehaviour
             foodEnergy.GetComponent<SpriteRenderer>().sprite = _Obj_icons.foodEnergy[i];
             foodEnergy.name = "foodEnergy" + i.ToString();
 
-            faceToCamera sc = foodEnergy.AddComponent<faceToCamera>() as faceToCamera;
+          //  faceToCamera sc = foodEnergy.AddComponent<faceToCamera>() as faceToCamera;
 
 
         }

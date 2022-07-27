@@ -81,6 +81,13 @@ public class grid : MonoBehaviour
         _Obj_icons = GameObject.Find("Lists").GetComponent<Obj_icons>();
 
 
+        // set the parent(girdX)'s state to wall if this is a highHill
+        if (gameObject.name == "highHill")
+        {
+            transform.parent.gameObject.GetComponent<Gird>().state = GirdState.Wall;
+        }
+      //  else { transform.parent.gameObject.GetComponent<Gird>().state = GirdState.Null; }
+
     }
 
     void getLandType(string name, int type)
@@ -122,7 +129,7 @@ public class grid : MonoBehaviour
                 pollu_HP.name = "pollutionHP" + i.ToString();
 
 
-                faceToCamera sc = pollu_HP.AddComponent<faceToCamera>() as faceToCamera;
+              //  faceToCamera sc = pollu_HP.AddComponent<faceToCamera>() as faceToCamera;
             }
         }
         print("pollute " + gameObject.name +" .");

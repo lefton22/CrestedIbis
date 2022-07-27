@@ -46,7 +46,7 @@ public class raycastGrid : MonoBehaviour
 
             Vector3 toCamera = (GameObject.Find("Camera1").transform.position - transform.position).normalized;
 
-             Debug.DrawLine(v3_offSet, GameObject.Find("Camera1").transform.position);
+            // Debug.DrawLine(v3_offSet, GameObject.Find("Camera1").transform.position);
 
         /*        if (Physics.Raycast(transform.position, toCamera, 10))
                 {

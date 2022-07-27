@@ -16,7 +16,7 @@ public class dragCard : MonoBehaviour
     Vector3 v3_ori;
 
     listObjOnLand _ListObjOnLand;
-    LandGen2 _LandGen2;
+    LandGen3 _LandGen3;
 
     bool ifOverlap;
     bool isRightType;
@@ -29,7 +29,7 @@ public class dragCard : MonoBehaviour
         v3_ori = transform.position;
 
         _ListObjOnLand = GameObject.Find("Lists").GetComponent<listObjOnLand>();
-        _LandGen2 = GameObject.Find("LandGenerator").GetComponent<LandGen2>();
+        _LandGen3 = GameObject.Find("LandGenerator").GetComponent<LandGen3>();
 
         ifOverlap = false;
         isRightType = false;
@@ -106,29 +106,29 @@ public class dragCard : MonoBehaviour
         if (transform.GetChild(0).gameObject.GetComponent<whichObj>().which == 5)
         { buildingMaterial = true; }
 
-        for (int i = 0; i < _LandGen2.LandCos_GO.Count; i++)
+        for (int i = 0; i < _LandGen3.LandCos_GO.Count; i++)
         {
-            if (richFood && _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canRichFood)
-                { _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f,0.3f,1,1);
+            if (richFood && _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canRichFood)
+                { _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f,0.3f,1,1);
                 }
-            if (aveFood && _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canAveFood)
-                { _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
+            if (aveFood && _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canAveFood)
+                { _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
                 }
-            if (poorFood && _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canPoorFood)
-                {_LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
+            if (poorFood && _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canPoorFood)
+                {_LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
                 }
-            if (NPC && _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canNPC)
-                {_LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
+            if (NPC && _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canNPC)
+                {_LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
             }
-            if (nest && _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canNest)
-            { _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
+            if (nest && _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canNest)
+            { _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
             }
-            if (humanMadeBuilding && _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canHumanMade)
-            {_LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
+            if (humanMadeBuilding && _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canHumanMade)
+            {_LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
             }
-            if (buildingMaterial && _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canBuildingMaterial)
+            if (buildingMaterial && _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<grid>().canBuildingMaterial)
             {
-                _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
+                _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 1, 1);
             }
         }
 
@@ -145,10 +145,12 @@ public class dragCard : MonoBehaviour
             hasPlaySound = true;
         }
         ///print("card land -3.");
-        for (int i = 0; i < _LandGen2.LandCos_GO.Count; i++)
+        ///
+        //？？地形上色
+        for (int i = 0; i < _LandGen3.LandCos_GO.Count; i++)
         {
           //  print("card land -2.");
-            _LandGen2.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            _LandGen3.LandCos_GO[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
 
          //   print("card land -1.");
         }
@@ -164,27 +166,29 @@ public class dragCard : MonoBehaviour
         {
             //  print("card land 0.");
             /////check if there is obj on the land to prevent from overlapping
-            transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>().thisV2 =
-            turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //��Ʒ��½
+                            /*            transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>().thisV2 =
+                                        turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //��Ʒ��½
 
-            if (transform.GetChild(0).gameObject.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains (transform.GetChild(0).gameObject))
-            {
-                _listObjOnLand.NPCibisOnLand.Add(transform.GetChild(0).gameObject);
-            }
+                                        if (transform.GetChild(0).gameObject.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains (transform.GetChild(0).gameObject))
+                                        {
+                                            _listObjOnLand.NPCibisOnLand.Add(transform.GetChild(0).gameObject);
+                                        }*/
+
+          //  Map.instance.allItemList
 
             //   print("card land 1.");
 
             int index_ifObj;
             index_ifObj = -1;
-            for (int j = 0; j < _LandGen2.LandCos.Count; j++)
+            for (int j = 0; j < _LandGen3.LandCos.Count; j++) // need to check this for new path finding version!
             {
-                if (transform.GetChild(0).gameObject.GetComponent<objV2Pos>().thisV2
-                                            == _LandGen2.LandCos[j])
+/*                if (transform.GetChild(0).gameObject.GetComponent<objV2Pos>().thisV2
+                                            == _LandGen3.LandCos[j])
                 {
                     index_ifObj = j;
                     //print("index_ifObj :"+ index_ifObj ) ;
                    // print("cannot put 2 and index_ifObj: " + index_ifObj);
-                }
+                }*/
             }
 
             for (int k = 0; k < _ListObjOnLand.isObjOnLand.Count; k++)
@@ -252,20 +256,20 @@ public class dragCard : MonoBehaviour
 
             if (!ifOverlap && isRightType)
             {
-                for (int i = 0; i < _LandGen2.LandCos.Count; i++)
+                for (int i = 0; i < _LandGen3.LandCos.Count; i++)
                 {
-                    if (turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo
-                        == _LandGen2.LandCos[i])
+/*                    if (turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo
+                        == _LandGen3.LandCos[i])
                     {
                         _ListObjOnLand.isObjOnLand[i] = true;
                         //  print("cannot put 1");
-                    } 
+                    } */
                 }
 
              //   print("turnBased.MouseUp_currentLand: " + turnBased.MouseUp_currentLand);
                 transform.GetChild(0).transform.position = turnBased.MouseUp_currentLand.transform.position;
                 transform.GetChild(0).GetComponent<SnapToNode>().enabled = true;
-                transform.GetChild(0).transform.gameObject.GetComponent<faceToCamera>().faceToCamera2();
+               // transform.GetChild(0).transform.gameObject.GetComponent<faceToCamera>().faceToCamera2();
 
                 transform.GetChild(0).transform.SetParent(GameObject.Find("ObjOnLand").transform);
 

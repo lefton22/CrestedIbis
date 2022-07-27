@@ -14,6 +14,11 @@ public class spriteOrder : MonoBehaviour
        // hasAdd = false;
     }
 
+    void Update()
+    {
+        
+    }
+
     public void adjustOrder()
     {
         adjustOrder0(2,3000);

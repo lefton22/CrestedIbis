@@ -63,7 +63,9 @@ namespace Panda.Ibis
 
         public bool hasSetNPCTreeActive;
 
-        LandGen2 _LandGen2;
+       // LandGen2 _LandGen2;
+
+        LandGen3 _LandGen3;
 
         allCheck _allCheck;
 
@@ -82,9 +84,9 @@ namespace Panda.Ibis
 
             _ibisA = GameObject.Find("ibisA");
             _turnBased = GameObject.Find("TurnBased");
-
+/*
             _targetPos = GameObject.Find("Target2");
-            v3_targetPos = _targetPos.transform.position;
+            v3_targetPos = _targetPos.transform.position;*/
 
             _outerAI = GameObject.Find("Values").GetComponent<outerAI>();
 
@@ -120,7 +122,9 @@ namespace Panda.Ibis
 
             hasSetNPCTreeActive = false;
 
-            _LandGen2 = GameObject.Find("LandGenerator").GetComponent<LandGen2>();
+            // _LandGen2 = GameObject.Find("LandGenerator").GetComponent<LandGen2>();
+
+            _LandGen3 = GameObject.Find("LandGenerator").GetComponent<LandGen3>();
 
             _allCheck = GameObject.Find("AllCheck").GetComponent<allCheck>();
 
@@ -142,8 +146,13 @@ namespace Panda.Ibis
         {
             hasSetNPCTreeActive = false;
 
-            //print("turn based: " +_turnBased.name);
-            if (transform.parent.gameObject.GetComponent<turnBased>().turn == 1)// supposed to be _turnBased
+
+            // use Map.Instance. xxx to find obj on lands 
+           // Map.instance.itemAList[1] =
+           
+           //Check if something on the land
+           //print("turn based: " +_turnBased.name);
+           /* if (transform.parent.gameObject.GetComponent<turnBased>().turn == 1)// supposed to be _turnBased
             {
                 GameObject[] lands;
                 lands = GameObject.FindGameObjectsWithTag("land");
@@ -184,21 +193,24 @@ namespace Panda.Ibis
 
                // _ibisA.GetComponent<SnapToNode>().enabled = true;
 
-            }
-            else { ThisTask.Succeed(); }
+            }*/
+           //else { ThisTask.Succeed(); }
 
 
            // _ibisA.GetComponent<SnapToNode>().enabled = false;
-            // Recalculate the graph
-               AstarPath.active.Scan();
-            _ibisA.GetComponent<SnapToNode>().enabled = true;
 
-            ThisTask.Succeed();
+           // Recalculate the graph
+           //  AstarPath.active.Scan();
+           //_ibisA.GetComponent<SnapToNode>().enabled = true;
+
+           ThisTask.Succeed();
         }
 
         [Task]
         void pollution()
         {
+
+          
             GameObject[] grids;
             grids = GameObject.FindGameObjectsWithTag("grid");
 
@@ -225,7 +237,7 @@ namespace Panda.Ibis
                 }
             }
 
-
+/*
             //de active all "Snap To " of obj  under "objOnland"
 
             List<GameObject> objs;
@@ -241,7 +253,7 @@ namespace Panda.Ibis
 
             // Recalculate the graph
              AstarPath.active.Scan();
-          //  _ibisA.GetComponent<SnapToNode>().enabled = true;
+          //  _ibisA.GetComponent<SnapToNode>().enabled = true;*/
 
             ThisTask.Succeed();
         }
@@ -254,7 +266,7 @@ namespace Panda.Ibis
                               // -> may reduce the quality of the food
         {
 
-            foreach (GameObject land in _LandGen2.LandCos_GO)
+            foreach (GameObject land in _LandGen3.LandCos_GO)
             { 
                 land.transform.GetChild(0).GetComponent<grid>().checkHasPolluted();
             }
@@ -341,6 +353,7 @@ namespace Panda.Ibis
 
         [Task]
         void checkAllObjNPC() // check the changes of All NPC
+                              // and check if them on the corresponding grid
         {
 
             /*            //only for test
@@ -395,7 +408,7 @@ namespace Panda.Ibis
                 Vector2 v2_obj;
                 v2_obj = obj_child.gameObject.GetComponent<objV2Pos>().thisV2;
                 int index_obj;
-                index_obj = _LandGen2.LandCos.IndexOf(v2_obj);
+                index_obj = _LandGen3.LandCos.IndexOf(v2_obj);
                 _listObjOnLand.isObjOnLand[index_obj] = true;
             }
 
@@ -403,7 +416,7 @@ namespace Panda.Ibis
             Vector2 v2_ibisA;
             v2_ibisA = _ibisA.GetComponent<objV2Pos>().thisV2;
             int index_ibisA;
-            index_ibisA = _LandGen2.LandCos.IndexOf(v2_ibisA);
+            index_ibisA = _LandGen3.LandCos.IndexOf(v2_ibisA);
             _listObjOnLand.isObjOnLand[index_ibisA] = true;
             ////////////
             ///remove the trap's Rigidbody
@@ -417,7 +430,7 @@ namespace Panda.Ibis
 
              //de active all "Snap To " of obj  under "objOnland"
 
-                List<GameObject> objs;
+/*            List<GameObject> objs;
             objs = new List<GameObject>();
             foreach (Transform child in GameObject.Find("ObjOnLand").transform)
             {
@@ -428,7 +441,7 @@ namespace Panda.Ibis
             //_ibisA.GetComponent<SnapToNode>().enabled = false;
 
             // Recalculate the graph
-             AstarPath.active.Scan();
+             AstarPath.active.Scan();*/
             
 
             ///// Top// check the egg // ///////
@@ -465,10 +478,6 @@ namespace Panda.Ibis
         {
             //_myIbis.setIsObjOnLand();
            
-
-           
-
-            _targetPos.transform.position = new Vector3(_targetPos.transform.position.x, 6f, 1f);
 
             if (!isGencards)
             { genCards();
@@ -546,7 +555,9 @@ namespace Panda.Ibis
                                 }*/
 
                 //
-                _allCheck.checkNpcIbisOnAllGrids();
+
+                //check if any obj or ibisA on the land
+                //_allCheck.checkNpcIbisOnAllGrids();
 
                 GameObject.Find("skipTurn").GetComponent<Image>().enabled = false;
                 GameObject.Find("skipTurn").GetComponent<skipToNextTurn>().enabled = false;
@@ -562,7 +573,8 @@ namespace Panda.Ibis
                     Destroy(child.gameObject);
                 }
 
-                _allCheck.checkNpcIbisOnAllGrids();
+                //check if any obj or ibisA on the land
+                //_allCheck.checkNpcIbisOnAllGrids();
 
                 GameObject.Find("skipTurn").GetComponent<Image>().enabled = false;
                 GameObject.Find("skipTurn").GetComponent<skipToNextTurn>().enabled = false;
@@ -572,7 +584,7 @@ namespace Panda.Ibis
         }
 
         [Task]
-        void checkGraph()
+        void checkGraph()  // it seems usefulless
         {
             // Recalculate the graph
             AstarPath.active.Scan();
@@ -640,6 +652,9 @@ namespace Panda.Ibis
             //trap -> obj-> npc -> ibisA
 
             //set sprite order
+
+
+            ////check if AP is over during this process
 
              if (Panda.Ibis.MyIbis.actionPoint <= 0)
             {
@@ -710,10 +725,11 @@ namespace Panda.Ibis
                     GameObject cardSlot = Instantiate(Resources.Load("goj/cardPos")) as GameObject;
                     cardSlot.transform.position =
                          // new Vector3(v3_middleCard.x - (thisAmount - 1) + i * 2f, v3_middleCard.y, v3_middleCard.z);
-                         new Vector3(v3_middleCard.x, v3_middleCard.y - (thisAmount - 1) + i * 2f, v3_middleCard.z);
+                         new Vector3(v3_middleCard.x, v3_middleCard.y - (thisAmount - 1) + i * 1.2f, v3_middleCard.z);
 
                     cardSlot.transform.SetParent(_Cards.transform);
                     cardSlot.name = "cardSlot" + i.ToString();
+                    
 
                     cardSlotsAmounts = cardSlotsAmounts + 1;
 
@@ -736,7 +752,7 @@ namespace Panda.Ibis
                     GameObject card = Instantiate(Resources.Load("card0")) as GameObject;
                     card.transform.SetParent(_Cards.transform);
                     card.transform.position = cardSlots[k].transform.position;
-
+                    
                     card.name = "card" + k.ToString();
 
 

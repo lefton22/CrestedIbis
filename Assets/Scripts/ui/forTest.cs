@@ -11,11 +11,15 @@ public class forTest : MonoBehaviour
     //
     bool isGenEgret;
 
+    GameObject _GameManager;
+
     void Start()
     {
         eggs = new List<GameObject>();
 
         isGenEgret = false;
+
+        _GameManager = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
@@ -24,7 +28,7 @@ public class forTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         { spawn(); }
 
-        if (Input.GetKey(KeyCode.M) && Input.GetKey(KeyCode.N) )
+        if (Input.GetKey(KeyCode.M) && Input.GetKey(KeyCode.N))
         {
             if (!isGenEgret)
             {
@@ -33,6 +37,29 @@ public class forTest : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            // Debug.DrawLine(GameObject.Find("A").transform.position, 
+            //            Camera.main.transform.position);
+
+            int a;
+            a = aboutGirdIndex.getGirdIndex(GameObject.Find("A"));
+            print("a: " + a);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            _GameManager.GetComponent<GameManager>().setMovingGoal(5);
+            print("W");
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            _GameManager.GetComponent<GameManager>().
+                setSelectNav(GameObject.Find("ibisA").GetComponent<Nav>());
+
+            print("D");
+        }
     }
 
 
@@ -55,7 +82,7 @@ public class forTest : MonoBehaviour
         obj_test.GetComponent<Pathfinding.AILerp>().enableRotation = false;
 
         sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
-        faceToCamera _ftc = obj_test.AddComponent<faceToCamera>() as faceToCamera;
+       // faceToCamera _ftc = obj_test.AddComponent<faceToCamera>() as faceToCamera;
         objV2Pos _ovp = obj_test.AddComponent<objV2Pos>() as objV2Pos;
         // Capsule collider & Rigidbody need to be on the obj
         Animator _ani = obj_test.AddComponent<Animator>() as Animator;

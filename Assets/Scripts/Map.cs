@@ -4,6 +4,9 @@ using UnityEngine;
 /// <summary>
 /// 地图
 /// </summary>
+/// 
+
+// 查找一个格子上有没有棋子就放在这个脚本上
 public class Map : MonoBehaviour
 {
     //格子宽度 
@@ -31,6 +34,13 @@ public class Map : MonoBehaviour
     public List<State> itemAList = new List<State>();
     //实时更新标记19个⼆维坐标上有没有B
     public List<State> itemBList = new List<State>();
+
+
+    /// <summary>
+    /// ////
+    /// 
+    public List<State> itemXList = new List<State>();
+    /// </summary>
     private void Awake()
     {
         instance = this;
@@ -51,6 +61,8 @@ public class Map : MonoBehaviour
             allItemList.Add(new State());
             itemAList.Add(new State());
             itemBList.Add(new State());
+
+            itemXList.Add(new State());
         }
     }
     /// <summary>
@@ -257,7 +269,7 @@ public class Map : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < girds.Count; i++)
+        for (int i = 0; i < girds.Count; i++)    // add obj on the land to check if it has obj on it.
         {
             Gird gird = girds[i];
 
@@ -265,31 +277,49 @@ public class Map : MonoBehaviour
             State aState = itemAList[i];
             State bState = itemBList[i];
 
-            aState.Has= false;
+            State xState = itemXList[i];
+
+            aState.Has = false;
             bState.Has = false;
             allState.Has = false;
 
-            int aSte = 0,bSte=0;
-            for (int j= 0; j < navs.Length; j++)
+            xState.Has = false;
+
+            int aSte = 0, bSte = 0, xSte = 0, allSte = 0;
+            for (int j = 0; j < navs.Length; j++)
             {
                 Nav nav = navs[j];
 
-                if (Vector3.Distance(nav.transform.position, gird.transform.position)<0.1f) //在这个格子上
+                if (Vector3.Distance(nav.transform.position, gird.transform.position) < 0.1f) //在这个格子上
                 {
-                    if(nav.navType== NavType.NavA)
+                    if (nav.navType == NavType.NavA)
                     {
                         aState.Has = true;
-                        aSte=1;
+                        aSte = 1;
+
+                        allState.Has = true;
+                        allSte = 1;
                     }
-                    else if(nav.navType== NavType.NavB)
+                    else if (nav.navType == NavType.NavB)
                     {
-                        bState.Has= true;
-                        bSte=1;
+                        bState.Has = true;
+                        bSte = 1;
+
+                        allState.Has = true;
+                        allSte = 1;
+                    }
+                    else if (nav.navType == NavType.NavX)
+                    {
+                        xState.Has = true;
+                        xSte = 1;
+
+                        allState.Has = true;
+                        allSte = 1;
                     }
                 }
             }
 
-            if (aSte+bSte >= 2)
+            if (aSte + bSte >= 2)
             {
                 allState.Has = true;
             }

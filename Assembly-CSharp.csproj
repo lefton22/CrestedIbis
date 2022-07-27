@@ -167,6 +167,7 @@
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
     <Compile Include="Assets\Scripts\ui\starts\ibis_intro.cs" />
     <Compile Include="Assets\Scripts\ibisR.cs" />
+    <Compile Include="Assets\Scripts\LandGen3.cs" />
     <Compile Include="Assets\Scripts\obj\objEgg.cs" />
     <Compile Include="Assets\Scripts\spriteOrder.cs" />
     <Compile Include="Assets\Scripts\ui\gameStart.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\UnitExplosion.cs" />
     <Compile Include="Assets\Scripts\obj\break\trapBreak.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\ExampleDescription.cs" />
+    <Compile Include="Assets\Scripts\byNewPathFinding\aboutGirdIndex.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Player.cs" />
     <Compile Include="Assets\Scripts\ui\showHowHungry.cs" />
     <Compile Include="Assets\Scripts\obj\objNest.cs" />
@@ -194,7 +196,6 @@
     <Compile Include="Assets\Scripts\obj\objIbisAdult.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\SetupForbiddenTiles.cs" />
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
-    <Compile Include="Assets\Scripts\LandGen3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

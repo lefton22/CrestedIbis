@@ -39,7 +39,7 @@ public class objNest : MonoBehaviour
             nest_HP.GetComponent<SpriteRenderer>().sprite = _Obj_icons.nestHP_grey[i];
             nest_HP.name = "NestHP" + i.ToString();
 
-            faceToCamera sc = nest_HP.AddComponent<faceToCamera>() as faceToCamera;
+          //  faceToCamera sc = nest_HP.AddComponent<faceToCamera>() as faceToCamera;
         }
 
 
@@ -62,7 +62,7 @@ public class objNest : MonoBehaviour
             nest_ac_HP.GetComponent<SpriteRenderer>().sprite = _Obj_icons.nestHP_grey[i];
             nest_ac_HP.name = "Nest_ac_HP" + i.ToString();
 
-            faceToCamera sc = nest_ac_HP.AddComponent<faceToCamera>() as faceToCamera;
+          //  faceToCamera sc = nest_ac_HP.AddComponent<faceToCamera>() as faceToCamera;
         }
     }
 

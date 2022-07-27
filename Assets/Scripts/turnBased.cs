@@ -41,12 +41,6 @@ public class turnBased : MonoBehaviour
 
     public int turn_endCheck;
 
-    public delegate void MethodOneDelegate();
-
-   public  void executeMethod(MethodOneDelegate function)
-    {
-        function();
-    }
 
 
     void Start()
@@ -67,16 +61,6 @@ public class turnBased : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        /*        if (ibisCanMove)
-                {
-                    //main Ai logic here
-                }*/
-
-            //print("current land: " + MouseUp_currentLand.name);
-
-    }
 
     public  void newTurnStart()
     {

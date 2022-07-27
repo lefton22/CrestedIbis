@@ -15,17 +15,14 @@ public class allCheck : MonoBehaviour
 
     void Start()
     {
-        _NPCs = GameObject.Find("NPCs");
+        //_NPCs = GameObject.Find("NPCs");
         _ibisA = GameObject.Find("ibisA");
         _ObjOnLand = GameObject.Find("ObjOnLand");
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
 
 
@@ -56,6 +53,7 @@ public class allCheck : MonoBehaviour
     }
 
     public void checkNpcIbisOnAllGrids( ) // executed during drawCards
+                                          //check if any obj or ibisA on the land
     {
 
         print("check all 0");

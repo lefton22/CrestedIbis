@@ -36,7 +36,7 @@ public class objNPC : MonoBehaviour
             Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
             GetComponent<Pathfinding.AILerp>().enableRotation = false;
             sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
-            faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
+            //faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
            objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
             // Capsule collider & Rigidbody need to be on the obj
             Animator _ani = gameObject.AddComponent<Animator>() as Animator;

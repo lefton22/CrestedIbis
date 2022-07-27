@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5479781834119880510}
   - component: {fileID: 8725535622441881809}
   - component: {fileID: 2219956100700832199}
-  - component: {fileID: 885977980323976647}
   - component: {fileID: 347835651700218314}
+  - component: {fileID: -2098707424552453173}
+  - component: {fileID: -1067247174776620620}
   m_Layer: 0
   m_Name: Gird
   m_TagString: Respawn
@@ -83,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &885977980323976647
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5973403220555191653}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &347835651700218314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +97,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+--- !u!114 &-2098707424552453173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5973403220555191653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 132ecd391a920914b97cc88ef15b53bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastHit: {fileID: 0}
+  offSetRayY: 0
+  _canRichFood: {fileID: 0}
+  _canAveFood: {fileID: 0}
+  _canPoorFood: {fileID: 0}
+  _canNPC: {fileID: 0}
+  _canNest: {fileID: 0}
+  _canHumanStuff: {fileID: 0}
+  _canBuildingMaterial: {fileID: 0}
+--- !u!65 &-1067247174776620620
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5973403220555191653}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2563238}
+  m_Center: {x: 0, y: 0, z: -0.36137038}

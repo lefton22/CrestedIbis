@@ -37,7 +37,7 @@ public class Nav : MonoBehaviour
     /// <summary>
     /// 移动路径
     /// </summary>
-    private List<Gird> path;
+     public List<Gird> path;  // supposed to be private
     /// <summary>
     /// 路径索引
     /// </summary>
@@ -84,7 +84,6 @@ public class Nav : MonoBehaviour
     /// <param name="pos"></param>
     public void SetMoveGird(Gird gird)
     {
-       
 
         Gird selfGird = Map.instance.GetNearGird(transform); //获取代理自身所在的格子位置
 
@@ -156,22 +155,24 @@ public class Nav : MonoBehaviour
         isStoped = true;
     }
     /// <summary>
-    /// 事件A
+    /// 事件A   (break, meet)
     /// </summary>
-    public void EventA()
+    public void EventA() //如果不需要break就把里面的内容注释掉，或者加一个条件
     {
        
 
         eventA?.Invoke();
 
-        if (navType ==  NavType.NavA) //默认为A 触发事件暂停
+        if (navType == NavType.NavA) //默认为A 触发事件暂停
+                                     //如果不需要break就把里面的内容注释掉，或者加一个条件
         {
-            isStoped = false; // ori = true, if it need to stop it should be true
+           // isStoped = true; // ori = true, if it need to stop it should be true
             Adjust();
         }
 
         isTriggerA = true;
-        Debug.Log("事件A触发  :触发"+gameObject.name);
+        Debug.Log("事件A触发  :触发"+gameObject.name + " eventA目前只注释了一半");
+
     }
     /// <summary>
     /// 事件B
@@ -181,7 +182,7 @@ public class Nav : MonoBehaviour
         eventB?.Invoke();
 
         isTriggerB = true;
-        Debug.Log("事件B触发   触发" + gameObject.name);
+        Debug.Log("事件B触发   触发" + gameObject.name );
     }
     /// <summary>
     /// 校准位置
@@ -199,5 +200,6 @@ public class Nav : MonoBehaviour
 public enum NavType
 {
     NavA,
-    NavB
+    NavB,
+    NavX
 }

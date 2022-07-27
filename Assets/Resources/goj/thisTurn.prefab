@@ -58,6 +58,7 @@ MonoBehaviour:
   s4Card: 2
   hasSetPandaActive: 0
   hasSetNPCTreeActive: 0
+  drawCardShouldEnd: 0
 --- !u!114 &2130436414276970379
 MonoBehaviour:
   m_ObjectHideFlags: 0

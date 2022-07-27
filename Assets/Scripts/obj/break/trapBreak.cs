@@ -29,7 +29,7 @@ public class trapBreak : MonoBehaviour
             trap_hp.GetComponent<SpriteRenderer>().sprite = _Obj_icons.trapHP[i];
             trap_hp.name = "trapHP" + i.ToString();
 
-            faceToCamera sc = trap_hp.AddComponent<faceToCamera>() as faceToCamera;
+        //    faceToCamera sc = trap_hp.AddComponent<faceToCamera>() as faceToCamera;
 
 
         }
