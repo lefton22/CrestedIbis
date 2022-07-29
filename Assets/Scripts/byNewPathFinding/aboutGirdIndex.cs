@@ -15,7 +15,7 @@ public class aboutGirdIndex : MonoBehaviour
     
     void Update()
     {
-        Debug.DrawRay(GameObject.Find("A").transform.position, Camera.main.transform.position);
+       // Debug.DrawRay(GameObject.Find("A").transform.position, Camera.main.transform.position);
     }
 
     static public int getGirdIndex(GameObject thisObj)

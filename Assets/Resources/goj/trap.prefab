@@ -10,13 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 638260746380652163}
   - component: {fileID: 8387077074379643241}
-  - component: {fileID: 5638939137513544249}
-  - component: {fileID: 4227781139298856294}
   - component: {fileID: 2758616447649107689}
   - component: {fileID: 4836554937571314191}
   - component: {fileID: 5524672218884198630}
   - component: {fileID: -6806009329473674074}
   - component: {fileID: -1255936175540929793}
+  - component: {fileID: 278758991062556160}
   m_Layer: 0
   m_Name: trap
   m_TagString: Untagged
@@ -89,31 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5638939137513544249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6257917466799415051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0acfdba178b145239678a03b9df938a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4227781139298856294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6257917466799415051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c74c7d019d90b84086c29ad4738de42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera2: {fileID: 0}
 --- !u!114 &2758616447649107689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +157,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9571133fe5f104c94a0a86acd2b75de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &278758991062556160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257917466799415051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6f9560a1e5e2f459c66f962f608a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navType: 0
+  speed: 0
+  stopDistance: 0.02
+  stepLength: 0
+  path: []

@@ -32,10 +32,13 @@ public class objNPC : MonoBehaviour
         {
             objEgret sc = gameObject.AddComponent<objEgret>() as objEgret;
 
-            Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
-            Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
-            GetComponent<Pathfinding.AILerp>().enableRotation = false;
-            sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
+            /*          Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
+                        Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+                        GetComponent<Pathfinding.AILerp>().enableRotation = false;
+                        sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;*/
+
+            Nav scc = gameObject.AddComponent<Nav>() as Nav;
+
             //faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
            objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
             // Capsule collider & Rigidbody need to be on the obj
@@ -61,9 +64,12 @@ public class objNPC : MonoBehaviour
         {
             objSnake sc = gameObject.AddComponent<objSnake>() as objSnake;
 
-            Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
-            Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
-            sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
+            /*            Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
+                        Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+                        sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;*/
+
+            Nav scc = gameObject.AddComponent<Nav>() as Nav;
+
             //  faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
             // objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
             // Capsule collider & Rigidbody need to be on the obj
@@ -89,10 +95,13 @@ public class objNPC : MonoBehaviour
         {
             objTrapMan sc = gameObject.AddComponent<objTrapMan>() as objTrapMan;
 
-            Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
-            Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
-            GetComponent<Pathfinding.AILerp>().enableRotation = false;
-            sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;
+            /*            Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker;
+                        Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
+                        GetComponent<Pathfinding.AILerp>().enableRotation = false;
+                        sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;*/
+
+            Nav scc = gameObject.AddComponent<Nav>() as Nav;
+
             //  faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
             // objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
             // Capsule collider & Rigidbody need to be on the obj
@@ -116,15 +125,17 @@ public class objNPC : MonoBehaviour
         {
             objIbisAdult sc = gameObject.AddComponent<objIbisAdult>() as objIbisAdult;
 
-/*            GameObject ibisNPC = Instantiate(Resources.Load("ibisB")) as GameObject;
-            ibisNPC.transform.SetParent(gameObject.transform);
-            ibisNPC.transform.position = gameObject.transform.position;*/
+            /*            GameObject ibisNPC = Instantiate(Resources.Load("ibisB")) as GameObject;
+                        ibisNPC.transform.SetParent(gameObject.transform);
+                        ibisNPC.transform.position = gameObject.transform.position;*/
 
-           // Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker; //先不要
-          //  Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp; //先不要
+            // Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker; //先不要
+            //  Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp; //先不要
 
-           // faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
-          //  objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
+            Nav scc = gameObject.AddComponent<Nav>() as Nav;
+
+            // faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
+            //  objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
             // Capsule collider & Rigidbody need to be on the obj
             Animator _ani = gameObject.AddComponent<Animator>() as Animator;
             MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;

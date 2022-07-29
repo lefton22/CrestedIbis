@@ -9,9 +9,15 @@ using Pathfinding;
 using DG.Tweening;
 
 
+
 //start after drawing all the cards.
 
 //meet obj: collider
+
+
+// new pathfinding refine:
+// re write all stuff about "v3_targetPos"
+
 namespace Panda.Ibis {
     public class MyIbis : MonoBehaviour
     {
@@ -66,12 +72,12 @@ namespace Panda.Ibis {
         List<GameObject> foods_l;
         List<Vector2> v2_foods_l;
 
-        GameObject _targetPos;
-        Vector3 v3_targetPos;
+/*        GameObject _targetPos;
+        Vector3 v3_targetPos;*/
 
         listObjOnLand _listObjOnLand;
 
-        LandGen2 _LandGen2;
+        LandGen3 _LandGen3;
 
         CrestedIbis _CrestedIbis;
 
@@ -96,6 +102,8 @@ namespace Panda.Ibis {
 
         GameObject _ObjOnLand;
 
+
+        GameManager _Gamemanager;
 
         public GameObject _eat;
         public GameObject _goToOpIbis;
@@ -189,10 +197,10 @@ namespace Panda.Ibis {
 
             v2_foods_l = new List<Vector2>();
 
-            _LandGen2 = GameObject.Find("LandGenerator").GetComponent<LandGen2>();
-
+            _LandGen3 = GameObject.Find("LandGenerator").GetComponent<LandGen3>();
+/*
             _targetPos = GameObject.Find("Target2");
-            v3_targetPos = _targetPos.transform.position;
+            v3_targetPos = _targetPos.transform.position;*/
 
             _CrestedIbis = GameObject.Find("ibisA").GetComponent<CrestedIbis>();
 
@@ -225,6 +233,10 @@ namespace Panda.Ibis {
 
             APreduced = 0;
             APhasReducedThisTurn = false;
+
+
+
+            _Gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         }
 
@@ -385,7 +397,7 @@ namespace Panda.Ibis {
             quenchAllBeBar();
 
             //end this turn 
-            _targetPos.transform.position = v3_targetPos;
+          //  _targetPos.transform.position = v3_targetPos;
 
 
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
@@ -444,7 +456,7 @@ namespace Panda.Ibis {
             index = new List<int>();
             for (int k = 0; k < v2_allIbils.Count; k++)
             {
-                int a = _LandGen2.LandCos.IndexOf(v2_allIbils[k]);
+                int a = _LandGen3.LandCos.IndexOf(v2_allIbils[k]);
                 if (!index.Contains(a))
                 { index.Add(a); }
             }
@@ -518,9 +530,10 @@ namespace Panda.Ibis {
                 //Ѱ����ʳ��ĵص㣺ˮ���̲��go!
 
                 v2_nearestFood = getNearestGrid(transform.parent.gameObject.GetComponent<objV2Pos>().thisV2, _listObjOnLand.foodOnLand);
-              //  Debug.Log("v2_nearestFood: " + v2_nearestFood + " , " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
+                Debug.Log("v2_nearestFood: " + v2_nearestFood); //+ " , " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
                //     + " ,  " + v2_foods_l[0]);
 
+               
 
                 if (isFirstHalfYear())
                 {
@@ -560,14 +573,14 @@ namespace Panda.Ibis {
             Vector2 this_v2;
             this_v2 = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
             int inOf;
-            inOf = _LandGen2.LandCos.IndexOf(this_v2);
-            if (!_LandGen2.LandCos_GO[inOf].GetComponent<genPos>().OnThis.Contains(transform.parent.gameObject))
+            inOf = _LandGen3.LandCos.IndexOf(this_v2);
+            if (!_LandGen3.LandCos_GO[inOf].GetComponent<genPos>().OnThis.Contains(transform.parent.gameObject))
             {
-                _LandGen2.LandCos_GO[inOf].GetComponent<genPos>().OnThis.Add(transform.parent.gameObject);
+                _LandGen3.LandCos_GO[inOf].GetComponent<genPos>().OnThis.Add(transform.parent.gameObject);
             }
 
             // then check 
-            _allCheck.check2NpcOnOneGrid(_LandGen2.LandCos_GO[inOf].GetComponent<genPos>().OnThis);
+            _allCheck.check2NpcOnOneGrid(_LandGen3.LandCos_GO[inOf].GetComponent<genPos>().OnThis);
         }
 
         void seekForFoodJantoJun()//觅食。水田里有泥鳅、田螺、黄鳝、青蛙以及软体动物。
@@ -576,16 +589,19 @@ namespace Panda.Ibis {
 
             //寻找最近的能量最高的上述食物，移过去
 
-            int index_LandCos;
-            index_LandCos = _LandGen2.LandCos.IndexOf(v2_nearestFood);
+/*            int index_LandCos;
+            index_LandCos = _LandGen3.LandCos.IndexOf(v2_nearestFood);
             //Debug.Log("index_LandCos: " + index_LandCos);
 
                 Vector3 food_pos;
 
-                food_pos = _LandGen2.LandV3s[index_LandCos];
-                //  Debug.Log("food position: " + food_pos);
- 
-            seekLocation(food_pos);
+                food_pos = _LandGen3.LandV3s[index_LandCos];
+            //  Debug.Log("food position: " + food_pos);*/
+
+
+            int foodIndex = Map.instance.transferV2ToIndex(v2_nearestFood);
+            seekLocation(foodIndex);
+
 
             //....
             //如果上面没有，寻找有地点：水田、河滩，go!
@@ -597,20 +613,22 @@ namespace Panda.Ibis {
         void seekForFoodJuntoNov()///常见于河滩、旱地和塘库边缘（觅食地大而分散）
                                   //觅食。主要以蚯蚓、直翅目昆虫（如蟋蟀、蝼蛄）、螃蟹等为主。
         {
-           //地点：河滩、旱地、塘库边缘
+            //地点：河滩、旱地、塘库边缘
 
-            //暂时的：
-            int index_LandCos;
-            index_LandCos = _LandGen2.LandCos.IndexOf(v2_nearestFood);
-            //Debug.Log("index_LandCos: " + index_LandCos);
+            /*            //暂时的：
+                        int index_LandCos;
+                        index_LandCos = _LandGen3.LandCos.IndexOf(v2_nearestFood);
+                        //Debug.Log("index_LandCos: " + index_LandCos);
 
-            Vector3 food_pos;
+                        Vector3 food_pos;
 
 
-                food_pos = _LandGen2.LandV3s[index_LandCos];
-                //  Debug.Log("food position: " + food_pos);
-    
-            seekLocation(food_pos);
+                            food_pos = _LandGen3.LandV3s[index_LandCos];
+                            //  Debug.Log("food position: " + food_pos);*/
+
+            int foodIndex = Map.instance.transferV2ToIndex(v2_nearestFood);
+            seekLocation(foodIndex);
+           // seekLocation(food_pos);
         }
 
         [Task]
@@ -689,7 +707,7 @@ namespace Panda.Ibis {
          //  print("eat 1.2");
 
             int index2;
-                index2 = _LandGen2.LandCos.IndexOf(v2_ibis);
+                index2 = _LandGen3.LandCos.IndexOf(v2_ibis);
                 _listObjOnLand.isObjOnLand[index2] = false;
 
        //     print("eat 1.5");
@@ -883,7 +901,10 @@ namespace Panda.Ibis {
         {
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
-            seekLocation(choosenIbis.transform.position);
+            Vector2 c_ibis_v2 = choosenIbis.GetComponent<objV2Pos>().thisV2;
+            int c_ibis_index = Map.instance.transferV2ToIndex(c_ibis_v2);
+
+            seekLocation(c_ibis_index);
 
             Vector2 v2_ibisB;
             Vector2 v2_ibisA;
@@ -964,7 +985,10 @@ namespace Panda.Ibis {
         {
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
-            seekLocation(mate.transform.position);
+            Vector2 c_mate_v2 = mate.GetComponent<objV2Pos>().thisV2;
+            int c_mate_index = Map.instance.transferV2ToIndex(c_mate_v2);
+
+            seekLocation(c_mate_index);
 
             Vector2 v2_ibisB;
             Vector2 v2_ibisA;
@@ -1222,7 +1246,10 @@ namespace Panda.Ibis {
 
                     ran = Random.Range(0, materials.Length - 1);
 
-                seekLocation(materials[ran].transform.position);
+                Vector2 c_materialR_v2 = materials[ran].GetComponent<objV2Pos>().thisV2;
+                int c_materialR_index = Map.instance.transferV2ToIndex(c_materialR_v2);
+
+                seekLocation(c_materialR_index);
 
                 Vector2 v2_material;
                 Vector2 v2_ibisA;
@@ -1236,7 +1263,7 @@ namespace Panda.Ibis {
                     hasCheckDes = false;
 
                     int index_material;
-                    index_material = _LandGen2.LandCos.IndexOf(v2_material);
+                    index_material = _LandGen3.LandCos.IndexOf(v2_material);
                     _listObjOnLand.isObjOnLand[index_material] = false;
 
                     Debug.Log("reach to a material.");
@@ -1291,7 +1318,11 @@ namespace Panda.Ibis {
 
                 if (goal_nest != null)
                 {
-                    seekLocation(goal_nest.transform.position);
+                    Vector2 c_g_nest_v2 = goal_nest.GetComponent<objV2Pos>().thisV2;
+                    int c_g_nest_index = Map.instance.transferV2ToIndex(c_g_nest_v2);
+
+
+                    seekLocation(c_g_nest_index);
                 }
                 if (goal_nest == null) { print("goal_nest = null."); }
 
@@ -1343,7 +1374,12 @@ namespace Panda.Ibis {
                 //ran = Random.Range(0, nests.Length - 1);
 
                 //print("nests[ran]: " + nests[ran]);
-                seekLocation(goal_nest.transform.position);
+
+                    Vector2 c_g_nest_v2 = goal_nest.GetComponent<objV2Pos>().thisV2;
+                    int c_g_nest_index = Map.instance.transferV2ToIndex(c_g_nest_v2);
+
+
+                    seekLocation(c_g_nest_index);
 
                 Vector2 v2_nest;
                 Vector2 v2_ibisA;
@@ -1533,14 +1569,7 @@ namespace Panda.Ibis {
         void incubate() //once it's an egg...
                         //和npc配偶轮流执行，自己不在，npc配偶会一只在，回巢后npc配偶会出巢
         {
-            /*            if (isSpawn && _outAI.month == monthSpawn + 1)
-                        {
-                            print(" isSpawn.");
-                            // 产卵后1个月执行
-                            *//*                if (turnsAfterSpawn >= 2)
-                                            {*//*
-                            seekLocation(GameObject.Find("nest").transform.position);
-                            //just stay there, play ani  */
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_incubate");
@@ -1601,7 +1630,7 @@ namespace Panda.Ibis {
             index_food = _listObjOnLand.foodOnLand.IndexOf(v2_ibis);
 
             int index2;
-            index2 = _LandGen2.LandCos.IndexOf(v2_ibis);
+            index2 = _LandGen3.LandCos.IndexOf(v2_ibis);
             _listObjOnLand.isObjOnLand[index2] = false;
 
             //Play pick food animation
@@ -1691,7 +1720,7 @@ namespace Panda.Ibis {
             print("end turn  ");
             quenchAllBeBar();
             //end this turn 
-            _targetPos.transform.position = v3_targetPos;
+            //_targetPos.transform.position = v3_targetPos;
 
 
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
@@ -1743,29 +1772,31 @@ namespace Panda.Ibis {
         ///              /////////////////////////Basic Element  Action Pools/////////////////////////
         ///              
 
-        void seekLocation(Vector3 destination)
+        void seekLocation(int _index)
         {
-/*            if (!hasCheckDes)
-            {*/
-                _targetPos.transform.DOMove(destination, 0.000001f, false);
+            if (!hasCheckDes)
+            {
+                //_targetPos.transform.DOMove(destination, 0.000001f, false);
                 hasCheckDes = true;
 
                 // go 
                 transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_walk");
-                _CrestedIbis.ibisMove1();
+                //_CrestedIbis.ibisMove1();
 
-            //play FX
-            //_ibisA_FX.SetActive
- 
+                //play FX
+                //_ibisA_FX.SetActive
+
                 //bool isActive = _ibisA_FX.activeSelf;
                 //_ibisA_FX.SetActive(!isActive);
 
                 //print("play fx.");
-            
 
-            // }
+               
+                _Gamemanager.setMovingGoal(_index);
 
-//              Debug.Log("move to destination: " + destination);
+            }
+
+                //              Debug.Log("move to destination: " + destination);
 
 
         }
@@ -1774,8 +1805,8 @@ namespace Panda.Ibis {
 
 
 
-        /////////////EEEEEEEE////////////Basic Element  Action Pools/////////////////////////
-        ///       /////////////////////////Basic Element  Action Pools/////////////////////////
+            /////////////EEEEEEEE////////////Basic Element  Action Pools/////////////////////////
+            ///       /////////////////////////Basic Element  Action Pools/////////////////////////
 
 
 
@@ -1784,11 +1815,11 @@ namespace Panda.Ibis {
 
 
 
-        /////////////SSSSSSSSS////////////Gears/////////////////////////
-        ///       /////////////////////////Gears/////////////////////////
-        ///
+            /////////////SSSSSSSSS////////////Gears/////////////////////////
+            ///       /////////////////////////Gears/////////////////////////
+            ///
 
-        void checkTwoMovingCreatureAtOneGrid()
+            void checkTwoMovingCreatureAtOneGrid()
         {
             foreach (Transform child in _ObjOnLand.transform)
             {
@@ -1862,7 +1893,7 @@ namespace Panda.Ibis {
             Vector3 v3_current;
             v3_current = transform.parent.gameObject.GetComponent<objV2Pos>().thisV2;
 
-            _targetPos.transform.DOMove(v3_current,0.001f,false);
+            //_targetPos.transform.DOMove(v3_current,0.001f,false);
             _CrestedIbis.ibisMove1();
 
             Debug.Log("breaking");
@@ -2331,7 +2362,7 @@ namespace Panda.Ibis {
             { ThisTask.Succeed(); }*/
 
             ////////////////
-              _targetPos.transform.DOMove(destination, 0.000001f, false);
+              //_targetPos.transform.DOMove(destination, 0.000001f, false);
             // go 
             _CrestedIbis.ibisMove1();
 

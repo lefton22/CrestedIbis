@@ -15,7 +15,7 @@ public class raycastGrid : MonoBehaviour
     bool hasGen;
 
     List<GameObject> allCans;
-    public  GameObject _canRichFood;
+    public GameObject _canRichFood;
     public GameObject _canAveFood;
     public GameObject _canPoorFood;
     public GameObject _canNPC;
@@ -28,7 +28,7 @@ public class raycastGrid : MonoBehaviour
     void Start()
     {
         isPunch = false;
-        t =0f;
+        t = 0f;
 
         hasGen = false;
 
@@ -42,11 +42,11 @@ public class raycastGrid : MonoBehaviour
     private void FixedUpdate()
     {
 
-            v3_offSet = new Vector3(transform.position.x, transform.position.y + offSetRayY, transform.position.z);
+        v3_offSet = new Vector3(transform.position.x, transform.position.y + offSetRayY, transform.position.z);
 
-            Vector3 toCamera = (GameObject.Find("Camera1").transform.position - transform.position).normalized;
+        Vector3 toCamera = (GameObject.Find("Camera1").transform.position - transform.position).normalized;
 
-            // Debug.DrawLine(v3_offSet, GameObject.Find("Camera1").transform.position);
+        Debug.DrawLine(v3_offSet, GameObject.Find("Camera1").transform.position);
 
         /*        if (Physics.Raycast(transform.position, toCamera, 10))
                 {
@@ -58,18 +58,22 @@ public class raycastGrid : MonoBehaviour
 
 
         var ray = new Ray(v3_offSet, toCamera);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            //print("ray 1");
+
+            print(gameObject.name + " hits (for raycast): " + hit.collider.name);
+
+            if (hit.collider.gameObject.tag == "card")
             {
-            if (hit.transform.gameObject.tag == "card")
-            {
-             //  print("hit : " + hit.transform.gameObject.name);
+                  print("hit : " + hit.collider.gameObject.name);
 
                 checkCorrectColor(hit);
 
                 if (isRightType)
                 {
-                    lastHit = hit.transform.gameObject;
+                    lastHit = hit.collider.gameObject;
 
                     turnBased.MouseUp_currentLand = gameObject;
 
@@ -77,7 +81,7 @@ public class raycastGrid : MonoBehaviour
 
                     // Debug.Log(gameObject.name + " is in the ray with... " + lastHit.name);
 
-                //    Debug.Log(gameObject.name + " hits " + hit.transform.gameObject.name);
+                    //    Debug.Log(gameObject.name + " hits " + hit.transform.gameObject.name);
                 }
                 else { lastHit = null; }
 
@@ -102,13 +106,13 @@ public class raycastGrid : MonoBehaviour
                                 {
                                     _canRichFood.SetActive(true);
                                 }*/
-/*                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canRichFood, _canRichFood);
-                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canAveFood, _canAveFood);
-                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canPoorFood, _canPoorFood);
-                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canNPC, _canNPC);
-                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canNest, _canNest);
-                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canHumanMade, _canHumanStuff);
-                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canBuildingMaterial, _canBuildingMaterial);*/
+                /*                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canRichFood, _canRichFood);
+                                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canAveFood, _canAveFood);
+                                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canPoorFood, _canPoorFood);
+                                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canNPC, _canNPC);
+                                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canNest, _canNest);
+                                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canHumanMade, _canHumanStuff);
+                                    showCanPutNotification(transform.GetChild(0).gameObject.GetComponent<grid>().canBuildingMaterial, _canBuildingMaterial);*/
 
                 if (lastHit && lastHit.tag == "card" && !isPunch)
                 {
@@ -117,34 +121,35 @@ public class raycastGrid : MonoBehaviour
 
                     print("punch!");
                 }
-                    }
-/*                    else
-                    {
-                        for (int i = 0; i < allCans.Count; i++)
-                        { allCans[i].SetActive(false);
-                        }
-                    }*/
             }
-            else {
-                        if (turnBased.MouseUp_currentLand == gameObject)
-                        {
-                           // print("out of ray: " + gameObject.name);
-                            turnBased.MouseUp_currentLand = null;
-                        }
-
-
-                   }
-
-            if (isPunch)
+            /*                    else
+                                {
+                                    for (int i = 0; i < allCans.Count; i++)
+                                    { allCans[i].SetActive(false);
+                                    }
+                                }*/
+        }
+        else
+        {
+            if (turnBased.MouseUp_currentLand == gameObject)
             {
-                t = t + Time.deltaTime;
-                //Debug.Log("t: " +t);
-                if (t > 0.8f)
-                {
-                    isPunch = false;
-                    t = 0f;
-                }
+                // print("out of ray: " + gameObject.name);
+                turnBased.MouseUp_currentLand = null;
             }
+
+
+        }
+
+        if (isPunch)
+        {
+            t = t + Time.deltaTime;
+            //Debug.Log("t: " +t);
+            if (t > 0.8f)
+            {
+                isPunch = false;
+                t = 0f;
+            }
+        }
     }
 
     void genCanPutNotification(bool canWhat, string resLoad, Vector3 v3)
@@ -152,14 +157,14 @@ public class raycastGrid : MonoBehaviour
         if (canWhat)
         {
             GameObject canLand = Instantiate(Resources.Load(resLoad)) as GameObject;
-            canLand.transform.SetParent(GameObject.Find("Canvas"). transform);
+            canLand.transform.SetParent(GameObject.Find("Canvas").transform);
             canLand.transform.localPosition = v3;
-            canLand.transform.localScale = new Vector3(1f, 1f,1f);
+            canLand.transform.localScale = new Vector3(1f, 1f, 1f);
 
         }
     }
 
-    void showCanPutNotification(bool canWhat, GameObject goj )
+    void showCanPutNotification(bool canWhat, GameObject goj)
     {
         if (canWhat)
         {
@@ -167,7 +172,7 @@ public class raycastGrid : MonoBehaviour
         }
     }
 
-    
+
 
     void checkCorrectColor(RaycastHit _hit)
     {
@@ -177,10 +182,10 @@ public class raycastGrid : MonoBehaviour
         isRightType = false;
 
         grid _grid;
-        _grid = gameObject.transform.GetChild(0).gameObject. GetComponent<grid>(); //grids 
+        _grid = gameObject.transform.GetChild(0).gameObject.GetComponent<grid>(); //grids 
         if (_hit.transform.GetChild(0).transform.gameObject.GetComponent<whichObj>().which == 1)
         {
-            if (_grid.canRichFood  && _hit.transform.GetChild(0).transform.gameObject.GetComponent<objFood>().rich == 3 )
+            if (_grid.canRichFood && _hit.transform.GetChild(0).transform.gameObject.GetComponent<objFood>().rich == 3)
             {
                 //    print("rich food.");
                 isRightType = true;
@@ -222,12 +227,12 @@ public class raycastGrid : MonoBehaviour
         //// check if it was the right land to put the right stuff on
         ///End
     }
-/*
-    void OnCollisionEnter(Collision collision)
-    {
-         Debug.Log( gameObject.name +"'s collision: " +collision.gameObject.name);
-    }
+    /*
+        void OnCollisionEnter(Collision collision)
+        {
+             Debug.Log( gameObject.name +"'s collision: " +collision.gameObject.name);
+        }
 
-    void OnCollisionExit(Collision collision)
-    { }*/
+        void OnCollisionExit(Collision collision)
+        { }*/
 }

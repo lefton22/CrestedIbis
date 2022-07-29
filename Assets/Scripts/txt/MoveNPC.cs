@@ -10,8 +10,8 @@ public class MoveNPC : MonoBehaviour
     Seeker seeker;
     void Start()
     {
-        seeker = GetComponent<Seeker>();
-        targetPos = GameObject.Find("Target2").transform;
+/*        seeker = GetComponent<Seeker>();
+        targetPos = GameObject.Find("Target2").transform;*/
     }
 
     // Update is called once per frame

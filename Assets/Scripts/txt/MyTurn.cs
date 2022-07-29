@@ -148,32 +148,29 @@ namespace Panda.Ibis
 
 
             // use Map.Instance. xxx to find obj on lands 
-           // Map.instance.itemAList[1] =
-           
-           //Check if something on the land
-           //print("turn based: " +_turnBased.name);
-           /* if (transform.parent.gameObject.GetComponent<turnBased>().turn == 1)// supposed to be _turnBased
-            {
-                GameObject[] lands;
-                lands = GameObject.FindGameObjectsWithTag("land");
+            // Map.instance.itemAList[1] =
 
-                
+            //Check if something on the land
+            //print("turn based: " +_turnBased.name);
+            if (transform.parent.gameObject.GetComponent<turnBased>().turn == 1)// supposed to be _turnBased
+            {
+/*                GameObject[] lands;
+                lands = GameObject.FindGameObjectsWithTag("land");*/
+
+
                 List<GameObject> flatLands;
                 flatLands = new List<GameObject>();
-                foreach (GameObject land in lands)
+
+                foreach (Gird gird in Map.instance.girds)
                 {
-                    if (land.transform.GetChild(0).gameObject.name != "highHill" && land.transform.GetChild(0).gameObject.tag == "grid")
+                    if (gird.state == GirdState.Null && !flatLands.Contains(gird.gameObject))
                     {
-                      
-                        if (!flatLands.Contains(land))
-                        { flatLands.Add(land);
-                          
-                        }
+                        flatLands.Add(gird.gameObject);
                     }
                 }
 
                 int ran;
-                ran = Random.Range(0, flatLands.Count-1);
+                ran = Random.Range(0, flatLands.Count - 1);
 
                 _ibisA = GameObject.Find("ibisA");
 
@@ -187,23 +184,15 @@ namespace Panda.Ibis
                 _ibisA.GetComponent<objV2Pos>().thisV2 = flatLands[ran].GetComponent<genPos>().thisCo; // to avoid the isObjOnLand bug bcz ibisA's collider has been de actived.
 
 
-               // _ibisA.GetComponent<SnapToNode>().enabled = false;
-                // Recalculate the graph
-                   AstarPath.active.Scan();
-
-               // _ibisA.GetComponent<SnapToNode>().enabled = true;
-
-            }*/
-           //else { ThisTask.Succeed(); }
 
 
-           // _ibisA.GetComponent<SnapToNode>().enabled = false;
+            }
+            //else { ThisTask.Succeed(); }
 
-           // Recalculate the graph
-           //  AstarPath.active.Scan();
-           //_ibisA.GetComponent<SnapToNode>().enabled = true;
 
-           ThisTask.Succeed();
+
+
+            ThisTask.Succeed();
         }
 
         [Task]
@@ -403,6 +392,7 @@ namespace Panda.Ibis
             { _listObjOnLand.isObjOnLand[i] = false; }
 
             // add objs
+            // may usefulless in new pathfinding arounding
             foreach (Transform obj_child in GameObject.Find("ObjOnLand").transform)
             {
                 Vector2 v2_obj;
@@ -412,13 +402,15 @@ namespace Panda.Ibis
                 _listObjOnLand.isObjOnLand[index_obj] = true;
             }
 
-            //add ibisA and other under NPCs
+/*            //add ibisA and other under NPCs
             Vector2 v2_ibisA;
             v2_ibisA = _ibisA.GetComponent<objV2Pos>().thisV2;
             int index_ibisA;
             index_ibisA = _LandGen3.LandCos.IndexOf(v2_ibisA);
             _listObjOnLand.isObjOnLand[index_ibisA] = true;
-            ////////////
+            ////////////*/
+            
+
             ///remove the trap's Rigidbody
             //foreach (Transform obj_child in GameObject.Find("ObjOnLand").transform)
             //{
@@ -583,14 +575,7 @@ namespace Panda.Ibis
             }
         }
 
-        [Task]
-        void checkGraph()  // it seems usefulless
-        {
-            // Recalculate the graph
-            AstarPath.active.Scan();
 
-            ThisTask.Succeed();
-        }
 
         [Task]
         void ibisAct()
@@ -729,15 +714,12 @@ namespace Panda.Ibis
 
                     cardSlot.transform.SetParent(_Cards.transform);
                     cardSlot.name = "cardSlot" + i.ToString();
-                    
 
                     cardSlotsAmounts = cardSlotsAmounts + 1;
 
 
                     if (!cardSlots.Contains(cardSlot))
                     { cardSlots.Add(cardSlot); }
-
-                  
 
                 }
               //  print("cardSlots count: " + cardSlots.Count +" this turn: " +GameObject.Find("TurnBased").GetComponent<turnBased>().turn);
@@ -749,10 +731,13 @@ namespace Panda.Ibis
                 for (int k = 0; k < cardSlots.Count; k++)
                 {
                   
-                    GameObject card = Instantiate(Resources.Load("card0")) as GameObject;
-                    card.transform.SetParent(_Cards.transform);
+                    GameObject card = Instantiate(Resources.Load("card1")) as GameObject;
+                   
                     card.transform.position = cardSlots[k].transform.position;
-                    
+
+                    card.transform.SetParent(_Cards.transform);
+                    //card.transform.SetParent(GameObject.Find(""));
+
                     card.name = "card" + k.ToString();
 
 

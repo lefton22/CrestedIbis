@@ -39,11 +39,11 @@ public class genPos : MonoBehaviour
 
         nameHasExist = new List<string>();
 
-        claimLandName();
+      // claimLandName();
         
     }
 
-    void claimLandName()
+/*    void claimLandName()
     {
         // if (gameObject.tag == "land")
         //   if (_listObjOnLand.poolLandName.Count!=0)
@@ -59,5 +59,5 @@ public class genPos : MonoBehaviour
                 nameHasExist.Add(_listObjOnLand.poolLandName[ran]);
         }
         //    }
-    }
+    }*/
 }

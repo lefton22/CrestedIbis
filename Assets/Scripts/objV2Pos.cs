@@ -38,7 +38,7 @@ public class objV2Pos : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "land" )
+        if (collision.gameObject.tag == "Respawn" )
         {
             thisV2 = collision.gameObject.GetComponent<genPos>().thisCo;
 

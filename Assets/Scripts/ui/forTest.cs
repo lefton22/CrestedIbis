@@ -60,6 +60,29 @@ public class forTest : MonoBehaviour
 
             print("D");
         }
+
+
+        /////
+        /// a ray from ibisA to camera
+        /// 
+        //Vector3 toCamera = Camera.main.transform.position;
+         Camera.main.ScreenPointToRay(Input.mousePosition);
+       // Debug.DrawRay(GameObject.Find("ibisA").transform.position, toCamera);
+
+      //  Ray ray = new Ray(GameObject.Find("ibisA").transform.position, toCamera);
+      Ray ray = Camera.main.ScreenPointToRay(GameObject.Find("ibisA").transform.position);
+
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 9998f))
+        {
+            print("ray 1"); 
+             print(gameObject.name + " hits (for test): " + hit.collider.name);
+
+            if (hit.collider.gameObject.tag == "card")
+            {
+                print("ibisA hits a card");
+            }
+        }
     }
 
 

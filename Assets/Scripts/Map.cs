@@ -64,6 +64,34 @@ public class Map : MonoBehaviour
 
             itemXList.Add(new State());
         }
+
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.name == "gird0")
+            {
+                child.gameObject.GetComponent<genPos>().thisCo = new Vector2(0,2);
+            }
+
+            setV2(child,0, new Vector2(0,2));
+            setV2(child, 1, new Vector2(-1, 2));
+            setV2(child, 2, new Vector2(-2, 2));
+            setV2(child, 3, new Vector2(1, 1));
+            setV2(child, 4, new Vector2(0, 1));
+            setV2(child, 5, new Vector2(-1, 1));
+            setV2(child, 6, new Vector2(-2, 1));
+            setV2(child, 7, new Vector2(2, 0));
+            setV2(child, 8, new Vector2(1, 0));
+            setV2(child, 9, new Vector2(0, 0));
+            setV2(child, 10, new Vector2(-1, 0));
+            setV2(child, 11, new Vector2(-2, 0));
+            setV2(child, 12, new Vector2(2, -1));
+            setV2(child, 13, new Vector2(1, -1));
+            setV2(child, 14, new Vector2(0, -1));
+            setV2(child, 15, new Vector2(-1, -1));
+            setV2(child, 16, new Vector2(2, -2));
+            setV2(child, 17, new Vector2(1, -2));
+            setV2(child, 18, new Vector2(0, -2));
+        }
     }
     /// <summary>
     /// 获取到目标位置的一条路径
@@ -325,4 +353,43 @@ public class Map : MonoBehaviour
             }
         }
     }
+
+
+    void setV2(Transform child, int girdIndex, Vector2 v2)
+    {
+        if (child.gameObject.name == "gird" +girdIndex.ToString())
+        {
+            child.gameObject.GetComponent<genPos>().thisCo = v2;
+        }
+    }
+
+
+    public int transferV2ToIndex(Vector2 v2)
+    {
+        int index =-1;
+
+        if (v2 == new Vector2(0, 2)) { index = 0; }
+        if (v2 == new Vector2(-1, 2)) { index = 1; }
+        if (v2 == new Vector2(-2, 2)) { index = 2; }
+        if (v2 == new Vector2(1, 1)) { index = 3; }
+        if (v2 == new Vector2(0, 1)) { index = 4; }
+        if (v2 == new Vector2(-1, 1)) { index = 5; }
+        if (v2 == new Vector2(-2, 1)) { index = 6; }
+        if (v2 == new Vector2(2, 0)) { index = 7; }
+        if (v2 == new Vector2(1, 0)) { index = 8; }
+        if (v2 == new Vector2(0, 0)) { index = 9; }
+        if (v2 == new Vector2(-1, 0)) { index = 10; }
+        if (v2 == new Vector2(-2, 0)) { index = 11; }
+        if (v2 == new Vector2(2, -1)) { index = 12; }
+        if (v2 == new Vector2(1, -1)) { index = 13; }
+        if (v2 == new Vector2(0, -1)) { index = 14; }
+        if (v2 == new Vector2(-1, -1)) { index = 15; }
+        if (v2 == new Vector2(2, -2)) { index = 16; }
+        if (v2 == new Vector2(1, -2)) { index = 17; }
+        if (v2 == new Vector2(0, -2)) { index = 18; }
+
+        return index;
+    }
+
+   
 }
