@@ -157,7 +157,7 @@ public class dragCard : MonoBehaviour
         // delete the card objects
         // set the env object on the grid 
 
-        //Debug.Log("OnMouseUp: " /*+ turnBased.MouseDrag_currentLand.name */);
+        Debug.Log("OnMouseUp: " + turnBased.MouseDrag_currentLand.name );
 
         // turnBased.MouseUp_currentLand = null;
 
@@ -170,13 +170,13 @@ public class dragCard : MonoBehaviour
         {
             //  print("card land 0.");
             /////check if there is obj on the land to prevent from overlapping
-            /*            transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>().thisV2 =
-                        turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //��Ʒ��½
+            transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>().thisV2 =
+            turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //��Ʒ��½
 
-                        if (transform.GetChild(0).gameObject.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains (transform.GetChild(0).gameObject))
-                        {
-                            _listObjOnLand.NPCibisOnLand.Add(transform.GetChild(0).gameObject);
-                        }*/
+            if (transform.GetChild(0).gameObject.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains(transform.GetChild(0).gameObject))
+            {
+                _listObjOnLand.NPCibisOnLand.Add(transform.GetChild(0).gameObject);
+            }
 
             //  Map.instance.allItemList
 
@@ -184,35 +184,35 @@ public class dragCard : MonoBehaviour
 
             //////check overlapping on the lands!
 
-            /*            int index_ifObj;
-                        index_ifObj = -1;*/
-            /*            for (int j = 0; j < _LandGen3.LandCos.Count; j++) // need to check this for new path finding version!
-                        {
-            *//*                if (transform.GetChild(0).gameObject.GetComponent<objV2Pos>().thisV2
-                                                        == _LandGen3.LandCos[j])
-                            {
-                                index_ifObj = j;
-                                //print("index_ifObj :"+ index_ifObj ) ;
-                               // print("cannot put 2 and index_ifObj: " + index_ifObj);
-                            }*//*
-                        }
+/*            int index_ifObj;
+            index_ifObj = -1;
+            for (int j = 0; j < _LandGen3.LandCos.Count; j++) // need to check this for new path finding version!
+            {
+                if (transform.GetChild(0).gameObject.GetComponent<objV2Pos>().thisV2
+                                            == _LandGen3.LandCos[j])                      //list已有的和新加进去尚未入list的比
+                {
+                    index_ifObj = j;
+                    //print("index_ifObj :"+ index_ifObj ) ;
+                    // print("cannot put 2 and index_ifObj: " + index_ifObj);
+                }
+            }
 
-                        for (int k = 0; k < _ListObjOnLand.isObjOnLand.Count; k++)
-                        {
-                            if (_ListObjOnLand.isObjOnLand[k] 
-                                && k == index_ifObj) 
-                            {
-                                ifOverlap = true;
-                                transform.DOMove(v3_ori, 0.35f, false); // this is still useful!
-                                Debug.Log("cannot put this obj on this land due to ST on it.");
+            for (int k = 0; k < _ListObjOnLand.isObjOnLand.Count; k++)
+            {
+                if (_ListObjOnLand.isObjOnLand[k]
+                    && k == index_ifObj)
+                {
+                    ifOverlap = true;
+                    transform.DOMove(v3_ori, 0.35f, false); // this is still useful!
+                    Debug.Log("cannot put this obj on this land due to ST on it.");
 
-                               // _LandGen2.LandCos_GO[k].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 1f, 1f, 1f);
-                            }
-                        }*/
+                    // _LandGen2.LandCos_GO[k].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 1f, 1f, 1f);
+                }
+            }
+*/
 
 
-
-             int indexTouchLand = -1 ;
+            int indexTouchLand = -1 ;
 
             // Debug.DrawRay();
             RaycastHit hit;
@@ -223,6 +223,8 @@ public class dragCard : MonoBehaviour
                 if (hit.collider.CompareTag("Respawn"))
                 {
                     indexTouchLand = aboutGirdIndex.getGirdIndex(hit.collider.gameObject);
+
+                    print("indexTouchLand: " + indexTouchLand);
 
                     //check if this index on the all list
 
