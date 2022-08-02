@@ -24,7 +24,7 @@ public class trapBreak : MonoBehaviour
         {
             GameObject trap_hp = Instantiate(Resources.Load("goj/HP-dot-Red")) as GameObject;
             trap_hp.transform.position = transform.position;
-            trap_hp.transform.localScale = new Vector3(2f, 2f, 2f);
+            trap_hp.transform.localScale = new Vector3(1f,1f, 2f);
             trap_hp.transform.SetParent(transform);
             trap_hp.GetComponent<SpriteRenderer>().sprite = _Obj_icons.trapHP[i];
             trap_hp.name = "trapHP" + i.ToString();

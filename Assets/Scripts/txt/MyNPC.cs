@@ -30,6 +30,8 @@ namespace Panda.Ibis
         Vector2 v2_des;
         public List<Vector2> v2_dess;
 
+        int trapMan_empty_index;
+
         GameObject _LandGenerator;
         LandGen2 _LandGen2;
 
@@ -41,6 +43,9 @@ namespace Panda.Ibis
 
         bool isSnake_seekNestWithEgg;
 
+        GameManager  _Gamemanager;
+
+        bool hasCheckMovingGoalIndex;
 
         void Start()
         {
@@ -64,7 +69,11 @@ namespace Panda.Ibis
 
             isSnake_seekNestWithEgg = false;
 
+            trapMan_empty_index = -1;
 
+            _Gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+            hasCheckMovingGoalIndex = false;
         }
 
 
@@ -415,40 +424,61 @@ namespace Panda.Ibis
             if (ran > baseLine)
             {
                 //
-                //build empty list of grids
-                List<Vector2> v2_emptyLands;
-                v2_emptyLands = new List<Vector2>();
-                for (int i = 0; i < _LandGenerator.GetComponent<LandGen2>().LandCos.Count; i++)
+                // //build empty list of grids
+
+                int index_ibisA = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+
+                List<bool> index_emptyLands;  // is this land empty
+                index_emptyLands = new List<bool>();
+                for (int i = 0; i < 19; i++)
+                { index_emptyLands.Add(true); }
+
+                for (int i = 0; i < Map.instance.allItemList.Count; i++)
                 {
-                    if (!_listObjOnLand.isObjOnLand[i])
+                    if (Map.instance.allItemList[i].Has
+                          && i == index_ibisA
+                          && Map.instance.girds[i].state == GirdState.Wall)
                     {
-                        if (!v2_emptyLands.Contains(_LandGenerator.GetComponent<LandGen2>().LandCos[i]))
-                        {
-                            v2_emptyLands.Add(_LandGenerator.GetComponent<LandGen2>().LandCos[i]);
-                        }
+                        index_emptyLands[i] = false;
                     }
                 }
-                //get the random v3
-                int ran2;
-                ran2 = Random.Range(0, v2_emptyLands.Count - 1);
-                v2_des = v2_emptyLands[ran2];
-                print("v2_des: " + v2_des);
 
-                int index_Land;
+                ////get the random v3
+                List<int> canAppear;
+                canAppear = new List<int>();
+                for (int i = 0; i < index_emptyLands.Count; i++)
+                {
+                    if (index_emptyLands[i] && !canAppear.Contains(i))
+                    {
+                        canAppear.Add(i);
+                    }
+                }
+
+                int ran_index = Random.Range(0, canAppear.Count-1);
+
+                //int ran_index = index_emptyLands[ran2];
+                trapMan_empty_index = ran_index;
+                //v2_des = index_emptyLands[ran2];
+                print("ran_index: " + ran_index);
+            
+/*                int index_Land;
                 index_Land = _LandGenerator.GetComponent<LandGen2>().LandCos.IndexOf(v2_emptyLands[ran2]);
 
                 Vector3 v3_des;
-                v3_des = _LandGenerator.GetComponent<LandGen2>().LandCos_GO[index_Land].transform.position;
+                v3_des = _LandGenerator.GetComponent<LandGen2>().LandCos_GO[index_Land].transform.position;*/
 
                 //gen
                 GameObject trapMan = Instantiate(Resources.Load("obj/obj")) as GameObject;
                 trapMan.name = "trapMan";
                 trapMan.GetComponent<objNPC>().whichNPC = "trapMan";
                 trapMan.GetComponent<whichObj>().which = 2;
-                trapMan.transform.position = v3_des;
-                trapMan.transform.SetParent(GameObject.Find("ObjOnLand").transform);
+                // trapMan.transform.position = v3_des;
+                trapMan.transform.position = Map.instance.girds[trapMan_empty_index].transform.position;
+                 trapMan.transform.SetParent(GameObject.Find("ObjOnLand").transform);
 
-                _trapMan = trapMan;
+                trapMan.GetComponent<SnapToNode>().enabled = false;
+
+                  _trapMan = trapMan;
 
                 // _trapMan = GameObject.Find("trapMan");
 
@@ -457,6 +487,78 @@ namespace Panda.Ibis
                 ThisTask.Succeed();
             }
             else { ThisTask.Fail(); }
+        }
+
+        [Task]
+        void trapMan_goToRandomGrid_newPathFinding()
+        {
+            Debug.Log("trap man goes to a random grid - new path finding");
+            //remove all lands has obj,highhill, ibisA and trapMan on
+            // actuall only need highHill and ibisA
+
+            int index_ibisA = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+
+            List<bool> index_emptyLands;  // is this land empty
+            index_emptyLands = new List<bool>();
+            for(int i =0; i< 19; i++)
+            { index_emptyLands.Add(true); }
+
+            for (int i = 0; i < Map.instance.allItemList.Count; i++)
+            {
+                if (Map.instance.allItemList[i].Has 
+                      && i == index_ibisA
+                      && Map.instance.girds[i].state == GirdState.Wall )
+                {
+                    index_emptyLands[i] = false;
+                }
+            }
+
+            int ran = -1;
+            if (!hasCheckMovingGoalIndex)
+            {
+                ran = Random.Range(0, index_emptyLands.Count - 1);
+                print("ran: " + ran);
+
+                GameManager.istance.setSelectNav(_trapMan.GetComponent<Nav>());
+                hasCheckMovingGoalIndex = true;
+            }
+
+            foreach (bool index in index_emptyLands)
+            { print("trapMan can go to: " + index); }
+
+            //move
+            seekLocation2(ran);
+              
+
+
+            /*            // check if reaching
+                        Vector2 v2_land;
+                        Vector2 v2_trapMan;
+                        v2_trapMan = _trapMan.GetComponent<objV2Pos>().thisV2;
+                        v2_land = v2_des;
+
+                        //Debug.Log("going to nest: " + nests[ran].name);
+
+                        if (v2_trapMan == v2_land)//ibisA reach the nest
+                        {
+                            hasCheckDes = false;
+
+                            Debug.Log("reach to a ran grid.");
+
+                            // Destroy(_trapMan);
+                            ThisTask.Succeed();
+                        }*/
+
+            int index_trapManFinal = aboutGirdIndex.getGirdIndex(_trapMan);
+            if (ran == index_trapManFinal)
+            {
+                hasCheckDes = false;
+
+                Debug.Log("reach to a ran grid.");
+
+                // Destroy(_trapMan);
+                ThisTask.Succeed();
+            }
         }
 
         [Task]
@@ -572,6 +674,7 @@ namespace Panda.Ibis
             trap.transform.SetParent(GameObject.Find("ObjOnLand").transform);
             trap.name = "trap";
 
+            trap.transform.localScale = new Vector3(0.5f, 0.5f,1f);
             
            // Destroy(trap.GetComponent<Rigidbody>());
 /*            bool hasSet;
@@ -684,6 +787,21 @@ namespace Panda.Ibis
 
             //  Debug.Log("move to destination: " + destination);
 
+        }
+
+        void seekLocation2(int _index) // might need a string to play action 
+        {
+            if (!hasCheckDes)
+            {
+
+                hasCheckDes = true;
+
+                // go 
+                // transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_walk");
+
+                _Gamemanager.setMovingGoal(_index);
+
+            }
         }
 
         void seekMultiLocations(List<GameObject> gojs, List<Vector3> destination)

@@ -1,14 +1,15 @@
 tree("Root")
 			 fallback
 						sequence 
-							checkTrapMan_appear(5, 2)
+							checkTrapMan_appear(10, 2)
 							Wait(10)
 
-							trapMan_goToRandomGrid()
-							Wait(10)
+							//trapMan_goToRandomGrid()
+							trapMan_goToRandomGrid_newPathFinding()
+							Wait(500)
 
 							trapMan_setTrap()
-							Wait(10)
+							Wait(50)
 
 							trapMan_leave()
 							Wait(10)

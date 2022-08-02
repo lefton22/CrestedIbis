@@ -37,7 +37,7 @@ public class objNPC : MonoBehaviour
                         GetComponent<Pathfinding.AILerp>().enableRotation = false;
                         sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;*/
 
-          //  Nav scc = gameObject.AddComponent<Nav>() as Nav;
+           // Nav scc = gameObject.AddComponent<Nav>() as Nav;
 
             //faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
            objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
@@ -68,7 +68,7 @@ public class objNPC : MonoBehaviour
                         Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp;
                         sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;*/
 
-            //Nav scc = gameObject.AddComponent<Nav>() as Nav;
+           // Nav scc = gameObject.AddComponent<Nav>() as Nav;
 
             //  faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
             // objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
@@ -100,7 +100,8 @@ public class objNPC : MonoBehaviour
                         GetComponent<Pathfinding.AILerp>().enableRotation = false;
                         sc.GetComponent<Pathfinding.AILerp>().autoRepath.mode = Pathfinding.AutoRepathPolicy.Mode.Never;*/
 
-            //Nav scc = gameObject.AddComponent<Nav>() as Nav;
+      //      Nav scc = gameObject.AddComponent<Nav>() as Nav;
+            gameObject.GetComponent<Nav>().speed = 2f;
 
             //  faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
             // objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;
@@ -109,13 +110,15 @@ public class objNPC : MonoBehaviour
             MoveNPC _mn = gameObject.AddComponent<MoveNPC>() as MoveNPC;
 
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("obj/trapMan");
-
+            
             spriteOrder sp_order = gameObject.AddComponent<spriteOrder>() as spriteOrder;
 
             GetComponent<CapsuleCollider>().enabled = true;
             GetComponent<Rigidbody>().useGravity = false;
 
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            GetComponent<SnapToNode>().enabled = false;
+
+            transform.localScale = new Vector3(0.5f, 0.5f, 1f);
             name = "trapMan";
 
         }
@@ -132,7 +135,7 @@ public class objNPC : MonoBehaviour
             // Pathfinding.Seeker seeker = gameObject.AddComponent<Pathfinding.Seeker>() as Pathfinding.Seeker; //先不要
             //  Pathfinding.AILerp aiLerp = gameObject.AddComponent<Pathfinding.AILerp>() as Pathfinding.AILerp; //先不要
 
-           // Nav scc = gameObject.AddComponent<Nav>() as Nav;
+          //  Nav scc = gameObject.AddComponent<Nav>() as Nav;
 
             // faceToCamera _ftc = gameObject.AddComponent<faceToCamera>() as faceToCamera;
             //  objV2Pos _ovp = gameObject.AddComponent<objV2Pos>() as objV2Pos;

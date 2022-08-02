@@ -24,6 +24,8 @@ namespace Panda.Ibis {
         //check if the destionation of Target2 has identified.
         static bool hasCheckDes;
 
+        GameObject _ibisA;
+
         [Header(" �� Normal Properties")]
         // properties of the bird
         static public int gender;//1=雌，2=雄  // set when game starts, public is comtem...
@@ -143,6 +145,8 @@ namespace Panda.Ibis {
 
 
             hasCheckDes = false;
+
+            _ibisA = GameObject.Find("ibisA");
 
             /////////////Properties////////////////////
             ////////////////Properties////////////////////
@@ -676,19 +680,21 @@ namespace Panda.Ibis {
 
             //寻找最近的能量最高的上述食物，移过去
 
-/*            int index_LandCos;
-            index_LandCos = _LandGen3.LandCos.IndexOf(v2_nearestFood);
-            //Debug.Log("index_LandCos: " + index_LandCos);
+            /*            int index_LandCos;
+                        index_LandCos = _LandGen3.LandCos.IndexOf(v2_nearestFood);
+                        //Debug.Log("index_LandCos: " + index_LandCos);
 
-                Vector3 food_pos;
+                            Vector3 food_pos;
 
-                food_pos = _LandGen3.LandV3s[index_LandCos];
-            //  Debug.Log("food position: " + food_pos);*/
+                            food_pos = _LandGen3.LandV3s[index_LandCos];
+                        //  Debug.Log("food position: " + food_pos);*/
 
 
             //int foodIndex = Map.instance.transferV2ToIndex(v2_nearestFood);
-            seekLocation(index_currentEvent);
 
+            GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
+            seekLocation(index_currentEvent);
+            
 
             //....
             //如果上面没有，寻找有地点：水田、河滩，go!
@@ -714,8 +720,12 @@ namespace Panda.Ibis {
                             //  Debug.Log("food position: " + food_pos);*/
 
             //int foodIndex = Map.instance.transferV2ToIndex(v2_nearestFood);
+
+            GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
             seekLocation(index_currentEvent);
-           // seekLocation(food_pos);
+
+            // seekLocation(food_pos);
+
         }
 
         [Task]
@@ -1012,7 +1022,9 @@ namespace Panda.Ibis {
             Vector2 c_ibis_v2 = choosenIbis.GetComponent<objV2Pos>().thisV2;
             int c_ibis_index = Map.instance.transferV2ToIndex(c_ibis_v2);
 
+            GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
             seekLocation(c_ibis_index);
+
 
             Vector2 v2_ibisB;
             Vector2 v2_ibisA;
@@ -1102,6 +1114,7 @@ namespace Panda.Ibis {
             Vector2 c_mate_v2 = mate.GetComponent<objV2Pos>().thisV2;
             int c_mate_index = Map.instance.transferV2ToIndex(c_mate_v2);
 
+            GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
             seekLocation(c_mate_index);
 
             Vector2 v2_ibisB;
@@ -1366,6 +1379,7 @@ namespace Panda.Ibis {
                 int c_materialR_index = Map.instance.transferV2ToIndex(c_materialR_v2);
                 //index_currentEvent = c_materialR_index;
 
+                GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
                 seekLocation(c_materialR_index);
 
                 Vector2 v2_material;
@@ -1460,7 +1474,7 @@ namespace Panda.Ibis {
                     Vector2 c_g_nest_v2 = goal_nest.GetComponent<objV2Pos>().thisV2;
                     int c_g_nest_index = Map.instance.transferV2ToIndex(c_g_nest_v2);
 
-
+                    GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
                     seekLocation(c_g_nest_index);
                 }
                 if (goal_nest == null) { print("goal_nest = null."); }
@@ -1521,8 +1535,8 @@ namespace Panda.Ibis {
                     Vector2 c_g_nest_v2 = goal_nest.GetComponent<objV2Pos>().thisV2;
                     int c_g_nest_index = Map.instance.transferV2ToIndex(c_g_nest_v2);
 
-
-                    seekLocation(c_g_nest_index);
+                GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
+                seekLocation(c_g_nest_index);
 
                 Vector2 v2_nest;
               /*  Vector2 v2_ibisA;*/

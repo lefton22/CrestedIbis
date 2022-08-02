@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//      寻路必要1： 添加这个.cs
+//      寻路必要1： 添加这个 Nav.cs
 //121// 寻路必要2: 将需要寻路的物体加入这个list   ?!
 //116// 寻路必要3：设置包含Nav的物体所在格子的地方    !?
 //58//  寻路必要4(1/2)：是当下的selectnav
@@ -161,22 +161,22 @@ public class GameManager : MonoBehaviour
     {
         selectNav = pointedObj;
 
-        print("setSelectNav()");
+        print("setSelectNav() : " + pointedObj);
         
     }
     public void setMovingGoal(int goalIndex)   //寻路必要4(2/2)：移动到指定点
                                                //游戏中默认selectNav是ibisA
                                                //NPC 回合时是对应的NPC
     {
-     //   print("setMovingGoal 0");
+        print("setMovingGoal 0");
 
         if (goalIndex >= 0 && goalIndex <= 18)
         {
      //       print("setMovingGoal 1");
 
-            Vector3 goalPos = new Vector3( Map.instance.girds[goalIndex].transform.position.x,
+/*            Vector3 goalPos = new Vector3( Map.instance.girds[goalIndex].transform.position.x,
                                            Map.instance.girds[goalIndex].transform.position.y,
-                                           Map.instance.girds[goalIndex].transform.position.z + 0.7f);
+                                           Map.instance.girds[goalIndex].transform.position.z + 0.7f);*/
             /*            RaycastHit hit;
                         Ray ray = Camera.main.ScreenPointToRay(goalPos); // Vector3 设置成要去的格子的位置*/
             //  Map.instance.girds[Apos].transform.position;  

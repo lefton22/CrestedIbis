@@ -274,7 +274,7 @@ namespace Panda.Ibis
             objs = new List<GameObject>();
             foreach (Transform child in GameObject.Find("ObjOnLand").transform)
             {
-                if (child.gameObject.GetComponent<SnapToNode>())
+                if (child.gameObject.GetComponent<SnapToNode>() && child.gameObject.name != "trapMan")
                 { child.gameObject.GetComponent<SnapToNode>().enabled = true; }
             }
             //_ibisA.GetComponent<SnapToNode>().enabled = true;
