@@ -26,10 +26,10 @@ tree("Root")
 														Wait(10)
 
 														goToOpGender()
-														Wait(10)
+														Wait(100)
 
 														Courtship()
-														Wait(10)
+														Wait(100)
 
 														Next()
 

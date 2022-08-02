@@ -25,6 +25,9 @@ tree("Root")
 																			 Next()
 
 																	 sequence //有巢
+																			 checkIfNestFinished()
+																			 Wait(1)
+
 																			  goToNest(true)
 																			  Wait(10)
 

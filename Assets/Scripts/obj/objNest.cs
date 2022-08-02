@@ -34,7 +34,7 @@ public class objNest : MonoBehaviour
         {
             GameObject nest_HP = Instantiate(Resources.Load("goj/HP-dot-Grey")) as GameObject;
             nest_HP.transform.position = transform.position;
-            nest_HP.transform.localScale = new Vector3(2f, 2f, 2f);
+            nest_HP.transform.localScale = new Vector3(1f, 1f, 2f);
             nest_HP.transform.SetParent(transform);
             nest_HP.GetComponent<SpriteRenderer>().sprite = _Obj_icons.nestHP_grey[i];
             nest_HP.name = "NestHP" + i.ToString();

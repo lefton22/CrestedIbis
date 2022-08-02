@@ -19,12 +19,13 @@ public class GameManager : MonoBehaviour
         public int B1pos;
         //B2点位置
         public int B2pos;*/
+    
 
-    public List<Nav> foodsNav; // add when putting on lands
-    public List<Nav> materialsNav; // add when putting on lands
-    public List<Nav> nestsNav; //add when putting on lands
-    public List<Nav> NPCsNav;  //add when starting act on lands (NPCact())
-    public List<Nav> trapsNav; // add when trapman put it on  (NPCact())
+    public List<Nav> foodsNav; // add when putting on lands, remove when being eaten
+    public List<Nav> materialsNav; // add when putting on lands, remove when being taken
+    public List<Nav> nestsNav; //add when putting on lands, remove when being ???
+    public List<Nav> NPCsNav;  //add when putting on lands, remove when being ???
+    public List<Nav> trapsNav; // add when trapman put it on  (NPCact()), remove when being touched
 
     //设置格子的状态
     public GirdState[] girdStates;
@@ -49,6 +50,15 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         istance = this;
+
+        for (int i = 0; i < 19; i++)
+        {
+            foodsNav.Add(null);
+            materialsNav.Add(null);
+            nestsNav.Add(null);
+            NPCsNav.Add(null);
+            trapsNav.Add(null); 
+        }
     }
     private void Start()
     {
@@ -158,13 +168,15 @@ public class GameManager : MonoBehaviour
                                                //游戏中默认selectNav是ibisA
                                                //NPC 回合时是对应的NPC
     {
-        print("setMovingGoal 0");
+     //   print("setMovingGoal 0");
 
         if (goalIndex >= 0 && goalIndex <= 18)
         {
-            print("setMovingGoal 1");
+     //       print("setMovingGoal 1");
 
-            Vector3 goalPos = Map.instance.girds[goalIndex].transform.position;
+            Vector3 goalPos = new Vector3( Map.instance.girds[goalIndex].transform.position.x,
+                                           Map.instance.girds[goalIndex].transform.position.y,
+                                           Map.instance.girds[goalIndex].transform.position.z + 0.7f);
             /*            RaycastHit hit;
                         Ray ray = Camera.main.ScreenPointToRay(goalPos); // Vector3 设置成要去的格子的位置*/
             //  Map.instance.girds[Apos].transform.position;  
@@ -173,7 +185,7 @@ public class GameManager : MonoBehaviour
             Gird gird = Map.instance.girds[goalIndex];
             selectNav.SetMoveGird(gird);
 
-            print("setMovingGoal 3");
+    //        print("setMovingGoal 3");
 
         }
     }

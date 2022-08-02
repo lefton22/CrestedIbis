@@ -15,12 +15,12 @@ public class NPCIbis : MonoBehaviour
 
     void Start()
     {
-        // transform.localScale = new Vector3(0.9f, 0.9f, 1f);
+         transform.localScale = new Vector3(0.35f, 0.35f, 1f);
 
     }
 
    void Update()
     {
-        transform.localScale = new Vector3(0.9f, 0.9f, 1f);
+        //transform.localScale = new Vector3(0.6f, 0.6f, 1f);
     }
 }

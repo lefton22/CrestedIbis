@@ -54,10 +54,10 @@ public class endCheck : MonoBehaviour
                     print("0 narr: " + narrative[i]);
                 }*/
 
-        foreach (string narr in narrative)
+/*        foreach (string narr in narrative)
         {
             print("narr: " +narr);
-        }
+        }*/
 
         print("end check.");
         loadMainScene();

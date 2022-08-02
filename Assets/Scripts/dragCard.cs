@@ -18,11 +18,13 @@ public class dragCard : MonoBehaviour
     listObjOnLand _ListObjOnLand;
     LandGen3 _LandGen3;
 
-    bool ifOverlap;
+   public  bool ifOverlap;
     bool isRightType;
 
 
     listObjOnLand _listObjOnLand;
+
+    GameObject landOnWhichGird;
 
     void Start()
     {
@@ -36,6 +38,8 @@ public class dragCard : MonoBehaviour
         //  transform.GetChild(0).gameObject.GetComponent<objV2Pos>().thisV2 = new Vector2(99f,99f);
 
         _listObjOnLand = GameObject.Find("Lists").GetComponent<listObjOnLand>();
+
+        landOnWhichGird = null;
     }
 
 
@@ -62,13 +66,15 @@ public class dragCard : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
+    void Update()
+    {
+        Debug.DrawRay(Camera.main.transform.position, transform.position);
+        
+    }
 
-    
     void OnMouseDrag()
     {
         transform.position = GetMouseWorldPos() + mOffset;
-
-
 
         //当牌晃过来时，当前格子亮一下...
 
@@ -157,7 +163,7 @@ public class dragCard : MonoBehaviour
         // delete the card objects
         // set the env object on the grid 
 
-        Debug.Log("OnMouseUp: " + turnBased.MouseDrag_currentLand.name );
+        //Debug.Log("OnMouseUp: " /*+ turnBased.MouseDrag_currentLand.name */);
 
         // turnBased.MouseUp_currentLand = null;
 
@@ -170,13 +176,13 @@ public class dragCard : MonoBehaviour
         {
             //  print("card land 0.");
             /////check if there is obj on the land to prevent from overlapping
-            transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>().thisV2 =
-            turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //��Ʒ��½
+            /*            transform.GetChild(0).transform.gameObject.GetComponent<objV2Pos>().thisV2 =
+                        turnBased.MouseUp_currentLand.GetComponent<genPos>().thisCo; //��Ʒ��½
 
-            if (transform.GetChild(0).gameObject.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains(transform.GetChild(0).gameObject))
-            {
-                _listObjOnLand.NPCibisOnLand.Add(transform.GetChild(0).gameObject);
-            }
+                        if (transform.GetChild(0).gameObject.name == "ibisAdult" && !_listObjOnLand.NPCibisOnLand.Contains (transform.GetChild(0).gameObject))
+                        {
+                            _listObjOnLand.NPCibisOnLand.Add(transform.GetChild(0).gameObject);
+                        }*/
 
             //  Map.instance.allItemList
 
@@ -184,48 +190,51 @@ public class dragCard : MonoBehaviour
 
             //////check overlapping on the lands!
 
-/*            int index_ifObj;
-            index_ifObj = -1;
-            for (int j = 0; j < _LandGen3.LandCos.Count; j++) // need to check this for new path finding version!
-            {
-                if (transform.GetChild(0).gameObject.GetComponent<objV2Pos>().thisV2
-                                            == _LandGen3.LandCos[j])                      //list已有的和新加进去尚未入list的比
-                {
-                    index_ifObj = j;
-                    //print("index_ifObj :"+ index_ifObj ) ;
-                    // print("cannot put 2 and index_ifObj: " + index_ifObj);
-                }
-            }
+            /*            int index_ifObj;
+                        index_ifObj = -1;*/
+            /*            for (int j = 0; j < _LandGen3.LandCos.Count; j++) // need to check this for new path finding version!
+                        {
+            *//*                if (transform.GetChild(0).gameObject.GetComponent<objV2Pos>().thisV2
+                                                        == _LandGen3.LandCos[j])
+                            {
+                                index_ifObj = j;
+                                //print("index_ifObj :"+ index_ifObj ) ;
+                               // print("cannot put 2 and index_ifObj: " + index_ifObj);
+                            }*//*
+                        }
 
-            for (int k = 0; k < _ListObjOnLand.isObjOnLand.Count; k++)
-            {
-                if (_ListObjOnLand.isObjOnLand[k]
-                    && k == index_ifObj)
-                {
-                    ifOverlap = true;
-                    transform.DOMove(v3_ori, 0.35f, false); // this is still useful!
-                    Debug.Log("cannot put this obj on this land due to ST on it.");
+                        for (int k = 0; k < _ListObjOnLand.isObjOnLand.Count; k++)
+                        {
+                            if (_ListObjOnLand.isObjOnLand[k] 
+                                && k == index_ifObj) 
+                            {
+                                ifOverlap = true;
+                                transform.DOMove(v3_ori, 0.35f, false); // this is still useful!
+                                Debug.Log("cannot put this obj on this land due to ST on it.");
 
-                    // _LandGen2.LandCos_GO[k].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 1f, 1f, 1f);
-                }
-            }
-*/
+                               // _LandGen2.LandCos_GO[k].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 1f, 1f, 1f);
+                            }
+                        }*/
 
+            //没有用！
+/*            print("mouse up: " + gameObject.name );
 
-            int indexTouchLand = -1 ;
+             int indexTouchLand = -1 ;
 
-            // Debug.DrawRay();
+             Debug.DrawRay(Camera.main.transform.position, transform.position, Color.cyan);
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 10000))
+            //Ray ray = Camera.main.ScreenPointToRay(transform.position);
+
+            Ray ray = new Ray(Camera.main.transform.position, transform.position);
+            if (Physics.Raycast(ray, out hit))
             {
                 print("ray 1");
                 if (hit.collider.CompareTag("Respawn"))
                 {
                     indexTouchLand = aboutGirdIndex.getGirdIndex(hit.collider.gameObject);
 
-                    print("indexTouchLand: " + indexTouchLand);
-
+                  
+                   // print("ray to Respawns");
                     //check if this index on the all list
 
                     if (Map.instance.allItemList[indexTouchLand].Has)
@@ -237,7 +246,8 @@ public class dragCard : MonoBehaviour
                     }
 
                 }
-            }
+            }*/
+             //没有用！
 
             ///Start
             //// check if it was the right land to put the right stuff on
@@ -301,13 +311,19 @@ public class dragCard : MonoBehaviour
                     } */
                 }
 
-             //   print("turnBased.MouseUp_currentLand: " + turnBased.MouseUp_currentLand);
+                landOnWhichGird = turnBased.MouseUp_currentLand;
+                addToNavListOfType();
+                
+                //   print("turnBased.MouseUp_currentLand: " + turnBased.MouseUp_currentLand);
                 transform.GetChild(0).transform.position = turnBased.MouseUp_currentLand.transform.position;
                 transform.GetChild(0).GetComponent<SnapToNode>().enabled = true;
                // transform.GetChild(0).transform.gameObject.GetComponent<faceToCamera>().faceToCamera2();
 
                 transform.GetChild(0).transform.SetParent(GameObject.Find("ObjOnLand").transform);
 
+               
+
+               
 
                 Destroy(gameObject);
             }
@@ -330,6 +346,53 @@ public class dragCard : MonoBehaviour
     }
 
 
+    public void whenOverlap(GameObject fromWhichGrid)
+    {
+        ifOverlap = true;
+        transform.DOMove(v3_ori, 0.35f, false);
 
+        landOnWhichGird = fromWhichGrid;
 
+        Debug.Log("cannot put this obj on this land due to ST on it.");
+    }
+
+    void addToNavListOfType()
+    {
+        if (transform.GetChild(0).gameObject.tag == "food")
+        {
+            int index_foodOnGird = Map.instance.girds.IndexOf(landOnWhichGird.GetComponent<Gird>());
+            GameManager.istance.foodsNav[index_foodOnGird] 
+                = transform.GetChild(0).gameObject.GetComponent<Nav>();
+            // GameManager.istance.foodsNav.IndexOf
+            print("add food to food nav list");
+        }
+
+        if (transform.GetChild(0).gameObject.tag == "material")
+        {
+            int index_materialOnGird = Map.instance.girds.IndexOf(landOnWhichGird.GetComponent<Gird>());
+            GameManager.istance.materialsNav[index_materialOnGird] 
+                = transform.GetChild(0).gameObject.GetComponent<Nav>();
+            // GameManager.istance.foodsNav.IndexOf
+            print("add material to material nav list");
+        }
+
+        if (transform.GetChild(0).gameObject.tag == "nest")
+        {
+            int index_nestOnGird = Map.instance.girds.IndexOf(landOnWhichGird.GetComponent<Gird>());
+            GameManager.istance.nestsNav[index_nestOnGird]
+                 = transform.GetChild(0).gameObject.GetComponent<Nav>();
+            // GameManager.istance.foodsNav.IndexOf
+            print("add nest to nest nav list");
+        }
+
+        if (transform.GetChild(0).gameObject.tag == "npc")
+        {
+            int index_npcOnGird = Map.instance.girds.IndexOf(landOnWhichGird.GetComponent<Gird>());
+            GameManager.istance.NPCsNav [index_npcOnGird]
+                 = transform.GetChild(0).gameObject.GetComponent<Nav>();
+            // GameManager.istance.foodsNav.IndexOf
+            print("add npc to npc nav list");
+        }
+
+    }
 }

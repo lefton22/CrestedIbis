@@ -40,6 +40,9 @@ public class Map : MonoBehaviour
     /// ////
     /// 
     public List<State> itemXList = new List<State>();
+
+   // public int currentIbisAIndex;
+    
     /// </summary>
     private void Awake()
     {
@@ -324,6 +327,12 @@ public class Map : MonoBehaviour
                     {
                         aState.Has = true;
                         aSte = 1;
+
+/*                        if (nav.gameObject.name == "ibisA")
+                        {
+                            currentIbisAIndex = j;
+                            print("j: " + j);
+                        }*/
 
                         allState.Has = true;
                         allSte = 1;

@@ -146,6 +146,7 @@ namespace Panda.Ibis
         {
             hasSetNPCTreeActive = false;
 
+            GameObject.Find("ibisA").GetComponent<Nav>().enabled = true;
 
             // use Map.Instance. xxx to find obj on lands 
             // Map.instance.itemAList[1] =
@@ -178,7 +179,8 @@ namespace Panda.Ibis
                 {
                     //print("flat land: " + flatLands[ran].name);
                     //print("ibisA: " + _ibisA);
-                    _ibisA.transform.position = flatLands[ran].transform.position;
+                    _ibisA.transform.position = new Vector3( flatLands[ran].transform.position.x, flatLands[ran].transform.position.y, 0.7f);
+                    
                 }
 
                 _ibisA.GetComponent<objV2Pos>().thisV2 = flatLands[ran].GetComponent<genPos>().thisCo; // to avoid the isObjOnLand bug bcz ibisA's collider has been de actived.
@@ -398,8 +400,21 @@ namespace Panda.Ibis
                 Vector2 v2_obj;
                 v2_obj = obj_child.gameObject.GetComponent<objV2Pos>().thisV2;
                 int index_obj;
-                index_obj = _LandGen3.LandCos.IndexOf(v2_obj);
+                //index_obj = _LandGen3.LandCos.IndexOf(v2_obj);
+                index_obj = Map.instance.transferV2ToIndex(v2_obj);
+
                 _listObjOnLand.isObjOnLand[index_obj] = true;
+
+                if (obj_child.gameObject.tag == "food")
+                { GameManager.istance.foodsNav[index_obj] = obj_child.gameObject.GetComponent<Nav>();}
+                if (obj_child.gameObject.tag == "material")
+                { GameManager.istance.materialsNav[index_obj] = obj_child.gameObject.GetComponent<Nav>(); }
+                if (obj_child.gameObject.tag == "nest")
+                { GameManager.istance.nestsNav[index_obj] = obj_child.gameObject.GetComponent<Nav>(); }
+                if (obj_child.gameObject.tag == "npc")
+                { GameManager.istance.NPCsNav[index_obj] = obj_child.gameObject.GetComponent<Nav>(); }
+                if (obj_child.gameObject.tag == "trap")
+                { GameManager.istance.trapsNav[index_obj] = obj_child.gameObject.GetComponent<Nav>(); }
             }
 
 /*            //add ibisA and other under NPCs
@@ -455,11 +470,11 @@ namespace Panda.Ibis
         {
             if (!hasCalculateAP)
             {
-                Panda.Ibis.MyIbis.actionPoint = 4 - Panda.Ibis.MyIbis.APreduced;
+                Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - Panda.Ibis.MyIbis.APreduced;
 
                 hasCalculateAP = true;
 
-                print("[Task]  calculateAP()");
+                print("[Task]  calculateAP(): " + Panda.Ibis.MyIbis.actionPoint);
             }
             ThisTask.Succeed();
         }
@@ -469,7 +484,8 @@ namespace Panda.Ibis
         void dealCards()
         {
             //_myIbis.setIsObjOnLand();
-           
+
+            
 
             if (!isGencards)
             { genCards();
@@ -580,28 +596,30 @@ namespace Panda.Ibis
         [Task]
         void ibisAct()
         {
-            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
-            {
-                if (child.gameObject.GetComponent<CapsuleCollider>())
-                { child.gameObject.GetComponent<CapsuleCollider>().enabled = false; }
-            }
+            /*            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+                        {
+                            if (child.gameObject.GetComponent<CapsuleCollider>())
+                            { child.gameObject.GetComponent<CapsuleCollider>().enabled = false; }
+                        }*/
 
             //how about create 24 bools for scan in 24 turns?
             // Recalculate the graph
             //AstarPath.active.Scan();
+
+           
 
             _ibisA.GetComponent<Animator>().enabled = true;
             _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;
             //_ibisA.GetComponent<SnapToNode>().enabled = false;  //X
             _ibisA.GetComponent<CapsuleCollider>().enabled = true;
 
-            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
+/*            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
             {
                 if (child.name == "trap")
                 {
                     child.gameObject.GetComponent<CapsuleCollider>().enabled = true;
                 }
-            }
+          / } */
 
                 if (!hasSetPandaActive)
             {
@@ -640,8 +658,12 @@ namespace Panda.Ibis
 
 
             ////check if AP is over during this process
+            ///            //check actionpoint;
 
-             if (Panda.Ibis.MyIbis.actionPoint <= 0)
+                Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - GameObject.Find("ibisA").GetComponent<Nav>().stepLength;
+
+
+            if (Panda.Ibis.MyIbis.actionPoint <= 0)
             {
                 _ibisA.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
 
@@ -661,7 +683,7 @@ namespace Panda.Ibis
         {
             _ibisA.GetComponent<Pathfinding.AILerp>().enabled = false;
             _ibisA.GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Clear();
-            _ibisA.GetComponent<CapsuleCollider>().enabled = false;
+           // _ibisA.GetComponent<CapsuleCollider>().enabled = false;
             // _ibisA.GetComponent<PandaBehaviour>().enabled = false;
              _ibisA.GetComponent<SnapToNode>().enabled = true;
 
@@ -736,7 +758,9 @@ namespace Panda.Ibis
                     card.transform.position = cardSlots[k].transform.position;
 
                     card.transform.SetParent(_Cards.transform);
-                    //card.transform.SetParent(GameObject.Find(""));
+                    //card.transform.SetParent(GameObject.Find
+                    //
+                    card.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
 
                     card.name = "card" + k.ToString();
 

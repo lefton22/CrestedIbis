@@ -97,7 +97,7 @@ public class LandGen3 : MonoBehaviour
 
         GenHexGrid(LandCos_GO[r_index_1], "river_grid_" + r_name, 999);
 
-        print("gen 1st river.");
+      //  print("gen 1st river.");
 
         ////////// // gen 1st//
         ///////// // gen 1st//
@@ -111,7 +111,7 @@ public class LandGen3 : MonoBehaviour
         for (int i = 0; i < TimesGen; i++)
         {
 
-             Debug.Log(i + ": " + "last river: " + lastRiver);
+           //  Debug.Log(i + ": " + "last river: " + lastRiver);
 
             // Get Land attached,  Get Terminals
             int terNextofThisGrid;
@@ -122,7 +122,7 @@ public class LandGen3 : MonoBehaviour
                 int ori_dir2;
                 ori_dir1 = lastRiver.GetComponent<grid>()._d1;
                 ori_dir2 = lastRiver.GetComponent<grid>()._d2;
-                 Debug.Log(i + ": " + " ori_dir1 : " + ori_dir1 + ", ori_dir2 : " + ori_dir2);
+              //   Debug.Log(i + ": " + " ori_dir1 : " + ori_dir1 + ", ori_dir2 : " + ori_dir2);
 
 
                 //determine the attached terminal to the next river grid OF NEXT GRID
@@ -133,14 +133,14 @@ public class LandGen3 : MonoBehaviour
                 { terNextofThisGrid = ori_dir1; }
                 if (r1 == 1)
                 { terNextofThisGrid = ori_dir2; }
-                            Debug.Log("terNext of this grid : " + terNextofThisGrid);
+                           // Debug.Log("terNext of this grid : " + terNextofThisGrid);
             }
             if (i != 0)
             {
                 int ori_dir1;
 
                 ori_dir1 = lastRiver_dir2;
-                  Debug.Log("last River's dir2 in this grid: " + ori_dir1);
+               //   Debug.Log("last River's dir2 in this grid: " + ori_dir1);
                 List<int> restSix;
                 restSix = new List<int>();
                 for (int p = 0; p < 6; p++)
@@ -174,10 +174,10 @@ public class LandGen3 : MonoBehaviour
                 //get lastRiver's index;
                 int index_lastRiver;
                 index_lastRiver = LandCos_GO.IndexOf(lastRiver.transform.parent.gameObject);
-                  Debug.Log("get lastRiver's index: " + index_lastRiver);
+               //   Debug.Log("get lastRiver's index: " + index_lastRiver);
 
                 ori_v3 = LandCos[index_lastRiver];
-                   Debug.Log("lastRiver's V3 : " + index_lastRiver);
+               //    Debug.Log("lastRiver's V3 : " + index_lastRiver);
             }
 
             Vector3 cur_v3; // ori is cur_v2 Vector2
@@ -217,11 +217,11 @@ public class LandGen3 : MonoBehaviour
 
                 string name;
                 name = "river_grid_" + cur_dir1.ToString() + "_" + cur_dir2.ToString();
-                  Debug.Log(i + ": " + "cur gen river name: " + name);
+                //  Debug.Log(i + ": " + "cur gen river name: " + name);
 
                 if (!LandCos_hasHex[index_v2])
                 {
-                    Debug.Log("river: " +i + ": " + "attach this obj to gen: " +LandCos_GO[index_v2].name);
+                 //   Debug.Log("river: " +i + ": " + "attach this obj to gen: " +LandCos_GO[index_v2].name);
 
                     GenHexGrid(LandCos_GO[index_v2], name, _cur_dir2);
                     LandCos_hasHex[index_v2] = true;
@@ -294,7 +294,7 @@ public class LandGen3 : MonoBehaviour
 
       //  Debug.Log("last river: " + lastRiver);
 
-         Debug.Log("Gen a grid on " + land.name);
+        // Debug.Log("Gen a grid on " + land.name);
     }
 
     int NextRiverDir(int next1)

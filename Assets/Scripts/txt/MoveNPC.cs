@@ -24,6 +24,8 @@ public class MoveNPC : MonoBehaviour
     {
         seeker.StartPath(transform.position, targetPos.position);
         // Debug.Log("ibis move.");
+
+        //_Gamemanager.setMovingGoal(_index);
     }
 
     public void Move2(Vector3 des_v3) // when there are multiple moves at the same time
@@ -31,5 +33,6 @@ public class MoveNPC : MonoBehaviour
 
             seeker.StartPath(transform.position, des_v3);
 
+        //_Gamemanager.setMovingGoal(_index);
     }
 }

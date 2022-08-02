@@ -20,25 +20,26 @@ public class aboutGirdIndex : MonoBehaviour
 
     static public int getGirdIndex(GameObject thisObj)
     {
+        Debug.DrawRay(thisObj.transform.position, Camera.main.transform.position);
 
-       // int _getGirdIndex =-1;
+        // int _getGirdIndex =-1;
 
         int indexGirds = -1;
 
         Vector3 objPos = thisObj.transform.position;
         RaycastHit hit;
-        //Ray ray = Camera.main.ScreenPointToRay(objPos);
+       // Ray ray = Camera.main.ScreenPointToRay(objPos);
         var ray = new Ray(thisObj.transform.position, Camera.main.transform.position);
 
         if (Physics.Raycast(ray, out hit))
         {
-            print("1 ray");
+          //  print("1 ray");
             // A.transform.position = Map.instance.girds[Apos].transform.position; 
             if (hit.collider.gameObject.tag =="Respawn")
             {
                 indexGirds = Map.instance.girds.IndexOf(hit.collider.gameObject.GetComponent<Gird>());
 
-                print("2 get index.");
+             //   print("2 get index.");
             }
         }
 

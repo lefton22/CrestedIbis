@@ -41,7 +41,7 @@ public class ibisA_2D_Fx : MonoBehaviour
                 {
                     fx.SetActive(true);
 
-                    print("FX:"+ fx.name);
+                  //  print("FX:"+ fx.name);
                 }
                 else { fx.SetActive(false); }
             }

@@ -43,7 +43,7 @@ public class forTest : MonoBehaviour
             //            Camera.main.transform.position);
 
             int a;
-            a = aboutGirdIndex.getGirdIndex(GameObject.Find("A"));
+            a = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA"));
             print("a: " + a);
         }
 
@@ -62,7 +62,7 @@ public class forTest : MonoBehaviour
         }
 
 
-        /////
+/*        /////
         /// a ray from ibisA to camera
         /// 
         //Vector3 toCamera = Camera.main.transform.position;
@@ -82,7 +82,7 @@ public class forTest : MonoBehaviour
             {
                 print("ibisA hits a card");
             }
-        }
+        }*/
     }
 
 

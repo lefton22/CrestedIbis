@@ -31,7 +31,7 @@ public class objV2Pos : MonoBehaviour
       //  if (gameObject.name != "ibisA")
        // transform.localEulerAngles= ori_Rotation;
 
-        transform.localEulerAngles = new Vector3(0f,0f,-18f);
+       // transform.localEulerAngles = new Vector3(0f,0f,-18f);
 
 
     }
@@ -56,7 +56,14 @@ public class objV2Pos : MonoBehaviour
                     _listObjOnLand.foodOnLand_GO.Add(gameObject);
                 }
 
+                if (!GameManager.istance.foodsNav.Contains(collision.gameObject.GetComponent<Nav>()))
+                {
+                    int index = Map.instance.transferV2ToIndex(thisV2);
+                    GameManager.istance.foodsNav[index] =collision.gameObject.GetComponent<Nav>();
+                }
+
             }
+/*  old pathfinding calculate action point
             if (!_myIbis.landsPassThrough.Contains(collision.gameObject) && gameObject.tag =="mainIbis")
             {
                 // print("add a land into passthrough 1.");
@@ -83,7 +90,7 @@ public class objV2Pos : MonoBehaviour
                 _myIbis.landsPassThrough.Add(collision.gameObject);
 
                
-            }
+            }*/
 
 
             /*            if (gameObject.tag == "mainIbis")
@@ -109,11 +116,17 @@ public class objV2Pos : MonoBehaviour
                 {
                     _listObjOnLand.foodOnLand_GO.Remove(gameObject);
                 }
+
+                if (GameManager.istance.foodsNav.Contains(collision.gameObject.GetComponent<Nav>()))
+                {
+                    int index = Map.instance.transferV2ToIndex(thisV2);
+                    GameManager.istance.foodsNav[index] = collision.gameObject.GetComponent<Nav>();
+                }
             }
         }
     }
 
-    void checkAP0(GameObject ibisA) // if AP ==0, call "breakThisTurn()"
+/*    void checkAP0(GameObject ibisA) // if AP ==0, call "breakThisTurn()"
     {
         if (ibisA == GameObject.Find("ibisA"))
         {
@@ -125,5 +138,5 @@ public class objV2Pos : MonoBehaviour
               //  Panda.Ibis.MyIbis.breakThisTurn();
             }
         }
-    }
+    }*/
 }

@@ -171,7 +171,7 @@ public class Nav : MonoBehaviour
         }
 
         isTriggerA = true;
-        Debug.Log("事件A触发  :触发"+gameObject.name + " eventA目前只注释了一半");
+       // Debug.Log("事件A触发  :触发"+gameObject.name + " eventA目前只注释了一半");
 
     }
     /// <summary>
@@ -182,7 +182,7 @@ public class Nav : MonoBehaviour
         eventB?.Invoke();
 
         isTriggerB = true;
-        Debug.Log("事件B触发   触发" + gameObject.name );
+       // Debug.Log("事件B触发   触发" + gameObject.name );
     }
     /// <summary>
     /// 校准位置

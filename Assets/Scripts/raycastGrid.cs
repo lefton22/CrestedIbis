@@ -46,7 +46,7 @@ public class raycastGrid : MonoBehaviour
 
         Vector3 toCamera = (GameObject.Find("Camera1").transform.position - transform.position).normalized;
 
-        Debug.DrawLine(v3_offSet, GameObject.Find("Camera1").transform.position);
+       // Debug.DrawLine(v3_offSet, GameObject.Find("Camera1").transform.position);
 
         /*        if (Physics.Raycast(transform.position, toCamera, 10))
                 {
@@ -63,7 +63,7 @@ public class raycastGrid : MonoBehaviour
         {
             //print("ray 1");
 
-            print(gameObject.name + " hits (for raycast): " + hit.collider.name);
+         //   print(gameObject.name + " hits (for raycast): " + hit.collider.name);
 
             if (hit.collider.gameObject.tag == "card")
             {
@@ -116,10 +116,29 @@ public class raycastGrid : MonoBehaviour
 
                 if (lastHit && lastHit.tag == "card" && !isPunch)
                 {
-                    transform.DOPunchScale(new Vector3(1.1f, 1.1f, 1.1f), 0.4f, 5, 1);
+                   // lastHit.gameObject.transform.DOScale(new Vector3(0.7f,0.7f,1f),0.6f);
+
+                    transform.DOPunchScale(new Vector3(0.2f, 0.2f, 1.1f), 0.4f, 0, 0.2f);
                     isPunch = true;
 
-                    print("punch!");
+                    // get the lastHit's card's Nav index, and check if it is overlapping
+                    // START
+                    int index_gird = Map.instance.girds.IndexOf(gameObject.GetComponent<Gird>());
+                   // print("index_gird: " + index_gird);
+
+                    if (Map.instance.allItemList[index_gird].Has)
+                    {
+                        // lastHit.gameObject.GetComponent<dragCard>().ifOverlap = true;
+                        lastHit.gameObject.GetComponent<dragCard>().whenOverlap(gameObject);
+
+                    //    print(lastHit.gameObject.name +"'s if overlap = true.");
+                    }
+
+                    // get the lastHit's card's Nav index, and check if it is overlapping
+                    // END
+
+
+                 //   print("punch!");
                 }
             }
             /*                    else

@@ -22,7 +22,7 @@ public class objFood : MonoBehaviour
         {
             GameObject foodEnergy = Instantiate(Resources.Load("goj/foodEnergy")) as GameObject;
             foodEnergy.transform.position = transform.position;
-            foodEnergy.transform.localScale = new Vector3(2f, 2f, 2f);
+            foodEnergy.transform.localScale = new Vector3(1f, 1f, 2f);
             foodEnergy.transform.SetParent(transform);
             foodEnergy.GetComponent<SpriteRenderer>().sprite = _Obj_icons.foodEnergy[i];
             foodEnergy.name = "foodEnergy" + i.ToString();
