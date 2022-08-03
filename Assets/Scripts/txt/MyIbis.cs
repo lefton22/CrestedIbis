@@ -53,7 +53,9 @@ namespace Panda.Ibis {
 
         public bool APhasReducedThisTurn;
 
-       
+        static public bool hasCheckApEachNode; // set this bool during the sector which check if succeed of each uncheck AI node
+
+
 
         [Header(" �� Node Structure Mark")]
         //node structure mark
@@ -242,8 +244,10 @@ namespace Panda.Ibis {
             APhasReducedThisTurn = false;
 
 
-
             _Gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+            hasCheckApEachNode = false;
+
 
         }
 
@@ -398,11 +402,13 @@ namespace Panda.Ibis {
 //            }
         }
 
-        public void breakThisTurn()
+        public void breakThisTurn()  // break when action point =0
         {
             GameObject.Find("ibisA").GetComponent<Nav>().enabled = false;
+            GameObject.Find("ibisA").GetComponent<Animator>().enabled = false;
+
             int ibisA_currentIndex = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
-            GameManager.istance.setMovingGoal(-1);
+           
             //========
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
             print("end turn ");
@@ -410,11 +416,12 @@ namespace Panda.Ibis {
             quenchAllBeBar();
 
             //end this turn 
-          //  _targetPos.transform.position = v3_targetPos;
-
+            //  _targetPos.transform.position = v3_targetPos;
 
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
             //===========
+
+            print("breakThisTurn() ;");
         }
         bool isFirstHalfYear()
         {
@@ -529,6 +536,8 @@ namespace Panda.Ibis {
         [Task]
         void seekFood()
         {
+            //hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
             _listObjOnLand.foodOnLand.Clear();
@@ -544,17 +553,17 @@ namespace Panda.Ibis {
                 }
             }
                   
-                //seek all food obj in the scene
-                v2_foods_l = new List<Vector2>(_listObjOnLand.foodOnLand);
+            //seek all food obj in the scene
+            v2_foods_l = new List<Vector2>(_listObjOnLand.foodOnLand);
 
 
-                //Ѱ����ʳ��ĵص㣺ˮ���̲��go!
+            //Ѱ����ʳ��ĵص㣺ˮ���̲��go!
 
-                v2_nearestFood = getNearestGrid(transform.parent.gameObject.GetComponent<objV2Pos>().thisV2, _listObjOnLand.foodOnLand);
+            v2_nearestFood = getNearestGrid(transform.parent.gameObject.GetComponent<objV2Pos>().thisV2, _listObjOnLand.foodOnLand);
 
-                int index_maxRichFood = -1;
-                int maxRichFood = -1;
-                bool hasCheckMaxRichFood1 = false;
+            int index_maxRichFood = -1;
+            int maxRichFood = -1;
+            bool hasCheckMaxRichFood1 = false;
             bool hasCheckMaxRichFood12 = false;
             List<Nav> RichestFoods;
             RichestFoods = new List<Nav>();
@@ -595,8 +604,6 @@ namespace Panda.Ibis {
                // Debug.Log("index_nearestFood: " + index_nearestFood); //+ " , " + transform.parent.gameObject.GetComponent<objV2Pos>().thisV2
                //     + " ,  " + v2_foods_l[0]);
 
-               
-                   
 
 /*            
             if (isFirstHalfYear())
@@ -620,7 +627,7 @@ namespace Panda.Ibis {
 
             seekForFoodJantoJun();
 
-            print("index_nearestFood: " + index_nearestFood + " , index_ibisA: " + index_ibisA);
+           // print("index_nearestFood: " + index_nearestFood + " , index_ibisA: " + index_ibisA);
 
             if (index_nearestFood == index_ibisA)
             {
@@ -633,27 +640,12 @@ namespace Panda.Ibis {
 
                 checkTwoMovingCreatureAtOneGrid();
 
-                ThisTask.Succeed();
+             //   hasCheckApEachNode = true;
+
+               ThisTask.Succeed();
             }
 
-/*                if (transform.parent.gameObject.GetComponent<objV2Pos>().thisV2 == v2_nearestFood) //��
-                {
-                //  Debug.Log("seek food succeed.");
 
-                hasCheckDes = false;
-
-                GameObject.Find("ibisA").GetComponent<Animator>().SetBool("hasWalked", true);
-                
-                // add ibisA's v2 to the land grid's list and check
-                addIbisOnCurrentLand();
-
-                checkTwoMovingCreatureAtOneGrid();
-
-                    ThisTask.Succeed();
-                }*/
-
-
-                // Debug.Log("speed: "+ gameObject.GetComponent<Pathfinding.AILerp>().speed);
         }
 
 
@@ -695,7 +687,9 @@ namespace Panda.Ibis {
 
             //int foodIndex = Map.instance.transferV2ToIndex(v2_nearestFood);
 
+           // _ibisA.GetComponent<Nav>().enabled = true;
             GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
+
             seekLocation(index_currentEvent);
             
 
@@ -724,19 +718,16 @@ namespace Panda.Ibis {
 
             //int foodIndex = Map.instance.transferV2ToIndex(v2_nearestFood);
 
+           // _ibisA.GetComponent<Nav>().enabled = true;
             GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
+
             seekLocation(index_currentEvent);
 
             // seekLocation(food_pos);
 
         }
 
-        [Task]
-        void ifO()
-        {
-            print("ifO");
-            ThisTask.Succeed();
-        }
+
 
         [Task]
         void checkItemsOnLand() // now traps...
@@ -785,6 +776,7 @@ namespace Panda.Ibis {
         [Task]
         void eat()
         {
+            hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
@@ -867,25 +859,20 @@ namespace Panda.Ibis {
                 //  print("has food..");
 
              //   print("eat 4");
-                if (GameManager.istance.foodsNav[index_currentEvent] == null)
+              //  if (GameManager.istance.foodsNav[index_currentEvent] == null)//改成hasFood为真
+                  if(_ibisA.GetComponent<Animator>().GetBool("hasFood")) 
                 {
-                 //   print(" < original food amount.");
+                    //   print(" < original food amount.");
+                    //  set this bool during the sector which check if succeed of each uncheck AI node
+
+                    hasCheckApEachNode = true;
+
                     lightEat();
                     print("eat 5");
                     ThisTask.Succeed();
                 }
             }
 
-
-
-                /*            if (ani.GetBool("hasFood"))
-                            { ThisTask.Succeed(); }*/
-   //         }
-/*            if (_listObjOnLand.foodOnLand_GO.Count <= 0)
-            {
-              
-                ThisTask.Fail();
-            }*/
         }
 
 
@@ -1020,12 +1007,19 @@ namespace Panda.Ibis {
         [Task]
         void goToOpGender()
         {
+           
+
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
             Vector2 c_ibis_v2 = choosenIbis.GetComponent<objV2Pos>().thisV2;
             int c_ibis_index = Map.instance.transferV2ToIndex(c_ibis_v2);
 
+
+            //_ibisA.GetComponent<Nav>().enabled = true;
             GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
+
             seekLocation(c_ibis_index);
 
 
@@ -1047,6 +1041,8 @@ namespace Panda.Ibis {
                 Debug.Log("end4.");
 
                 hasCheckDes = false;
+
+                hasCheckApEachNode = true;
                 
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
@@ -1054,6 +1050,7 @@ namespace Panda.Ibis {
                 checkTwoMovingCreatureAtOneGrid();
 
                 lightGoToOpIbis();
+
                 ThisTask.Succeed();
             }
         }
@@ -1112,12 +1109,16 @@ namespace Panda.Ibis {
         [Task]
         void goToMate()
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
             Vector2 c_mate_v2 = mate.GetComponent<objV2Pos>().thisV2;
             int c_mate_index = Map.instance.transferV2ToIndex(c_mate_v2);
 
+           // _ibisA.GetComponent<Nav>().enabled = true;
             GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
+
             seekLocation(c_mate_index);
 
             Vector2 v2_ibisB;
@@ -1134,6 +1135,8 @@ namespace Panda.Ibis {
                 Debug.Log("reach to mate.");
 
                 hasCheckDes = false;
+
+                hasCheckApEachNode = true;
                 
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
@@ -1367,6 +1370,8 @@ namespace Panda.Ibis {
         [Task]
         void goToMaterial()
         {
+            hasCheckApEachNode = false;
+
             GameObject[] materials;
             materials = GameObject.FindGameObjectsWithTag("material");
 
@@ -1382,7 +1387,9 @@ namespace Panda.Ibis {
                 int c_materialR_index = Map.instance.transferV2ToIndex(c_materialR_v2);
                 //index_currentEvent = c_materialR_index;
 
+                //_ibisA.GetComponent<Nav>().enabled = true;
                 GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
+
                 seekLocation(c_materialR_index);
 
                 Vector2 v2_material;
@@ -1397,6 +1404,8 @@ namespace Panda.Ibis {
                 if (ibisA_index == c_materialR_index)//ibisA reach the nest
                 {
                     hasCheckDes = false;
+
+                    hasCheckApEachNode = true;
 
                     int index_material;
                     // index_material = _LandGen3.LandCos.IndexOf(v2_material);
@@ -1445,6 +1454,8 @@ namespace Panda.Ibis {
         [Task]
         void goToNest(bool hasBuild) // true: finish build; fasle: unfinished
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
             if (!hasBuild)
@@ -1477,7 +1488,9 @@ namespace Panda.Ibis {
                     Vector2 c_g_nest_v2 = goal_nest.GetComponent<objV2Pos>().thisV2;
                     int c_g_nest_index = Map.instance.transferV2ToIndex(c_g_nest_v2);
 
+                    //_ibisA.GetComponent<Nav>().enabled = true;
                     GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
+
                     seekLocation(c_g_nest_index);
                 }
                 if (goal_nest == null) { print("goal_nest = null."); }
@@ -1498,6 +1511,8 @@ namespace Panda.Ibis {
                     Debug.Log("reach to a nest.");
 
                     hasCheckDes = false;
+
+                    hasCheckApEachNode = true;
 
                     // add ibisA's v2 to the land grid's list and check
                     addIbisOnCurrentLand();
@@ -1538,7 +1553,9 @@ namespace Panda.Ibis {
                     Vector2 c_g_nest_v2 = goal_nest.GetComponent<objV2Pos>().thisV2;
                     int c_g_nest_index = Map.instance.transferV2ToIndex(c_g_nest_v2);
 
+               // _ibisA.GetComponent<Nav>().enabled = true;
                 GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
+
                 seekLocation(c_g_nest_index);
 
                 Vector2 v2_nest;
@@ -1557,6 +1574,8 @@ namespace Panda.Ibis {
                     Debug.Log("reach to a nest.");
 
                     hasCheckDes = false;
+
+                    hasCheckApEachNode = true;
 
                     // add ibisA's v2 to the land grid's list and check
                     addIbisOnCurrentLand();
@@ -1975,7 +1994,9 @@ namespace Panda.Ibis {
 
                 //print("play fx.");
 
-               
+                GameObject.Find("ibisA").GetComponent<Nav>().enabled = true;
+                GameObject.Find("ibisA").GetComponent<Nav>().stepLength = 0;
+
                 _Gamemanager.setMovingGoal(_index);
 
             }

@@ -75,6 +75,8 @@ namespace Panda.Ibis
         int TimesHasPolluttedEachTurn;
         bool hasCalculateAP;
 
+        bool hasActiveNav; 
+
         void Start()
         {
             cards = new List<GameObject>();
@@ -134,6 +136,8 @@ namespace Panda.Ibis
             TimesHasPolluttedEachTurn = 0;
             hasCalculateAP = false;
 
+            hasActiveNav = false;
+
            // print("myTurn Start: _ibisA: " + _ibisA);
         }
 
@@ -146,7 +150,7 @@ namespace Panda.Ibis
         {
             hasSetNPCTreeActive = false;
 
-            GameObject.Find("ibisA").GetComponent<Nav>().enabled = true;
+            //GameObject.Find("ibisA").GetComponent<Nav>().enabled = true; //  改成只有在具体GoToXXX时才开，并且同时重新设置目的地
 
             // use Map.Instance. xxx to find obj on lands 
             // Map.instance.itemAList[1] =
@@ -186,12 +190,10 @@ namespace Panda.Ibis
                 _ibisA.GetComponent<objV2Pos>().thisV2 = flatLands[ran].GetComponent<genPos>().thisCo; // to avoid the isObjOnLand bug bcz ibisA's collider has been de actived.
 
 
-
-
             }
             //else { ThisTask.Succeed(); }
 
-
+            GameObject.Find("ibisA").GetComponent<Animator>().enabled = true;
 
 
             ThisTask.Succeed();
@@ -596,17 +598,11 @@ namespace Panda.Ibis
         [Task]
         void ibisAct()
         {
-            /*            foreach (Transform child in GameObject.Find("ObjOnLand").transform)
-                        {
-                            if (child.gameObject.GetComponent<CapsuleCollider>())
-                            { child.gameObject.GetComponent<CapsuleCollider>().enabled = false; }
-                        }*/
-
-            //how about create 24 bools for scan in 24 turns?
-            // Recalculate the graph
-            //AstarPath.active.Scan();
-
-           
+            if (!hasActiveNav)
+            {
+                _ibisA.GetComponent<Nav>().enabled = true;
+                hasActiveNav = true;
+            }
 
             _ibisA.GetComponent<Animator>().enabled = true;
            // _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;
@@ -657,19 +653,28 @@ namespace Panda.Ibis
             //set sprite order
 
 
-            ////check if AP is over during this process
+            ////check if AP is over during this whole process, includes walking
             ///            //check actionpoint;
+            if (!GameObject.Find("ibisA").GetComponent<Nav>().enabled)
+            {
+                Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - Panda.Ibis.MyIbis.APreduced;
+                print("bisA not has Nav");
+            }
 
+            if (GameObject.Find("ibisA").GetComponent<Nav>().enabled )
+                                                                      
+            {
                 Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - GameObject.Find("ibisA").GetComponent<Nav>().stepLength;
 
+                print("startAP: " + Panda.Ibis.MyIbis.startAP + "stepLength: " + GameObject.Find("ibisA").GetComponent<Nav>().stepLength);
+            }
 
-            if (Panda.Ibis.MyIbis.actionPoint <= 0)
+            if (Panda.Ibis.MyIbis.actionPoint <= 0 && Panda.Ibis.MyIbis.hasCheckApEachNode)  // should set a bool to control the moment to calcualte this
+                                                                                             //  set this bool during the sector which check if succeed of each uncheck AI node
             {
                 _ibisA.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
-               
-                _ibisA.GetComponent<Nav>().enabled = false;
 
-                Debug.Log("AP = 0.");
+                Debug.Log("AP = 0. " + "hasCheckApEachNode: " + Panda.Ibis.MyIbis.hasCheckApEachNode);
               //  Panda.Ibis.MyIbis.breakThisTurn();
             }
 

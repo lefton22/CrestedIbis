@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour
     {
         selectNav = pointedObj;
 
-        print("setSelectNav() : " + pointedObj);
+     //   print("setSelectNav() : " + pointedObj);
         
     }
     public void setMovingGoal(int goalIndex)   //寻路必要4(2/2)：移动到指定点

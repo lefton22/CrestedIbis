@@ -523,8 +523,8 @@ namespace Panda.Ibis
                 hasCheckMovingGoalIndex = true;
             }
 
-            foreach (bool index in index_emptyLands)
-            { print("trapMan can go to: " + index); }
+/*            foreach (bool index in index_emptyLands)
+            { print("trapMan can go to: " + index); }*/
 
             //move
             seekLocation2(ran);

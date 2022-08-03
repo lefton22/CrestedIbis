@@ -6,7 +6,7 @@ tree("Root")
 
 							//trapMan_goToRandomGrid()
 							trapMan_goToRandomGrid_newPathFinding()
-							Wait(500)
+							Wait(300)
 
 							trapMan_setTrap()
 							Wait(50)

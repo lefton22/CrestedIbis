@@ -67,7 +67,7 @@ public class raycastGrid : MonoBehaviour
 
             if (hit.collider.gameObject.tag == "card")
             {
-                  print("hit : " + hit.collider.gameObject.name);
+                // print("hit : " + hit.collider.gameObject.name);
 
                 checkCorrectColor(hit);
 

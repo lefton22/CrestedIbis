@@ -18,6 +18,6 @@ tree("Root")
 						  // Wait(10)
 
 						   eat()
-						   Wait(300)
+						   Wait(500)
 
 						   Next()
