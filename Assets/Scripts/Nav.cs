@@ -168,6 +168,9 @@ public class Nav : MonoBehaviour
         {
            // isStoped = true; // ori = true, if it need to stop it should be true
             Adjust();
+
+            // call ibisA break()
+           // GameObject.Find("ibisA").GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
         }
 
         isTriggerA = true;

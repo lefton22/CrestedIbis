@@ -3,13 +3,13 @@ tree("Root")
          parallel   //
             sequence // mainly this!
                         genIbisA()
-                        Wait(10)
+                        Wait(100)
 
                         pollution()
                         Wait(200)
 
                         NPCAct()
-                        Wait(100)
+                        Wait(200)
 
                         checkAllObjNPC()
                         Wait(1)
@@ -21,13 +21,13 @@ tree("Root")
                         Wait(50)
 
                         drawCards
-                        Wait(20)
+                        Wait(200)
 
                         checkPollution()
                         Wait(1)
 
                         ibisAct
-                        Wait(30)
+                        Wait(100)
 
                         endThisTurn
                         Wait(30)

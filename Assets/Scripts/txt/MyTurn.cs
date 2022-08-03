@@ -609,7 +609,7 @@ namespace Panda.Ibis
            
 
             _ibisA.GetComponent<Animator>().enabled = true;
-            _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;
+           // _ibisA.GetComponent<Pathfinding.AILerp>().enabled = true;
             //_ibisA.GetComponent<SnapToNode>().enabled = false;  //X
             _ibisA.GetComponent<CapsuleCollider>().enabled = true;
 
@@ -666,6 +666,8 @@ namespace Panda.Ibis
             if (Panda.Ibis.MyIbis.actionPoint <= 0)
             {
                 _ibisA.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
+               
+                _ibisA.GetComponent<Nav>().enabled = false;
 
                 Debug.Log("AP = 0.");
               //  Panda.Ibis.MyIbis.breakThisTurn();

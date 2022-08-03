@@ -1,7 +1,7 @@
 tree("Root")
 			 fallback
 						sequence 
-							checkTrapMan_appear(10, 2)
+							checkTrapMan_appear(15, 2) //前面一个数值越大，出现的几率越大
 							Wait(10)
 
 							//trapMan_goToRandomGrid()

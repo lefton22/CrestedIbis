@@ -253,11 +253,12 @@ namespace Panda.Ibis {
 
         public void breakWhenIbisAAct() //���ڴ�� 
         {
+            print("breakWhenIbisAAct()");
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("brambles", false);
 
-            GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
-            //GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().enabled = false;
-            //GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = false;
+            //  GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
+            GameObject.Find("ibisA").GetComponent<Nav>().enabled = false;
+
             GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled = false;
 
             //ibisR on!
@@ -289,10 +290,10 @@ namespace Panda.Ibis {
         {
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
-            //GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = true;
+            //  GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 3;
+            GameObject.Find("ibisA").GetComponent<Nav>().enabled = true;
 
-            //GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().enabled = true;
-            GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 3;
+            GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled = true;
 
             GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled =true;
             GameObject.Find("ibisR").GetComponent<SpriteRenderer>().enabled = false;
@@ -400,6 +401,8 @@ namespace Panda.Ibis {
         public void breakThisTurn()
         {
             GameObject.Find("ibisA").GetComponent<Nav>().enabled = false;
+            int ibisA_currentIndex = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+            GameManager.istance.setMovingGoal(-1);
             //========
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;
             print("end turn ");

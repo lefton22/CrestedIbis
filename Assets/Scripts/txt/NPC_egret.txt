@@ -4,16 +4,16 @@ tree("Root")
 							 checkNoEgret() 
 							 Wait(10)
 
-							 egret_seekWander()
-							Wait(10)
+							// egret_seekWander()
+							//Wait(10)
 
-							egret_AILerp_Close()
-							Wait(10)
+							//egret_AILerp_Close()
+							//Wait(10)
 
-							egret_AILerp_Open()
-							Wait(10)
+							//egret_AILerp_Open()
+							//Wait(10)
 				
-							egret_wander()
+							//egret_wander()
 
 							Next()
 

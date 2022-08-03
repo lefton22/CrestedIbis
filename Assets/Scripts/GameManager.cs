@@ -172,11 +172,11 @@ public class GameManager : MonoBehaviour
 
         if (goalIndex >= 0 && goalIndex <= 18)
         {
-     //       print("setMovingGoal 1");
+            //       print("setMovingGoal 1");
 
-/*            Vector3 goalPos = new Vector3( Map.instance.girds[goalIndex].transform.position.x,
-                                           Map.instance.girds[goalIndex].transform.position.y,
-                                           Map.instance.girds[goalIndex].transform.position.z + 0.7f);*/
+            /*            Vector3 goalPos = new Vector3( Map.instance.girds[goalIndex].transform.position.x,
+                                                       Map.instance.girds[goalIndex].transform.position.y,
+                                                       Map.instance.girds[goalIndex].transform.position.z + 0.7f);*/
             /*            RaycastHit hit;
                         Ray ray = Camera.main.ScreenPointToRay(goalPos); // Vector3 设置成要去的格子的位置*/
             //  Map.instance.girds[Apos].transform.position;  
