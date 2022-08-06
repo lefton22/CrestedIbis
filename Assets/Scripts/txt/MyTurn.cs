@@ -664,7 +664,7 @@ namespace Panda.Ibis
             if (GameObject.Find("ibisA").GetComponent<Nav>().enabled )
                                                                       
             {
-                Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - GameObject.Find("ibisA").GetComponent<Nav>().stepLength;
+                Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - GameObject.Find("ibisA").GetComponent<Nav>().stepLength +1;
 
                 print("startAP: " + Panda.Ibis.MyIbis.startAP + "stepLength: " + GameObject.Find("ibisA").GetComponent<Nav>().stepLength);
             }

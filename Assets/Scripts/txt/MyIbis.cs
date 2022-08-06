@@ -1009,7 +1009,7 @@ namespace Panda.Ibis {
         {
            
 
-            hasCheckApEachNode = false;
+            //hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
@@ -1042,7 +1042,7 @@ namespace Panda.Ibis {
 
                 hasCheckDes = false;
 
-                hasCheckApEachNode = true;
+               // hasCheckApEachNode = true;
                 
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
@@ -1109,7 +1109,7 @@ namespace Panda.Ibis {
         [Task]
         void goToMate()
         {
-            hasCheckApEachNode = false;
+            //hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
@@ -1136,7 +1136,7 @@ namespace Panda.Ibis {
 
                 hasCheckDes = false;
 
-                hasCheckApEachNode = true;
+               // hasCheckApEachNode = true;
                 
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
