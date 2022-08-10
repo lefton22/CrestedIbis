@@ -20,6 +20,7 @@ TagManager:
   - thisTurn
   - npcOrder
   - music
+  - pollution_mark
   layers:
   - Default
   - TransparentFX

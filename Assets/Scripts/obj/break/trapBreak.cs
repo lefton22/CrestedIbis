@@ -12,8 +12,12 @@ public class trapBreak : MonoBehaviour
 
     Obj_icons _Obj_icons;
 
+    public List<GameObject> trapHPs;
+
     void Start()
     {
+        trapHPs = new List<GameObject>();
+
         _ibisA = GameObject.Find("ibisA");
         //hasCheck = false;
         lastTurn = 4;
@@ -29,8 +33,9 @@ public class trapBreak : MonoBehaviour
             trap_hp.GetComponent<SpriteRenderer>().sprite = _Obj_icons.trapHP[i];
             trap_hp.name = "trapHP" + i.ToString();
 
-        //    faceToCamera sc = trap_hp.AddComponent<faceToCamera>() as faceToCamera;
+            trapHPs.Add(trap_hp);
 
+        //    faceToCamera sc = trap_hp.AddComponent<faceToCamera>() as faceToCamera;
 
         }
     }
@@ -68,7 +73,7 @@ public class trapBreak : MonoBehaviour
     }
     public void checkIfLast()
     {
-        if (lastTurn < 0)
+        if (lastTurn == 0 || lastTurn <0)
         {
             //play FX
 

@@ -75,7 +75,11 @@ namespace Panda.Ibis
         int TimesHasPolluttedEachTurn;
         bool hasCalculateAP;
 
-        bool hasActiveNav; 
+        bool hasActiveNav;
+
+        Obj_icons _Obj_icons;
+
+        GameObject _ObjOnLand;
 
         void Start()
         {
@@ -138,7 +142,11 @@ namespace Panda.Ibis
 
             hasActiveNav = false;
 
-           // print("myTurn Start: _ibisA: " + _ibisA);
+            _Obj_icons = GameObject.Find("Lists").GetComponent<Obj_icons>();
+
+            _ObjOnLand = GameObject.Find("ObjOnLand");
+
+            // print("myTurn Start: _ibisA: " + _ibisA);
         }
 
 
@@ -203,7 +211,6 @@ namespace Panda.Ibis
         void pollution()
         {
 
-          
             GameObject[] grids;
             grids = GameObject.FindGameObjectsWithTag("grid");
 
@@ -387,12 +394,97 @@ namespace Panda.Ibis
                 {
                     grid.GetComponent<grid>().reduce1LastTurn();
                     grid.GetComponent<grid>().checkIfLast();
+
                 }
             }
 
-            //1//check all obj's lastTurn
+            // pollution HP update each turn
+            for (int i = 0; i < grids.Length; i++)
+            {
+                if (grids[i].GetComponent<grid>().landType == 8)
+                {
+                    for (int m = 0; m < grids[i].GetComponent<grid>().polluteHPs.Count; m++)
+                    {
+                        Destroy(grids[i].GetComponent<grid>().polluteHPs[m]);
+                    }
+                    grids[i].GetComponent<grid>().polluteHPs.Clear();
 
-            for (int i =0; i<  _listObjOnLand.isObjOnLand.Count; i++)
+                    for (int k = 0; k < grids[i].GetComponent<grid>().lastTurn; k++)
+                    {
+                        GameObject pollu_HP = Instantiate(Resources.Load("goj/HP-dot-dirtyPurple")) as GameObject;
+
+                        pollu_HP.transform.SetParent(grids[i].transform);
+                        pollu_HP.transform.position = grids[i].transform.position;
+
+                        pollu_HP.GetComponent<SpriteRenderer>().sprite = _Obj_icons.pollutionHP[k];
+                        pollu_HP.GetComponent<SpriteRenderer>().sortingOrder = pollu_HP.GetComponent<SpriteRenderer>().sortingOrder + k;
+                        pollu_HP.name = "pollutionHP" + k.ToString();
+
+                        if (!grids[i].GetComponent<grid>().polluteHPs.Contains(pollu_HP))
+                        {
+                            grids[i].GetComponent<grid>().polluteHPs.Add(pollu_HP);
+                        }
+                    }
+                }
+            }
+
+            // check if pollution exist each turn
+            // remove has Toxic 
+            // remove polution mark
+            for (int i = 0; i < grids.Length; i++)
+            {
+                if (grids[i].GetComponent<grid>().landType == 8 && grids[i].GetComponent<grid>().lastTurn ==0)
+                {
+                    grids[i].GetComponent<grid>().hasPolluted = false;
+
+                    //remove pollution mark
+                    for (int k =0; k < grids[i].transform.GetChildCount(); k++)
+                    {
+                        if (grids[i].transform.GetChild(0).gameObject.tag == "pollution_mark")
+                        {
+                            Destroy(grids[i].transform.GetChild(0).gameObject);
+                        }
+                    }
+                }
+            }
+
+            //check trap's last turn
+            for (int i = 0; i < _ObjOnLand.transform.GetChildCount(); i++)
+            {
+                // update the HP each turn
+                if (_ObjOnLand.transform.GetChild(i).name == "trap")
+                {
+                    for (int k = 0; k < _ObjOnLand.transform.GetChild(i).gameObject.GetComponent<trapBreak>().trapHPs.Count; k++)
+                    {
+                        Destroy(_ObjOnLand.transform.GetChild(i).gameObject.GetComponent<trapBreak>().trapHPs[k]);
+                    }
+
+                    _ObjOnLand.transform.GetChild(i).gameObject.GetComponent<trapBreak>().trapHPs.Clear();
+
+                    int _lastTurn =
+                    _ObjOnLand.transform.GetChild(i).gameObject.GetComponent<trapBreak>().lastTurn;
+
+                // re gen trap hp
+                    for (int m = 0; m < _lastTurn; m++)
+                    {
+                        GameObject trap_hp = Instantiate(Resources.Load("goj/HP-dot-Red")) as GameObject;
+                        trap_hp.transform.position = _ObjOnLand.transform.GetChild(i).gameObject.transform.position;
+                        trap_hp.transform.localScale = new Vector3(1f, 1f, 2f);
+                        trap_hp.transform.SetParent(_ObjOnLand.transform.GetChild(i));
+                        trap_hp.GetComponent<SpriteRenderer>().sprite = _Obj_icons.trapHP[m];
+                        trap_hp.name = "trapHP" + m.ToString();
+
+                        _ObjOnLand.transform.GetChild(i).gameObject.GetComponent<trapBreak>().trapHPs.Add(trap_hp);
+                    }
+
+                }
+
+                //check if last turn = 0
+            }
+
+                //1//check all obj's lastTurn
+
+                for (int i =0; i<  _listObjOnLand.isObjOnLand.Count; i++)
             { _listObjOnLand.isObjOnLand[i] = false; }
 
             // add objs
@@ -486,8 +578,6 @@ namespace Panda.Ibis
         void dealCards()
         {
             //_myIbis.setIsObjOnLand();
-
-            
 
             if (!isGencards)
             { genCards();
@@ -666,7 +756,7 @@ namespace Panda.Ibis
             {
                 Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - GameObject.Find("ibisA").GetComponent<Nav>().stepLength +1;
 
-                print("startAP: " + Panda.Ibis.MyIbis.startAP + "stepLength: " + GameObject.Find("ibisA").GetComponent<Nav>().stepLength);
+               // print("startAP: " + Panda.Ibis.MyIbis.startAP + "stepLength: " + GameObject.Find("ibisA").GetComponent<Nav>().stepLength);
             }
 
             if (Panda.Ibis.MyIbis.actionPoint <= 0 && Panda.Ibis.MyIbis.hasCheckApEachNode)  // should set a bool to control the moment to calcualte this

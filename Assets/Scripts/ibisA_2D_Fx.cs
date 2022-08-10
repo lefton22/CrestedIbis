@@ -21,6 +21,11 @@ public class ibisA_2D_Fx : MonoBehaviour
     void Update()
     {
         transform.position = follow_.transform.position;
+
+        foreach (GameObject fx in ibisA_FXs)
+        {
+            fx.transform.position = follow_.transform.position;
+        }
     }
 
     public void awakeASF(string fxName, bool isAllClose)

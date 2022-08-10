@@ -1239,7 +1239,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &745920726
 PrefabInstance:
@@ -14551,7 +14551,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_RenderMode: 0
   m_SortMode: 1
   m_MinParticleSize: 0.03
@@ -23802,7 +23802,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -38299,7 +38299,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_RenderMode: 0
   m_SortMode: 3
   m_MinParticleSize: 0
@@ -43289,7 +43289,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_RenderMode: 0
   m_SortMode: 3
   m_MinParticleSize: 0.03
@@ -43576,7 +43576,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4205596581851481863
 GameObject:
@@ -45277,7 +45277,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c13c0d14880f0483ca0ee2d6f68881f0, type: 2}
+  - {fileID: 2100000, guid: a52aee38f6c1975498c37881c5d691a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -55,6 +55,8 @@ public class grid : MonoBehaviour
 
     Obj_icons _Obj_icons;
 
+    public List<GameObject> polluteHPs;
+
     void Start()
     {
         getLandType("dryLand", 0);
@@ -86,8 +88,9 @@ public class grid : MonoBehaviour
         {
             transform.parent.gameObject.GetComponent<Gird>().state = GirdState.Wall;
         }
-      //  else { transform.parent.gameObject.GetComponent<Gird>().state = GirdState.Null; }
+        //  else { transform.parent.gameObject.GetComponent<Gird>().state = GirdState.Null; }
 
+        polluteHPs = new List<GameObject>();
     }
 
     void getLandType(string name, int type)
@@ -110,7 +113,8 @@ public class grid : MonoBehaviour
             //change sprite
             GameObject pollution_mark = Instantiate(Resources.Load("goj/pollutionMark")) as GameObject;
             pollution_mark.transform.position = gameObject.transform.position;
-            pollution_mark.transform.SetParent(_pollutedStuffs.transform);
+            //pollution_mark.transform.SetParent(_pollutedStuffs.transform);
+            pollution_mark.transform.SetParent(transform);
             this_pollution_mark = pollution_mark;
         }
 
@@ -128,6 +132,10 @@ public class grid : MonoBehaviour
                 pollu_HP.GetComponent<SpriteRenderer>().sortingOrder = pollu_HP.GetComponent<SpriteRenderer>().sortingOrder + i;
                 pollu_HP.name = "pollutionHP" + i.ToString();
 
+                if (!polluteHPs.Contains(pollu_HP)) 
+                {
+                    polluteHPs.Add(pollu_HP);
+                }
 
               //  faceToCamera sc = pollu_HP.AddComponent<faceToCamera>() as faceToCamera;
             }

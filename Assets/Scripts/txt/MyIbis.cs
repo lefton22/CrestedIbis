@@ -238,7 +238,7 @@ namespace Panda.Ibis {
 
             _ObjOnLand = GameObject.Find("ObjOnLand");
 
-            // _ibisA_FX =GameObject.Find("ibisA_FX");
+             _ibisA_FX =GameObject.Find("ibisA_FX");
 
             APreduced = 0;
             APhasReducedThisTurn = false;
@@ -776,7 +776,7 @@ namespace Panda.Ibis {
         [Task]
         void eat()
         {
-            hasCheckApEachNode = false;
+            hasCheckApEachNode = false; //防止吃东西动作未做完就跳状态了
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
@@ -1082,6 +1082,8 @@ namespace Panda.Ibis {
         [Task]
         void Courtship()
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             // play ani
@@ -1100,6 +1102,8 @@ namespace Panda.Ibis {
 
                 isSingle = false;
                 mate = choosenIbis;
+
+                hasCheckApEachNode = true;
 
                 isCourtship = true;
                 ThisTask.Succeed();
@@ -1149,6 +1153,8 @@ namespace Panda.Ibis {
         [Task]
         void Mate()
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             // play mate ani (egg)
@@ -1164,7 +1170,9 @@ namespace Panda.Ibis {
                 lightMate();
 
                 //APreduce();
-               // actionPoint = actionPoint - 1;
+                // actionPoint = actionPoint - 1;
+
+                hasCheckApEachNode = true;
 
                 isMate = true;
                 ThisTask.Succeed();
@@ -1178,6 +1186,8 @@ namespace Panda.Ibis {
         [Task]
         void comb()
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             //play the ani
@@ -1185,9 +1195,11 @@ namespace Panda.Ibis {
                 // //after playing the ani, task succeed
                 if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasCombed"))
                 {
-                    //once success, 
-                   // isMeetSingleComb = true;
-                    Debug.Log("comb!");
+                hasCheckApEachNode = true;
+                
+                //once success, 
+                // isMeetSingleComb = true;
+                Debug.Log("comb!");
 
                     ThisTask.Succeed();
                 }
@@ -1197,6 +1209,8 @@ namespace Panda.Ibis {
         [Task]
         void touchBeaks()  // combo for combing??!
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             //both birds play the ani 
@@ -1205,7 +1219,9 @@ namespace Panda.Ibis {
 
                 if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasTouchedBeaks"))
                 {
-                    Debug.Log("touch beaks.");
+                hasCheckApEachNode = true;
+                
+                Debug.Log("touch beaks.");
                     ThisTask.Succeed();
                 }
 
@@ -1593,6 +1609,8 @@ namespace Panda.Ibis {
         [Task]
         void buildNest()
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             // play the build ani
@@ -1610,6 +1628,7 @@ namespace Panda.Ibis {
 
                 //after finishing it , unlock the bool, succeed
 
+                hasCheckApEachNode = true;
 
                 lightBuildNest();
                 Debug.Log("build a nest.");
@@ -1654,11 +1673,15 @@ namespace Panda.Ibis {
 
         [Task]
 
-        void spawn()
+        void spawn()   //暂时先只下一个蛋
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
-            int ran_amounts_egg;
+            ////// spawn more than one egg
+            ///START/////
+/*            int ran_amounts_egg;
             ran_amounts_egg = -1;
 
             List<int> ran;
@@ -1687,36 +1710,12 @@ namespace Panda.Ibis {
                         eggs.Add(egg);
                     }
 
-                    //set egg's position 
-                    //foreach (Transform child in GameObject.Find("ObjOnLand").transform)
-                    //{
-                    //    if (child.gameObject.name == "nest"
-                    //        && child.gameObject.GetComponent<objV2Pos>().thisV2 == GameObject.Find("ibisA").GetComponent<objV2Pos>().thisV2)
-                    //    {
-                    //        egg.transform.position = child.gameObject.transform.position;
-                    //    }
-                    //}
 
-                    //for (int i = 0; i < eggs.Count; i++)
-                    //{
-                    //    float egg_x = eggs[i].transform.position.x;
-                    //    float egg_y = eggs[i].transform.position.y;
-                    //    float egg_z = eggs[i].transform.position.z;
-
-                    //    if (i == 0)
-                    //    { eggs[0].transform.position = new Vector3(egg_x + 0.45f, egg_y + 0.633f, egg_z); }
-                    //    if (i == 1)
-                    //    { eggs[1].transform.position = new Vector3(egg_x + 0.646f, egg_y + 0.552f, egg_z); }
-                    //    if (i == 2)
-                    //    { eggs[2].transform.position = new Vector3(egg_x + 0.138f, egg_y + 0.639f, egg_z); }
-                    //    if (i == 3)
-                    //    { eggs[3].transform.position = new Vector3(egg_x + 0.355f, egg_y + 0.42f, egg_z); }
-                    //}
-
-                    //egg.transform.SetParent(GameObject.Find("ObjOnLand").transform);
 
                     if (k == ran_amounts_egg - 1)
                     {
+                        hasCheckApEachNode = true;
+
                         isSpawn = true;
 
                         lightSpawn(ran_amounts_egg);
@@ -1726,6 +1725,61 @@ namespace Panda.Ibis {
                     }
                 }
 
+            }*/
+            ////// spawn more than one egg
+            ///END/////
+            ///
+            if (!isSpawn)
+            {
+
+                // play produce ani * ran_amounts_egg
+                transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_produceEggs");
+
+
+                // eggs + new eggs(List)
+                bool hasLayEgg = false;
+
+                if (!hasLayEgg)
+                {
+                    GameObject egg = Instantiate(Resources.Load("egg")) as GameObject;
+                    egg.name = "egg";
+
+                    egg.transform.position = transform.parent.gameObject.transform.position;
+                    egg.transform.SetParent(_ObjOnLand.transform);
+
+                    //egg.GetComponent<Rigidbody>().isKinematic = true;
+                    egg.GetComponent<SnapToNode>().enabled = false;
+
+                    if (!eggs.Contains(egg))
+                    {
+                        eggs.Add(egg);
+                    }
+                }
+
+
+                if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasProducedEggs"))
+                {
+                    hasCheckApEachNode = true;
+
+                    isSpawn = true;
+
+                    lightSpawn();
+                    print("spawn.");
+                    // monthSpawn = _outAI.month;
+                    ThisTask.Succeed();
+                }
+
+/*                    if (k == ran_amounts_egg - 1)
+                {
+                    hasCheckApEachNode = true;
+
+                    isSpawn = true;
+
+                    lightSpawn(ran_amounts_egg);
+                    print("spawn ");
+                    // monthSpawn = _outAI.month;
+                    ThisTask.Succeed();
+                }*/
             }
         }
 
@@ -1752,6 +1806,7 @@ namespace Panda.Ibis {
         void incubate() //once it's an egg...
                         //和npc配偶轮流执行，自己不在，npc配偶会一只在，回巢后npc配偶会出巢
         {
+            hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
@@ -1769,7 +1824,9 @@ namespace Panda.Ibis {
                         egg.GetComponent<objEgg>().hatchCurrentTurn = egg.GetComponent<objEgg>().hatchCurrentTurn + 1;
                     }
 
-                    lightIncubate();
+                hasCheckApEachNode = true;
+
+                lightIncubate();
                     print(" incubate.");
                     ThisTask.Succeed();
                 }
@@ -1795,6 +1852,8 @@ namespace Panda.Ibis {
         [Task]
         void pickFood()
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             int amount_food =0;
@@ -1852,7 +1911,8 @@ namespace Panda.Ibis {
 
                 if (GameManager.istance.foodsNav[index_food] == null )
                 {
-                   // print(" < original food amount.");
+                    // print(" < original food amount.");
+                    hasCheckApEachNode = true;
 
                     ThisTask.Succeed();
                 }
@@ -1864,6 +1924,8 @@ namespace Panda.Ibis {
         [Task]
         void breed()///feed the baby bird
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             // play the ani
@@ -1875,6 +1937,7 @@ namespace Panda.Ibis {
             if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasFeedBaby"))
             {
                 //the birdling's properties change
+                hasCheckApEachNode = true;
 
                 lightBreed();
                 ThisTask.Succeed();
@@ -1886,6 +1949,8 @@ namespace Panda.Ibis {
         [Task]
         void rest()
         {
+            hasCheckApEachNode = false;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("zzzz", false);
 
             //play sleep ani
@@ -1897,6 +1962,8 @@ namespace Panda.Ibis {
             // and this turn finished
             if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasRest"))
             {
+                hasCheckApEachNode = true;
+
                 lightRest();
                 ThisTask.Succeed();
             }
@@ -2448,7 +2515,7 @@ namespace Panda.Ibis {
             Debug.Log(thisPlot);
         }
 
-        void lightSpawn(int am_egg)
+        void lightSpawn(/*int am_egg */)
         {
             _spawn.SetActive(true);
             _dot.transform.DOLocalMoveX(_spawn.GetComponent<RectTransform>().anchoredPosition.x, 1f);
@@ -2457,7 +2524,7 @@ namespace Panda.Ibis {
 /*            thisPlot = "Ibis spawns " + am_egg + " eggs " + _outAI.month
                              + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                              + ".";*/
-            thisPlot = "朱鹮孵化了" + am_egg + "个蛋在" + monthEnToCh(_outAI.month)
+            thisPlot = "朱鹮孵化了" /*+ am_egg */ + "1个蛋在" + monthEnToCh(_outAI.month)
                  + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                  + ".";
 

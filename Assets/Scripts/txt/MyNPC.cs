@@ -47,6 +47,8 @@ namespace Panda.Ibis
 
         bool hasCheckMovingGoalIndex;
 
+        bool hasCheckMovingGoalIndex2;
+
         void Start()
         {
             end = false;
@@ -74,6 +76,8 @@ namespace Panda.Ibis
             _Gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
             hasCheckMovingGoalIndex = false;
+
+            hasCheckMovingGoalIndex2 = false;
         }
 
 
@@ -436,8 +440,8 @@ namespace Panda.Ibis
                 for (int i = 0; i < Map.instance.allItemList.Count; i++)
                 {
                     if (Map.instance.allItemList[i].Has
-                          && i == index_ibisA
-                          && Map.instance.girds[i].state == GirdState.Wall)
+                          || i == index_ibisA
+                          || Map.instance.girds[i].state == GirdState.Wall)
                     {
                         index_emptyLands[i] = false;
                     }
@@ -446,18 +450,21 @@ namespace Panda.Ibis
                 ////get the random v3
                 List<int> canAppear;
                 canAppear = new List<int>();
+
                 for (int i = 0; i < index_emptyLands.Count; i++)
                 {
                     if (index_emptyLands[i] && !canAppear.Contains(i))
                     {
                         canAppear.Add(i);
+
+                      //  print("trap man appear: " + i);
                     }
                 }
 
                 int ran_index = Random.Range(0, canAppear.Count-1);
 
                 //int ran_index = index_emptyLands[ran2];
-                trapMan_empty_index = ran_index;
+                trapMan_empty_index = canAppear[ran_index];
                 //v2_des = index_emptyLands[ran2];
                 print("ran_index: " + ran_index);
             
@@ -474,7 +481,7 @@ namespace Panda.Ibis
                 trapMan.GetComponent<whichObj>().which = 2;
                 // trapMan.transform.position = v3_des;
                 trapMan.transform.position = Map.instance.girds[trapMan_empty_index].transform.position;
-                 trapMan.transform.SetParent(GameObject.Find("ObjOnLand").transform);
+                trapMan.transform.SetParent(GameObject.Find("ObjOnLand").transform);
 
                 trapMan.GetComponent<SnapToNode>().enabled = false;
 
@@ -506,21 +513,35 @@ namespace Panda.Ibis
             for (int i = 0; i < Map.instance.allItemList.Count; i++)
             {
                 if (Map.instance.allItemList[i].Has 
-                      && i == index_ibisA
-                      && Map.instance.girds[i].state == GirdState.Wall )
+                      || i == index_ibisA
+                      || Map.instance.girds[i].state == GirdState.Wall )
                 {
                     index_emptyLands[i] = false;
                 }
             }
 
-            int ran = -1;
-            if (!hasCheckMovingGoalIndex)
+            List<int> canAppear;
+            canAppear = new List<int>();
+
+            for (int i = 0; i < index_emptyLands.Count; i++)
             {
-                ran = Random.Range(0, index_emptyLands.Count - 1);
+                if (index_emptyLands[i] && !canAppear.Contains(i))
+                {
+                    canAppear.Add(i);
+
+                  //  print("trap man new pathfinding to: " + i);
+                }
+            }
+
+
+            int ran = -1;
+            if (!hasCheckMovingGoalIndex2)
+            {
+                ran = canAppear[Random.Range(0, canAppear.Count - 1)];
                 print("ran: " + ran);
 
                 GameManager.istance.setSelectNav(_trapMan.GetComponent<Nav>());
-                hasCheckMovingGoalIndex = true;
+                hasCheckMovingGoalIndex2 = true;
             }
 
 /*            foreach (bool index in index_emptyLands)
