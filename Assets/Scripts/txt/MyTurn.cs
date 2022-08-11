@@ -778,11 +778,11 @@ namespace Panda.Ibis
         [Task]
         void endThisTurn() // copy this to attached MaxAP
         {
-            _ibisA.GetComponent<Pathfinding.AILerp>().enabled = false;
+           // _ibisA.GetComponent<Pathfinding.AILerp>().enabled = false;
             _ibisA.GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Clear();
            // _ibisA.GetComponent<CapsuleCollider>().enabled = false;
             // _ibisA.GetComponent<PandaBehaviour>().enabled = false;
-             _ibisA.GetComponent<SnapToNode>().enabled = true;
+//_ibisA.GetComponent<SnapToNode>().enabled = true;
 
             foreach (Transform child in _ibisA.transform)
             {

@@ -121,7 +121,15 @@ public class Nav : MonoBehaviour
 
         if (pathIndex>=path.Count)
         {
-            transform.position= path[path.Count-1].transform.position;
+            transform.position= path[path.Count-1].transform.position; // original code
+
+            ////self coding///
+            ///
+/*            Vector3 v3 = path[path.Count - 1].transform.position;
+            transform.position = new Vector3(v3.x, v3.y+0.15f, v3.z);*/
+
+            ////self coding///
+
             isStop = true;
             isReach = true;
 

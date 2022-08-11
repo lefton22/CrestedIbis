@@ -20,11 +20,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 985dd94a629dceb4ca49d68a401e6444, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OverlayTex:
-        m_Texture: {fileID: 2800000, guid: e2b38162047bd164e985ec939896943e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8d1e1b23da5f4b34490982e95e4eed4d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondTex:
@@ -44,8 +44,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Power: -0.06
+    - _Power: 0
     m_Colors:
     - _Offset: {r: 0.45, g: 0.6, b: 0, a: 0}
-    - _Tiling: {r: -0.42, g: 0.65, b: 0, a: 0}
+    - _Tiling: {r: 0.45, g: 0.76, b: 0, a: 0}
   m_BuildTextureStacks: []

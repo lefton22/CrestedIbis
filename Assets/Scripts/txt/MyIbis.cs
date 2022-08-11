@@ -55,6 +55,11 @@ namespace Panda.Ibis {
 
         static public bool hasCheckApEachNode; // set this bool during the sector which check if succeed of each uncheck AI node
 
+        gridPosOffset _gridPosOffset;
+
+        bool hasAdjustPos;
+
+        Vector3 ori_ibisA_v3;
 
 
         [Header(" �� Node Structure Mark")]
@@ -248,7 +253,11 @@ namespace Panda.Ibis {
 
             hasCheckApEachNode = false;
 
+            _gridPosOffset = GameObject.Find("ibisA").GetComponent<gridPosOffset>();
 
+            hasAdjustPos = false;
+
+            ori_ibisA_v3 = new Vector3(999f, 999f, 0);
         }
 
 
@@ -332,8 +341,8 @@ namespace Panda.Ibis {
                         }*/
             if (Input.GetKeyDown(KeyCode.F))
             {
-                GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
-                GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = false;
+              //  GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
+               // GameObject.Find("ibisA").GetComponent<SnapToNode>().enabled = false;
                 GameObject.Find("ibisA").GetComponent<SpriteRenderer>().enabled = false;
 
                 //ibisR on!
@@ -494,7 +503,7 @@ namespace Panda.Ibis {
         {
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
-            transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = true;
+          //  transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = true;
 
             ThisTask.Succeed();
         }
@@ -502,6 +511,8 @@ namespace Panda.Ibis {
         [Task]
         void checkHasFood()
         {
+            //_gridPosOffset.ibisACanOffset = true;
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             GameObject[] foods2 = GameObject.FindGameObjectsWithTag("food");
@@ -536,6 +547,8 @@ namespace Panda.Ibis {
         [Task]
         void seekFood()
         {
+           // _gridPosOffset.ibisACanOffset = false;
+
             //hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
@@ -733,7 +746,9 @@ namespace Panda.Ibis {
         void checkItemsOnLand() // now traps...
                                                 //but ibisA cannot seek to a place on which has trap on
         {
-            _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+           // _gridPosOffset.ibisACanOffset = true;
+
+             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
             List<GameObject> items;
             items = new List<GameObject>();
@@ -776,9 +791,29 @@ namespace Panda.Ibis {
         [Task]
         void eat()
         {
+           // _gridPosOffset.ibisACanOffset = true;
+
             hasCheckApEachNode = false; //防止吃东西动作未做完就跳状态了
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
+            
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+/*            if (Input.GetKeyDown(KeyCode.A))
+            {*/
+                _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                        new Vector3(0.1f, 0.3f, 0f));
+
+             
+          //  }
+
+          //  print(" ori_ibisA_v3 : " + ori_ibisA_v3);
+            
 
             int amount_food;
             amount_food = _listObjOnLand.foodOnLand.Count;
@@ -866,6 +901,8 @@ namespace Panda.Ibis {
                     //  set this bool during the sector which check if succeed of each uncheck AI node
 
                     hasCheckApEachNode = true;
+
+                    hasAdjustPos = false;
 
                     lightEat();
                     print("eat 5");
@@ -1086,6 +1123,20 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //// adjust position
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+            _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                    new Vector3(0.1f, 0.3f, 0f));
+            //// adjust position
+            ///
+
+            //_ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(new Vector3(0.16f, 0f, 0f));
+
             // play ani
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_courtship");
 
@@ -1104,6 +1155,8 @@ namespace Panda.Ibis {
                 mate = choosenIbis;
 
                 hasCheckApEachNode = true;
+
+                hasAdjustPos = false;
 
                 isCourtship = true;
                 ThisTask.Succeed();
@@ -1157,6 +1210,18 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //// adjust position
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+            _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                    new Vector3(0.1f, 0.3f, 0f));
+            //// adjust position
+            ///
+
             // play mate ani (egg)
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_produceEggs");//ani should be changed
 
@@ -1174,6 +1239,8 @@ namespace Panda.Ibis {
 
                 hasCheckApEachNode = true;
 
+                hasAdjustPos = false;
+
                 isMate = true;
                 ThisTask.Succeed();
             }
@@ -1190,11 +1257,25 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //// adjust position
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+            _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                    new Vector3(0.1f, 0.3f, 0f));
+            //// adjust position
+            ///
+
             //play the ani
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_comb");
                 // //after playing the ani, task succeed
                 if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasCombed"))
                 {
+                hasAdjustPos = false;
+
                 hasCheckApEachNode = true;
                 
                 //once success, 
@@ -1213,12 +1294,26 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //// adjust position
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+            _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                    new Vector3(0.1f, 0.3f, 0f));
+            //// adjust position
+            ///
+
             //both birds play the ani 
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_touchedBeaks");
                 // choosenIbis.GetComponent<Animator>().Play("ibis_touchedBeaks"); // ��Ҫ��λ
 
                 if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasTouchedBeaks"))
                 {
+                hasAdjustPos = false;
+
                 hasCheckApEachNode = true;
                 
                 Debug.Log("touch beaks.");
@@ -1613,6 +1708,18 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //// adjust position
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+            _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                    new Vector3(0.1f, 0.3f, 0f));
+            //// adjust position
+            ///
+
             // play the build ani
             //both birds play the ani 
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_build");
@@ -1629,6 +1736,8 @@ namespace Panda.Ibis {
                 //after finishing it , unlock the bool, succeed
 
                 hasCheckApEachNode = true;
+
+                hasAdjustPos = false;
 
                 lightBuildNest();
                 Debug.Log("build a nest.");
@@ -1678,6 +1787,18 @@ namespace Panda.Ibis {
             hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
+            //// adjust position
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+            _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                    new Vector3(0.1f, 0.3f, 0f));
+            //// adjust position
+            ///
 
             ////// spawn more than one egg
             ///START/////
@@ -1761,6 +1882,8 @@ namespace Panda.Ibis {
                 {
                     hasCheckApEachNode = true;
 
+                    hasAdjustPos = false;
+
                     isSpawn = true;
 
                     lightSpawn();
@@ -1810,6 +1933,18 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //// adjust position
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+            _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                    new Vector3(0.1f, 0.3f, 0f));
+            //// adjust position
+            ///
+
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_incubate");
                 // egg's properties change. (And eggs are their own "branches")
 
@@ -1825,6 +1960,8 @@ namespace Panda.Ibis {
                     }
 
                 hasCheckApEachNode = true;
+
+                hasAdjustPos = false;
 
                 lightIncubate();
                     print(" incubate.");
@@ -1855,6 +1992,18 @@ namespace Panda.Ibis {
             hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
+            //// adjust position
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+            _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                    new Vector3(0.1f, 0.3f, 0f));
+            //// adjust position
+            ///
 
             int amount_food =0;
            // amount_food = _listObjOnLand.foodOnLand.Count;
@@ -1914,6 +2063,8 @@ namespace Panda.Ibis {
                     // print(" < original food amount.");
                     hasCheckApEachNode = true;
 
+                    hasAdjustPos = false;
+
                     ThisTask.Succeed();
                 }
             }
@@ -1928,6 +2079,18 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //// adjust position
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+            _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                    new Vector3(0.1f, 0.3f, 0f));
+            //// adjust position
+            ///
+
             // play the ani
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_feedBaby");
 
@@ -1938,6 +2101,8 @@ namespace Panda.Ibis {
             {
                 //the birdling's properties change
                 hasCheckApEachNode = true;
+
+                hasAdjustPos = false;
 
                 lightBreed();
                 ThisTask.Succeed();
@@ -1953,6 +2118,18 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("zzzz", false);
 
+            //// adjust position
+            if (!hasAdjustPos)
+            {
+                ori_ibisA_v3 = _ibisA.transform.position;
+                hasAdjustPos = true;
+            }
+
+            _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                    new Vector3(0.1f, 0.3f, 0f));
+            //// adjust position
+            ///
+
             //play sleep ani
             transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.Play("ibis_rest");
 
@@ -1963,6 +2140,8 @@ namespace Panda.Ibis {
             if (transform.parent.gameObject.GetComponent<Panda.Ibis.MyIbis>().ani.GetBool("hasRest"))
             {
                 hasCheckApEachNode = true;
+
+                hasAdjustPos = false;
 
                 lightRest();
                 ThisTask.Succeed();
@@ -1983,7 +2162,7 @@ namespace Panda.Ibis {
 
             hasCheckDes = false;
 
-            transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
+          //  transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = false;
             //transform.parent.gameObject.GetComponent<Animator>().enabled = false;
 
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasSetPandaActive = false;

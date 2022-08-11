@@ -57,7 +57,7 @@ public class skipToNextTurn : MonoBehaviour
 
         ///copy from MyTurn.cs
         ///
-        _ibisA.GetComponent<Pathfinding.AILerp>().enabled = false;
+       // _ibisA.GetComponent<Pathfinding.AILerp>().enabled = false;
         _ibisA.GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Clear();
         _ibisA.GetComponent<CapsuleCollider>().enabled = false;
         // _ibisA.GetComponent<PandaBehaviour>().enabled = false;

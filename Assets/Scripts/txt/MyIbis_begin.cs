@@ -86,7 +86,7 @@ namespace Panda.Ibis {
         void Next()
         {
 
-            gameObject.transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = true;
+            //gameObject.transform.parent.gameObject.GetComponent<Pathfinding.AILerp>().enabled = true;
 
             GameObject nextChild;
             nextChild = null;
