@@ -9,6 +9,7 @@ public class endCheck : MonoBehaviour
     turnBased _turnBased;
 
     static public List<string> narrative;
+    static public List<int> narrativeType;
 
     static public bool isEndByCheck;
 
@@ -33,6 +34,7 @@ public class endCheck : MonoBehaviour
         isEndByCheck = _isEndByCheck;
 
         narrative = new List<string>(GameObject.Find("TurnBased").GetComponent<story>().allStory);
+        narrativeType = new List<int>(GameObject.Find("TurnBased").GetComponent<story>().allStoryType);
 
         /*         //如果那个月什么都没有做，在空白的组里面加一句话
                 for (int i = 0; i < narrative.Count; i++)
@@ -54,10 +56,10 @@ public class endCheck : MonoBehaviour
                     print("0 narr: " + narrative[i]);
                 }*/
 
-/*        foreach (string narr in narrative)
-        {
-            print("narr: " +narr);
-        }*/
+        /*        foreach (string narr in narrative)
+                {
+                    print("narr: " +narr);
+                }*/
 
         print("end check.");
         loadMainScene();

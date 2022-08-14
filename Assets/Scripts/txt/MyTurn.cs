@@ -233,7 +233,7 @@ namespace Panda.Ibis
 
             //add month to story
             GameObject.Find("TurnBased").GetComponent<story>().
-                addTurnStory( _turnBased.GetComponent<turnBased>().turn, _outerAI.month.ToString() +"月",1);
+                addTurnStory( _turnBased.GetComponent<turnBased>().turn, _outerAI.month.ToString() +"月",0);
 
 
             //add month to story

@@ -1581,7 +1581,7 @@ namespace Panda.Ibis {
 
                 if (ibisA_index == c_materialR_index)//ibisA reach the nest
                 {
-                    _turnBased.GetComponent<story>().addTurnStory(_turnBased.turn,"朱鹮捡了一个树枝", 4);
+                    _turnBased.GetComponent<story>().addTurnStory(_turnBased.turn,"朱鹮捡了一个树枝", 1);
 
                     hasCheckDes = false;
 
@@ -2755,7 +2755,7 @@ namespace Panda.Ibis {
             thisPlot = /*monthEnToCh(_outAI.month) + */ " 朱鹮吃了一个 " + foodEnToCh(foodAte.name) 
                 + " 在 " + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName + "." ;
 
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot, 2);
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot, 1);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
@@ -2778,7 +2778,7 @@ namespace Panda.Ibis {
              + "在" + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName
              + ".";
 
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot, 2);
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot, 1);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
@@ -2869,7 +2869,7 @@ namespace Panda.Ibis {
             thisPlot = "朱鹮在" /*+ _outAI.month
                  + " at " */ + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName
                  + "孵化蛋.";
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,2);
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,1);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
@@ -2888,7 +2888,7 @@ namespace Panda.Ibis {
             thisPlot = "朱鹮在" /*+ _outAI.month */
                          + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName
                          + "喂养宝宝.";
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,2);
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,1);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
@@ -2912,7 +2912,7 @@ namespace Panda.Ibis {
                 ibisAInt.ToString()).GetComponent<genPos>().landName
              + "朱鹮去睡觉了 " ;
 
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,2);
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,1);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();

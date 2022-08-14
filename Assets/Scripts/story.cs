@@ -9,8 +9,8 @@ public class story : MonoBehaviour
     public List<string> allStory;
 
     public List<int> allStoryType;  // for gen an icon 
-                                    // 1= month, 2=normal action, 3 = meet trap,
-                                    // 4 = pick a twig
+                                    // 0 = month, 1= small action, 2=big action, 3 = meet trap,
+                                    // 4 = pick a twig( no need this)
 
     GameObject _plots;
     void Start()
