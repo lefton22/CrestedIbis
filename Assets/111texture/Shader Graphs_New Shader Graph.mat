@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OverlayTex:
-        m_Texture: {fileID: 2800000, guid: 8d1e1b23da5f4b34490982e95e4eed4d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1e061344198f48845ada06df14fe303a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondTex:
@@ -46,6 +46,6 @@ Material:
     m_Floats:
     - _Power: 0
     m_Colors:
-    - _Offset: {r: 0.45, g: 0.6, b: 0, a: 0}
-    - _Tiling: {r: 0.45, g: 0.76, b: 0, a: 0}
+    - _Offset: {r: 0.4, g: 0.51, b: 0, a: 0}
+    - _Tiling: {r: 0.63, g: 0.76, b: 0, a: 0}
   m_BuildTextureStacks: []

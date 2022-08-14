@@ -267,7 +267,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: a946b3acc24e29e41bcb83029d0322e3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1028,7 +1028,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: cb399c88e3de4b24d8f8b99829f0c4da, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1402,7 +1402,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: de7e68471cef7ad408c530f767e6c8d2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1564,7 +1564,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1704,7 +1704,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: a476ef42e22b71d45801702943d839fb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1844,7 +1844,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 5acbb347251a5804381e14c5934f3179, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2176,7 +2176,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: f26cd6c031c279c4788ee7a6888b4bf4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2350,7 +2350,7 @@ Transform:
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &764837544
 CapsuleCollider:
@@ -2744,7 +2744,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: d3b1955fe800bdc49aaedc4e49417e9e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -3071,7 +3071,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 2f36d6bba49a1234d89d70de5e87fb74, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -3211,7 +3211,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -3405,7 +3405,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ed23506bae336f8409ea74ff8cecac81, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -3545,7 +3545,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 2c6063195ad763542990d91a54afa4d8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -4013,7 +4013,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 162bd6324dd3374448e64e019d4f21e9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -4196,7 +4196,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 6bb1aba56069b884796b3362aa73e384, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -4372,7 +4372,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4272420949738739163, guid: 503a69bf8f6bfc24988cf16d410eeb0a, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 4272420949738739163, guid: 503a69bf8f6bfc24988cf16d410eeb0a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4828,7 +4828,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 995d9e50ca76ed84e8ac51965e28aa58, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -4968,7 +4968,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -5108,7 +5108,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -5348,7 +5348,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: b5b5eae8e8a0c8841a1d7154010e7dd7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -5488,7 +5488,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 5a3a3f270e5002a41a9d4e039fd8b74e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -13832,7 +13832,7 @@ RectTransform:
   - {fileID: 252359781984575855}
   - {fileID: 252359781452277567}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -40771,10 +40771,10 @@ Transform:
   m_GameObject: {fileID: 2122500340431709075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.04, y: 0, z: -5.92}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2122500340431709075
 GameObject:
@@ -46450,7 +46450,7 @@ Transform:
   - {fileID: 1138385322768314600}
   - {fileID: 4435460546976321138}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4435460547066519916
 GameObject:
@@ -46528,6 +46528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allStory: []
+  allStoryType: 
 --- !u!114 &4766146470863279409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46535,7 +46536,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4766146470863279421}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b108fe940d27f2048bce4ffea3375069, type: 3}
   m_Name: 
@@ -46587,7 +46588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: 0
-  turn_endCheck: 25
+  turn_endCheck: 2
 --- !u!1 &4766146470962222180
 GameObject:
   m_ObjectHideFlags: 0
@@ -47805,7 +47806,7 @@ GameObject:
   - component: {fileID: 6937932693457448679}
   m_Layer: 0
   m_Name: incubate
-  m_TagString: Untagged
+  m_TagString: ibisA_act
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47892,7 +47893,7 @@ GameObject:
   - component: {fileID: 6937932693473696639}
   m_Layer: 0
   m_Name: breed
-  m_TagString: Untagged
+  m_TagString: ibisA_act
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48226,7 +48227,7 @@ GameObject:
   - component: {fileID: 6937932693845691723}
   m_Layer: 0
   m_Name: seekLove
-  m_TagString: Untagged
+  m_TagString: ibisA_act
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48378,7 +48379,7 @@ GameObject:
   - component: {fileID: 6937932694630570626}
   m_Layer: 0
   m_Name: rest
-  m_TagString: Untagged
+  m_TagString: ibisA_act
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48520,7 +48521,7 @@ GameObject:
   - component: {fileID: 6937932694663417499}
   m_Layer: 0
   m_Name: eat
-  m_TagString: Untagged
+  m_TagString: ibisA_act
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48574,7 +48575,7 @@ GameObject:
   - component: {fileID: 6937932694806182573}
   m_Layer: 0
   m_Name: spawn
-  m_TagString: Untagged
+  m_TagString: ibisA_act
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48727,7 +48728,7 @@ GameObject:
   - component: {fileID: 6937932694963498283}
   m_Layer: 0
   m_Name: nest
-  m_TagString: Untagged
+  m_TagString: ibisA_act
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

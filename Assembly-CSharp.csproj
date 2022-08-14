@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\obj\objBirdling.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\WaypointPath.cs" />
+    <Compile Include="Assets\Scripts\txt\yicixin\ibisA_switch_incubate.cs" />
     <Compile Include="Assets\Scripts\Map.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Lights Off\Scripts\ConstructPolarBlocks.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\IntersectionTrigger.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\Scripts\ui\skipDrawCard.cs" />
     <Compile Include="Assets\Scripts\faceToCamera.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Lights Off\Scripts\LightsBehaviour.cs" />
+    <Compile Include="Assets\Scripts\txt\yicixin\ibisA_switch_eat.cs" />
     <Compile Include="Assets\Scripts\pool\listCurrentHitLandGrid.cs" />
     <Compile Include="Assets\Scripts\txt\MyIbis_begin.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\FollowCamera.cs" />
@@ -140,6 +142,7 @@
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\BlockSquare.cs" />
     <Compile Include="Assets\Scripts\audio\musicClass.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
+    <Compile Include="Assets\Scripts\txt\yicixin\ibisA_switch_seekLove.cs" />
     <Compile Include="Assets\Scripts\txt\MyIbis.cs" />
     <Compile Include="Assets\Grid Framework\Debug\GridDebugger.cs" />
     <Compile Include="Assets\Scripts\raycastGrid.cs" />
@@ -156,6 +159,7 @@
     <Compile Include="Assets\Scripts\showV2.cs" />
     <Compile Include="Assets\Scripts\riverLand.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\DragBlock.cs" />
+    <Compile Include="Assets\Scripts\txt\yicixin\ibisA_switch_rest.cs" />
     <Compile Include="Assets\Scripts\setRes.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\PointDebug.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX2_AutoRotate.cs" />
@@ -168,6 +172,7 @@
     <Compile Include="Assets\Alpha Masking\Samples\Scripts\FogOfWarAlphaPositioner.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
     <Compile Include="Assets\Scripts\ui\starts\ibis_intro.cs" />
+    <Compile Include="Assets\Scripts\txt\yicixin\ibisA_switch_breed.cs" />
     <Compile Include="Assets\Scripts\ibisR.cs" />
     <Compile Include="Assets\Scripts\LandGen3.cs" />
     <Compile Include="Assets\Scripts\obj\objEgg.cs" />
@@ -176,6 +181,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Scripts\Gird.cs" />
     <Compile Include="Assets\Scripts\LandGeneration.cs" />
+    <Compile Include="Assets\Scripts\txt\yicixin\ibisA_switch_nest.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Bullet.cs" />
     <Compile Include="Assets\Scripts\obj\objFood.cs" />
@@ -183,6 +189,7 @@
     <Compile Include="Assets\Scripts\objV2Pos.cs" />
     <Compile Include="Assets\Alpha Masking\Mask.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs" />
+    <Compile Include="Assets\Scripts\txt\yicixin\ibisA_switch_spawn.cs" />
     <Compile Include="Assets\UITabs\scripts\TabButtonUI.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\UnitExplosion.cs" />
     <Compile Include="Assets\Scripts\obj\break\trapBreak.cs" />

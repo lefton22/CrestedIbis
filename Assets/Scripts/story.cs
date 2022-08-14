@@ -8,13 +8,18 @@ public class story : MonoBehaviour
 {
     public List<string> allStory;
 
+    public List<int> allStoryType;  // for gen an icon 
+                                    // 1= month, 2=normal action, 3 = meet trap,
+                                    // 4 = pick a twig
+
     GameObject _plots;
     void Start()
     {
-        for (int i = 0; i < 24; i++)
-        {
-            allStory.Add(" ");
-        }
+        /*        for (int i = 0; i < 24; i++)
+                {
+                    allStory.Add(" ");
+                }*/
+        allStory = new List<string>();
 
         _plots = GameObject.Find("plots");
 
@@ -23,18 +28,17 @@ public class story : MonoBehaviour
        // print("nests " +nests.Length);
     }
 
-    
-    void Update()
-    {
-        
-    }
 
-    public void addTurnStory(int turn, string thisStory)
+    public void addTurnStory(int turn, string thisStory, int type) // int turn is useless now
     {
         if (turn > 0)
         {
-            allStory[turn - 1].Remove(0, 1);
-            allStory[turn - 1] +=  thisStory;
+/*            allStory[turn - 1].Remove(0, 1);
+            allStory[turn - 1] +=  thisStory; */
+
+            allStory.Add(thisStory);
+
+            allStoryType.Add(type);
         }
       
     }

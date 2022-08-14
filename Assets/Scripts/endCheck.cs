@@ -69,6 +69,6 @@ public class endCheck : MonoBehaviour
     {
 
         print("load end scene.");
-       // SceneManager.LoadScene(scenename);
+        SceneManager.LoadScene(scenename);
     }
 }

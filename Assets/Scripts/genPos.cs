@@ -39,11 +39,11 @@ public class genPos : MonoBehaviour
 
         nameHasExist = new List<string>();
 
-      // claimLandName();
+        claimLandName();
         
     }
 
-/*    void claimLandName()
+    void claimLandName()
     {
         // if (gameObject.tag == "land")
         //   if (_listObjOnLand.poolLandName.Count!=0)
@@ -52,12 +52,16 @@ public class genPos : MonoBehaviour
         int ran;
         ran = Random.Range(0, _listObjOnLand.poolLandName.Count - 1);
 
-        while (!nameHasExist.Contains(_listObjOnLand.poolLandName[ran]))
+        landName = _listObjOnLand.poolLandName[ran];
+
+      //  print("landName: " + landName);
+
+/*        while (!nameHasExist.Contains(_listObjOnLand.poolLandName[ran]))
         {
 
-                landName = _listObjOnLand.poolLandName[ran];
-                nameHasExist.Add(_listObjOnLand.poolLandName[ran]);
-        }
+            landName = _listObjOnLand.poolLandName[ran];
+            nameHasExist.Add(_listObjOnLand.poolLandName[ran]);
+        }*/
         //    }
-    }*/
+    }
 }

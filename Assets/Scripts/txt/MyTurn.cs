@@ -156,6 +156,34 @@ namespace Panda.Ibis
                        //no highHill on
                        // only the first turn on
         {
+
+            //gen all actions' switch script
+
+            foreach (Transform child in _ibisA.transform)
+            {
+                if (child.gameObject.tag == "ibisA_act")
+                {
+                    if (child.gameObject.name == "eat")
+                    {ibisA_switch_eat sc = child.gameObject.AddComponent<ibisA_switch_eat>() as ibisA_switch_eat;}
+                    if (child.gameObject.name == "seekLove")
+                    { ibisA_switch_seekLove sc = child.gameObject.AddComponent<ibisA_switch_seekLove>() as ibisA_switch_seekLove; }
+                    if (child.gameObject.name == "nest")
+                    { ibisA_switch_nest sc = child.gameObject.AddComponent<ibisA_switch_nest>() as ibisA_switch_nest; }
+                    if (child.gameObject.name == "spawn")
+                    { ibisA_switch_spawn sc = child.gameObject.AddComponent<ibisA_switch_spawn>() as ibisA_switch_spawn; }
+                    if (child.gameObject.name == "incubate")
+                    { ibisA_switch_incubate sc = child.gameObject.AddComponent<ibisA_switch_incubate>() as ibisA_switch_incubate; }
+                    if (child.gameObject.name == "breed")
+                    { ibisA_switch_breed sc = child.gameObject.AddComponent<ibisA_switch_breed>() as ibisA_switch_breed; }
+                    if (child.gameObject.name == "rest")
+                    { ibisA_switch_rest sc = child.gameObject.AddComponent<ibisA_switch_rest>() as ibisA_switch_rest; }
+                }
+            }
+
+            //gen all actions' switch script
+            ///
+
+
             hasSetNPCTreeActive = false;
 
             //GameObject.Find("ibisA").GetComponent<Nav>().enabled = true; //  改成只有在具体GoToXXX时才开，并且同时重新设置目的地
@@ -203,6 +231,13 @@ namespace Panda.Ibis
 
             GameObject.Find("ibisA").GetComponent<Animator>().enabled = true;
 
+            //add month to story
+            GameObject.Find("TurnBased").GetComponent<story>().
+                addTurnStory( _turnBased.GetComponent<turnBased>().turn, _outerAI.month.ToString() +"月",1);
+
+
+            //add month to story
+            //
 
             ThisTask.Succeed();
         }
@@ -438,7 +473,7 @@ namespace Panda.Ibis
                     grids[i].GetComponent<grid>().hasPolluted = false;
 
                     //remove pollution mark
-                    for (int k =0; k < grids[i].transform.GetChildCount(); k++)
+                    for (int k =0; k < grids[i].transform.childCount; k++)
                     {
                         if (grids[i].transform.GetChild(0).gameObject.tag == "pollution_mark")
                         {
@@ -449,7 +484,7 @@ namespace Panda.Ibis
             }
 
             //check trap's last turn
-            for (int i = 0; i < _ObjOnLand.transform.GetChildCount(); i++)
+            for (int i = 0; i < _ObjOnLand.transform.childCount; i++)
             {
                 // update the HP each turn
                 if (_ObjOnLand.transform.GetChild(i).name == "trap")

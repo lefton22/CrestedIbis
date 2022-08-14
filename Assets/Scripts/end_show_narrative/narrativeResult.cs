@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class narrativeResult : MonoBehaviour
 {
-    public string allPlots;
+    //public string allPlots;
+
+    public List<string> allPlosts;
 
     void Start()
     {
@@ -22,23 +24,22 @@ public class narrativeResult : MonoBehaviour
                         { allPlots +=  endCheck.narrative[i]; }
                         if (i / 2 == 0)
                         { allPlots += "\n" + endCheck.narrative[i]; }*/
-            allPlots += "\n" + endCheck.narrative[i];
+            // allPlots += "\n" + endCheck.narrative[i];
+
+            allPlosts.Add(endCheck.narrative[i]);
+
         }
 
         showNarrRes();
        // showNarrResT();
     }
 
-    void Update()
-    {
-        
-    }
 
     void showNarrRes()
     { 
         //GameObject.Find("narResults").GetComponent<TMPro.TextMeshProUGUI>().text = allPlots;
 
-        GameObject.Find("narResults").GetComponent<Text>().text = allPlots;
+        //GameObject.Find("narResults").GetComponent<Text>().text = allPlots;
     }
 /*    void showNarrResT()
     {

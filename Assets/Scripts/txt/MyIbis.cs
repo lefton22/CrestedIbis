@@ -264,9 +264,9 @@ namespace Panda.Ibis {
 
 
 
-        public void breakWhenIbisAAct() //���ڴ�� 
+        public void breakWhenIbisAAct() // when meeting a trap
         {
-            print("breakWhenIbisAAct()");
+            print("breakWhenIbisAAct() : meet a trap");
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("brambles", false);
 
             //  GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
@@ -276,7 +276,7 @@ namespace Panda.Ibis {
 
             //ibisR on!
             GameObject.Find("ibisR").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("ibisR").transform.localScale = new Vector3(1.8f, 1.8f, 1f);
+            GameObject.Find("ibisR").transform.localScale = new Vector3(0.6f, 0.6f, 1f);
             GameObject.Find("ibisR").transform.position = GameObject.Find("ibisA").transform.position;
             GameObject.Find("ibisR").GetComponent<Animator>().Play("ibis_break_trap");
 
@@ -284,6 +284,8 @@ namespace Panda.Ibis {
             if (GameObject.Find("ibisR").GetComponent<Animator>().GetBool("hasBreakTrap"))
             {
                 GameObject.Find("ibisR").GetComponent<Animator>().SetBool("hasBreakTrap", false);
+
+                //actionPoint = 0; // useless here
 
                 outOfBreakWhenIbisAAct();
                 print("breaking time is over.");
@@ -313,10 +315,14 @@ namespace Panda.Ibis {
             GameObject.Find("ibisR").GetComponent<Animator>().enabled = false;
 
             GameObject.Find("ibisR").GetComponent<Animator>().SetBool("hasBreakTrap", false);
+
+            breakThisTurn();
         }
 
         void Update()
         {
+
+           // print("full: " +full);
             //check if meeting trap over
             //print("AP: " + actionPoint);
 
@@ -325,7 +331,6 @@ namespace Panda.Ibis {
                 outOfBreakWhenIbisAAct();
                 print("breaking time is over.");
             }
-
 
 
             //check if meeting trap over
@@ -429,9 +434,12 @@ namespace Panda.Ibis {
 
             GameObject.Find("TurnBased").transform.GetChild(0).gameObject.GetComponent<Panda.Ibis.MyTurn>().hasIbisEnded = true;
             //===========
+            GameObject.Find("TurnBased").GetComponent<story>().addTurnStory(_turnBased.turn,"朱鹮不幸撞进了陷阱",2);
+
 
             print("breakThisTurn() ;");
         }
+
         bool isFirstHalfYear()
         {
             bool _isFirstHalfYear;
@@ -797,23 +805,33 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
-            
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_eat>().hasPlayEatSF)
+            {
+                GameObject.Find("SF_ibisA_eat").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_eat>().hasPlayEatSF = true;
+
+            }
+            //play sound
+            ////
+
             if (!hasAdjustPos)
             {
                 ori_ibisA_v3 = _ibisA.transform.position;
                 hasAdjustPos = true;
             }
 
-/*            if (Input.GetKeyDown(KeyCode.A))
-            {*/
-                _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
-                                                        new Vector3(0.1f, 0.3f, 0f));
+            /*            if (Input.GetKeyDown(KeyCode.A))
+                        {*/
 
-             
-          //  }
+             _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                                      new Vector3(0.08f, 0.1f, 0f));
 
-          //  print(" ori_ibisA_v3 : " + ori_ibisA_v3);
-            
+
+            //  }
+
+            //  print(" ori_ibisA_v3 : " + ori_ibisA_v3);
+
 
             int amount_food;
             amount_food = _listObjOnLand.foodOnLand.Count;
@@ -881,7 +899,7 @@ namespace Panda.Ibis {
                         print("Panda.Ibis.MyIbis.APreduced = Panda.Ibis.MyIbis.APreduced + 1;");
                     }
 
-                    print("eat 3");
+                   // print("eat 3");
                 }
 
                 Destroy(currentFood);
@@ -905,7 +923,7 @@ namespace Panda.Ibis {
                     hasAdjustPos = false;
 
                     lightEat();
-                    print("eat 5");
+                   // print("eat 5");
                     ThisTask.Succeed();
                 }
             }
@@ -1123,6 +1141,16 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_seekLove>().hasPlayCourtshipSF)
+            {
+                GameObject.Find("SF_ibisA_courtship").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_seekLove>().hasPlayCourtshipSF = true;
+
+            }
+            //play sound
+            ////
+
             //// adjust position
             if (!hasAdjustPos)
             {
@@ -1210,6 +1238,16 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_seekLove>().hasPlayMateSF)
+            {
+                GameObject.Find("SF_ibisA_seekLove").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_seekLove>().hasPlayMateSF = true;
+
+            }
+            //play sound
+            ////
+
             //// adjust position
             if (!hasAdjustPos)
             {
@@ -1257,6 +1295,16 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_seekLove>().hasPlayCombSF)
+            {
+                GameObject.Find("SF_ibisA_comb").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_seekLove>().hasPlayCombSF = true;
+
+            }
+            //play sound
+            ////
+
             //// adjust position
             if (!hasAdjustPos)
             {
@@ -1293,6 +1341,16 @@ namespace Panda.Ibis {
             hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_seekLove>().hasPlayTouchBeaksSF)
+            {
+                GameObject.Find("SF_ibisA_touchBeaks").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_seekLove>().hasPlayTouchBeaksSF = true;
+
+            }
+            //play sound
+            ////
 
             //// adjust position
             if (!hasAdjustPos)
@@ -1483,6 +1541,15 @@ namespace Panda.Ibis {
         {
             hasCheckApEachNode = false;
 
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_nest>().hasPlayPickMaterialSF)
+            {
+                GameObject.Find("SF_ibisA_pickTwig").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_nest>().hasPlayPickMaterialSF = true;
+            }
+            //play sound
+            ////
+
             GameObject[] materials;
             materials = GameObject.FindGameObjectsWithTag("material");
 
@@ -1514,6 +1581,8 @@ namespace Panda.Ibis {
 
                 if (ibisA_index == c_materialR_index)//ibisA reach the nest
                 {
+                    _turnBased.GetComponent<story>().addTurnStory(_turnBased.turn,"朱鹮捡了一个树枝", 4);
+
                     hasCheckDes = false;
 
                     hasCheckApEachNode = true;
@@ -1708,6 +1777,15 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_nest>().hasPlayBuildNestSF)
+            {
+                GameObject.Find("SF_ibisA_buildNest").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_nest>().hasPlayBuildNestSF = true;
+            }
+            //play sound
+            ////
+
             //// adjust position
             if (!hasAdjustPos)
             {
@@ -1787,6 +1865,15 @@ namespace Panda.Ibis {
             hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_spawn>().hasPlaySpawnSF)
+            {
+                GameObject.Find("SF_ibisA_spawn").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_spawn>().hasPlaySpawnSF = true;
+            }
+            //play sound
+            ////
 
             //// adjust position
             if (!hasAdjustPos)
@@ -1933,6 +2020,15 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_incubate>().hasPlayIncubateSF)
+            {
+                GameObject.Find("SF_ibisA_incubate").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_incubate>().hasPlayIncubateSF = true;
+            }
+            //play sound
+            ////
+
             //// adjust position
             if (!hasAdjustPos)
             {
@@ -1992,6 +2088,15 @@ namespace Panda.Ibis {
             hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
+
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_breed>().hasPlayPickFoodSF)
+            {
+                GameObject.Find("SF_ibisA_breed").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_breed>().hasPlayPickFoodSF = true;
+            }
+            //play sound
+            ////
 
             //// adjust position
             if (!hasAdjustPos)
@@ -2079,6 +2184,15 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("idk", true);
 
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_breed>().hasPlayBreedSF)
+            {
+                GameObject.Find("SF_ibisA_breed").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_breed>().hasPlayBreedSF = true;
+            }
+            //play sound
+            ////
+
             //// adjust position
             if (!hasAdjustPos)
             {
@@ -2117,6 +2231,15 @@ namespace Panda.Ibis {
             hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("zzzz", false);
+
+            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_rest>().hasPlayRestSF)
+            {
+                GameObject.Find("SF_ibisA_rest").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_rest>().hasPlayRestSF = true;
+            }
+            //play sound
+            ////
 
             //// adjust position
             if (!hasAdjustPos)
@@ -2234,6 +2357,14 @@ namespace Panda.Ibis {
 
                 //play FX
                 //_ibisA_FX.SetActive
+                //play sound
+
+
+                    GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().playThisSF();
+                    
+
+                //play sound
+                ////
 
                 //bool isActive = _ibisA_FX.activeSelf;
                 //_ibisA_FX.SetActive(!isActive);
@@ -2612,19 +2743,24 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_eat.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-/*            thisPlot = " Ibis eats a " + foodAte.name
-                + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                + " in " + _outAI.month;*/
+            /*            thisPlot = " Ibis eats a " + foodAte.name
+                            + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                            + " in " + _outAI.month;*/
 
-            thisPlot = monthEnToCh( _outAI.month)+ " 朱鹮吃了一个 " + foodEnToCh( foodAte.name)
-                + " 在 " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand +"." ;
+            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+            print("ibisAInt: " + ibisAInt + " , " + "gird" + ibisAInt.ToString());
 
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            print("foodAte: " + foodAte);
+
+            thisPlot = /*monthEnToCh(_outAI.month) + */ " 朱鹮吃了一个 " + foodEnToCh(foodAte.name) 
+                + " 在 " + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName + "." ;
+
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot, 2);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
 
-            Debug.Log(thisPlot);
+           Debug.Log(thisPlot);
         }
 
         void lightGoToOpIbis()
@@ -2633,15 +2769,16 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_goToOpIbis.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-/*            thisPlot = "Ibis meets " + mate + " then they become a couple in " + _outAI.month
-                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                 + ".";*/
-
-                thisPlot = "朱鹮碰见了" + mate +"在"+ monthEnToCh(_outAI.month) + " , 随后它们成为了一对儿 " 
-             + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+            /*            thisPlot = "Ibis meets " + mate + " then they become a couple in " + _outAI.month
+                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                             + ".";*/
+            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+            
+            thisPlot = "朱鹮碰见了" + mate +"在"+ monthEnToCh(_outAI.month) + " , 随后它们成为了一对儿 " 
+             + "在" + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName
              + ".";
 
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot, 2);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
@@ -2657,15 +2794,16 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_mate.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-/*            thisPlot = "This couple of ibis decide to form a form a family in " + _outAI.month
-                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                 + ".";*/
-
-                    thisPlot = "这对情侣决定在" + monthEnToCh(_outAI.month) +"组成一个小家庭"
-             + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+            /*            thisPlot = "This couple of ibis decide to form a form a family in " + _outAI.month
+                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                             + ".";*/
+            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+            
+            thisPlot = "这对情侣决定在" + monthEnToCh(_outAI.month) +"组成一个小家庭"
+             + "在" + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName
              + ".";
 
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot, 2);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
@@ -2679,14 +2817,17 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_buildNest.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-/*            thisPlot = "Ibis builds a nest in " + _outAI.month
-                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                             + ".";*/
-            thisPlot = "在"+monthEnToCh(_outAI.month)+ "朱鹮建了一个新巢" 
-                 + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+            /*            thisPlot = "Ibis builds a nest in " + _outAI.month
+                                         + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                                         + ".";*/
+
+            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+
+            thisPlot = /* "在"+monthEnToCh(_outAI.month)+ */ "朱鹮建了一个新巢" 
+                 + "在" + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName
                  + ".";
 
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot, 2);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
@@ -2700,14 +2841,16 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_spawn.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-/*            thisPlot = "Ibis spawns " + am_egg + " eggs " + _outAI.month
-                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                             + ".";*/
-            thisPlot = "朱鹮孵化了" /*+ am_egg */ + "1个蛋在" + monthEnToCh(_outAI.month)
-                 + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+            /*            thisPlot = "Ibis spawns " + am_egg + " eggs " + _outAI.month
+                                         + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                                         + ".";*/
+            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+
+            thisPlot = "朱鹮孵化了" /*+ am_egg */ + "1个蛋" /* + monthEnToCh(_outAI.month) */
+                 + "在" + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName
                  + ".";
 
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,2);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
@@ -2720,11 +2863,13 @@ namespace Panda.Ibis {
             _incubate.SetActive(true);
             _dot.transform.DOLocalMoveX(_incubate.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
+            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+
             string thisPlot;
-            thisPlot = "Ibis incubates " + _outAI.month
-                 + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                 + ".";
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            thisPlot = "朱鹮在" /*+ _outAI.month
+                 + " at " */ + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName
+                 + "孵化蛋.";
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,2);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
@@ -2737,11 +2882,13 @@ namespace Panda.Ibis {
             _breed.SetActive(true);
             _dot.transform.DOLocalMoveX(_breed.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
+            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+
             string thisPlot;
-            thisPlot = "Ibis feeds its birdlings" + _outAI.month
-                         + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-                         + ".";
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            thisPlot = "朱鹮在" /*+ _outAI.month */
+                         + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName
+                         + "喂养宝宝.";
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,2);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();
@@ -2755,13 +2902,17 @@ namespace Panda.Ibis {
             _dot.transform.DOLocalMoveX(_rest.GetComponent<RectTransform>().anchoredPosition.x, 1f);
 
             string thisPlot;
-/*            thisPlot = "Ibis goes to sleep in " + _outAI.month
-             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-             + ".";*/
-                        thisPlot = monthEnToCh( _outAI.month) + "朱鹮去睡觉了 " 
-             + "在" + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
-             + ".";
-            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot);
+            /*            thisPlot = "Ibis goes to sleep in " + _outAI.month
+                         + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
+                         + ".";*/
+
+            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+            
+            thisPlot = /* monthEnToCh( _outAI.month) + */   "在" + GameObject.Find("gird" + 
+                ibisAInt.ToString()).GetComponent<genPos>().landName
+             + "朱鹮去睡觉了 " ;
+
+            _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,2);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
 
             APreduce();

@@ -21,6 +21,7 @@ TagManager:
   - npcOrder
   - music
   - pollution_mark
+  - ibisA_act
   layers:
   - Default
   - TransparentFX

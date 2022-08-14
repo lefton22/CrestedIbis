@@ -25,6 +25,13 @@ public class forTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+            print("ibisAInt: " + ibisAInt + " , " + "gird" + ibisAInt.ToString());
+        }
+
         if (Input.GetKeyDown(KeyCode.T))
         { spawn(); }
 
@@ -62,27 +69,45 @@ public class forTest : MonoBehaviour
         }
 
 
-/*        /////
-        /// a ray from ibisA to camera
-        /// 
-        //Vector3 toCamera = Camera.main.transform.position;
-         Camera.main.ScreenPointToRay(Input.mousePosition);
-       // Debug.DrawRay(GameObject.Find("ibisA").transform.position, toCamera);
 
-      //  Ray ray = new Ray(GameObject.Find("ibisA").transform.position, toCamera);
-      Ray ray = Camera.main.ScreenPointToRay(GameObject.Find("ibisA").transform.position);
 
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 9998f))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            print("ray 1"); 
-             print(gameObject.name + " hits (for test): " + hit.collider.name);
-
-            if (hit.collider.gameObject.tag == "card")
+            //play sound
+            bool hasPlaySound;
+            hasPlaySound = false;
+            if (!hasPlaySound)
             {
-                print("ibisA hits a card");
+                GameObject.Find("SF_ibisA_eat").GetComponent<playSoundEffect>().playThisSF();
+                hasPlaySound = true;
+
+                print("play eat sound.");
             }
-        }*/
+            //play sound
+            ////
+        }
+
+        /*        /////
+                /// a ray from ibisA to camera
+                /// 
+                //Vector3 toCamera = Camera.main.transform.position;
+                 Camera.main.ScreenPointToRay(Input.mousePosition);
+               // Debug.DrawRay(GameObject.Find("ibisA").transform.position, toCamera);
+
+              //  Ray ray = new Ray(GameObject.Find("ibisA").transform.position, toCamera);
+              Ray ray = Camera.main.ScreenPointToRay(GameObject.Find("ibisA").transform.position);
+
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, 9998f))
+                {
+                    print("ray 1"); 
+                     print(gameObject.name + " hits (for test): " + hit.collider.name);
+
+                    if (hit.collider.gameObject.tag == "card")
+                    {
+                        print("ibisA hits a card");
+                    }
+                }*/
     }
 
 
