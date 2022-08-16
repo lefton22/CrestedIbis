@@ -15,5 +15,14 @@ public class playSoundEffect : MonoBehaviour
     public void playThisSF()
     {
         thisSoundEffect.Play();
+
+       // print("play sf");
+    }
+
+    public void stopPlayThisSF()
+    {
+        thisSoundEffect.Stop();
+
+      //  print("stop playing sf");
     }
 }

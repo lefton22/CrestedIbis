@@ -4197,7 +4197,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -46588,7 +46588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: 0
-  turn_endCheck: 2
+  turn_endCheck: 20
 --- !u!1 &4766146470962222180
 GameObject:
   m_ObjectHideFlags: 0

@@ -561,6 +561,16 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
+/*            ////
+            ///            //play sound     
+            if (!gameObject.GetComponent<ibisA_switch_eat>().hasPlayEatSF)
+            {
+                GameObject.Find("SF_ibisA_eat").GetComponent<playSoundEffect>().playThisSF();
+                gameObject.GetComponent<ibisA_switch_eat>().hasPlayEatSF = true;
+            }
+            //play sound
+            ////*/
+
             _listObjOnLand.foodOnLand.Clear();
             _listObjOnLand.foodOnLand_GO.Clear();
             foreach (Transform child in GameObject.Find("ObjOnLand").transform)
@@ -652,6 +662,8 @@ namespace Panda.Ibis {
 
             if (index_nearestFood == index_ibisA)
             {
+                GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().stopPlayThisSF();
+
                 hasCheckDes = false;
 
                 GameObject.Find("ibisA").GetComponent<Animator>().SetBool("hasWalked", true);
@@ -811,6 +823,7 @@ namespace Panda.Ibis {
                 GameObject.Find("SF_ibisA_eat").GetComponent<playSoundEffect>().playThisSF();
                 gameObject.GetComponent<ibisA_switch_eat>().hasPlayEatSF = true;
 
+                print("play SF at eat(). " );
             }
             //play sound
             ////
@@ -1062,7 +1075,6 @@ namespace Panda.Ibis {
         [Task]
         void goToOpGender()
         {
-           
 
             //hasCheckApEachNode = false;
 
@@ -2357,14 +2369,11 @@ namespace Panda.Ibis {
 
                 //play FX
                 //_ibisA_FX.SetActive
-                //play sound
-
-
-                    GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().playThisSF();
-                    
 
                 //play sound
-                ////
+                GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().playThisSF();
+                print("play step SF during seekLocation(). ");
+                //play sound
 
                 //bool isActive = _ibisA_FX.activeSelf;
                 //_ibisA_FX.SetActive(!isActive);
@@ -2376,6 +2385,8 @@ namespace Panda.Ibis {
 
                 _Gamemanager.setMovingGoal(_index);
 
+                print("seekLocation() " + gameObject.name);
+
             }
 
                 //              Debug.Log("move to destination: " + destination);
@@ -2384,15 +2395,8 @@ namespace Panda.Ibis {
         }
 
 
-
-
-
             /////////////EEEEEEEE////////////Basic Element  Action Pools/////////////////////////
             ///       /////////////////////////Basic Element  Action Pools/////////////////////////
-
-
-
-
 
 
 
@@ -2747,13 +2751,13 @@ namespace Panda.Ibis {
                             + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                             + " in " + _outAI.month;*/
 
-            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
-            print("ibisAInt: " + ibisAInt + " , " + "gird" + ibisAInt.ToString());
+            /*            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+                        print("ibisAInt: " + ibisAInt + " , " + "gird" + ibisAInt.ToString());
 
-            print("foodAte: " + foodAte);
+                        print("foodAte: " + foodAte);*/
 
-            thisPlot = /*monthEnToCh(_outAI.month) + */ " 朱鹮吃了一个 " + foodEnToCh(foodAte.name) 
-                + " 在 " + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName + "." ;
+            thisPlot = /*monthEnToCh(_outAI.month) + */ " 朱鹮吃了一个 " + foodEnToCh(foodAte.name);
+              /*  + " 在 " + GameObject.Find("gird" + ibisAInt.ToString()).GetComponent<genPos>().landName + "." ; */
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot, 1);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);
