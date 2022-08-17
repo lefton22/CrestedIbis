@@ -28,64 +28,73 @@ public class forTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
-            print("ibisAInt: " + ibisAInt + " , " + "gird" + ibisAInt.ToString());
+            SpriteRenderer sp_ibisA;
+            sp_ibisA = GameObject.Find("ibisA").GetComponent<SpriteRenderer>();
+            Material mt_default = Resources.Load<Material>("materials/Default");
+            sp_ibisA.material = mt_default;
+            print("for Test L");
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
-        { spawn(); }
+        /*        if (Input.GetKeyDown(KeyCode.L))
+                {
+                    int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+                    print("ibisAInt: " + ibisAInt + " , " + "gird" + ibisAInt.ToString());
+                }
 
-        if (Input.GetKey(KeyCode.M) && Input.GetKey(KeyCode.N))
-        {
-            if (!isGenEgret)
-            {
-                print("gen egret.");
-                genEgret();
-            }
-        }
+                if (Input.GetKeyDown(KeyCode.T))
+                { spawn(); }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            // Debug.DrawLine(GameObject.Find("A").transform.position, 
-            //            Camera.main.transform.position);
+                if (Input.GetKey(KeyCode.M) && Input.GetKey(KeyCode.N))
+                {
+                    if (!isGenEgret)
+                    {
+                        print("gen egret.");
+                        genEgret();
+                    }
+                }
 
-            int a;
-            a = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA"));
-            print("a: " + a);
-        }
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    // Debug.DrawLine(GameObject.Find("A").transform.position, 
+                    //            Camera.main.transform.position);
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            _GameManager.GetComponent<GameManager>().setMovingGoal(5);
-            print("W");
-        }
+                    int a;
+                    a = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA"));
+                    print("a: " + a);
+                }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            _GameManager.GetComponent<GameManager>().
-                setSelectNav(GameObject.Find("ibisA").GetComponent<Nav>());
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    _GameManager.GetComponent<GameManager>().setMovingGoal(5);
+                    print("W");
+                }
 
-            print("D");
-        }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    _GameManager.GetComponent<GameManager>().
+                        setSelectNav(GameObject.Find("ibisA").GetComponent<Nav>());
+
+                    print("D");
+                }
 
 
 
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            //play sound
-            bool hasPlaySound;
-            hasPlaySound = false;
-            if (!hasPlaySound)
-            {
-                GameObject.Find("SF_ibisA_eat").GetComponent<playSoundEffect>().playThisSF();
-                hasPlaySound = true;
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    //play sound
+                    bool hasPlaySound;
+                    hasPlaySound = false;
+                    if (!hasPlaySound)
+                    {
+                        GameObject.Find("SF_ibisA_eat").GetComponent<playSoundEffect>().playThisSF();
+                        hasPlaySound = true;
 
-                print("play eat sound.");
-            }
-            //play sound
-            ////
-        }
+                        print("play eat sound.");
+                    }
+                    //play sound
+                    ////
+                }*/
 
         /*        /////
                 /// a ray from ibisA to camera

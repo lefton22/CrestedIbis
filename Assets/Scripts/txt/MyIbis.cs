@@ -280,7 +280,6 @@ namespace Panda.Ibis {
             GameObject.Find("ibisR").transform.position = GameObject.Find("ibisA").transform.position;
             GameObject.Find("ibisR").GetComponent<Animator>().Play("ibis_break_trap");
 
-
             if (GameObject.Find("ibisR").GetComponent<Animator>().GetBool("hasBreakTrap"))
             {
                 GameObject.Find("ibisR").GetComponent<Animator>().SetBool("hasBreakTrap", false);
@@ -660,7 +659,8 @@ namespace Panda.Ibis {
 
            // print("index_nearestFood: " + index_nearestFood + " , index_ibisA: " + index_ibisA);
 
-            if (index_nearestFood == index_ibisA)
+          //  if (index_nearestFood == index_ibisA)
+          if (_ibisA.transform.position == GameObject.Find("gird" +index_nearestFood.ToString()).transform.position)
             {
                 GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().stopPlayThisSF();
 
@@ -823,7 +823,7 @@ namespace Panda.Ibis {
                 GameObject.Find("SF_ibisA_eat").GetComponent<playSoundEffect>().playThisSF();
                 gameObject.GetComponent<ibisA_switch_eat>().hasPlayEatSF = true;
 
-                print("play SF at eat(). " );
+               // print("play SF at eat()." );
             }
             //play sound
             ////
@@ -834,12 +834,11 @@ namespace Panda.Ibis {
                 hasAdjustPos = true;
             }
 
-            /*            if (Input.GetKeyDown(KeyCode.A))
-                        {*/
-
-             _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
-                                                      new Vector3(0.08f, 0.1f, 0f));
-
+            if (_ibisA.transform.position.x < ori_ibisA_v3.x + 0.08f)
+            { _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
+                                     new Vector3(0.01f, 0.01f, 0f)); // 0.08f,0.1f
+              //  print("devianting... ori x: "  + ori_ibisA_v3.x);
+            }
 
             //  }
 
@@ -930,6 +929,7 @@ namespace Panda.Ibis {
                 {
                     //   print(" < original food amount.");
                     //  set this bool during the sector which check if succeed of each uncheck AI node
+                    
 
                     hasCheckApEachNode = true;
 

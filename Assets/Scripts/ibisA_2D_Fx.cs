@@ -24,7 +24,9 @@ public class ibisA_2D_Fx : MonoBehaviour
 
         foreach (GameObject fx in ibisA_FXs)
         {
-            fx.transform.position = follow_.transform.position;
+            fx.transform.position = new Vector3( follow_.transform.position.x,
+                                                 follow_.transform.position.y -0.18f,
+                                                 follow_.transform.position.z);
         }
     }
 

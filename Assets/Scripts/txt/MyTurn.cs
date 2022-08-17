@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using System.Linq;
+
 using Panda;
 
 using Pathfinding;
@@ -157,6 +159,7 @@ namespace Panda.Ibis
                        // only the first turn on
         {
 
+            
             //gen all actions' switch script
 
             foreach (Transform child in _ibisA.transform)
@@ -183,6 +186,15 @@ namespace Panda.Ibis
             //gen all actions' switch script
             ///
 
+            //play sound     
+            if (!GameObject.Find("SF_eachTurnStart").GetComponent<SF_switch_eachTurnStart>().hasPlay)
+            {
+                GameObject.Find("SF_eachTurnStart").GetComponent<playSoundEffect>().playThisSF();
+                GameObject.Find("SF_eachTurnStart").GetComponent<SF_switch_eachTurnStart>().hasPlay = true;
+
+            }
+            //play sound
+            ////
 
             hasSetNPCTreeActive = false;
 
@@ -240,6 +252,45 @@ namespace Panda.Ibis
             //
 
             ThisTask.Succeed();
+        }
+
+
+        [Task]
+        void grey() // ibisA change its color
+        {
+            SpriteRenderer sp_ibisA = GameObject.Find("ibisA").GetComponent<SpriteRenderer>(); ;
+
+            if (new int[] { 1,  7}.Contains(_outerAI.month))
+        
+            {
+                Material mt_default = Resources.Load<Material>("materials/Shader Graphs_New Shader Graph");
+                sp_ibisA.material = mt_default;
+                Sprite grey = Resources.Load<Sprite>("ui/grey/toGrey");
+              
+                GameObject popUpGrey = Instantiate(Resources.Load("goj/popUpGrey")) as GameObject;
+                popUpGrey.transform.position = new Vector3( _ibisA.transform.position.x +0.38f,
+                                                             _ibisA.transform.position.y + 0.57f,0f);
+                popUpGrey.GetComponent<SpriteRenderer>().sprite = grey;
+
+                ThisTask.Succeed();
+            }
+            //then pop up a bubble shows why the color change
+
+
+            if (new int[] { 9 }.Contains(_outerAI.month))
+            {
+               
+                Material mt_default = Resources.Load<Material>("materials/Default");
+                sp_ibisA.material = mt_default;
+                Sprite white = Resources.Load<Sprite>("ui/grey/toWhite");
+
+                GameObject popUpGrey = Instantiate(Resources.Load("goj/popUpGrey")) as GameObject;
+                popUpGrey.transform.position = new Vector3(_ibisA.transform.position.x + 0.38f,
+                                                             _ibisA.transform.position.y + 0.57f, 0f);
+                popUpGrey.GetComponent<SpriteRenderer>().sprite = white;
+
+                ThisTask.Succeed();
+            }
         }
 
         [Task]
@@ -813,11 +864,11 @@ namespace Panda.Ibis
         [Task]
         void endThisTurn() // copy this to attached MaxAP
         {
-           // _ibisA.GetComponent<Pathfinding.AILerp>().enabled = false;
+
+            GameObject.Find("SF_eachTurnStart").GetComponent<SF_switch_eachTurnStart>().hasPlay = false;
+
             _ibisA.GetComponent<Panda.Ibis.MyIbis>().landsPassThrough.Clear();
-           // _ibisA.GetComponent<CapsuleCollider>().enabled = false;
-            // _ibisA.GetComponent<PandaBehaviour>().enabled = false;
-//_ibisA.GetComponent<SnapToNode>().enabled = true;
+
 
             foreach (Transform child in _ibisA.transform)
             {

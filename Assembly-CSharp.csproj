@@ -160,6 +160,7 @@
     <Compile Include="Assets\Scripts\riverLand.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\DragBlock.cs" />
     <Compile Include="Assets\Scripts\txt\yicixin\ibisA_switch_rest.cs" />
+    <Compile Include="Assets\Scripts\audio\yicixing\SF_switch_monthChange.cs" />
     <Compile Include="Assets\Scripts\setRes.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\PointDebug.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX2_AutoRotate.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Assets\Grid Framework\Examples\Seeming Endless Grid\InfinityCamera.cs" />
     <Compile Include="Assets\Scripts\obj\objJackDaw.cs" />
     <Compile Include="Assets\Scripts\txt\MyNPC.cs" />
+    <Compile Include="Assets\Scripts\audio\yicixing\SF_switch_eachTurnStart.cs" />
     <Compile Include="Assets\Alpha Masking\Samples\Scripts\FogOfWarAlphaPositioner.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
     <Compile Include="Assets\Scripts\ui\starts\ibis_intro.cs" />
@@ -205,6 +207,7 @@
     <Compile Include="Assets\Scripts\obj\objIbisAdult.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\SetupForbiddenTiles.cs" />
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
+    <Compile Include="Assets\Scripts\ui\popUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
