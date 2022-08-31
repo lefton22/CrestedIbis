@@ -1411,18 +1411,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Particle_set_startColor_mA7B0363E82B7A7C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Particle_set_randomSeed_m8FD7A4DB7F8E7EBDEF2C51A28197F8D9D7CB6E04 (Particle_tDAEF22C4F9FB70E048551ECB203B6A81185832E1 * __this, uint32_t ___value0, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem::EmitOld_Internal(UnityEngine.ParticleSystem/Particle&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_EmitOld_Internal_m4F094DC523986298D5626F0F3F2335DFF596C993 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, Particle_tDAEF22C4F9FB70E048551ECB203B6A81185832E1 * ___particle0, const RuntimeMethod* method);
-// System.Void UnityEngine.ParticleSystem::Simulate(System.Single,System.Boolean,System.Boolean,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Simulate_m68A0105281A8BC3F4E9242181586483BA7B796A3 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, float ___t0, bool ___withChildren1, bool ___restart2, bool ___fixedTimeStep3, const RuntimeMethod* method);
-// System.Void UnityEngine.ParticleSystem::Play(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Play_m97D70BAF373265E633ACD91833E56D981B19958A (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, bool ___withChildren0, const RuntimeMethod* method);
-// System.Void UnityEngine.ParticleSystem::Pause(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Pause_m116581497C92159D3210C733917CD2515399A0CD (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, bool ___withChildren0, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem::Stop(System.Boolean,UnityEngine.ParticleSystemStopBehavior)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Stop_m275B200BC21580C60987EC8FC8B2DD0FEB365C1A (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, bool ___withChildren0, int32_t ___stopBehavior1, const RuntimeMethod* method);
-// System.Void UnityEngine.ParticleSystem::Stop(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Stop_m5EC8B81A8BD1F8C90729E766789EE5D8D4EC64FB (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, bool ___withChildren0, const RuntimeMethod* method);
-// System.Void UnityEngine.ParticleSystem::Clear(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Clear_m9E873134B8055ACFEE9DC66F7E4FABE178E27057 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, bool ___withChildren0, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem::Emit_Internal(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Emit_Internal_m7C72C31F7F4875B54B00E255A450B045A4449646 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, int32_t ___count0, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem::Emit_Injected(UnityEngine.ParticleSystem/EmitParams&,System.Int32)
@@ -1445,18 +1435,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CustomDataModule_set_enabled_mE392CB0286
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CustomDataModule_SetColor_Injected_mA6F368019478DCFC9FD1E2B90615D5FE1696A874 (CustomDataModule_t07CC64A5671610A5DDB063E0FEABA022C0F57EEF * ____unity_self0, int32_t ___stream1, MinMaxGradient_tF4530B26F29D9635D670A33B9EE581EAC48C12B7 * ___gradient2, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem/CustomDataModule::SetColor(UnityEngine.ParticleSystemCustomData,UnityEngine.ParticleSystem/MinMaxGradient)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CustomDataModule_SetColor_m906D69DF36EB0BF0DAB5BAEF2FF7D8C02B10C686 (CustomDataModule_t07CC64A5671610A5DDB063E0FEABA022C0F57EEF * __this, int32_t ___stream0, MinMaxGradient_tF4530B26F29D9635D670A33B9EE581EAC48C12B7  ___gradient1, const RuntimeMethod* method);
-// System.Single UnityEngine.ParticleSystem/MainModule::get_duration_Injected(UnityEngine.ParticleSystem/MainModule&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float MainModule_get_duration_Injected_mBD7B5FEFFD26DB833052D35A3AC492699B4BEE41 (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * ____unity_self0, const RuntimeMethod* method);
-// System.Single UnityEngine.ParticleSystem/MainModule::get_duration()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float MainModule_get_duration_mD516595EFDD66C83A727BDD7EF495069B4EB6132 (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * __this, const RuntimeMethod* method);
 // System.Boolean UnityEngine.ParticleSystem/MainModule::get_loop_Injected(UnityEngine.ParticleSystem/MainModule&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool MainModule_get_loop_Injected_mD8FD195A3CF5008FD319636A3945DE2F4F0EEBD2 (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * ____unity_self0, const RuntimeMethod* method);
 // System.Boolean UnityEngine.ParticleSystem/MainModule::get_loop()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool MainModule_get_loop_mE45A1A4A1DF6E2590B7B13A73A9A95197DA346F8 (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * __this, const RuntimeMethod* method);
-// System.Void UnityEngine.ParticleSystem/MainModule::get_startDelay_Injected(UnityEngine.ParticleSystem/MainModule&,UnityEngine.ParticleSystem/MinMaxCurve&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MainModule_get_startDelay_Injected_m0C120FBF2902673C91EC416DD78B37C6718179F7 (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * ____unity_self0, MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD * ___ret1, const RuntimeMethod* method);
-// UnityEngine.ParticleSystem/MinMaxCurve UnityEngine.ParticleSystem/MainModule::get_startDelay()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD  MainModule_get_startDelay_m6CA464DDA126D5A848376094643AEB097BDF204C (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem/MainModule::set_startDelay_Injected(UnityEngine.ParticleSystem/MainModule&,UnityEngine.ParticleSystem/MinMaxCurve&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MainModule_set_startDelay_Injected_mBC29B6AA6EE435D36BD5E9A69E073B7EEE0E4CAB (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * ____unity_self0, MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD * ___value1, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem/MainModule::set_startDelay(UnityEngine.ParticleSystem/MinMaxCurve)
@@ -1590,26 +1572,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ParticleSystem_get_isEmitting_m1641C8124
 	bool icallRetVal = _il2cpp_icall_func(__this);
 	return icallRetVal;
 }
-// System.Void UnityEngine.ParticleSystem::Simulate(System.Single,System.Boolean,System.Boolean,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Simulate_m68A0105281A8BC3F4E9242181586483BA7B796A3 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, float ___t0, bool ___withChildren1, bool ___restart2, bool ___fixedTimeStep3, const RuntimeMethod* method)
-{
-	typedef void (*ParticleSystem_Simulate_m68A0105281A8BC3F4E9242181586483BA7B796A3_ftn) (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E *, float, bool, bool, bool);
-	static ParticleSystem_Simulate_m68A0105281A8BC3F4E9242181586483BA7B796A3_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (ParticleSystem_Simulate_m68A0105281A8BC3F4E9242181586483BA7B796A3_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ParticleSystem::Simulate(System.Single,System.Boolean,System.Boolean,System.Boolean)");
-	_il2cpp_icall_func(__this, ___t0, ___withChildren1, ___restart2, ___fixedTimeStep3);
-}
-// System.Void UnityEngine.ParticleSystem::Simulate(System.Single,System.Boolean,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Simulate_mC2F2E060D7CE94D4936BA995C49827231DF5F1F8 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, float ___t0, bool ___withChildren1, bool ___restart2, const RuntimeMethod* method)
-{
-	{
-		float L_0 = ___t0;
-		bool L_1 = ___withChildren1;
-		bool L_2 = ___restart2;
-		ParticleSystem_Simulate_m68A0105281A8BC3F4E9242181586483BA7B796A3(__this, L_0, L_1, L_2, (bool)1, /*hidden argument*/NULL);
-		return;
-	}
-}
 // System.Void UnityEngine.ParticleSystem::Play(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Play_m97D70BAF373265E633ACD91833E56D981B19958A (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, bool ___withChildren0, const RuntimeMethod* method)
 {
@@ -1618,31 +1580,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Play_m97D70BAF373265E633A
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (ParticleSystem_Play_m97D70BAF373265E633ACD91833E56D981B19958A_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ParticleSystem::Play(System.Boolean)");
 	_il2cpp_icall_func(__this, ___withChildren0);
-}
-// System.Void UnityEngine.ParticleSystem::Play()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Play_m28D27CC4CDC1D93195C75647E6F6DAECF8B6BC50 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, const RuntimeMethod* method)
-{
-	{
-		ParticleSystem_Play_m97D70BAF373265E633ACD91833E56D981B19958A(__this, (bool)1, /*hidden argument*/NULL);
-		return;
-	}
-}
-// System.Void UnityEngine.ParticleSystem::Pause(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Pause_m116581497C92159D3210C733917CD2515399A0CD (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, bool ___withChildren0, const RuntimeMethod* method)
-{
-	typedef void (*ParticleSystem_Pause_m116581497C92159D3210C733917CD2515399A0CD_ftn) (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E *, bool);
-	static ParticleSystem_Pause_m116581497C92159D3210C733917CD2515399A0CD_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (ParticleSystem_Pause_m116581497C92159D3210C733917CD2515399A0CD_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ParticleSystem::Pause(System.Boolean)");
-	_il2cpp_icall_func(__this, ___withChildren0);
-}
-// System.Void UnityEngine.ParticleSystem::Pause()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Pause_mA5AE4D5A290E9DD75A0572738CB0910D6A7E2121 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, const RuntimeMethod* method)
-{
-	{
-		ParticleSystem_Pause_m116581497C92159D3210C733917CD2515399A0CD(__this, (bool)1, /*hidden argument*/NULL);
-		return;
-	}
 }
 // System.Void UnityEngine.ParticleSystem::Stop(System.Boolean,UnityEngine.ParticleSystemStopBehavior)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Stop_m275B200BC21580C60987EC8FC8B2DD0FEB365C1A (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, bool ___withChildren0, int32_t ___stopBehavior1, const RuntimeMethod* method)
@@ -1662,14 +1599,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Stop_m5EC8B81A8BD1F8C9072
 		return;
 	}
 }
-// System.Void UnityEngine.ParticleSystem::Stop()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Stop_m8CBF9268DE7B5A40952B4977462B857B5F5AFB9D (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, const RuntimeMethod* method)
-{
-	{
-		ParticleSystem_Stop_m5EC8B81A8BD1F8C90729E766789EE5D8D4EC64FB(__this, (bool)1, /*hidden argument*/NULL);
-		return;
-	}
-}
 // System.Void UnityEngine.ParticleSystem::Clear(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Clear_m9E873134B8055ACFEE9DC66F7E4FABE178E27057 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, bool ___withChildren0, const RuntimeMethod* method)
 {
@@ -1678,14 +1607,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Clear_m9E873134B8055ACFEE
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (ParticleSystem_Clear_m9E873134B8055ACFEE9DC66F7E4FABE178E27057_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ParticleSystem::Clear(System.Boolean)");
 	_il2cpp_icall_func(__this, ___withChildren0);
-}
-// System.Void UnityEngine.ParticleSystem::Clear()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Clear_mD8C9DCD1267F221B0546E4B9B55DBD9354893797 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, const RuntimeMethod* method)
-{
-	{
-		ParticleSystem_Clear_m9E873134B8055ACFEE9DC66F7E4FABE178E27057(__this, (bool)1, /*hidden argument*/NULL);
-		return;
-	}
 }
 // System.Boolean UnityEngine.ParticleSystem::IsAlive(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ParticleSystem_IsAlive_m43E2E84732EBDF5C4C9FD6575051A2A2B135BCF9 (ParticleSystem_t2F526CCDBD3512879B3FCBE04BCAB20D7B4F391E * __this, bool ___withChildren0, const RuntimeMethod* method)
@@ -2187,23 +2108,6 @@ IL2CPP_EXTERN_C  void MainModule__ctor_m34F626B568C6D3C80A036409049761C8316E6A76
 	MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * _thisAdjusted = reinterpret_cast<MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B *>(__this + _offset);
 	MainModule__ctor_m34F626B568C6D3C80A036409049761C8316E6A76(_thisAdjusted, ___particleSystem0, method);
 }
-// System.Single UnityEngine.ParticleSystem/MainModule::get_duration()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float MainModule_get_duration_mD516595EFDD66C83A727BDD7EF495069B4EB6132 (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * __this, const RuntimeMethod* method)
-{
-	{
-		float L_0;
-		L_0 = MainModule_get_duration_Injected_mBD7B5FEFFD26DB833052D35A3AC492699B4BEE41((MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B *)__this, /*hidden argument*/NULL);
-		return L_0;
-	}
-}
-IL2CPP_EXTERN_C  float MainModule_get_duration_mD516595EFDD66C83A727BDD7EF495069B4EB6132_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	int32_t _offset = 1;
-	MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * _thisAdjusted = reinterpret_cast<MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B *>(__this + _offset);
-	float _returnValue;
-	_returnValue = MainModule_get_duration_mD516595EFDD66C83A727BDD7EF495069B4EB6132(_thisAdjusted, method);
-	return _returnValue;
-}
 // System.Boolean UnityEngine.ParticleSystem/MainModule::get_loop()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool MainModule_get_loop_mE45A1A4A1DF6E2590B7B13A73A9A95197DA346F8 (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * __this, const RuntimeMethod* method)
 {
@@ -2219,25 +2123,6 @@ IL2CPP_EXTERN_C  bool MainModule_get_loop_mE45A1A4A1DF6E2590B7B13A73A9A95197DA34
 	MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * _thisAdjusted = reinterpret_cast<MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B *>(__this + _offset);
 	bool _returnValue;
 	_returnValue = MainModule_get_loop_mE45A1A4A1DF6E2590B7B13A73A9A95197DA346F8(_thisAdjusted, method);
-	return _returnValue;
-}
-// UnityEngine.ParticleSystem/MinMaxCurve UnityEngine.ParticleSystem/MainModule::get_startDelay()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD  MainModule_get_startDelay_m6CA464DDA126D5A848376094643AEB097BDF204C (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * __this, const RuntimeMethod* method)
-{
-	MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD  V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	{
-		MainModule_get_startDelay_Injected_m0C120FBF2902673C91EC416DD78B37C6718179F7((MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B *)__this, (MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD *)(&V_0), /*hidden argument*/NULL);
-		MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD  L_0 = V_0;
-		return L_0;
-	}
-}
-IL2CPP_EXTERN_C  MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD  MainModule_get_startDelay_m6CA464DDA126D5A848376094643AEB097BDF204C_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	int32_t _offset = 1;
-	MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * _thisAdjusted = reinterpret_cast<MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B *>(__this + _offset);
-	MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD  _returnValue;
-	_returnValue = MainModule_get_startDelay_m6CA464DDA126D5A848376094643AEB097BDF204C(_thisAdjusted, method);
 	return _returnValue;
 }
 // System.Void UnityEngine.ParticleSystem/MainModule::set_startDelay(UnityEngine.ParticleSystem/MinMaxCurve)
@@ -2411,16 +2296,6 @@ IL2CPP_EXTERN_C  void MainModule_set_startColor_m19663CAE16C6A546B7BC4B949EBA0CC
 	MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * _thisAdjusted = reinterpret_cast<MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B *>(__this + _offset);
 	MainModule_set_startColor_m19663CAE16C6A546B7BC4B949EBA0CCE3DD51A42(_thisAdjusted, ___value0, method);
 }
-// System.Single UnityEngine.ParticleSystem/MainModule::get_duration_Injected(UnityEngine.ParticleSystem/MainModule&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float MainModule_get_duration_Injected_mBD7B5FEFFD26DB833052D35A3AC492699B4BEE41 (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * ____unity_self0, const RuntimeMethod* method)
-{
-	typedef float (*MainModule_get_duration_Injected_mBD7B5FEFFD26DB833052D35A3AC492699B4BEE41_ftn) (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B *);
-	static MainModule_get_duration_Injected_mBD7B5FEFFD26DB833052D35A3AC492699B4BEE41_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (MainModule_get_duration_Injected_mBD7B5FEFFD26DB833052D35A3AC492699B4BEE41_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ParticleSystem/MainModule::get_duration_Injected(UnityEngine.ParticleSystem/MainModule&)");
-	float icallRetVal = _il2cpp_icall_func(____unity_self0);
-	return icallRetVal;
-}
 // System.Boolean UnityEngine.ParticleSystem/MainModule::get_loop_Injected(UnityEngine.ParticleSystem/MainModule&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool MainModule_get_loop_Injected_mD8FD195A3CF5008FD319636A3945DE2F4F0EEBD2 (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * ____unity_self0, const RuntimeMethod* method)
 {
@@ -2430,15 +2305,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool MainModule_get_loop_Injected_mD8FD195A3C
 	_il2cpp_icall_func = (MainModule_get_loop_Injected_mD8FD195A3CF5008FD319636A3945DE2F4F0EEBD2_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ParticleSystem/MainModule::get_loop_Injected(UnityEngine.ParticleSystem/MainModule&)");
 	bool icallRetVal = _il2cpp_icall_func(____unity_self0);
 	return icallRetVal;
-}
-// System.Void UnityEngine.ParticleSystem/MainModule::get_startDelay_Injected(UnityEngine.ParticleSystem/MainModule&,UnityEngine.ParticleSystem/MinMaxCurve&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MainModule_get_startDelay_Injected_m0C120FBF2902673C91EC416DD78B37C6718179F7 (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * ____unity_self0, MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD * ___ret1, const RuntimeMethod* method)
-{
-	typedef void (*MainModule_get_startDelay_Injected_m0C120FBF2902673C91EC416DD78B37C6718179F7_ftn) (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B *, MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD *);
-	static MainModule_get_startDelay_Injected_m0C120FBF2902673C91EC416DD78B37C6718179F7_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (MainModule_get_startDelay_Injected_m0C120FBF2902673C91EC416DD78B37C6718179F7_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ParticleSystem/MainModule::get_startDelay_Injected(UnityEngine.ParticleSystem/MainModule&,UnityEngine.ParticleSystem/MinMaxCurve&)");
-	_il2cpp_icall_func(____unity_self0, ___ret1);
 }
 // System.Void UnityEngine.ParticleSystem/MainModule::set_startDelay_Injected(UnityEngine.ParticleSystem/MainModule&,UnityEngine.ParticleSystem/MinMaxCurve&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MainModule_set_startDelay_Injected_mBC29B6AA6EE435D36BD5E9A69E073B7EEE0E4CAB (MainModule_t671F49558CB1A3CFAAD637A7927C076EC2E61F0B * ____unity_self0, MinMaxCurve_tF036239442AB2D438B1EDABEBC785426871084CD * ___value1, const RuntimeMethod* method)

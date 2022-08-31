@@ -291,6 +291,11 @@ namespace Panda.Ibis
 
                 ThisTask.Succeed();
             }
+
+            if (new int[] { 2,3,4,5,6,8,10,11,12 }.Contains(_outerAI.month))
+            {
+                ThisTask.Succeed();
+            }
         }
 
         [Task]
@@ -656,6 +661,9 @@ namespace Panda.Ibis
 
                 print("[Task]  calculateAP(): " + Panda.Ibis.MyIbis.actionPoint);
             }
+
+            GameObject.Find("ibisA").GetComponent<Nav>().stepLength = 0;
+
             ThisTask.Succeed();
         }
 
@@ -833,7 +841,7 @@ namespace Panda.Ibis
             ///            //check actionpoint;
             if (!GameObject.Find("ibisA").GetComponent<Nav>().enabled)
             {
-                Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - Panda.Ibis.MyIbis.APreduced;
+               // Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - Panda.Ibis.MyIbis.APreduced;
                 print("bisA not has Nav");
             }
 

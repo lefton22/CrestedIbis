@@ -24393,7 +24393,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CU3Ec__DisplayClass66_0_U3CFindGraphWh
 		Type_t * L_4;
 		L_4 = WindowsStoreCompatibility_GetTypeInfo_mF5DFCB8987C5BF83A8471786B378204F5C4D4B04(L_3, /*hidden argument*/NULL);
 		bool L_5;
-		L_5 = VirtFuncInvoker1< bool, Type_t * >::Invoke(113 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_4);
+		L_5 = VirtFuncInvoker1< bool, Type_t * >::Invoke(111 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_4);
 		return L_5;
 	}
 }
@@ -30741,7 +30741,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextureData_Apply_m5E49C1310F1F166F61915
 		int32_t L_2 = ___x1;
 		Texture2D_t9B604D0D8E28032123641A7E7338FA872E2698BF * L_3 = __this->get_source_1();
 		int32_t L_4;
-		L_4 = VirtFuncInvoker0< int32_t >::Invoke(4 /* System.Int32 UnityEngine.Texture::get_width() */, L_3);
+		L_4 = VirtFuncInvoker0< int32_t >::Invoke(5 /* System.Int32 UnityEngine.Texture::get_width() */, L_3);
 		if ((((int32_t)L_2) >= ((int32_t)L_4)))
 		{
 			goto IL_00da;
@@ -30751,7 +30751,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextureData_Apply_m5E49C1310F1F166F61915
 		int32_t L_5 = ___z2;
 		Texture2D_t9B604D0D8E28032123641A7E7338FA872E2698BF * L_6 = __this->get_source_1();
 		int32_t L_7;
-		L_7 = VirtFuncInvoker0< int32_t >::Invoke(6 /* System.Int32 UnityEngine.Texture::get_height() */, L_6);
+		L_7 = VirtFuncInvoker0< int32_t >::Invoke(7 /* System.Int32 UnityEngine.Texture::get_height() */, L_6);
 		if ((((int32_t)L_5) >= ((int32_t)L_7)))
 		{
 			goto IL_00da;
@@ -30763,7 +30763,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextureData_Apply_m5E49C1310F1F166F61915
 		int32_t L_9 = ___z2;
 		Texture2D_t9B604D0D8E28032123641A7E7338FA872E2698BF * L_10 = __this->get_source_1();
 		int32_t L_11;
-		L_11 = VirtFuncInvoker0< int32_t >::Invoke(4 /* System.Int32 UnityEngine.Texture::get_width() */, L_10);
+		L_11 = VirtFuncInvoker0< int32_t >::Invoke(5 /* System.Int32 UnityEngine.Texture::get_width() */, L_10);
 		int32_t L_12 = ___x1;
 		int32_t L_13 = ((int32_t)il2cpp_codegen_add((int32_t)((int32_t)il2cpp_codegen_multiply((int32_t)L_9, (int32_t)L_11)), (int32_t)L_12));
 		Color32_tDB54A78627878A7D2DE42BB028D64306A18E858D  L_14 = (L_8)->GetAtUnchecked(static_cast<il2cpp_array_size_t>(L_13));

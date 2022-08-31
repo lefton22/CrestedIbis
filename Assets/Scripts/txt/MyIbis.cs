@@ -267,6 +267,9 @@ namespace Panda.Ibis {
         public void breakWhenIbisAAct() // when meeting a trap
         {
             print("breakWhenIbisAAct() : meet a trap");
+
+            GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().stopPlayThisSF();
+
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("brambles", false);
 
             //  GameObject.Find("ibisA").GetComponent<Pathfinding.AILerp>().speed = 0;
@@ -560,15 +563,6 @@ namespace Panda.Ibis {
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
-/*            ////
-            ///            //play sound     
-            if (!gameObject.GetComponent<ibisA_switch_eat>().hasPlayEatSF)
-            {
-                GameObject.Find("SF_ibisA_eat").GetComponent<playSoundEffect>().playThisSF();
-                gameObject.GetComponent<ibisA_switch_eat>().hasPlayEatSF = true;
-            }
-            //play sound
-            ////*/
 
             _listObjOnLand.foodOnLand.Clear();
             _listObjOnLand.foodOnLand_GO.Clear();
@@ -836,7 +830,7 @@ namespace Panda.Ibis {
 
             if (_ibisA.transform.position.x < ori_ibisA_v3.x + 0.08f)
             { _ibisA.GetComponent<gridPosOffset>().AdjustOnGrid(ori_ibisA_v3,
-                                     new Vector3(0.01f, 0.01f, 0f)); // 0.08f,0.1f
+                                     new Vector3(0.2f, 0.2f, 0f)); // 0.08f,0.1f
               //  print("devianting... ori x: "  + ori_ibisA_v3.x);
             }
 
@@ -1097,15 +1091,18 @@ namespace Panda.Ibis {
 
             int index_ibisA = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
 
-           // int index_ibisA = Map.instance.transferV2ToIndex(v2_ibisA);
+            // int index_ibisA = Map.instance.transferV2ToIndex(v2_ibisA);
 
-          //  print("go to Op Gender: index_ibisA： " + index_ibisA + " , c_ibis_index: " + c_ibis_index);
-          //  Debug.Log("end: " + choosenIbis.name);
+            //  print("go to Op Gender: index_ibisA： " + index_ibisA + " , c_ibis_index: " + c_ibis_index);
+            //  Debug.Log("end: " + choosenIbis.name);
 
-          //  if (v2_ibisA == v2_ibisB)//ibisA reach ibisB
-              if (index_ibisA == c_ibis_index)
+            //  if (v2_ibisA == v2_ibisB)//ibisA reach ibisB
+            //    if (index_ibisA == c_ibis_index)
+            if (_ibisA.transform.position == GameObject.Find("gird" + c_ibis_index.ToString()).transform.position)
             {
-                Debug.Log("end4.");
+                // Debug.Log("end4.");
+
+                GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().stopPlayThisSF();
 
                 hasCheckDes = false;
 
@@ -1227,9 +1224,13 @@ namespace Panda.Ibis {
 
             Debug.Log("going to mate: " + mate.name);
 
-            if (v2_ibisA == v2_ibisB)//ibisA reach ibisB
+               if (v2_ibisA == v2_ibisB)//ibisA reach ibisB
+         //   if (_ibisA.transform.position == GameObject.Find("gird" + index_nearestFood.ToString()).transform.position)
+
             {
                 Debug.Log("reach to mate.");
+
+                GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().stopPlayThisSF();
 
                 hasCheckDes = false;
 
@@ -1593,6 +1594,8 @@ namespace Panda.Ibis {
 
                 if (ibisA_index == c_materialR_index)//ibisA reach the nest
                 {
+                    GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().stopPlayThisSF();
+
                     _turnBased.GetComponent<story>().addTurnStory(_turnBased.turn,"朱鹮捡了一个树枝", 1);
 
                     hasCheckDes = false;
@@ -1698,9 +1701,12 @@ namespace Panda.Ibis {
                 Debug.Log("going to nest: " + goal_nest.name);
 
                // if (v2_ibisA == v2_nest)//ibisA reach the nest
-                if (ibisA_index == nest_index)
+                //if (ibisA_index == nest_index)
+                if (_ibisA.transform.position == GameObject.Find("gird" + nest_index.ToString()).transform.position)
                 {
                     Debug.Log("reach to a nest.");
+
+                    GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().stopPlayThisSF();
 
                     hasCheckDes = false;
 
@@ -1764,6 +1770,8 @@ namespace Panda.Ibis {
                 if (ibisA_index == nest_index)
                 {
                     Debug.Log("reach to a nest.");
+
+                    GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().stopPlayThisSF();
 
                     hasCheckDes = false;
 
@@ -2235,7 +2243,84 @@ namespace Panda.Ibis {
             }
         }
 
+        [Task]
+        void checkTree()
+        {
+            List<GameObject> allTrees;
+            allTrees = new List<GameObject>();
 
+            foreach (Transform child in GameObject.Find("Map").transform)
+            {
+                if (child.GetChild(0).gameObject.name == "treeLand" &&
+                    !allTrees.Contains(child.GetChild(0).gameObject))
+                {
+                    allTrees.Add(child.GetChild(0).gameObject);
+                }
+            }
+
+            if (allTrees.Count == 0)
+            { ThisTask.Succeed(); }
+            else { ThisTask.Fail(); }
+            
+
+        }
+
+        [Task]
+        void goToTree()
+        {
+            List<GameObject> allTrees;
+            allTrees = new List<GameObject>();
+
+            foreach (Transform child in GameObject.Find("Map").transform)
+            {
+                if (child.GetChild(0).gameObject.name == "treeLand" &&
+                    !allTrees.Contains(child.GetChild(0).gameObject))
+                {
+                    allTrees.Add(child.GetChild(0).gameObject);
+                }
+            }
+
+            print("go to tree 1");
+
+            int ran = Random.Range(0, allTrees.Count + 1);
+
+            //Vector2
+
+            //Vector2 v2_nearestTree = getNearestGrid(); 
+
+            int girdIndex = allTrees[ran].transform.parent.GetSiblingIndex();
+
+            print("girdIndex: " + girdIndex);
+
+            _ibisA.GetComponent<Nav>().enabled = true;
+            GameManager.istance.setSelectNav(_ibisA.GetComponent<Nav>());
+
+            seekLocation(girdIndex);
+
+            print("go to tree 2");
+
+            if (_ibisA.transform.position == GameObject.Find("gird" + girdIndex.ToString()).transform.position)
+            {
+                Debug.Log("reach to a tree.");
+
+                GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().stopPlayThisSF();
+
+                hasCheckDes = false;
+
+                hasCheckApEachNode = true;
+
+                // add ibisA's v2 to the land grid's list and check
+                addIbisOnCurrentLand();
+
+                checkTwoMovingCreatureAtOneGrid();
+
+                print("go to tree 3");
+
+
+                ThisTask.Succeed();
+            }
+
+        }
 
         [Task]
         void rest()
@@ -2318,11 +2403,6 @@ namespace Panda.Ibis {
 
 
 
-
-
-
-
-
         [Task]
         void Next()
         {
@@ -2381,7 +2461,7 @@ namespace Panda.Ibis {
                 //print("play fx.");
 
                 GameObject.Find("ibisA").GetComponent<Nav>().enabled = true;
-                GameObject.Find("ibisA").GetComponent<Nav>().stepLength = 0;
+                //GameObject.Find("ibisA").GetComponent<Nav>().stepLength = 0;
 
                 _Gamemanager.setMovingGoal(_index);
 
@@ -2910,11 +2990,11 @@ namespace Panda.Ibis {
                          + " at " + transform.parent.gameObject.GetComponent<objV2Pos>().thisLand
                          + ".";*/
 
-            int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+           // int ibisAInt = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
             
-            thisPlot = /* monthEnToCh( _outAI.month) + */   "在" + GameObject.Find("gird" + 
+            thisPlot = /* monthEnToCh( _outAI.month) + */  /* "在" + GameObject.Find("gird" + 
                 ibisAInt.ToString()).GetComponent<genPos>().landName
-             + "朱鹮去睡觉了 " ;
+             + */ "朱鹮去睡觉了 " ;
 
             _turnBased.GetComponent<story>().addTurnStory(__turnBased.turn, thisPlot,1);
             _turnBased.GetComponent<story>().showPlotsThisTurn(thisPlot);

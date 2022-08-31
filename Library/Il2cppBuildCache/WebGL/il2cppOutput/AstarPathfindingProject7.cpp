@@ -30097,7 +30097,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * TinyJsonDeserializer_Deserial
 		// if (tpInfo.IsEnum) {
 		Type_t * L_2 = V_0;
 		bool L_3;
-		L_3 = VirtFuncInvoker0< bool >::Invoke(74 /* System.Boolean System.Type::get_IsEnum() */, L_2);
+		L_3 = VirtFuncInvoker0< bool >::Invoke(72 /* System.Boolean System.Type::get_IsEnum() */, L_2);
 		if (!L_3)
 		{
 			goto IL_001c;
@@ -30557,7 +30557,7 @@ IL_0305:
 		List_1_t3F94120C77410A62EAE48421CF166B83AB95A2F5 * L_124 = V_4;
 		Type_t * L_125 = ___tp0;
 		Type_t * L_126;
-		L_126 = VirtFuncInvoker0< Type_t * >::Invoke(101 /* System.Type System.Type::GetElementType() */, L_125);
+		L_126 = VirtFuncInvoker0< Type_t * >::Invoke(99 /* System.Type System.Type::GetElementType() */, L_125);
 		RuntimeObject * L_127;
 		L_127 = TinyJsonDeserializer_Deserialize_m61B6F17ACDEF042FA1330E0793C43D4452A8FA2A(__this, L_126, NULL, /*hidden argument*/NULL);
 		List_1_Add_mE5B3CBB3A625606D9BC4337FEAAF1D66BCB6F96E(L_124, L_127, /*hidden argument*/List_1_Add_mE5B3CBB3A625606D9BC4337FEAAF1D66BCB6F96E_RuntimeMethod_var);
@@ -30580,7 +30580,7 @@ IL_0322:
 		// var arr = Array.CreateInstance(tp.GetElementType(), ls.Count);
 		Type_t * L_130 = ___tp0;
 		Type_t * L_131;
-		L_131 = VirtFuncInvoker0< Type_t * >::Invoke(101 /* System.Type System.Type::GetElementType() */, L_130);
+		L_131 = VirtFuncInvoker0< Type_t * >::Invoke(99 /* System.Type System.Type::GetElementType() */, L_130);
 		List_1_t3F94120C77410A62EAE48421CF166B83AB95A2F5 * L_132 = V_4;
 		int32_t L_133;
 		L_133 = List_1_get_Count_m5D847939ABB9A78203B062CAFFE975792174D00F_inline(L_132, /*hidden argument*/List_1_get_Count_m5D847939ABB9A78203B062CAFFE975792174D00F_RuntimeMethod_var);
@@ -32060,7 +32060,7 @@ IL_0044:
 		// } else if (typeInfo.IsEnum) {
 		Type_t * L_14 = V_1;
 		bool L_15;
-		L_15 = VirtFuncInvoker0< bool >::Invoke(74 /* System.Boolean System.Type::get_IsEnum() */, L_14);
+		L_15 = VirtFuncInvoker0< bool >::Invoke(72 /* System.Boolean System.Type::get_IsEnum() */, L_14);
 		if (!L_15)
 		{
 			goto IL_006e;
@@ -32193,7 +32193,7 @@ IL_0112:
 		// var fields = type.GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
 		Type_t * L_45 = V_0;
 		FieldInfoU5BU5D_tD84513FCA07C63AAFE671A5B39E3ADD6E903938E* L_46;
-		L_46 = VirtFuncInvoker1< FieldInfoU5BU5D_tD84513FCA07C63AAFE671A5B39E3ADD6E903938E*, int32_t >::Invoke(45 /* System.Reflection.FieldInfo[] System.Type::GetFields(System.Reflection.BindingFlags) */, L_45, ((int32_t)52));
+		L_46 = VirtFuncInvoker1< FieldInfoU5BU5D_tD84513FCA07C63AAFE671A5B39E3ADD6E903938E*, int32_t >::Invoke(44 /* System.Reflection.FieldInfo[] System.Type::GetFields(System.Reflection.BindingFlags) */, L_45, ((int32_t)52));
 		// foreach (var field in fields) {
 		V_6 = L_46;
 		V_7 = 0;

@@ -17473,7 +17473,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ZipEntry_WriteStatus_m480229AA7F4388FDDA
 		L_7 = ZipFile_get_StatusMessageTextWriter_m94469C7F09427069DF8451069D3654118FE0A33D_inline(L_6, /*hidden argument*/NULL);
 		String_t* L_8 = ___format0;
 		ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE* L_9 = ___args1;
-		VirtActionInvoker2< String_t*, ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE* >::Invoke(21 /* System.Void System.IO.TextWriter::WriteLine(System.String,System.Object[]) */, L_7, L_8, L_9);
+		VirtActionInvoker2< String_t*, ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE* >::Invoke(20 /* System.Void System.IO.TextWriter::WriteLine(System.String,System.Object[]) */, L_7, L_8, L_9);
 	}
 
 IL_003c:

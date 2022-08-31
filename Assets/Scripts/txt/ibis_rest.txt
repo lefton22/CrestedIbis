@@ -3,17 +3,23 @@ tree("Root")
 
 		fallback
 					sequence
-						checkNest()  // 有巢没
+						//checkNest()  // 有巢没
+						//Wait(10)
+
+						checkTree()
 						Wait(10)
 
 						Next()
 
 					fallback //加具体内容
 								 sequence
-										 checkNestFinished()
-										Wait(10)
+										// checkNestFinished()
+										//Wait(10)
 
-										goToNest(true)
+										//goToNest(true)
+										//Wait(10)
+
+										goToTree()
 										Wait(10)
 
 										rest()

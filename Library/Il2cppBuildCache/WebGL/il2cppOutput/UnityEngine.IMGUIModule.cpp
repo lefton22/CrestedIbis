@@ -5523,8 +5523,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Event_Internal_Use_m8DC0ABD3D4DC577CF87B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Exception__ctor_m8ECDE8ACA7F2E0EF1144BD1200FB5DB2870B5F11 (Exception_t * __this, String_t* ___message0, const RuntimeMethod* method);
 // System.Void UnityEngine.GUIUtility::set_guiIsExiting(System.Boolean)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void GUIUtility_set_guiIsExiting_m13C69BE54D215B22CA7D1FE5192DD5ED744E0FCF_inline (bool ___value0, const RuntimeMethod* method);
-// System.Void UnityEngine.GUI::get_color_Injected(UnityEngine.Color&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GUI_get_color_Injected_m046647E8FCA56D0D5DD2EEFE5F45017E732DA368 (Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659 * ___ret0, const RuntimeMethod* method);
 // System.Void UnityEngine.GUI::set_color_Injected(UnityEngine.Color&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GUI_set_color_Injected_m1D17F565DA03275DE2C16F9401CD326A1118E349 (Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659 * ___value0, const RuntimeMethod* method);
 // System.Void UnityEngineInternal.GenericStack::.ctor()
@@ -9948,24 +9946,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ExitGUIException__ctor_mD49590A136A3AA6C
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// UnityEngine.Color UnityEngine.GUI::get_color()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659  GUI_get_color_m61B524C99DD85A0DF405540C6E7453600E816FD5 (const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GUI_tBCBBE29117D8093644C6E72B1CE3FB65C2CDCCC1_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659  V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	{
-		IL2CPP_RUNTIME_CLASS_INIT(GUI_tBCBBE29117D8093644C6E72B1CE3FB65C2CDCCC1_il2cpp_TypeInfo_var);
-		GUI_get_color_Injected_m046647E8FCA56D0D5DD2EEFE5F45017E732DA368((Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659 *)(&V_0), /*hidden argument*/NULL);
-		Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659  L_0 = V_0;
-		return L_0;
-	}
-}
 // System.Void UnityEngine.GUI::set_color(UnityEngine.Color)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GUI_set_color_m627E2716FD33EF327E38EE0048CE44FAD77AB87F (Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659  ___value0, const RuntimeMethod* method)
 {
@@ -12892,15 +12872,6 @@ IL_00a0:
 		GUI_set_skin_mFCD039C47B3C327D9E0D867092DB353F2CEA796E(L_29, /*hidden argument*/NULL);
 		return;
 	}
-}
-// System.Void UnityEngine.GUI::get_color_Injected(UnityEngine.Color&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GUI_get_color_Injected_m046647E8FCA56D0D5DD2EEFE5F45017E732DA368 (Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659 * ___ret0, const RuntimeMethod* method)
-{
-	typedef void (*GUI_get_color_Injected_m046647E8FCA56D0D5DD2EEFE5F45017E732DA368_ftn) (Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659 *);
-	static GUI_get_color_Injected_m046647E8FCA56D0D5DD2EEFE5F45017E732DA368_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (GUI_get_color_Injected_m046647E8FCA56D0D5DD2EEFE5F45017E732DA368_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.GUI::get_color_Injected(UnityEngine.Color&)");
-	_il2cpp_icall_func(___ret0);
 }
 // System.Void UnityEngine.GUI::set_color_Injected(UnityEngine.Color&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GUI_set_color_Injected_m1D17F565DA03275DE2C16F9401CD326A1118E349 (Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659 * ___value0, const RuntimeMethod* method)
@@ -18812,7 +18783,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GUILayoutGroup_tEA8ADE069ADCDFAAE55323834EDC0
 		L_1 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E(L_0, /*hidden argument*/NULL);
 		Type_t * L_2 = ___LayoutType0;
 		bool L_3;
-		L_3 = VirtFuncInvoker1< bool, Type_t * >::Invoke(113 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_2);
+		L_3 = VirtFuncInvoker1< bool, Type_t * >::Invoke(111 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_2);
 		V_0 = (bool)((((int32_t)L_3) == ((int32_t)0))? 1 : 0);
 		bool L_4 = V_0;
 		if (!L_4)
