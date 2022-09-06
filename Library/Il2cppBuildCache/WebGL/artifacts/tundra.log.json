@@ -2,3 +2,5 @@
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"all_tundra_nodes","enqueuedNodeIndex":0}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"WriteResponseFile artifacts/rsp/531662873087127715.rsp","enqueuedNodeIndex":1,"enqueueingNodeAnnotation":"all_tundra_nodes","enqueueingNodeIndex":0}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"Il2Cpp D:/GitHub/Ibis/CrestedIbis/Library/Il2cppBuildCache/WebGL/Native/build.bc","enqueuedNodeIndex":2,"enqueueingNodeAnnotation":"all_tundra_nodes","enqueueingNodeIndex":0}
+{"msg":"inputSignatureChanged","annotation":"Il2Cpp D:/GitHub/Ibis/CrestedIbis/Library/Il2cppBuildCache/WebGL/Native/build.bc","index":2,"changes":[{"key":"InputFileDigest","path":"D:\\GitHub\\Ibis\\CrestedIbis\\Temp\\StagingArea\\Data\\Managed\\UnityEngine.CoreModule.dll","dependency":"explicit"}]}
+{"msg":"noderesult","annotation":"Il2Cpp D:/GitHub/Ibis/CrestedIbis/Library/Il2cppBuildCache/WebGL/Native/build.bc","index":2,"exitcode":0}

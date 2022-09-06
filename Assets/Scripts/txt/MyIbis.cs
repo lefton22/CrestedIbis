@@ -195,8 +195,8 @@ namespace Panda.Ibis {
 
             /////////////Node Structure Mark////////////////////
 
-            transform.DOScaleX(0.6f, 0.001f);
-            transform.DOScaleY(0.6f, 0.001f);
+/*            transform.DOScaleX(0.6f, 0.001f);
+            transform.DOScaleY(0.6f, 0.001f);*/
 
 
             isMate = false;
@@ -279,7 +279,7 @@ namespace Panda.Ibis {
 
             //ibisR on!
             GameObject.Find("ibisR").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("ibisR").transform.localScale = new Vector3(0.6f, 0.6f, 1f);
+            GameObject.Find("ibisR").transform.localScale = new Vector3(1f, 1f, 1f); // ori = 0.6f
             GameObject.Find("ibisR").transform.position = GameObject.Find("ibisA").transform.position;
             GameObject.Find("ibisR").GetComponent<Animator>().Play("ibis_break_trap");
 
@@ -1590,7 +1590,7 @@ namespace Panda.Ibis {
 
                 int ibisA_index  = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
 
-             //   Debug.Log("going to material, ibisA_index: " + ibisA_index + ", c_materialR_index: " + c_materialR_index);
+                Debug.Log("going to material, ibisA_index: " + ibisA_index + ", c_materialR_index: " + c_materialR_index);
 
                 if (ibisA_index == c_materialR_index)//ibisA reach the nest
                 {

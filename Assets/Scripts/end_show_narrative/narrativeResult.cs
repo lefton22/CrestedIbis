@@ -38,14 +38,15 @@ public class narrativeResult : MonoBehaviour
         offsetMonthEventY = 1.11f;
         offsetMonthEventX = _rightD.transform.position.x - GameObject.Find("1月").transform.position.x;
 
-        for (int i = 0; i < endCheck.narrative.Count; i++)
+    //!!!comment for test !!!
+/*        for (int i = 0; i < endCheck.narrative.Count; i++)
         {
             allPlots.Add(endCheck.narrative[i]);
         }
         for (int i = 0; i < endCheck.narrativeType.Count; i++)
         {
             allPlostsType.Add(endCheck.narrativeType[i]);
-        }
+        }*/
 
         showNarrRes();
         // showNarrResT();
@@ -76,7 +77,9 @@ public class narrativeResult : MonoBehaviour
 
     void showNarrRes()
     {
-        int indexMax = endCheck.narrative.Count;
+        //!!!comment for test !!!
+        // int indexMax = endCheck.narrative.Count;
+        int indexMax = 5;
         int indexCurrent = 0;
         float xCurrent = -1f;
         GameObject currentFrame;

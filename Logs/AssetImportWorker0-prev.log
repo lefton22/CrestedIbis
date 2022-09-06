@@ -15,11 +15,11 @@ D:/GitHub/Ibis/CrestedIbis
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55246
+53803
 Successfully changed project path to: D:/GitHub/Ibis/CrestedIbis
 D:/GitHub/Ibis/CrestedIbis
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 75.29 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 84.50 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.24f1 (79c78de19888)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/Resources/UnitySubsystems
@@ -35,95 +35,95 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56388
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56664
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002165 seconds.
+Registered in 0.002388 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 72.79 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 88.93 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.440 seconds
+- Completed reload, in  0.537 seconds
 Domain Reload Profiling:
-	ReloadAssembly (440ms)
-		BeginReloadAssembly (41ms)
+	ReloadAssembly (538ms)
+		BeginReloadAssembly (49ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (347ms)
-			LoadAssemblies (39ms)
+		EndReloadAssembly (425ms)
+			LoadAssemblies (47ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (94ms)
+			SetupTypeCache (124ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (22ms)
-			SetupLoadedEditorAssemblies (160ms)
+			SetupLoadedEditorAssemblies (191ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (73ms)
-				BeforeProcessingInitializeOnLoad (12ms)
-				ProcessInitializeOnLoadAttributes (52ms)
-				ProcessInitializeOnLoadMethodAttributes (18ms)
+				RefreshPlugins (89ms)
+				BeforeProcessingInitializeOnLoad (14ms)
+				ProcessInitializeOnLoadAttributes (62ms)
+				ProcessInitializeOnLoadMethodAttributes (21ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004352 seconds.
+Registered in 0.005146 seconds.
 Begin MonoManager ReloadAssembly
 OnLevelWasLoaded was found on DOTweenComponent
 This message has been deprecated and will be removed in a later version of Unity.
 Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 98.12 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 100.14 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.116 seconds
+- Completed reload, in  1.585 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1117ms)
-		BeginReloadAssembly (92ms)
+	ReloadAssembly (1586ms)
+		BeginReloadAssembly (131ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (2ms)
+			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (13ms)
-		EndReloadAssembly (983ms)
-			LoadAssemblies (73ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (1184ms)
+			LoadAssemblies (150ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (269ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (54ms)
-			SetupLoadedEditorAssemblies (478ms)
+			SetupTypeCache (407ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (67ms)
+			SetupLoadedEditorAssemblies (424ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (98ms)
-				BeforeProcessingInitializeOnLoad (90ms)
-				ProcessInitializeOnLoadAttributes (250ms)
-				ProcessInitializeOnLoadMethodAttributes (19ms)
-				AfterProcessingInitializeOnLoad (17ms)
+				RefreshPlugins (100ms)
+				BeforeProcessingInitializeOnLoad (95ms)
+				ProcessInitializeOnLoadAttributes (201ms)
+				ProcessInitializeOnLoadMethodAttributes (14ms)
+				AfterProcessingInitializeOnLoad (9ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (8ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4059 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 191.7 MB.
-System memory in use after: 191.9 MB.
+System memory in use after: 192.0 MB.
 
 Unloading 56 unused Assets to reduce memory usage. Loaded Objects now: 4510.
-Total: 3.570800 ms (FindLiveObjects: 0.316500 ms CreateObjectMapping: 0.119800 ms MarkObjects: 3.028400 ms  DeleteObjects: 0.104800 ms)
+Total: 4.579900 ms (FindLiveObjects: 0.363300 ms CreateObjectMapping: 0.098500 ms MarkObjects: 4.001900 ms  DeleteObjects: 0.114000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -138,356 +138,45 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Arts/animations/ibis/standRest
-  artifactKey: Guid(ad1b59addf0b3964ca0fe7bf963e600a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest using Guid(ad1b59addf0b3964ca0fe7bf963e600a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ed9cbb0151c460605f2e37a33367e6e') in 0.004649 seconds 
-  Import took 0.009391 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 252.365060 seconds.
-  path: Assets/Arts/animations/ibis/standRest/_0014_ibisA2_3_00674.png.png
-  artifactKey: Guid(a9fd54a9496257449bb45011d62b7ecf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest/_0014_ibisA2_3_00674.png.png using Guid(a9fd54a9496257449bb45011d62b7ecf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f16602b5b35abc161c43156296883ca') in 0.112597 seconds 
-  Import took 0.120551 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.311638 seconds.
-  path: Assets/Arts/animations/ibis/standRest/_0006_ibisA2_3_00660.png.png
-  artifactKey: Guid(1c07d3516a1a64a43977c90c77ac57b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest/_0006_ibisA2_3_00660.png.png using Guid(1c07d3516a1a64a43977c90c77ac57b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4415de755b9ba71ec30e768eb0d03cb') in 0.021490 seconds 
-  Import took 0.028758 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.541278 seconds.
-  path: Assets/Arts/animations/ibis/standRest/_0000_ibisA2_3_00649.png.png
-  artifactKey: Guid(a57924085455c5448bf4baa0d517e935) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest/_0000_ibisA2_3_00649.png.png using Guid(a57924085455c5448bf4baa0d517e935) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fca8f43e7ce1c867e38d8998a8c94f1') in 0.017634 seconds 
-  Import took 0.023669 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.580147 seconds.
-  path: Assets/Arts/animations/ibis/standRest/_0020_ibisA2_3_00684.png.png
-  artifactKey: Guid(6eb279f1a1c72074bafd760fb44edebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest/_0020_ibisA2_3_00684.png.png using Guid(6eb279f1a1c72074bafd760fb44edebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8eff343dc5020dddb014417feedc4f68') in 0.016834 seconds 
-  Import took 0.022027 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.736686 seconds.
-  path: Assets/Arts/animations/ibis/standRest/_0020_ibisA2_3_00684.png.png
-  artifactKey: Guid(6eb279f1a1c72074bafd760fb44edebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest/_0020_ibisA2_3_00684.png.png using Guid(6eb279f1a1c72074bafd760fb44edebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '453ac881f921eef109d5750c08c12de5') in 0.011685 seconds 
-  Import took 0.017937 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.756127 seconds.
-  path: Assets/Arts/animations/ibis/break_trap/_0000_ibisA2_3_00432.png.png
-  artifactKey: Guid(509fd0f7a9ff8d94b9df821d80955f23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/break_trap/_0000_ibisA2_3_00432.png.png using Guid(509fd0f7a9ff8d94b9df821d80955f23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e61a2191a1f5d79c1ff04e4110da9362') in 0.010098 seconds 
-  Import took 0.016062 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.934076 seconds.
-  path: Assets/Arts/animations/ibis/buildNest/ibisA_buildNest (3).png
-  artifactKey: Guid(bdd5c573c1c80364ab73edb65298f5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/buildNest/ibisA_buildNest (3).png using Guid(bdd5c573c1c80364ab73edb65298f5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e3bafd59ed2a90c81f02490fa7685e2') in 0.011396 seconds 
-  Import took 0.017104 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.877150 seconds.
-  path: Assets/Arts/animations/ibis/comb/_0000_ibisA_comb_00504.png.png
-  artifactKey: Guid(7dea9393425d9374dbee9dfe457c47e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/comb/_0000_ibisA_comb_00504.png.png using Guid(7dea9393425d9374dbee9dfe457c47e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6631dce2be7eb6224b7e90186f94a62') in 0.011163 seconds 
-  Import took 0.016685 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.477290 seconds.
-  path: Assets/Arts/animations/ibis/idle/_0000_ibisA_00048.png.png
-  artifactKey: Guid(9384925422b50884c9c5d304daeb598e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/_0000_ibisA_00048.png.png using Guid(9384925422b50884c9c5d304daeb598e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c878777ca2b3454d38acaf6dfd8cbad3') in 0.013706 seconds 
-  Import took 0.020313 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.348712 seconds.
-  path: Assets/Arts/animations/ibis/pickFoods/pickFood2 (1).png
-  artifactKey: Guid(6f14927fcb251cb43bf6ceaa1aea8dc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/pickFoods/pickFood2 (1).png using Guid(6f14927fcb251cb43bf6ceaa1aea8dc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '016c3ae63942b083486cd38dcaebdf1f') in 0.010467 seconds 
-  Import took 0.015508 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.441934 seconds.
-  path: Assets/Arts/animations/ibis/produceEggs/ibisA_lieEgg (1).png
-  artifactKey: Guid(c2eb5b084d710b14d8cc1a25a0f6eb56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/produceEggs/ibisA_lieEgg (1).png using Guid(c2eb5b084d710b14d8cc1a25a0f6eb56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa016f54908cd87207171df9bad83319') in 0.010548 seconds 
-  Import took 0.016020 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.813858 seconds.
-  path: Assets/Arts/animations/ibis/rest/ibisA_rest (1).png
-  artifactKey: Guid(f4b491c5884008945ab76d5ddedeadd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/rest/ibisA_rest (1).png using Guid(f4b491c5884008945ab76d5ddedeadd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '774b11daffd7f0a66cdd1f3cbdeeb174') in 0.011657 seconds 
-  Import took 0.017181 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.302957 seconds.
-  path: Assets/Arts/animations/ibis/standRest/_0000_ibisA2_3_00649.png.png
-  artifactKey: Guid(a57924085455c5448bf4baa0d517e935) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest/_0000_ibisA2_3_00649.png.png using Guid(a57924085455c5448bf4baa0d517e935) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0df6afb20826cad86c20ca4ef1f41af') in 0.011245 seconds 
-  Import took 0.016904 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.686241 seconds.
-  path: Assets/Arts/animations/ibis/standRest/_0010_ibisA2_3_00667.png.png
-  artifactKey: Guid(8abb59a73ca471d41ac74ef6d6b9a58d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest/_0010_ibisA2_3_00667.png.png using Guid(8abb59a73ca471d41ac74ef6d6b9a58d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd75fb1ff064f9b4ef3357350bbec3872') in 0.011856 seconds 
-  Import took 0.017108 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 24.954801 seconds.
-  path: Assets/Arts/animations/ibis/walk/ibisA_walk (1).png
-  artifactKey: Guid(609275811b2c89943a91a2e306682619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/walk/ibisA_walk (1).png using Guid(609275811b2c89943a91a2e306682619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73d3c9298177e1d5ac1f5609e8db08ac') in 0.010888 seconds 
-  Import took 0.016537 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 18.624544 seconds.
-  path: Assets/Arts/animations/ibis/walk/ibisA_walk (20).png
-  artifactKey: Guid(e08db407c5e191a458132fb52554bcaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/walk/ibisA_walk (20).png using Guid(e08db407c5e191a458132fb52554bcaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2b7ec940effa0d5832477c2e3ced946') in 0.012802 seconds 
-  Import took 0.018065 seconds .
+  path: Assets/Scripts/end_show_narrative/narrativeResult.cs
+  artifactKey: Guid(b046e3c4f942e8f4a9721724ae20caaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/end_show_narrative/narrativeResult.cs using Guid(b046e3c4f942e8f4a9721724ae20caaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '632359564873f64ec9978309c4e5c17f') in 0.032140 seconds 
+  Import took 0.039080 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004194 seconds.
+Registered in 0.014709 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.96 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.98 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.120 seconds
+- Completed reload, in  1.376 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1121ms)
-		BeginReloadAssembly (157ms)
+	ReloadAssembly (1380ms)
+		BeginReloadAssembly (480ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
+			DisableScriptedObjects (25ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (44ms)
-		EndReloadAssembly (887ms)
-			LoadAssemblies (137ms)
+			CreateAndSetChildDomain (149ms)
+		EndReloadAssembly (774ms)
+			LoadAssemblies (370ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (270ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (54ms)
-			SetupLoadedEditorAssemblies (363ms)
+			SetupTypeCache (252ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (240ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
+				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (88ms)
-				ProcessInitializeOnLoadAttributes (246ms)
-				ProcessInitializeOnLoadMethodAttributes (11ms)
-				AfterProcessingInitializeOnLoad (13ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
-Platform modules already initialized, skipping
-OnLevelWasLoaded was found on DOTweenComponent
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
-Refreshing native plugins compatible for Editor in 0.84 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3885 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 181.1 MB.
-System memory in use after: 181.4 MB.
-
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 4544.
-Total: 3.356200 ms (FindLiveObjects: 0.306500 ms CreateObjectMapping: 0.122200 ms MarkObjects: 2.897600 ms  DeleteObjects: 0.027900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.008243 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.38 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.508 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1509ms)
-		BeginReloadAssembly (168ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (8ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (46ms)
-		EndReloadAssembly (1246ms)
-			LoadAssemblies (163ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (368ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (67ms)
-			SetupLoadedEditorAssemblies (468ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (127ms)
-				ProcessInitializeOnLoadAttributes (306ms)
-				ProcessInitializeOnLoadMethodAttributes (13ms)
-				AfterProcessingInitializeOnLoad (13ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (14ms)
-Platform modules already initialized, skipping
-OnLevelWasLoaded was found on DOTweenComponent
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
-Refreshing native plugins compatible for Editor in 1.32 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3885 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 181.2 MB.
-System memory in use after: 181.5 MB.
-
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 4558.
-Total: 4.830700 ms (FindLiveObjects: 0.452700 ms CreateObjectMapping: 0.171200 ms MarkObjects: 4.172900 ms  DeleteObjects: 0.030900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009872 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.28 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.092 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1093ms)
-		BeginReloadAssembly (109ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (41ms)
-		EndReloadAssembly (907ms)
-			LoadAssemblies (116ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (370ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (61ms)
-			SetupLoadedEditorAssemblies (237ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (64ms)
-				ProcessInitializeOnLoadAttributes (152ms)
+				BeforeProcessingInitializeOnLoad (67ms)
+				ProcessInitializeOnLoadAttributes (154ms)
 				ProcessInitializeOnLoadMethodAttributes (7ms)
 				AfterProcessingInitializeOnLoad (6ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
-Platform modules already initialized, skipping
-OnLevelWasLoaded was found on DOTweenComponent
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
-Refreshing native plugins compatible for Editor in 0.89 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3885 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 181.3 MB.
-System memory in use after: 181.5 MB.
-
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 4572.
-Total: 2.710100 ms (FindLiveObjects: 0.230300 ms CreateObjectMapping: 0.102200 ms MarkObjects: 2.354000 ms  DeleteObjects: 0.022200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004712 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.886 seconds
-Domain Reload Profiling:
-	ReloadAssembly (887ms)
-		BeginReloadAssembly (95ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (30ms)
-		EndReloadAssembly (731ms)
-			LoadAssemblies (96ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (245ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (35ms)
-			SetupLoadedEditorAssemblies (281ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (70ms)
-				ProcessInitializeOnLoadAttributes (191ms)
-				ProcessInitializeOnLoadMethodAttributes (9ms)
-				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (8ms)
@@ -495,75 +184,14 @@ Platform modules already initialized, skipping
 OnLevelWasLoaded was found on DOTweenComponent
 This message has been deprecated and will be removed in a later version of Unity.
 Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
-Refreshing native plugins compatible for Editor in 0.92 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.94 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3885 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 181.3 MB.
-System memory in use after: 181.6 MB.
+System memory in use before: 178.2 MB.
+System memory in use after: 178.4 MB.
 
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 4586.
-Total: 3.442600 ms (FindLiveObjects: 0.310800 ms CreateObjectMapping: 0.121800 ms MarkObjects: 2.977400 ms  DeleteObjects: 0.030600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004912 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.114 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1115ms)
-		BeginReloadAssembly (130ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (44ms)
-		EndReloadAssembly (920ms)
-			LoadAssemblies (106ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (313ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (42ms)
-			SetupLoadedEditorAssemblies (361ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (94ms)
-				ProcessInitializeOnLoadAttributes (232ms)
-				ProcessInitializeOnLoadMethodAttributes (13ms)
-				AfterProcessingInitializeOnLoad (15ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
-Platform modules already initialized, skipping
-OnLevelWasLoaded was found on DOTweenComponent
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
-Refreshing native plugins compatible for Editor in 1.48 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3885 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 181.3 MB.
-System memory in use after: 181.6 MB.
-
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 4600.
-Total: 3.788000 ms (FindLiveObjects: 0.312400 ms CreateObjectMapping: 0.141400 ms MarkObjects: 3.303600 ms  DeleteObjects: 0.029000 ms)
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 4524.
+Total: 3.098900 ms (FindLiveObjects: 0.259500 ms CreateObjectMapping: 0.114000 ms MarkObjects: 2.698500 ms  DeleteObjects: 0.025500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -576,550 +204,4 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 7.18 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 31 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 105.2 MB.
-System memory in use after: 105.5 MB.
-
-Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 4600.
-Total: 4.874900 ms (FindLiveObjects: 0.457900 ms CreateObjectMapping: 0.203100 ms MarkObjects: 4.182100 ms  DeleteObjects: 0.030300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 8.00 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 31 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 105.2 MB.
-System memory in use after: 105.5 MB.
-
-Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 4600.
-Total: 6.376600 ms (FindLiveObjects: 0.461300 ms CreateObjectMapping: 0.190200 ms MarkObjects: 5.696900 ms  DeleteObjects: 0.026600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 13251.997622 seconds.
-  path: Assets/Arts/animations/ibis/ani
-  artifactKey: Guid(41bf7012c27271e428d7405c0c31c2b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/ani using Guid(41bf7012c27271e428d7405c0c31c2b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1115e44b78b06efd4b4074c44cca7dae') in 0.008291 seconds 
-  Import took 0.017140 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.289760 seconds.
-  path: Assets/Arts/animations/ibis/break_trap/_0000_ibisA2_3_00432.png.png
-  artifactKey: Guid(509fd0f7a9ff8d94b9df821d80955f23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/break_trap/_0000_ibisA2_3_00432.png.png using Guid(509fd0f7a9ff8d94b9df821d80955f23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd10e8ee9d5388a9493f13b0d15277abe') in 0.051621 seconds 
-  Import took 0.056673 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.706086 seconds.
-  path: Assets/Arts/animations/ibis/break_trap/_0000_ibisA2_3_00432.png.png
-  artifactKey: Guid(509fd0f7a9ff8d94b9df821d80955f23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/break_trap/_0000_ibisA2_3_00432.png.png using Guid(509fd0f7a9ff8d94b9df821d80955f23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2814e5b653a45765223080bcba711271') in 0.010852 seconds 
-  Import took 0.016840 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.685410 seconds.
-  path: Assets/Arts/animations/ibis/buildNest/ibisA_buildNest (3).png
-  artifactKey: Guid(bdd5c573c1c80364ab73edb65298f5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/buildNest/ibisA_buildNest (3).png using Guid(bdd5c573c1c80364ab73edb65298f5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd87869010a6c31d5f2f69ec13dfb3723') in 0.012639 seconds 
-  Import took 0.017850 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 35.496206 seconds.
-  path: Assets/Arts/animations/ibis/buildNest/ibisA_buildNest (3).png
-  artifactKey: Guid(bdd5c573c1c80364ab73edb65298f5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/buildNest/ibisA_buildNest (3).png using Guid(bdd5c573c1c80364ab73edb65298f5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9310871d5226974a5f7839d3ab416406') in 0.011251 seconds 
-  Import took 0.016130 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.403615 seconds.
-  path: Assets/Arts/animations/ibis/comb/_0000_ibisA_comb_00504.png.png
-  artifactKey: Guid(7dea9393425d9374dbee9dfe457c47e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/comb/_0000_ibisA_comb_00504.png.png using Guid(7dea9393425d9374dbee9dfe457c47e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7002e2478e304aec765829087d617eb6') in 0.012121 seconds 
-  Import took 0.017278 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 22.702677 seconds.
-  path: Assets/Arts/animations/ibis/pickFoods/pickFood2 (1).png
-  artifactKey: Guid(6f14927fcb251cb43bf6ceaa1aea8dc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/pickFoods/pickFood2 (1).png using Guid(6f14927fcb251cb43bf6ceaa1aea8dc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a12a9eeb6502e079e9d6888234513226') in 0.011518 seconds 
-  Import took 0.016865 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.879167 seconds.
-  path: Assets/Arts/animations/ibis/pickFoods/pickFood2 (1).png
-  artifactKey: Guid(6f14927fcb251cb43bf6ceaa1aea8dc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/pickFoods/pickFood2 (1).png using Guid(6f14927fcb251cb43bf6ceaa1aea8dc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '063bf441525964c8c3ec6caa4795b04e') in 0.010596 seconds 
-  Import took 0.016003 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 44.776994 seconds.
-  path: Assets/Arts/animations/ibis/ani/toon_13_pickFood_0001.controller
-  artifactKey: Guid(2d2511ed9fa2f3c46ab5f57c31534f72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/ani/toon_13_pickFood_0001.controller using Guid(2d2511ed9fa2f3c46ab5f57c31534f72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e25e3fbfccef9339c964e0afa345223') in 0.022191 seconds 
-  Import took 0.027855 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005344 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.883 seconds
-Domain Reload Profiling:
-	ReloadAssembly (883ms)
-		BeginReloadAssembly (106ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (35ms)
-		EndReloadAssembly (722ms)
-			LoadAssemblies (86ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (253ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (38ms)
-			SetupLoadedEditorAssemblies (268ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (71ms)
-				ProcessInitializeOnLoadAttributes (175ms)
-				ProcessInitializeOnLoadMethodAttributes (8ms)
-				AfterProcessingInitializeOnLoad (7ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (9ms)
-Platform modules already initialized, skipping
-OnLevelWasLoaded was found on DOTweenComponent
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
-Refreshing native plugins compatible for Editor in 0.88 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3885 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 181.4 MB.
-System memory in use after: 181.7 MB.
-
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 4615.
-Total: 3.409300 ms (FindLiveObjects: 0.299100 ms CreateObjectMapping: 0.115500 ms MarkObjects: 2.966300 ms  DeleteObjects: 0.027200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 23.337306 seconds.
-  path: Assets/Arts/animations/ibis/break_trap/_0000_ibisA2_3_00432.png.png
-  artifactKey: Guid(509fd0f7a9ff8d94b9df821d80955f23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/break_trap/_0000_ibisA2_3_00432.png.png using Guid(509fd0f7a9ff8d94b9df821d80955f23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c33bf2cb21a01e93df74eda235498559') in 0.038396 seconds 
-  Import took 0.043501 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.606560 seconds.
-  path: Assets/Arts/animations/ibis/buildNest/ibisA_buildNest (3).png
-  artifactKey: Guid(bdd5c573c1c80364ab73edb65298f5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/buildNest/ibisA_buildNest (3).png using Guid(bdd5c573c1c80364ab73edb65298f5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e442bf91960c19bd130f3308b650c968') in 0.011475 seconds 
-  Import took 0.017221 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.292764 seconds.
-  path: Assets/Arts/animations/ibis/comb/_0000_ibisA_comb_00504.png.png
-  artifactKey: Guid(7dea9393425d9374dbee9dfe457c47e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/comb/_0000_ibisA_comb_00504.png.png using Guid(7dea9393425d9374dbee9dfe457c47e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bab909586e57947d10f6a8e7d238b1d') in 0.011880 seconds 
-  Import took 0.016762 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.731342 seconds.
-  path: Assets/Arts/animations/ibis/idle/_0000_ibisA_00048.png.png
-  artifactKey: Guid(9384925422b50884c9c5d304daeb598e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/_0000_ibisA_00048.png.png using Guid(9384925422b50884c9c5d304daeb598e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d5742eb25dfa8f9bacbdcaaa0838493') in 0.012631 seconds 
-  Import took 0.017775 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.052607 seconds.
-  path: Assets/Arts/animations/ibis/idle/_0000_ibisA_00048.png.png
-  artifactKey: Guid(9384925422b50884c9c5d304daeb598e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/_0000_ibisA_00048.png.png using Guid(9384925422b50884c9c5d304daeb598e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3f5d2be989fedc61249ef0af9c4b38e') in 0.012623 seconds 
-  Import took 0.017880 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 27.984295 seconds.
-  path: Assets/Arts/animations/ibis/produceEggs/ibisA_lieEgg (35).png
-  artifactKey: Guid(0eac32f97c59dba40ab19296da4ceed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/produceEggs/ibisA_lieEgg (35).png using Guid(0eac32f97c59dba40ab19296da4ceed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f28678891fabb12eb8dc5c7a5dd57cd') in 0.017672 seconds 
-  Import took 0.024300 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.246863 seconds.
-  path: Assets/Arts/animations/ibis/produceEggs/ibisA_lieEgg (1).png
-  artifactKey: Guid(c2eb5b084d710b14d8cc1a25a0f6eb56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/produceEggs/ibisA_lieEgg (1).png using Guid(c2eb5b084d710b14d8cc1a25a0f6eb56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66311286741d3dcd7410929b05d97cc9') in 0.015505 seconds 
-  Import took 0.022166 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.505825 seconds.
-  path: Assets/Arts/animations/ibis/produceEggs/ibisA_lieEgg (1).png
-  artifactKey: Guid(c2eb5b084d710b14d8cc1a25a0f6eb56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/produceEggs/ibisA_lieEgg (1).png using Guid(c2eb5b084d710b14d8cc1a25a0f6eb56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30f1e0254c972577538ccdf3bac2bb60') in 0.010682 seconds 
-  Import took 0.016022 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.524556 seconds.
-  path: Assets/Arts/animations/ibis/rest/ibisA_rest (1).png
-  artifactKey: Guid(f4b491c5884008945ab76d5ddedeadd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/rest/ibisA_rest (1).png using Guid(f4b491c5884008945ab76d5ddedeadd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cd3deb54db60d26f439bf3cf9fd8ef3') in 0.012344 seconds 
-  Import took 0.017684 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.325171 seconds.
-  path: Assets/Arts/animations/ibis/rest/ibisA_rest (1).png
-  artifactKey: Guid(f4b491c5884008945ab76d5ddedeadd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/rest/ibisA_rest (1).png using Guid(f4b491c5884008945ab76d5ddedeadd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bf8a5a08a5ca0d3dda036bdf26e62bd') in 0.012211 seconds 
-  Import took 0.017404 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.960696 seconds.
-  path: Assets/Arts/animations/ibis/standRest/_0000_ibisA2_3_00649.png.png
-  artifactKey: Guid(a57924085455c5448bf4baa0d517e935) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest/_0000_ibisA2_3_00649.png.png using Guid(a57924085455c5448bf4baa0d517e935) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '892b8ea9872baad675d06276043fe122') in 0.017913 seconds 
-  Import took 0.023252 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.726150 seconds.
-  path: Assets/Arts/animations/ibis/standRest/_0020_ibisA2_3_00684.png.png
-  artifactKey: Guid(6eb279f1a1c72074bafd760fb44edebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest/_0020_ibisA2_3_00684.png.png using Guid(6eb279f1a1c72074bafd760fb44edebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5670a38082e2e1ce894f963eaa4f145a') in 0.011834 seconds 
-  Import took 0.016833 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.384884 seconds.
-  path: Assets/Arts/animations/ibis/standRest/_0020_ibisA2_3_00684.png.png
-  artifactKey: Guid(6eb279f1a1c72074bafd760fb44edebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/standRest/_0020_ibisA2_3_00684.png.png using Guid(6eb279f1a1c72074bafd760fb44edebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f68dd6c930a52c0fd3c0e185232d597b') in 0.011932 seconds 
-  Import took 0.017075 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.265616 seconds.
-  path: Assets/Arts/animations/ibis/touchBeak/_0000_ibisA2_touchBeak_00552.png.png
-  artifactKey: Guid(81984f45428df8748900a81ccc4408c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/touchBeak/_0000_ibisA2_touchBeak_00552.png.png using Guid(81984f45428df8748900a81ccc4408c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0533096b4bcfe778e420d5cd4f2a0d8d') in 0.011927 seconds 
-  Import took 0.017285 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.794778 seconds.
-  path: Assets/Arts/animations/ibis/touchBeak/_0000_ibisA2_touchBeak_00552.png.png
-  artifactKey: Guid(81984f45428df8748900a81ccc4408c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/touchBeak/_0000_ibisA2_touchBeak_00552.png.png using Guid(81984f45428df8748900a81ccc4408c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bbac5f577a5e045161d051102245867') in 0.011814 seconds 
-  Import took 0.017991 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.760837 seconds.
-  path: Assets/Arts/animations/ibis/walk/ibisA_walk (1).png
-  artifactKey: Guid(609275811b2c89943a91a2e306682619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/walk/ibisA_walk (1).png using Guid(609275811b2c89943a91a2e306682619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dccf5a21832f1fade4266bd0c34b128') in 0.011654 seconds 
-  Import took 0.017703 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.497588 seconds.
-  path: Assets/Arts/animations/ibis/walk/ibisA_walk (1).png
-  artifactKey: Guid(609275811b2c89943a91a2e306682619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/walk/ibisA_walk (1).png using Guid(609275811b2c89943a91a2e306682619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd7912a9949be18f9fbb0184fcfc2d00') in 0.010628 seconds 
-  Import took 0.016026 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.091132 seconds.
-  path: Assets/Arts/animations/ibis/walk/ibisA_walk (20).png
-  artifactKey: Guid(e08db407c5e191a458132fb52554bcaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/walk/ibisA_walk (20).png using Guid(e08db407c5e191a458132fb52554bcaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce3751936d153c141e19534058a0d252') in 0.015503 seconds 
-  Import took 0.022328 seconds .
-
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 7.18 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 31 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 105.5 MB.
-System memory in use after: 105.8 MB.
-
-Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 4618.
-Total: 5.020200 ms (FindLiveObjects: 0.314300 ms CreateObjectMapping: 0.113300 ms MarkObjects: 4.564300 ms  DeleteObjects: 0.026800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 91.567977 seconds.
-  path: Assets/Arts/animations/ibis/walk/ibisA_walk (5).png
-  artifactKey: Guid(cbd2043724005ed41b77cab74c06bc99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/walk/ibisA_walk (5).png using Guid(cbd2043724005ed41b77cab74c06bc99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79a6aa963ae5a90eb70c52f06eac8e57') in 0.017440 seconds 
-  Import took 0.024387 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 726.077297 seconds.
-  path: Assets/Arts/animations/ibis/idle/_0006_ibisA_00054.png.png
-  artifactKey: Guid(02dfe780dc5167c44b55b70ac4d14882) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/_0006_ibisA_00054.png.png using Guid(02dfe780dc5167c44b55b70ac4d14882) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58ba441f8907ab239d1bed84d55905a8') in 0.023678 seconds 
-  Import took 0.031351 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 245.094471 seconds.
-  path: Assets/Arts/animations/ibis/idle/small
-  artifactKey: Guid(7903f0c5a5ee7714493b648ae78989eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/small using Guid(7903f0c5a5ee7714493b648ae78989eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f054a634832399475c43e0d22ef05c2e') in 0.001794 seconds 
-  Import took 0.014552 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.784583 seconds.
-  path: Assets/Arts/animations/ibis/idle/small/_0000__0000_ibisA_00048.png.png.png
-  artifactKey: Guid(abc4c4c3f8e00d044bee53aa916593d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/small/_0000__0000_ibisA_00048.png.png.png using Guid(abc4c4c3f8e00d044bee53aa916593d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20e920df2c1fbd4e7af6f07f0cfef44e') in 0.017663 seconds 
-  Import took 0.022977 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.125387 seconds.
-  path: Assets/Arts/animations/ibis/idle/small/_0019__0038_ibisA_00086.png.png.png
-  artifactKey: Guid(e7b75beddb0504c43ba4bc5eaae27fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/small/_0019__0038_ibisA_00086.png.png.png using Guid(e7b75beddb0504c43ba4bc5eaae27fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de6275e3aaae3b74c3f849598c4db119') in 0.012060 seconds 
-  Import took 0.017276 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.343893 seconds.
-  path: Assets/Arts/animations/ibis/idle/small/_0021__0042_ibisA_00090.png.png.png
-  artifactKey: Guid(a165c722ed178794ca162d33f5239277) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/small/_0021__0042_ibisA_00090.png.png.png using Guid(a165c722ed178794ca162d33f5239277) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21ed61f926ad0df226eabe1ffd54f5b1') in 0.015335 seconds 
-  Import took 0.020855 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.230741 seconds.
-  path: Assets/Arts/animations/ibis/idle/small/_0024__0048_ibisA_00096.png.png.png
-  artifactKey: Guid(1701e94886ed1a547a3dc9268cd3c380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/small/_0024__0048_ibisA_00096.png.png.png using Guid(1701e94886ed1a547a3dc9268cd3c380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '977c65c7d180c31a5f7bef8b443e6316') in 0.011467 seconds 
-  Import took 0.016713 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.221289 seconds.
-  path: Assets/Arts/animations/ibis/idle/small/_0027__0054_ibisA_00102.png.png.png
-  artifactKey: Guid(ed4b6193e91e1804380890afe0fda059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/small/_0027__0054_ibisA_00102.png.png.png using Guid(ed4b6193e91e1804380890afe0fda059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dd537459d13d34265851e4df1cb3ee4') in 0.015798 seconds 
-  Import took 0.021261 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.226949 seconds.
-  path: Assets/Arts/animations/ibis/idle/small/_0029__0058_ibisA_00106.png.png.png
-  artifactKey: Guid(a918e40b143b0ad418774c93fdb0e2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/small/_0029__0058_ibisA_00106.png.png.png using Guid(a918e40b143b0ad418774c93fdb0e2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b730fa003818f3efe5e7a2fc16b3d887') in 0.017014 seconds 
-  Import took 0.022184 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.497432 seconds.
-  path: Assets/Arts/animations/ibis/idle/small/_0031__0062_ibisA_00110.png.png.png
-  artifactKey: Guid(add73432b75e62c43b53da041a96e3de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/small/_0031__0062_ibisA_00110.png.png.png using Guid(add73432b75e62c43b53da041a96e3de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87b7ce073268fef4bb9ac67d7e6101c2') in 0.017034 seconds 
-  Import took 0.022474 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.286048 seconds.
-  path: Assets/Arts/animations/ibis/idle/small/_0017__0034_ibisA_00082.png.png.png
-  artifactKey: Guid(1199f020d6d306342a0fa5e1d0950f7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/small/_0017__0034_ibisA_00082.png.png.png using Guid(1199f020d6d306342a0fa5e1d0950f7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2ef0267e0c7de75ddc5fc9267f2e616') in 0.009897 seconds 
-  Import took 0.014891 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 48.590760 seconds.
-  path: Assets/Arts/ibis/ibisA2.png
-  artifactKey: Guid(d7e800969897a444ab9495146cb95b44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/ibis/ibisA2.png using Guid(d7e800969897a444ab9495146cb95b44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a403aae63754eaa94a01ef36b641037d') in 0.013333 seconds 
-  Import took 0.018501 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004391 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.92 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.824 seconds
-Domain Reload Profiling:
-	ReloadAssembly (824ms)
-		BeginReloadAssembly (90ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (31ms)
-		EndReloadAssembly (688ms)
-			LoadAssemblies (84ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (221ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (43ms)
-			SetupLoadedEditorAssemblies (259ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (70ms)
-				ProcessInitializeOnLoadAttributes (170ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (6ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (9ms)
-Platform modules already initialized, skipping
-OnLevelWasLoaded was found on DOTweenComponent
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
-Refreshing native plugins compatible for Editor in 0.87 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3885 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 181.4 MB.
-System memory in use after: 181.7 MB.
-
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 4636.
-Total: 3.165300 ms (FindLiveObjects: 0.234600 ms CreateObjectMapping: 0.099100 ms MarkObjects: 2.794500 ms  DeleteObjects: 0.036000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 10.30 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 31 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 105.4 MB.
-System memory in use after: 105.6 MB.
-
-Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 4636.
-Total: 3.721600 ms (FindLiveObjects: 0.316900 ms CreateObjectMapping: 0.133600 ms MarkObjects: 3.248600 ms  DeleteObjects: 0.021500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 434.974411 seconds.
-  path: Assets/Arts/animations/ibis/break_trap/_0007_ibisA2_3_00439.png.png
-  artifactKey: Guid(179c76dcaa0637b468e4cdeed8fd93cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/break_trap/_0007_ibisA2_3_00439.png.png using Guid(179c76dcaa0637b468e4cdeed8fd93cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2237d03a511ea1ee601cf010a7cb8079') in 0.062516 seconds 
-  Import took 0.070911 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 35.195734 seconds.
-  path: Assets/Arts/animations/ibis/idle
-  artifactKey: Guid(3bcdf4e291785174f884cf151ddc32aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle using Guid(3bcdf4e291785174f884cf151ddc32aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa3c131f1326ae86a5d98ee65d786d7d') in 0.001562 seconds 
-  Import took 0.007814 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.768523 seconds.
-  path: Assets/Arts/animations/ibis/idle/_0004_ibisA_00052.png.png
-  artifactKey: Guid(b41f0082d4a1622478df6de7785027ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Arts/animations/ibis/idle/_0004_ibisA_00052.png.png using Guid(b41f0082d4a1622478df6de7785027ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45f2001c6dcec72aea69878d05866b06') in 0.018053 seconds 
-  Import took 0.023317 seconds .
-
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
