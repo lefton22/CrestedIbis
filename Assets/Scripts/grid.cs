@@ -113,6 +113,8 @@ public class grid : MonoBehaviour
             //change sprite
             GameObject pollution_mark = Instantiate(Resources.Load("goj/pollutionMark")) as GameObject;
             pollution_mark.transform.position = gameObject.transform.position;
+
+            pollution_mark.GetComponent<SpriteRenderer>().sortingOrder = 999;
             //pollution_mark.transform.SetParent(_pollutedStuffs.transform);
             pollution_mark.transform.SetParent(transform);
             this_pollution_mark = pollution_mark;

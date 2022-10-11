@@ -400,5 +400,32 @@ public class Map : MonoBehaviour
         return index;
     }
 
+    public Vector2 transferIndexToV2(int index)
+    {
+        Vector2 v2 = new Vector2(-99, -99);
+
+        if (index == 0) { v2 = new Vector2(0,2); }
+        if (index == 1) { v2 = new Vector2(-1, 2); }
+        if (index == 2) { v2 = new Vector2(-2, 2); }
+        if (index == 3) { v2 = new Vector2(1, 1); }
+        if (index == 4) { v2 = new Vector2(0, 1); }
+        if (index == 5) { v2 = new Vector2(-1, 1); }
+        if (index == 6) { v2 = new Vector2(-2, 1); }
+        if (index == 7) { v2 = new Vector2(2, 0); }
+        if (index == 8) { v2 = new Vector2(1, 0); }
+        if (index == 9) { v2 = new Vector2(0, 0); }
+        if (index == 10) { v2 = new Vector2(-1, 0); }
+        if (index == 11) { v2 = new Vector2(-2, 0); }
+        if (index == 12) { v2 = new Vector2(2, -1); }
+        if (index == 13) { v2 = new Vector2(1, -1); }
+        if (index == 14) { v2 = new Vector2(0, -1); }
+        if (index == 15) { v2 = new Vector2(-1, -1); }
+        if (index == 16) { v2 = new Vector2(2, -2); }
+        if (index == 17) { v2 = new Vector2(1, -2); }
+        if (index == 18) { v2 = new Vector2(0, -2); }
+
+        return v2;
+    }
+
    
 }

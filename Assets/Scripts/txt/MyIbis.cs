@@ -279,7 +279,7 @@ namespace Panda.Ibis {
 
             //ibisR on!
             GameObject.Find("ibisR").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("ibisR").transform.localScale = new Vector3(1f, 1f, 1f); // ori = 0.6f
+            //GameObject.Find("ibisR").transform.localScale = new Vector3(1f, 1f, 1f); // ori = 0.6f
             GameObject.Find("ibisR").transform.position = GameObject.Find("ibisA").transform.position;
             GameObject.Find("ibisR").GetComponent<Animator>().Play("ibis_break_trap");
 
@@ -545,7 +545,6 @@ namespace Panda.Ibis {
             }
 
 
-
             if (foods2.Length == 0)
             {
                 ThisTask.Succeed();
@@ -576,7 +575,9 @@ namespace Panda.Ibis {
                     { _listObjOnLand.foodOnLand.Add(child.gameObject.GetComponent<objV2Pos>().thisV2);}
                 }
             }
-                  
+
+            print("seek food 1");
+
             //seek all food obj in the scene
             v2_foods_l = new List<Vector2>(_listObjOnLand.foodOnLand);
 
@@ -604,7 +605,9 @@ namespace Panda.Ibis {
                         }
                     }
                     hasCheckMaxRichFood1 = true;
-                }
+
+                print("seek food 2");
+            }
 
             if (!hasCheckMaxRichFood12)
             {
@@ -618,6 +621,8 @@ namespace Panda.Ibis {
                     }
                 }
                     hasCheckMaxRichFood12 = true;
+
+                print("seek food 3");
             }
 
             //再在rich最大的食物中随机一个
@@ -651,9 +656,12 @@ namespace Panda.Ibis {
 
             seekForFoodJantoJun();
 
-           // print("index_nearestFood: " + index_nearestFood + " , index_ibisA: " + index_ibisA);
+            // print("index_nearestFood: " + index_nearestFood + " , index_ibisA: " + index_ibisA);
 
-          //  if (index_nearestFood == index_ibisA)
+            //  if (index_nearestFood == index_ibisA)
+
+            print("hasCheckDes： " + hasCheckDes);
+            print("ibis pos: " + _ibisA.transform.position + " , nearest gird pos: " + GameObject.Find("gird" + index_nearestFood.ToString()).transform.position);
           if (_ibisA.transform.position == GameObject.Find("gird" +index_nearestFood.ToString()).transform.position)
             {
                 GameObject.Find("SF_ibisA_steps").GetComponent<playSoundEffect>().stopPlayThisSF();
@@ -667,9 +675,11 @@ namespace Panda.Ibis {
 
                 checkTwoMovingCreatureAtOneGrid();
 
-             //   hasCheckApEachNode = true;
+                //   hasCheckApEachNode = true;
 
-               ThisTask.Succeed();
+                print("seek food 4");
+
+                ThisTask.Succeed();
             }
 
 
@@ -2500,15 +2510,17 @@ namespace Panda.Ibis {
             }
 
             //compare all ibisA, ibisAdults, egret
-            Vector2 v2_ibisA = GameObject.Find("ibisA").GetComponent<objV2Pos>().thisV2;
+            //Vector2 v2_ibisA = GameObject.Find("ibisA").GetComponent<objV2Pos>().thisV2; // problem here! pls use Map.cs (line 403)
+            Vector2 v2_ibisA = Map.instance.transferIndexToV2(aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray")));
 
-            
+           // v2_ibisA = aboutGirdIndex.getGirdIndex(GameObject.Find("ibisA_ray"));
+
             for (int i = 0; i < _listObjOnLand.allIbisAdults.Count; i++)
             {
                 if (v2_ibisA == _listObjOnLand.allIbisAdults[i].GetComponent<objV2Pos>().thisV2)
                 {
                     print("ibisA meets an adult ibis.");
-                    twoMove(GameObject.Find("ibisA"), _listObjOnLand.allIbisAdults[i]) ;
+                    twoMove(GameObject.Find("ibisA"), _listObjOnLand.allIbisAdults[i]) ;   //BUG here
                     //two move.
                 }
             }
@@ -2517,7 +2529,7 @@ namespace Panda.Ibis {
                 if (v2_ibisA == _listObjOnLand.allEgrets[i].GetComponent<objV2Pos>().thisV2)
                 {
                     print("ibisA meets an egret.");
-                    twoMove(GameObject.Find("ibisA"), _listObjOnLand.allEgrets[i]);
+                    twoMove(GameObject.Find("ibisA"), _listObjOnLand.allEgrets[i]); // ibisA's v2 has problem!
                     //two move.
                 }
             }
@@ -2525,11 +2537,11 @@ namespace Panda.Ibis {
             {
                 for (int k = 0; k < _listObjOnLand.allIbisAdults.Count; k++)
                 {
-                    if (_listObjOnLand.allIbisAdults[i].GetComponent<objV2Pos>().thisV2
-                        == _listObjOnLand.allEgrets[k].GetComponent<objV2Pos>().thisV2)
+                    if (_listObjOnLand.allIbisAdults[k].GetComponent<objV2Pos>().thisV2
+                        == _listObjOnLand.allEgrets[i].GetComponent<objV2Pos>().thisV2)
                     {
                         print("an ibis adult meets an egret.");
-                        twoMove(_listObjOnLand.allIbisAdults[i], _listObjOnLand.allEgrets[k]);
+                        twoMove(_listObjOnLand.allIbisAdults[k], _listObjOnLand.allEgrets[i]);
                         //two move.
                     }
                 }
@@ -2538,8 +2550,10 @@ namespace Panda.Ibis {
 
         void twoMove(GameObject gojA, GameObject gojB)//  同一格子时，两只都让一让
         {
-            gojA.GetComponent<SnapToNode>().enabled = false;
-            gojB.GetComponent<SnapToNode>().enabled = false;
+            if(gojA.GetComponent<SnapToNode>())
+           { gojA.GetComponent<SnapToNode>().enabled = false; }
+            if (gojB.GetComponent<SnapToNode>())
+            { gojB.GetComponent<SnapToNode>().enabled = false; }
 
             float endX = gojA.transform.position.x -0.613f;
             float endY = gojA.transform.position.y + 0.195f;

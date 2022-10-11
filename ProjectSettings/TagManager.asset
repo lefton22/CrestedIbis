@@ -22,6 +22,7 @@ TagManager:
   - music
   - pollution_mark
   - ibisA_act
+  - landmine
   layers:
   - Default
   - TransparentFX

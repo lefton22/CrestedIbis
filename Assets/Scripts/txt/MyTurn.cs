@@ -254,6 +254,28 @@ namespace Panda.Ibis
             ThisTask.Succeed();
         }
 
+        [Task]
+        void genAPmark()
+        {
+            for (int i = 0; i < 19; i++)
+            {
+                GameObject APmark = Instantiate(Resources.Load("goj/APmark")) as GameObject;
+                APmark.name = "APmark" + i;
+                APmark.transform.position = _LandGen3.GetComponent<LandGen3>().LandV3s[i];
+                APmark.GetComponent<ap_mark>().land = i;
+            }
+            ThisTask.Succeed();
+        }
+
+        [Task]
+        void deActiveAllSF()
+        {
+            foreach (Transform child in GameObject.Find("ibisA_FX").transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+            ThisTask.Succeed();
+        }
 
         [Task]
         void grey() // ibisA change its color
@@ -271,6 +293,7 @@ namespace Panda.Ibis
                 popUpGrey.transform.position = new Vector3( _ibisA.transform.position.x +0.38f,
                                                              _ibisA.transform.position.y + 0.57f,0f);
                 popUpGrey.GetComponent<SpriteRenderer>().sprite = grey;
+                popUpGrey.GetComponent<SpriteRenderer>().sortingOrder = 9999;
 
                 ThisTask.Succeed();
             }
@@ -600,6 +623,7 @@ namespace Panda.Ibis
                 { GameManager.istance.NPCsNav[index_obj] = obj_child.gameObject.GetComponent<Nav>(); }
                 if (obj_child.gameObject.tag == "trap")
                 { GameManager.istance.trapsNav[index_obj] = obj_child.gameObject.GetComponent<Nav>(); }
+
             }
 
 /*            //add ibisA and other under NPCs
@@ -839,7 +863,7 @@ namespace Panda.Ibis
 
             ////check if AP is over during this whole process, includes walking
             ///            //check actionpoint;
-            if (!GameObject.Find("ibisA").GetComponent<Nav>().enabled)
+/*            if (!GameObject.Find("ibisA").GetComponent<Nav>().enabled)
             {
                // Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - Panda.Ibis.MyIbis.APreduced;
                 print("bisA not has Nav");
@@ -851,7 +875,7 @@ namespace Panda.Ibis
                 Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.startAP - GameObject.Find("ibisA").GetComponent<Nav>().stepLength +1;
 
                // print("startAP: " + Panda.Ibis.MyIbis.startAP + "stepLength: " + GameObject.Find("ibisA").GetComponent<Nav>().stepLength);
-            }
+            }*/
 
             if (Panda.Ibis.MyIbis.actionPoint <= 0 && Panda.Ibis.MyIbis.hasCheckApEachNode)  // should set a bool to control the moment to calcualte this
                                                                                              //  set this bool during the sector which check if succeed of each uncheck AI node

@@ -5,8 +5,13 @@ tree("Root")
                         genIbisA()
                         Wait(100)
 
+                        genAPmark()
+                        Wait(5)
+
                         grey()
                         Wait(5)
+
+                        deActiveAllSF()
 
                         pollution()
                         Wait(200)

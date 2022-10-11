@@ -22,3 +22,5 @@ Library/ArtifactDB
 Library/il2cpp_cache/linkresult_5C459957AAFA366358649983CDE5B246/build.bc
 Library/il2cpp_cache/linkresult_973F4D644388D941B1FE0416D554E470/build.bc
 Temp/StagingArea/Data/Native/build.bc
+*.bc
+Library/il2cpp_cache/linkresult_29A7F5EC6214AB69B29268E12BD43941/build.bc

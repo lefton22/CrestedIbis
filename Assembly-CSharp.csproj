@@ -183,6 +183,7 @@
     <Compile Include="Assets\Scripts\ui\gameStart.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Scripts\Gird.cs" />
+    <Compile Include="Assets\NeedToReCommentAfterReady.cs" />
     <Compile Include="Assets\Scripts\LandGeneration.cs" />
     <Compile Include="Assets\Scripts\txt\yicixin\ibisA_switch_nest.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_ShurikenThreadFix.cs" />
@@ -208,6 +209,7 @@
     <Compile Include="Assets\Scripts\obj\objIbisAdult.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\SetupForbiddenTiles.cs" />
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
+    <Compile Include="Assets\Scripts\byNewPathFinding\ap_mark.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

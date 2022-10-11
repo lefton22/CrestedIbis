@@ -83,7 +83,7 @@ public class objNPC : MonoBehaviour
 
             spriteOrder sp_order = gameObject.AddComponent<spriteOrder>() as spriteOrder;
 
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(0.5f, 0.5f, 1f);
             name = "snake";
         }
         /*        if (whichNPC == "eagle")
