@@ -172,6 +172,7 @@ public class outerAI : MonoBehaviour
         //_t_actionPoint.GetComponent<TMPro.TextMeshProUGUI>().text = /* "AP: " + */Panda.Ibis.MyIbis.actionPoint.ToString();
         _t_actionPoint.GetComponent<Text>().text = /* "AP: " + */Panda.Ibis.MyIbis.actionPoint.ToString();
 
+/* enable it when UI has been refined.
         if (Panda.Ibis.MyIbis.gender ==1)
         {
             //_t_gender.GetComponent<TMPro.TextMeshProUGUI>().text = "雌"; 
@@ -230,7 +231,7 @@ public class outerAI : MonoBehaviour
         {
             //_t_mate.GetComponent<TMPro.TextMeshProUGUI>().text = "Mate: none"; 
             _ISHeart.GetComponent<Image>().enabled = false;
-        }
+        }*/
 
        
     }

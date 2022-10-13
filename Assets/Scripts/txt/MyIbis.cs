@@ -558,7 +558,7 @@ namespace Panda.Ibis {
         {
            // _gridPosOffset.ibisACanOffset = false;
 
-            //hasCheckApEachNode = false;
+            hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
@@ -675,7 +675,7 @@ namespace Panda.Ibis {
 
                 checkTwoMovingCreatureAtOneGrid();
 
-                //   hasCheckApEachNode = true;
+                hasCheckApEachNode = true;
 
                 print("seek food 4");
 
@@ -1080,7 +1080,7 @@ namespace Panda.Ibis {
         void goToOpGender()
         {
 
-            //hasCheckApEachNode = false;
+            hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
@@ -1116,7 +1116,7 @@ namespace Panda.Ibis {
 
                 hasCheckDes = false;
 
-               // hasCheckApEachNode = true;
+               hasCheckApEachNode = true;
                 
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
@@ -1213,7 +1213,7 @@ namespace Panda.Ibis {
         [Task]
         void goToMate()
         {
-            //hasCheckApEachNode = false;
+            hasCheckApEachNode = false;
 
             _ibisA_FX.GetComponent<ibisA_2D_Fx>().awakeASF("walkingDust", false);
 
@@ -1244,7 +1244,7 @@ namespace Panda.Ibis {
 
                 hasCheckDes = false;
 
-               // hasCheckApEachNode = true;
+               hasCheckApEachNode = true;
                 
                 // add ibisA's v2 to the land grid's list and check
                 addIbisOnCurrentLand();
@@ -2278,6 +2278,8 @@ namespace Panda.Ibis {
         [Task]
         void goToTree()
         {
+            hasCheckApEachNode = false;
+
             List<GameObject> allTrees;
             allTrees = new List<GameObject>();
 

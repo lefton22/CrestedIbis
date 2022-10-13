@@ -9,6 +9,8 @@ using Panda;
 
 using Pathfinding;
 
+using DG.Tweening;
+
 //enable this script once new turn start
 
 // deal cards
@@ -83,6 +85,8 @@ namespace Panda.Ibis
 
         GameObject _ObjOnLand;
 
+        public bool canDetectAPMark;
+
         void Start()
         {
             cards = new List<GameObject>();
@@ -149,6 +153,8 @@ namespace Panda.Ibis
             _ObjOnLand = GameObject.Find("ObjOnLand");
 
             // print("myTurn Start: _ibisA: " + _ibisA);
+
+            canDetectAPMark = false;
         }
 
 
@@ -255,7 +261,7 @@ namespace Panda.Ibis
         }
 
         [Task]
-        void genAPmark()
+        void genAPmark()  // et make ibisA to a nearest gird                                                                                 
         {
             for (int i = 0; i < 19; i++)
             {
@@ -264,6 +270,62 @@ namespace Panda.Ibis
                 APmark.transform.position = _LandGen3.GetComponent<LandGen3>().LandV3s[i];
                 APmark.GetComponent<ap_mark>().land = i;
             }
+
+
+            //et make ibisA to a nearest gird       
+            if (transform.parent.gameObject.GetComponent<turnBased>().turn != 1)
+            {
+                int nearestLand = -1;
+
+                List<float> allDis = new List<float>(); 
+
+                for (int i = 0; i < _LandGen3.GetComponent<LandGen3>().LandV3s.Count; i++)
+                {
+                   
+                   // float max_dis = 0f;
+                    Vector3 v3_land = _LandGen3.GetComponent<LandGen3>().LandV3s[i];
+                    float distance = Vector3.Distance(_ibisA.transform.position, v3_land);
+
+                    allDis.Add(distance);
+                    
+/*
+                    if (distance > max_dis)
+                    {
+                        max_dis = distance;
+                        nearestLand = i;
+
+                        print("max_dis: " + max_dis +", distance: " + distance);
+                    }*/
+                }
+
+                // print("nearestLand: " + nearestLand);
+
+                foreach (float f in allDis)
+                {
+                    print("f: " + f);
+                }
+
+                float _dis = Mathf.Min(allDis.ToArray());
+
+                
+                
+                for (int i = 0; i < allDis.Count; i++)
+                {
+                    if (_dis == allDis[i])
+                    {
+                        nearestLand = i;
+                    }
+                }
+
+                print("_dis: " + _dis + " , nearestLand: " + nearestLand);
+
+                if (nearestLand != -1)
+                {
+                    _ibisA.transform.DOMove(_LandGen3.GetComponent<LandGen3>().LandV3s[nearestLand],
+                                            0.1f);
+                }
+            }
+
             ThisTask.Succeed();
         }
 
@@ -806,6 +868,8 @@ namespace Panda.Ibis
         [Task]
         void ibisAct()
         {
+            canDetectAPMark = true;
+
             if (!hasActiveNav)
             {
                 _ibisA.GetComponent<Nav>().enabled = true;
@@ -877,17 +941,27 @@ namespace Panda.Ibis
                // print("startAP: " + Panda.Ibis.MyIbis.startAP + "stepLength: " + GameObject.Find("ibisA").GetComponent<Nav>().stepLength);
             }*/
 
-            if (Panda.Ibis.MyIbis.actionPoint <= 0 && Panda.Ibis.MyIbis.hasCheckApEachNode)  // should set a bool to control the moment to calcualte this
+            if (Panda.Ibis.MyIbis.actionPoint <= 0 /* && Panda.Ibis.MyIbis.hasCheckApEachNode */ )  // should set a bool to control the moment to calcualte this
                                                                                              //  set this bool during the sector which check if succeed of each uncheck AI node
             {
                 _ibisA.GetComponent<Panda.Ibis.MyIbis>().breakThisTurn();
 
                 Debug.Log("AP = 0. " + "hasCheckApEachNode: " + Panda.Ibis.MyIbis.hasCheckApEachNode);
               //  Panda.Ibis.MyIbis.breakThisTurn();
+
+                // disable panda plugin
+                foreach (Transform ibisAction in GameObject.Find("ibisA").transform)
+                {
+                    if (ibisAction.GetComponent<PandaBehaviour>())
+                    {
+                        ibisAction.GetComponent<PandaBehaviour>().enabled = false;
+                    }
+                }
             }
 
             if (hasIbisEnded)
             {
+                canDetectAPMark = false;
               //  _ibisA.transform.GetChild(0).gameObject.GetComponent<PandaBehaviour>().enabled = false;
                 ThisTask.Succeed(); 
             }

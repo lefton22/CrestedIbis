@@ -173,6 +173,7 @@
     <Compile Include="Assets\Scripts\txt\MyNPC.cs" />
     <Compile Include="Assets\Scripts\audio\yicixing\SF_switch_eachTurnStart.cs" />
     <Compile Include="Assets\Alpha Masking\Samples\Scripts\FogOfWarAlphaPositioner.cs" />
+    <Compile Include="Assets\Scripts\byNewPathFinding\ap_mark.cs" />
     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
     <Compile Include="Assets\Scripts\ui\starts\ibis_intro.cs" />
     <Compile Include="Assets\Scripts\txt\yicixin\ibisA_switch_breed.cs" />
@@ -209,7 +210,6 @@
     <Compile Include="Assets\Scripts\obj\objIbisAdult.cs" />
     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\SetupForbiddenTiles.cs" />
     <Compile Include="Assets\Scripts\obj\objTrapMan.cs" />
-    <Compile Include="Assets\Scripts\byNewPathFinding\ap_mark.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -10,15 +10,24 @@ public class ap_mark : MonoBehaviour
         
         }
 
-        void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision col) 
+    {
+            if (col.gameObject.name == "ibisA" 
+            &&  GameObject.Find("thisTurn(Clone)").GetComponent<Panda.Ibis.MyTurn>().canDetectAPMark)
+            {
+                    print("ap_mark: ibisA collides with : " + name);
+        // -AP
+        Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.actionPoint - 1;
+            //disable the collider
+            // gameObject.GetComponent<SphereCollider>().enabled = false;
+            }
+    }
+
+    void OnCollisionExit(Collision col)
+    {
+        if (col.gameObject.name == "ibisA")
         {
-                if (col.gameObject.name == "ibisA")
-                {
-                        print(name + "collides with ibisA.");
-            // -AP
-            Panda.Ibis.MyIbis.actionPoint = Panda.Ibis.MyIbis.actionPoint - 1;
-                //disable the collider
-              // gameObject.GetComponent<SphereCollider>().enabled = false;
-                }
+            print("ap_mark: ibisA exits : " + name);
         }
     }
+}
